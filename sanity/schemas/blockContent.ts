@@ -52,8 +52,8 @@ export default defineType({
       ],
       preview: {
         select: { title: "code" },
-        prepare({ title }: { title: string }) {
-          return { title: "HTML Block", subtitle: title?.slice(0, 60) };
+        prepare(selection) {
+          return { title: "HTML Block", subtitle: String(selection.title ?? "").slice(0, 60) };
         },
       },
     }),
