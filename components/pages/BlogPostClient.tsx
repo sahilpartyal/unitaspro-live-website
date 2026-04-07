@@ -121,6 +121,12 @@ const portableTextComponents: PortableTextComponents = {
         )}
       </figure>
     ),
+    html: ({ value }) => (
+      <div
+        className="my-8 overflow-x-auto"
+        dangerouslySetInnerHTML={{ __html: value?.code || "" }}
+      />
+    ),
   },
 };
 

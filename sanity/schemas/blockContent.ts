@@ -38,5 +38,24 @@ export default defineType({
         { name: "caption", type: "string", title: "Caption" },
       ],
     }),
+    defineArrayMember({
+      type: "object",
+      name: "html",
+      title: "HTML Block",
+      fields: [
+        {
+          name: "code",
+          title: "HTML Code",
+          type: "text",
+          description: "Paste raw HTML here (tables, embeds, etc.)",
+        },
+      ],
+      preview: {
+        select: { title: "code" },
+        prepare({ title }: { title: string }) {
+          return { title: "HTML Block", subtitle: title?.slice(0, 60) };
+        },
+      },
+    }),
   ],
 });
