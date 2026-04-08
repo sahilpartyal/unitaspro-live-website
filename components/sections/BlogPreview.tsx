@@ -29,9 +29,9 @@ export default function BlogPreview({ posts }: { posts: BlogPost[] }) {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
           <div className="max-w-lg">
-            <span className="section-label mb-4">Insights</span>
+            <span className="section-label mb-4">From our blog</span>
             <h2 className="heading-xl text-text-primary">
-              Tips, strategies & case studies
+              Latest articles & insights
             </h2>
           </div>
           <Link href="/blog" className="btn-secondary whitespace-nowrap text-sm">

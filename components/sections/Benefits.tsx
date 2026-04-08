@@ -62,7 +62,7 @@ export default function Benefits() {
             <span className="section-label mb-4 inline-flex">Why Choose Us</span>
 
             <h2 className="heading-xl font-black text-[#0D0D1A] mt-1 mb-5 leading-tight">
-              The Digital Backbone<br />For Visionary Brands
+              The Digital Backbone<br />for Visionary Brands
             </h2>
 
             <p className="text-[#6B7180] text-base leading-relaxed mb-8">

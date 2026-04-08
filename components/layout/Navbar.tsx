@@ -78,6 +78,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   return (
     <>
       {/* ── Main navbar ── */}
@@ -131,81 +137,36 @@ export default function Navbar() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 8 }}
                           transition={{ duration: 0.18, ease: [0.22,1,0.36,1] }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2.5 w-[560px] bg-white rounded-2xl border border-gray-100 shadow-[0_24px_64px_rgba(15,23,42,0.12)] overflow-hidden"
+                          className="absolute top-full left-0 mt-2.5 w-72 bg-white rounded-2xl border border-gray-100 shadow-[0_24px_64px_rgba(15,23,42,0.12)] overflow-hidden"
                         >
-                          <div className="grid grid-cols-[1fr_188px]">
-
-                            {/* ── Left: service list ── */}
-                            <div className="p-3">
-                              {servicesMega.flatMap(g => g.items).map((item, idx) => (
-                                <Link
-                                  key={item.href}
-                                  href={item.href}
-                                  onClick={() => setMegaOpen(false)}
-                                  className="group flex items-center gap-3.5 px-3 py-3.5 rounded-xl hover:bg-[#F7F8FC] transition-all duration-150"
-                                >
-                                  {/* Color dot + icon */}
-                                  <div className="shrink-0 flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-150"
-                                    style={{ background: item.accentBg }}>
-                                    <item.icon size={16} style={{ color: item.accent }}/>
-                                  </div>
-                                  <div className="flex-1 min-w-0">
-                                    <div className="text-[13.5px] font-semibold text-[#0D0D1A] leading-snug group-hover:text-[#0D0D1A] transition-colors">
-                                      {item.label}
-                                    </div>
-                                    <div className="text-[11.5px] text-[#9CA3AF] leading-snug mt-0.5">{item.desc}</div>
-                                  </div>
-                                  <span className="text-[10px] font-mono font-bold tabular-nums text-gray-200 group-hover:text-gray-300 transition-colors shrink-0">
-                                    0{idx + 1}
-                                  </span>
-                                </Link>
-                              ))}
-
-                              <div className="mx-3 mt-2 pt-2.5 border-t border-gray-100">
-                                <Link
-                                  href="/services"
-                                  onClick={() => setMegaOpen(false)}
-                                  className="group inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#9CA3AF] hover:text-[#0D0D1A] transition-colors pb-1"
-                                >
-                                  All services
-                                  <ArrowRight size={10} className="group-hover:translate-x-0.5 transition-transform"/>
-                                </Link>
-                              </div>
-                            </div>
-
-                            {/* ── Right: CTA panel ── */}
-                            <div className="relative flex flex-col justify-end p-5 overflow-hidden bg-[#0F172A]">
-                              {/* Subtle grid */}
-                              <div aria-hidden className="pointer-events-none absolute inset-0"
-                                style={{
-                                  backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px)",
-                                  backgroundSize: "24px 24px",
-                                }}/>
-                              {/* Top accent */}
-                              <div aria-hidden className="absolute top-0 left-0 right-0 h-[2px]"
-                                style={{ background: "linear-gradient(90deg,#1A47DB,#6D28D9)" }}/>
-
-                              <div className="relative z-10">
-                                <div className="flex items-center gap-1.5 mb-3">
-                                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"/>
-                                  <span className="text-[10px] font-semibold text-white/40 uppercase tracking-[0.15em]">Free call</span>
+                          <div className="p-2">
+                            {servicesMega.flatMap(g => g.items).map((item, idx) => (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                onClick={() => setMegaOpen(false)}
+                                className="group flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-[#F7F8FC] transition-all duration-150"
+                              >
+                                <div className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center"
+                                  style={{ background: item.accentBg }}>
+                                  <item.icon size={15} style={{ color: item.accent }}/>
                                 </div>
-                                <p className="text-white font-bold text-[15px] leading-snug mb-4" style={{ letterSpacing: "-0.02em" }}>
-                                  Not sure where to start?
-                                </p>
-                                <Link
-                                  href="/contact"
-                                  onClick={() => setMegaOpen(false)}
-                                  className="group flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl bg-white text-[#0F172A] hover:bg-gray-50 transition-all duration-150"
-                                >
-                                  <span className="text-xs font-bold">Book a call</span>
-                                  <div className="w-5 h-5 rounded-lg bg-[#0F172A] flex items-center justify-center group-hover:scale-105 transition-transform">
-                                    <ArrowRight size={10} className="text-white"/>
-                                  </div>
-                                </Link>
-                              </div>
+                                <div className="flex-1 min-w-0">
+                                  <div className="text-[13px] font-semibold text-[#0D0D1A] leading-snug">{item.label}</div>
+                                  <div className="text-[11px] text-[#9CA3AF] mt-0.5">{item.desc}</div>
+                                </div>
+                              </Link>
+                            ))}
+                            <div className="mx-3 mt-1 pt-2.5 border-t border-gray-100">
+                              <Link
+                                href="/services"
+                                onClick={() => setMegaOpen(false)}
+                                className="group inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#9CA3AF] hover:text-[#0D0D1A] transition-colors pb-1"
+                              >
+                                All services
+                                <ArrowRight size={10} className="group-hover:translate-x-0.5 transition-transform"/>
+                              </Link>
                             </div>
-
                           </div>
                         </motion.div>
                       )}
@@ -249,61 +210,74 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* ── Mobile menu ── */}
-        <AnimatePresence>
-          {mobileOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.25 }}
-              className="lg:hidden overflow-hidden border-t border-gray-100 bg-white"
-            >
-              <nav className="container-main py-4 flex flex-col gap-1">
-                {/* Services with sub-items */}
-                <div className="px-3 pt-2 pb-1 text-[10px] font-bold text-gray-400 uppercase tracking-widest">Services</div>
-                {servicesMega.flatMap(g => g.items).map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    <div className={`w-8 h-8 rounded-lg ${item.bg} flex items-center justify-center shrink-0`}>
-                      <item.icon size={14} className={item.color}/>
-                    </div>
-                    <span className="text-sm font-medium text-[#0D0D1A]">{item.label}</span>
-                  </Link>
-                ))}
-
-                <div className="my-1 border-t border-gray-100"/>
-                <div className="px-3 pt-1 pb-1 text-[10px] font-bold text-gray-400 uppercase tracking-widest">Company</div>
-                {navLinks.filter(l => !l.hasMega).map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="px-3 py-2.5 text-sm font-medium text-[#374151] hover:text-[#0D0D1A] hover:bg-gray-50 rounded-xl transition-colors"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-
-                <div className="pt-3 mt-1 border-t border-gray-100 flex flex-col gap-2.5 pb-2">
-                  <a href="tel:+918264954344"
-                    className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#374151]">
-                    <Phone size={14} className="text-brand-600"/> +91 82649 54344
-                  </a>
-                  <Link href="/contact" className="btn-primary justify-center" onClick={() => setMobileOpen(false)}>
-                    Get Free Quote
-                    <span className="btn-arrow"><ArrowRight size={15}/></span>
-                  </Link>
-                </div>
-              </nav>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </header>
+
+      {/* ── Mobile menu — fixed full-screen overlay ── */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:hidden fixed inset-0 z-40 bg-white overflow-y-auto"
+          >
+            {/* Header row */}
+            <div className="flex items-center justify-between px-5 h-[68px] border-b border-gray-100">
+              <Link href="/" className="flex items-center gap-2.5" onClick={() => setMobileOpen(false)}>
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center"
+                  style={{ background: "linear-gradient(135deg,#1A47DB,#6D28D9)" }}>
+                  <span className="text-white font-black text-xs">U</span>
+                </div>
+                <span className="text-lg font-black tracking-tight">
+                  <span className="text-[#0D0D1A]">Unitas</span>
+                  <span className="text-gradient">pro</span>
+                </span>
+              </Link>
+              <button onClick={() => setMobileOpen(false)}
+                className="w-9 h-9 flex items-center justify-center rounded-xl bg-gray-100">
+                <X size={18} className="text-[#0D0D1A]"/>
+              </button>
+            </div>
+
+            <nav className="px-5 py-5 flex flex-col gap-1">
+              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest px-3 py-2">Services</p>
+              {servicesMega.flatMap(g => g.items).map((item) => (
+                <Link key={item.href} href={item.href}
+                  className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-gray-50 transition-colors"
+                  onClick={() => setMobileOpen(false)}>
+                  <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
+                    style={{ background: item.accentBg }}>
+                    <item.icon size={16} style={{ color: item.accent }}/>
+                  </div>
+                  <span className="text-sm font-semibold text-[#0D0D1A]">{item.label}</span>
+                </Link>
+              ))}
+
+              <div className="my-3 border-t border-gray-100"/>
+              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest px-3 py-2">Company</p>
+              {navLinks.filter(l => !l.hasMega).map((link) => (
+                <Link key={link.href} href={link.href}
+                  className="px-3 py-3 text-sm font-semibold text-[#374151] hover:text-[#0D0D1A] hover:bg-gray-50 rounded-xl transition-colors"
+                  onClick={() => setMobileOpen(false)}>
+                  {link.label}
+                </Link>
+              ))}
+
+              <div className="mt-4 pt-4 border-t border-gray-100 flex flex-col gap-3">
+                <a href="tel:+918264954344"
+                  className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#374151]">
+                  <Phone size={14} className="text-brand-600"/> +91 82649 54344
+                </a>
+                <Link href="/contact" className="btn-primary" onClick={() => setMobileOpen(false)}>
+                  Get Free Quote
+                  <span className="btn-arrow"><ArrowRight size={15}/></span>
+                </Link>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
