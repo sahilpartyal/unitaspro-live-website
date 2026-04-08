@@ -9,7 +9,7 @@ const steps = [
     number: "01",
     icon: PhoneCall,
     title: "Discovery Call",
-    description: "Free 30-minute call. We understand your goals, audience, and requirements. No jargon, no pressure.",
+    description: "A free 30-minute consultation. We listen to your goals and map out a practical strategy. No sales pressure, no jargon — just an honest conversation.",
     accent: "#2563EB",
     accentBg: "#EFF6FF",
     iconColor: "text-blue-600",
@@ -18,7 +18,7 @@ const steps = [
     number: "02",
     icon: FileText,
     title: "Proposal & Plan",
-    description: "Detailed proposal with scope, timeline, and fixed price within 48 hours. You review, we refine.",
+    description: "Within 48 hours, you'll receive a full scope of work, fixed pricing, and a clear timeline. We refine the details until you are 100% confident.",
     accent: "#7C3AED",
     accentBg: "#F5F3FF",
     iconColor: "text-violet-600",
@@ -27,7 +27,7 @@ const steps = [
     number: "03",
     icon: Layers,
     title: "Design & Build",
-    description: "Weekly demos so you always see progress. We build iteratively — no surprises at the end.",
+    description: "Transparent weekly updates. We build in sprints with regular demos, so you see the product take shape in real-time. No surprises at the finish line.",
     accent: "#059669",
     accentBg: "#ECFDF5",
     iconColor: "text-emerald-600",
@@ -36,7 +36,7 @@ const steps = [
     number: "04",
     icon: Rocket,
     title: "Launch & Grow",
-    description: "We go live, monitor performance, and provide 30 days free support. Your success is our goal.",
+    description: "Full technical deployment. We handle the go-live process, optimize for peak speed, and provide 30 days of dedicated support to ensure total stability.",
     accent: "#D97706",
     accentBg: "#FFFBEB",
     iconColor: "text-amber-600",
@@ -50,10 +50,10 @@ export default function HowItWorks() {
 
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
-          <div className="max-w-lg">
+          <div className="max-w-2xl">
             <span className="section-label mb-4">How It Works</span>
-            <h2 className="heading-xl text-[#0D0D1A] mb-3">
-              Simple process,<br />exceptional results
+            <h2 className="heading-xl font-black text-[#0D0D1A] mb-3 leading-tight">
+              Turning complex ideas into<br />seamless digital reality
             </h2>
             <p className="text-[#6B7180] text-lg">
               Four clear steps — from first conversation to successful launch.

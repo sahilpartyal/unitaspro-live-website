@@ -201,19 +201,19 @@ function MarketingMockup() {
 const services = [
   {
     number: "01", label: "Web Design & Development",
-    tagline: "Sites that rank, load fast, and convert",
-    title: "Websites that turn visitors into clients",
-    description: "Pixel-perfect design, blazing performance, and seamless UX. We build websites that rank on Google, load in under 2s, and convert visitors into paying customers.",
+    tagline: "Performance-first platforms built for high conversion.",
+    title: "Websites built for speed and sales",
+    description: "We merge clean aesthetics with high-performance code. Using Next.js and React, we build platforms that load in under 2 seconds and are architected to rank high on Google. We focus on clear user journeys that turn casual traffic into measurable profit.",
     href: "/services/web-design",
     tags: ["Next.js", "React", "WordPress", "Webflow"],
     accentColor: "#2563EB", accentBg: "#DBEAFE", sectionBg: "#EFF4FF",
     Mockup: WebDesignMockup,
   },
   {
-    number: "02", label: "Software Development",
-    tagline: "Production-grade software for real users",
-    title: "Custom software built for scale",
-    description: "From SaaS dashboards to enterprise tools — production-grade software built to handle real users, real data, and real complexity without breaking a sweat.",
+    number: "02", label: "Custom Software Development",
+    tagline: "Secure, scalable systems to power your operations.",
+    title: "Software that simplifies your complexity",
+    description: "We build secure, production-grade tools tailored to your specific workflow. From internal management dashboards to robust APIs, our systems act as a solid digital backbone, allowing your business to scale without the technical headaches.",
     href: "/services/software-development",
     tags: ["Node.js", "Python", "PostgreSQL", "AWS"],
     accentColor: "#7C3AED", accentBg: "#EDE9FE", sectionBg: "#F3F0FF",
@@ -221,19 +221,19 @@ const services = [
   },
   {
     number: "03", label: "Mobile App Development",
-    tagline: "From concept to App Store — one team",
-    title: "iOS & Android apps users love",
-    description: "Cross-platform apps with React Native & Flutter. We handle design, development, testing, and deployment — one team, full ownership, from day one to launch.",
+    tagline: "Premium iOS & Android experiences for a global audience.",
+    title: "Apps your users will love to use",
+    description: "We handle the entire lifecycle, from UX wireframing to App Store deployment. Using React Native and Flutter, we create fast, intuitive mobile experiences that keep your customers connected to your brand 24/7.",
     href: "/services/mobile-app",
     tags: ["React Native", "Flutter", "iOS", "Android"],
     accentColor: "#059669", accentBg: "#D1FAE5", sectionBg: "#F0FDF6",
     Mockup: MobileAppMockup,
   },
   {
-    number: "04", label: "Digital Marketing",
-    tagline: "Full marketing engines with measurable ROI",
-    title: "Marketing that brings qualified leads",
-    description: "SEO, Google Ads, Meta campaigns, and content strategy — we don't just run ads, we build complete marketing engines with attribution tracking and measurable ROI.",
+    number: "04", label: "Digital Marketing & SEO",
+    tagline: "Strategic growth engines focused on measurable ROI.",
+    title: "Marketing that delivers actual ROI",
+    description: "Forget vanity metrics like likes. We use technical SEO and data-driven ad campaigns to put you in front of ready-to-buy customers. Our goal is simple: lower your acquisition costs and steadily increase your monthly recurring revenue.",
     href: "/services/digital-marketing",
     tags: ["SEO", "Google Ads", "Meta Ads", "Content"],
     accentColor: "#D97706", accentBg: "#FEF3C7", sectionBg: "#FFFBF0",
@@ -276,7 +276,7 @@ export default function ServicesOverview() {
             className="lg:col-span-2 self-start lg:sticky lg:top-28"
           >
             <h2 className="heading-xl font-black text-[#0D0D1A] mb-10 leading-tight">
-              End-to-end digital<br />services under<br />one roof
+              High-End Tech and<br />Marketing, All in<br />One Place
             </h2>
 
             {/* Nav list */}

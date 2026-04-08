@@ -127,105 +127,83 @@ export default function Navbar() {
                     <AnimatePresence>
                       {megaOpen && (
                         <motion.div
-                          initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                          transition={{ duration: 0.2, ease: [0.22,1,0.36,1] }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2.5 w-[600px] bg-white rounded-2xl border border-gray-100 shadow-[0_20px_60px_rgba(15,23,42,0.14)] overflow-hidden"
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 8 }}
+                          transition={{ duration: 0.18, ease: [0.22,1,0.36,1] }}
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2.5 w-[560px] bg-white rounded-2xl border border-gray-100 shadow-[0_24px_64px_rgba(15,23,42,0.12)] overflow-hidden"
                         >
-                          <div className="grid grid-cols-[1fr_200px]">
+                          <div className="grid grid-cols-[1fr_188px]">
 
-                            {/* ── Left: service list (vertical, Image #14 style) ── */}
-                            <div className="p-4">
-                              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-2 px-3">Our Services</p>
-                              <div className="flex flex-col">
-                                {servicesMega.flatMap(g => g.items).map((item) => (
-                                  <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    onClick={() => setMegaOpen(false)}
-                                    className="group flex items-center gap-4 px-3 py-3 rounded-xl hover:bg-gray-50 transition-all duration-150"
-                                  >
-                                    {/* Bordered icon box */}
-                                    <div className="w-11 h-11 rounded-xl border border-gray-200 bg-white flex items-center justify-center shrink-0 group-hover:border-gray-300 group-hover:shadow-sm transition-all duration-150">
-                                      <item.icon size={17} className={item.color}/>
+                            {/* ── Left: service list ── */}
+                            <div className="p-3">
+                              {servicesMega.flatMap(g => g.items).map((item, idx) => (
+                                <Link
+                                  key={item.href}
+                                  href={item.href}
+                                  onClick={() => setMegaOpen(false)}
+                                  className="group flex items-center gap-3.5 px-3 py-3.5 rounded-xl hover:bg-[#F7F8FC] transition-all duration-150"
+                                >
+                                  {/* Color dot + icon */}
+                                  <div className="shrink-0 flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-150"
+                                    style={{ background: item.accentBg }}>
+                                    <item.icon size={16} style={{ color: item.accent }}/>
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <div className="text-[13.5px] font-semibold text-[#0D0D1A] leading-snug group-hover:text-[#0D0D1A] transition-colors">
+                                      {item.label}
                                     </div>
-                                    {/* Text */}
-                                    <div className="flex-1 min-w-0">
-                                      <div className="text-[14px] font-semibold text-[#0D0D1A] leading-snug mb-0.5 group-hover:text-brand-600 transition-colors">
-                                        {item.label}
-                                      </div>
-                                      <div className="text-[12px] text-gray-400 leading-snug">{item.desc}</div>
-                                    </div>
-                                    {/* Arrow */}
-                                    <ChevronRight size={14} className="text-gray-300 group-hover:text-gray-400 group-hover:translate-x-0.5 transition-all duration-150 shrink-0"/>
-                                  </Link>
-                                ))}
-                              </div>
-                              <div className="mt-1 pt-3 border-t border-gray-100 px-3">
+                                    <div className="text-[11.5px] text-[#9CA3AF] leading-snug mt-0.5">{item.desc}</div>
+                                  </div>
+                                  <span className="text-[10px] font-mono font-bold tabular-nums text-gray-200 group-hover:text-gray-300 transition-colors shrink-0">
+                                    0{idx + 1}
+                                  </span>
+                                </Link>
+                              ))}
+
+                              <div className="mx-3 mt-2 pt-2.5 border-t border-gray-100">
                                 <Link
                                   href="/services"
                                   onClick={() => setMegaOpen(false)}
-                                  className="group flex items-center gap-2 py-1 text-xs font-semibold text-gray-400 hover:text-brand-600 transition-colors"
+                                  className="group inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#9CA3AF] hover:text-[#0D0D1A] transition-colors pb-1"
                                 >
-                                  <span>Browse all services</span>
-                                  <ArrowRight size={11} className="group-hover:translate-x-0.5 transition-transform"/>
+                                  All services
+                                  <ArrowRight size={10} className="group-hover:translate-x-0.5 transition-transform"/>
                                 </Link>
                               </div>
                             </div>
 
                             {/* ── Right: CTA panel ── */}
-                            <div
-                              className="relative flex flex-col justify-between p-5 overflow-hidden"
-                              style={{ background: "linear-gradient(160deg,#0F172A 0%,#1e2d5a 100%)" }}
-                            >
-                              {/* Dot grid */}
-                              <div aria-hidden className="pointer-events-none absolute inset-0 opacity-10"
+                            <div className="relative flex flex-col justify-end p-5 overflow-hidden bg-[#0F172A]">
+                              {/* Subtle grid */}
+                              <div aria-hidden className="pointer-events-none absolute inset-0"
                                 style={{
-                                  backgroundImage: "radial-gradient(circle,#ffffff 1px,transparent 1px)",
-                                  backgroundSize: "18px 18px",
+                                  backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px)",
+                                  backgroundSize: "24px 24px",
                                 }}/>
-                              {/* Glow */}
-                              <div aria-hidden className="pointer-events-none absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20"
-                                style={{ background: "radial-gradient(circle,#6366f1,transparent 70%)" }}/>
+                              {/* Top accent */}
+                              <div aria-hidden className="absolute top-0 left-0 right-0 h-[2px]"
+                                style={{ background: "linear-gradient(90deg,#1A47DB,#6D28D9)" }}/>
 
                               <div className="relative z-10">
-                                <div className="flex items-center gap-1.5 mb-4">
-                                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"/>
-                                  <span className="text-[10px] font-semibold text-white/50 uppercase tracking-widest">Free consultation</span>
+                                <div className="flex items-center gap-1.5 mb-3">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"/>
+                                  <span className="text-[10px] font-semibold text-white/40 uppercase tracking-[0.15em]">Free call</span>
                                 </div>
-                                <h3 className="text-white font-black text-base leading-snug mb-2" style={{ letterSpacing: "-0.02em" }}>
-                                  Not sure which service you need?
-                                </h3>
-                                <p className="text-white/50 text-xs leading-relaxed mb-5">
-                                  Tell us your goal — we&apos;ll recommend the right solution and quote within 24h.
+                                <p className="text-white font-bold text-[15px] leading-snug mb-4" style={{ letterSpacing: "-0.02em" }}>
+                                  Not sure where to start?
                                 </p>
-
-                                {/* Mini stats */}
-                                <div className="flex flex-col gap-2 mb-5">
-                                  {[
-                                    { v: "50+", l: "Projects delivered" },
-                                    { v: "4.9★", l: "Client satisfaction" },
-                                    { v: "12+", l: "Countries served" },
-                                  ].map(s => (
-                                    <div key={s.l} className="flex items-center justify-between">
-                                      <span className="text-white/40 text-[11px]">{s.l}</span>
-                                      <span className="text-white font-bold text-xs">{s.v}</span>
-                                    </div>
-                                  ))}
-                                </div>
+                                <Link
+                                  href="/contact"
+                                  onClick={() => setMegaOpen(false)}
+                                  className="group flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl bg-white text-[#0F172A] hover:bg-gray-50 transition-all duration-150"
+                                >
+                                  <span className="text-xs font-bold">Book a call</span>
+                                  <div className="w-5 h-5 rounded-lg bg-[#0F172A] flex items-center justify-center group-hover:scale-105 transition-transform">
+                                    <ArrowRight size={10} className="text-white"/>
+                                  </div>
+                                </Link>
                               </div>
-
-                              <Link
-                                href="/contact"
-                                onClick={() => setMegaOpen(false)}
-                                className="relative z-10 group flex items-center justify-between w-full bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/20 px-4 py-2.5 rounded-xl transition-all duration-200"
-                              >
-                                <span className="text-white font-semibold text-xs">Get Free Quote</span>
-                                <div className="w-6 h-6 rounded-lg bg-white/15 flex items-center justify-center group-hover:bg-white/25 transition-colors">
-                                  <ArrowRight size={11} className="text-white"/>
-                                </div>
-                              </Link>
                             </div>
 
                           </div>

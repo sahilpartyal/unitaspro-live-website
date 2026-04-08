@@ -54,7 +54,7 @@ export default function Hero() {
           <motion.div initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.4 }}>
             <span className="inline-flex items-center gap-2 bg-white border border-brand-100 text-brand-700 font-semibold text-[11px] px-4 py-2 rounded-full tracking-widest uppercase shadow-sm mb-7">
               <span className="w-1.5 h-1.5 rounded-full bg-green-500 inline-block animate-pulse"/>
-              Trusted IT Partner · 12+ Countries
+              WORLD-WIDE DIGITAL EXPERTISE 
             </span>
           </motion.div>
 
@@ -87,8 +87,8 @@ export default function Hero() {
             transition={{ duration:0.5, delay:0.18 }}
             className="text-[#4B5163] text-xl leading-relaxed mb-9 max-w-2xl"
           >
-            End-to-end technology solutions — websites, software, apps & marketing —
-            that help ambitious businesses compete globally.
+            Your partner for custom websites, apps, software, and marketing strategies. We deliver full-stack tech solutions that turn ambitious ideas into global success stories.
+
           </motion.p>
 
           {/* CTAs */}
@@ -118,7 +118,7 @@ export default function Hero() {
             transition={{ duration:0.4, delay:0.36 }}
             className="flex flex-wrap justify-center gap-x-6 gap-y-2"
           >
-            {["Free consultation","No commitment required","24hr response"].map(t => (
+            {["Expert Project Evaluation","No Obligation, Just Value","Guaranteed Feedback"].map(t => (
               <div key={t} className="flex items-center gap-1.5 text-xs text-[#6B7180] font-medium">
                 <CheckCircle size={13} className="text-brand-600 shrink-0"/>
                 {t}

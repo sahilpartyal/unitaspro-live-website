@@ -7,28 +7,44 @@ import { Plus, Minus, ArrowRight } from "lucide-react";
 
 const faqs = [
   {
-    q: "How long does it take to build a website?",
-    a: "A standard business website typically takes 2–4 weeks. Complex web applications or custom platforms can take 8–16 weeks. We always discuss timelines upfront and stick to them.",
+    q: "What Services Does Unitaspro Offer?",
+    a: "We are a full-service IT agency specializing in Web Design & Development, Software Development (SaaS, internal tools), Mobile App Development (iOS & Android), and Digital Marketing. We provide end-to-end solutions from initial strategy to post-launch growth.",
   },
   {
-    q: "What does a typical project cost?",
-    a: "Pricing depends on scope and complexity. A professional website starts from ₹30,000. Custom software and apps are quoted based on your specific requirements. Contact us for a free estimate.",
+    q: "What Industries Do You Specialize In?",
+    a: "We have delivered 150+ projects across various sectors, including E-commerce, Healthcare, Logistics, and Fintech. Our team is experienced in building everything from retail platforms to complex healthcare apps and internal business dashboards.",
   },
   {
-    q: "Do you work with international clients?",
-    a: "Absolutely. We work with clients across Australia, the UAE, UK, Canada, and the USA. We adapt to your timezone and communicate clearly throughout the project.",
+    q: "Do You Work With International Clients?",
+    a: "Yes. We have successfully served clients in over 15 countries, including the USA, UK, UAE, Australia, and Canada, maintaining high international standards of communication and delivery.",
   },
   {
-    q: "Will I own the code and all project files?",
-    a: "Yes. You own 100% of the code, designs, and all deliverables once the project is complete. No vendor lock-in, ever.",
+    q: "How Long Does It Take To Complete A Project?",
+    a: "The timeline depends on complexity. A professional website typically takes 4–6 weeks, while complex software or mobile apps can take 3–6 months. During our initial discovery call, we provide a clear, fixed timeline with weekly milestones.",
   },
   {
-    q: "Do you provide post-launch support?",
-    a: "Yes. All projects include a free 30-day post-launch support window. We also offer ongoing maintenance and support packages.",
+    q: "How Will We Communicate During The Project?",
+    a: "Transparency is our priority. You will have a dedicated project manager and direct access to our team. We avoid late deadlines and prefer real-time, proactive communication.",
   },
   {
-    q: "What information do you need to get started?",
-    a: "We start with a free discovery call to understand your goals, target audience, and requirements. From there we create a detailed proposal with timeline and cost breakdown.",
+    q: "Which Technologies Do You Use?",
+    a: "We use modern, scalable stacks including Next.js, React, Node.js, Python, and React Native. For CMS-based sites, we work with WordPress and Webflow. We ensure every site is optimized for speed (loading in under 2 seconds) and SEO.",
+  },
+  {
+    q: "Will My Website Be Mobile-Friendly And SEO-Optimized?",
+    a: "Absolutely. All our websites are mobile-first and responsive. We also follow strict technical SEO guidelines to ensure your site ranks well on Google and provides a great user experience.",
+  },
+  {
+    q: "Do You Provide Support After The Project Is Launched?",
+    a: "Yes, every project includes 30 days of free post-launch support. We monitor performance and fix any bugs to ensure a smooth transition. We also offer long-term maintenance packages if you'd like us to handle updates and security.",
+  },
+  {
+    q: "Can You Help Me Redesign An Existing Website Or App?",
+    a: "Definitely. We can perform a full audit of your current platform and rebuild it using modern technologies to improve speed, UI/UX, and conversion rates.",
+  },
+  {
+    q: "How Do I Get Started?",
+    a: "The first step is a free 30-minute Discovery Call. You can book it directly through our website or send us a message via our contact form. We typically respond to all inquiries within 24 hours.",
   },
 ];
 

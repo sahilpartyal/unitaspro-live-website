@@ -8,39 +8,39 @@ const items = [
   {
     n: "01", icon: TrendingUp, color: "#2563EB", bg: "#EFF6FF",
     title: "Results-Driven",
-    desc: "Every project tied to real outcomes — leads, revenue, retention. We measure what matters, not just what looks good in a report.",
+    desc: "We focus on the numbers that actually grow your business like new leads and higher sales. We build software that works in the real world, not just something that looks good in a report.",
   },
   {
     n: "02", icon: Clock, color: "#7C3AED", bg: "#F5F3FF",
     title: "On-Time, Every Time",
-    desc: "Structured delivery with weekly milestones and a fixed timeline you can plan around. No missed deadlines, no vague updates.",
+    desc: "No vague updates or missed dates. We give you a clear schedule with weekly check-ins, so you always know exactly where we stand. You can plan your business around our delivery.",
   },
   {
     n: "03", icon: ShieldCheck, color: "#059669", bg: "#ECFDF5",
     title: "Quality Guaranteed",
-    desc: "Rigorous QA on every delivery — functional, visual, and performance tested. 30-day post-launch support included on all projects.",
+    desc: "We test every part of your software to make sure it's fast, safe, and easy to use. To give you total peace of mind, we stay by your side with 30 days of free support after we launch.",
   },
   {
     n: "04", icon: Headphones, color: "#D97706", bg: "#FFFBEB",
     title: "Dedicated Support",
-    desc: "A named project manager on every engagement. Real communication via Slack or WhatsApp — not a ticket queue, not a chatbot.",
+    desc: "Forget about ticket queues or talking to a bot. You get a direct line to your project lead for quick, honest, and human-to-human conversations.",
   },
   {
     n: "05", icon: Globe2, color: "#0891B2", bg: "#ECFEFF",
     title: "Global Standards",
-    desc: "Projects delivered for clients in UAE, Australia, UK, and USA. We know what international businesses expect and how to deliver it.",
+    desc: "With successful projects in the UAE, UK, and USA, we know what international customers expect. We build your product to look and work perfectly, no matter where your users are.",
   },
   {
     n: "06", icon: Award, color: "#7C3AED", bg: "#F5F3FF",
     title: "Senior-Only Team",
-    desc: "No juniors learning on your budget. Every engineer and designer assigned has 5+ years of proven production experience.",
+    desc: "We don't let juniors learn their craft on your project. Every person on our team is a senior professional with at least 5+ years of real experience building successful software & strategies.",
   },
 ];
 
 const trust = [
-  { value: "120+", label: "Projects Delivered" },
-  { value: "12+",  label: "Countries Served"   },
-  { value: "98%",  label: "Client Satisfaction" },
+  { value: "150+", label: "Projects Delivered" },
+  { value: "95+",  label: "Happy Clients"       },
+  { value: "97%",  label: "Client Satisfaction" },
 ];
 
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -62,12 +62,11 @@ export default function Benefits() {
             <span className="section-label mb-4 inline-flex">Why Choose Us</span>
 
             <h2 className="heading-xl font-black text-[#0D0D1A] mt-1 mb-5 leading-tight">
-              Why ambitious<br />businesses<br />choose Unitaspro
+              The Digital Backbone<br />For Visionary Brands
             </h2>
 
             <p className="text-[#6B7180] text-base leading-relaxed mb-8">
-              We don&apos;t just write code — we build products that compete globally,
-              delivered predictably with real expertise at every stage.
+              Your vision deserves a team that can actually build it. We turn complex plans into smooth, working software, giving you a reliable foundation to grow your brand and reach customers anywhere in the world.
             </p>
 
             {/* Trust stats */}

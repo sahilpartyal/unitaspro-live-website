@@ -77,6 +77,8 @@ const COUNTRIES = [
 
 export default function ContactPageClient() {
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -123,9 +125,34 @@ export default function ContactPageClient() {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSent(true);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone ? `${selectedCountry.dial} ${form.phone}` : "",
+          service: form.service,
+          message: form.message,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSent(true);
+        setForm({ name: "", email: "", phone: "", service: "", message: "" });
+      } else {
+        setError("Something went wrong. Please try again or email us directly.");
+      }
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   const inputClass =
@@ -213,7 +240,7 @@ export default function ContactPageClient() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.16 }}
-            className="flex items-center gap-3 mb-24"
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-24"
           >
             <a href="#contact-form" className="btn-primary group">
               Fill the form
@@ -221,12 +248,7 @@ export default function ContactPageClient() {
                 <ArrowRight size={15} />
               </span>
             </a>
-            <a
-              href="tel:+918264954344"
-              className="inline-flex items-center gap-2 bg-white text-[#0D0D1A] font-semibold text-sm
-                px-6 py-3 rounded-full border border-gray-200 transition-all duration-200
-                hover:border-gray-400 hover:-translate-y-0.5"
-            >
+            <a href="tel:+918264954344" className="btn-secondary">
               Call us directly
             </a>
           </motion.div>
@@ -281,7 +303,7 @@ export default function ContactPageClient() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, ease: EASE }}
-              className="lg:col-span-4 self-start lg:sticky lg:top-28"
+              className="lg:col-span-4 self-start lg:sticky lg:top-28 order-2 lg:order-1"
             >
               <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>Contact Info</p>
               <h2 className="heading-xl font-black text-[#0D0D1A] mt-1 mb-5 leading-tight">
@@ -347,7 +369,7 @@ export default function ContactPageClient() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, ease: EASE }}
-              className="lg:col-span-8"
+              className="lg:col-span-8 order-1 lg:order-2"
             >
               {sent ? (
                 /* ── Success state ── */
@@ -384,7 +406,7 @@ export default function ContactPageClient() {
                 </div>
               ) : (
                 /* ── Form ── */
-                <div className="rounded-2xl border border-gray-100 bg-[#F7F8FC] p-8 lg:p-10">
+                <div className="rounded-2xl border border-gray-100 bg-[#F7F8FC] p-5 sm:p-8 lg:p-10">
                   <div className="mb-8">
                     <h3 className="font-bold text-[#0D0D1A] text-xl mb-1.5">
                       Tell us about your project
@@ -504,8 +526,10 @@ export default function ContactPageClient() {
                           <input
                             name="phone"
                             type="tel"
+                            inputMode="numeric"
+                            maxLength={15}
                             value={form.phone}
-                            onChange={handleChange}
+                            onChange={(e) => { const v = e.target.value.replace(/\D/g, ""); setForm(f => ({ ...f, phone: v })); }}
                             placeholder="XXXXX XXXXX"
                             className="flex-1 min-w-0 px-4 py-3.5 rounded-r-xl bg-white border border-gray-200 text-[#0D0D1A]
                               placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20
@@ -521,7 +545,7 @@ export default function ContactPageClient() {
                           name="service"
                           value={form.service}
                           onChange={handleChange}
-                          className={inputClass}
+                          className={`${inputClass} pr-8`}
                         >
                           <option value="">Select a service</option>
                           <option value="web-design">
@@ -543,10 +567,9 @@ export default function ContactPageClient() {
 
                     <div className="flex flex-col gap-1.5">
                       <label className="text-[10px] font-bold text-[#374151] uppercase tracking-[0.18em]">
-                        Project Details *
+                        Message
                       </label>
                       <textarea
-                        required
                         name="message"
                         rows={5}
                         value={form.message}
@@ -556,28 +579,21 @@ export default function ContactPageClient() {
                       />
                     </div>
 
-                    {/* Submit + trust */}
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 pt-2">
-                      <button type="submit" className="btn-primary group">
-                        Send Message
+                    {/* Error */}
+                    {error && (
+                      <p className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-xl px-4 py-3">
+                        {error}
+                      </p>
+                    )}
+
+                    {/* Submit */}
+                    <div className="pt-2">
+                      <button type="submit" disabled={loading} className="btn-primary group disabled:opacity-60 disabled:cursor-not-allowed">
+                        {loading ? "Sending…" : "Send Message"}
                         <span className="btn-arrow">
                           <ArrowRight size={15} />
                         </span>
                       </button>
-                      <div className="flex flex-col gap-1.5">
-                        {TRUST_POINTS.map((t) => (
-                          <div
-                            key={t.text}
-                            className="flex items-center gap-1.5 text-xs text-[#6B7180]"
-                          >
-                            <t.icon
-                              size={12}
-                              className="text-brand-600 shrink-0"
-                            />
-                            {t.text}
-                          </div>
-                        ))}
-                      </div>
                     </div>
                   </form>
                 </div>
@@ -675,12 +691,7 @@ export default function ContactPageClient() {
                   <ArrowRight size={15} />
                 </span>
               </Link>
-              <a
-                href="tel:+918264954344"
-                className="inline-flex items-center gap-2 bg-white text-[#0D0D1A] font-semibold text-sm
-                  px-6 py-3 rounded-full border border-gray-200 transition-all duration-200
-                  hover:border-gray-400 hover:-translate-y-0.5"
-              >
+              <a href="tel:+918264954344" className="btn-secondary">
                 Call us now
               </a>
             </div>
