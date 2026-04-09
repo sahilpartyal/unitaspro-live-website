@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Hero            from "@/components/sections/Hero";
 import Stats           from "@/components/sections/Stats";
 import ServicesOverview from "@/components/sections/ServicesOverview";
-import HowItWorks      from "@/components/sections/HowItWorks";
+import ProcessSteps    from "@/components/sections/ProcessSteps";
 import Benefits        from "@/components/sections/Benefits";
 import FeaturedWork    from "@/components/sections/FeaturedWork";
 import Testimonials    from "@/components/sections/Testimonials";
@@ -22,7 +22,7 @@ export default function HomePage() {
       <Hero />
       <Stats />
       <ServicesOverview />
-      <HowItWorks />
+      <ProcessSteps />
       <Benefits />
       <FeaturedWork />
       <Testimonials />

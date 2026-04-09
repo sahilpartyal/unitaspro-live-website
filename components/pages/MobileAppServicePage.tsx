@@ -8,7 +8,9 @@ import {
   ArrowRight, Plus, Minus, CheckCircle2, XCircle,
   Smartphone, Code2, Star, Bell, Wifi, CreditCard,
   Layers, RefreshCw, DollarSign, HeadphonesIcon, Zap, Search,
+  PhoneCall, FileText, Rocket,
 } from "lucide-react";
+import ProcessSteps from "@/components/sections/ProcessSteps";
 
 /* --- Animation --------------------------------------- */
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -85,10 +87,10 @@ const SERVICES = [
 ];
 
 const PROCESS = [
-  { num: "01", Icon: Search, color: "#059669", bg: "#ECFDF5", title: "Discovery Call",     desc: "Free 30-min call. We understand your users, core features, and business goals before anything is designed." },
-  { num: "02", Icon: Star,   color: "#7C3AED", bg: "#F5F3FF", title: "UX & Design",        desc: "Wireframes and high-fidelity screens for every flow — reviewed and refined until the experience feels right." },
-  { num: "03", Icon: Code2,  color: "#2563EB", bg: "#EFF6FF", title: "Build & Test",       desc: "Cross-platform development with weekly TestFlight builds. Tested on real devices throughout." },
-  { num: "04", Icon: Zap,    color: "#D97706", bg: "#FFFBEB", title: "App Store Launch",   desc: "End-to-end App Store and Google Play submission, plus post-launch monitoring and 30-day support." },
+  { num: "01", Icon: PhoneCall, title: "Discovery Call",  desc: "A free 30-minute consultation. We listen to your goals and map out a practical strategy. No sales pressure, no jargon — just an honest conversation.", color: "#2563EB", bg: "#EFF6FF" },
+  { num: "02", Icon: FileText,  title: "Proposal & Plan", desc: "Within 48 hours, you'll receive a full scope of work, fixed pricing, and a clear timeline. We refine the details until you are 100% confident.",      color: "#7C3AED", bg: "#F5F3FF" },
+  { num: "03", Icon: Layers,    title: "Design & Build",  desc: "Transparent weekly updates. We build in sprints with regular demos, so you see the product take shape in real-time. No surprises at the finish line.", color: "#059669", bg: "#ECFDF5" },
+  { num: "04", Icon: Rocket,    title: "Launch & Grow",   desc: "Full technical deployment. We handle the go-live process, optimize for peak speed, and provide 30 days of dedicated support to ensure total stability.", color: "#D97706", bg: "#FFFBEB" },
 ];
 
 const FAQS = [
@@ -580,68 +582,8 @@ export default function MobileAppServicePage() {
       </section>
 
 
-      {/* -------------------------------------------------
-          S8  PROCESS - Horizontal steps
-      */}
-      <section className="bg-[#F7F8FC] py-20 lg:py-28" id="process">
-        <div className="container-main">
-          <motion.div {...fadeUp()} className="mb-4">
-            <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>Process</p>
-          </motion.div>
-
-          <motion.h2 {...fadeUp(0.05)} className="max-w-xl mb-14"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.03em" }}>
-            <span className="font-light text-[#9CA3AF]">From first call to </span>
-            <span className="font-semibold text-[#0D0D1A]">App Store in 6 weeks</span>
-          </motion.h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 relative">
-            {/* Connector line — desktop only */}
-            <div
-              className="hidden lg:block absolute top-[2.2rem] left-[calc(12.5%+2.2rem)] right-[calc(12.5%+2.2rem)] h-px z-0"
-              style={{ background: "linear-gradient(to right, #E5E7EB, #C4B5FD 50%, #E5E7EB)" }}
-            />
-            {PROCESS.map((p, i) => (
-              <motion.div key={p.num} {...fadeUp(0.06 + i * 0.08)}
-                className="relative z-10 group/step">
-                <div className="relative h-full bg-white rounded-2xl p-6 border border-gray-100/80
-                  shadow-[0_1px_8px_rgba(15,23,42,0.05)]
-                  hover:shadow-[0_8px_32px_rgba(15,23,42,0.10)]
-                  hover:-translate-y-1
-                  transition-all duration-300 overflow-hidden">
-                  {/* Accent top bar */}
-                  <div
-                    className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl opacity-0 group-hover/step:opacity-100 transition-opacity duration-300"
-                    style={{ background: `linear-gradient(90deg, ${p.color}, ${p.color}99)` }}
-                  />
-                  {/* Subtle bg tint */}
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover/step:opacity-100 transition-opacity duration-300 pointer-events-none"
-                    style={{ background: `radial-gradient(ellipse at 20% 0%, ${p.bg} 0%, transparent 60%)` }}
-                  />
-                  {/* Icon + Number row */}
-                  <div className="relative z-10 flex items-center justify-between mb-5">
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover/step:scale-110"
-                      style={{ background: p.bg }}
-                    >
-                      <p.Icon size={20} style={{ color: p.color }}/>
-                    </div>
-                    <span className="text-3xl font-black tabular-nums text-gray-100 group-hover/step:text-gray-200 transition-colors select-none leading-none">
-                      {p.num}
-                    </span>
-                  </div>
-                  {/* Text */}
-                  <div className="relative z-10">
-                    <h3 className="font-bold text-base text-[#0D0D1A] mb-2">{p.title}</h3>
-                    <p className="text-sm text-[#6B7180] leading-relaxed">{p.desc}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* S8 PROCESS */}
+      <ProcessSteps steps={PROCESS} />
 
 
 

@@ -8,7 +8,9 @@ import {
   ArrowRight, Plus, Minus, CheckCircle2, XCircle,
   PenTool, Code2, Gauge, Search, Smartphone, ShieldCheck,
   Target, Layers, RefreshCw, DollarSign, Zap, HeadphonesIcon,
+  PhoneCall, FileText, Rocket,
 } from "lucide-react";
+import ProcessSteps from "@/components/sections/ProcessSteps";
 
 /* --- Animation --------------------------------------- */
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -23,20 +25,20 @@ const fadeUp = (delay = 0) => ({
 
 const HERO_SERVICES = [
   { icon: PenTool, title: "Custom Design", desc: "Brand-aligned UI/UX that builds trust and converts", color: "#2563EB" },
-  { icon: Code2, title: "Full-Stack Dev", desc: "Next.js & React - fast, scalable, production-grade", color: "#7C3AED" },
-  { icon: Target, title: "CRO Built-In", desc: "Every page engineered for conversion from day one", color: "#059669" },
+  { icon: Code2, title: "Full-Stack Dev", desc: "Next.js & React — fast, scalable, production-grade", color: "#7C3AED" },
+  { icon: Target, title: "CRO Built-In", desc: "Every page is designed for conversion from day one", color: "#059669" },
 ];
 
 const SERVICES = [
-  { Icon: PenTool, title: "Bespoke UI/UX Design", desc: "Custom interfaces that build trust and guide visitors toward action. No templates - every pixel is purposeful.", color: "#2563EB", bg: "#EFF6FF" },
-  { Icon: Code2, title: "Full-Stack Development", desc: "Server-rendered Next.js & React. Fast, scalable code your team can grow with for years.", color: "#7C3AED", bg: "#F5F3FF" },
-  { Icon: Search, title: "SEO Architecture", desc: "Structured data, SSR, auto-sitemaps. Your content gets found from the day you launch.", color: "#059669", bg: "#ECFDF5" },
-  { Icon: Target, title: "Conversion Optimisation", desc: "Strategic CTAs, A/B-ready layouts, data-driven design that turns visitors into leads.", color: "#D97706", bg: "#FFFBEB" },
-  { Icon: Smartphone, title: "Mobile-First Design", desc: "Designed for thumbs first. Responsive layouts tested on 20+ real devices.", color: "#2563EB", bg: "#EFF6FF" },
-  { Icon: Gauge, title: "99+ Performance", desc: "Sub-second loads. Edge CDN, code splitting, image optimisation - all baked in.", color: "#7C3AED", bg: "#F5F3FF" },
-  { Icon: ShieldCheck, title: "Security & ADA", desc: "WCAG 2.1 compliance, SSL, security headers. Protected and inclusive from launch.", color: "#059669", bg: "#ECFDF5" },
-  { Icon: Layers, title: "Landing Pages", desc: "High-converting pages for campaigns and lead capture that pay for themselves.", color: "#D97706", bg: "#FFFBEB" },
-  { Icon: RefreshCw, title: "30-Day Support", desc: "Bug fixes, monitoring, and tweaks - free for 30 days after go-live.", color: "#2563EB", bg: "#EFF6FF" },
+  { Icon: PenTool, title: "Bespoke UI/UX Design", desc: "Custom interfaces engineered to build trust and drive action. No templates — just intentional, purposeful design.", color: "#2563EB", bg: "#EFF6FF" },
+  { Icon: Target, title: "Conversion Optimisation", desc: "Strategic, A/B-ready layouts using data-driven design patterns to transform casual visitors into high-quality leads.", color: "#D97706", bg: "#FFFBEB" },
+  { Icon: ShieldCheck, title: "Security & ADA", desc: "WCAG 2.1 compliance and SSL encryption — ensuring your digital platform is secure, inclusive, and protected.", color: "#059669", bg: "#ECFDF5" },
+  { Icon: Code2, title: "Full-Stack Development", desc: "Fast, reliable websites built with Next.js and React. Clean code that scales as you grow.", color: "#7C3AED", bg: "#F5F3FF" },
+  { Icon: Smartphone, title: "Mobile-First Design", desc: "Built for easy thumb-scrolling. Every layout is tested on real phones for a perfect feel.", color: "#2563EB", bg: "#EFF6FF" },
+  { Icon: Layers, title: "Landing Pages", desc: "Simple, high-impact pages made for marketing campaigns that turn visitors into leads and profit.", color: "#D97706", bg: "#FFFBEB" },
+  { Icon: Search, title: "SEO Architecture", desc: "Technical SEO with SSR and structured data to ensure Google finds and ranks your business.", color: "#059669", bg: "#ECFDF5" },
+  { Icon: Gauge, title: "99+ Performance", desc: "Instant load times via Edge CDN and image optimisation, built to provide a frictionless user experience.", color: "#7C3AED", bg: "#F5F3FF" },
+  { Icon: RefreshCw, title: "30-Day Support", desc: "Complimentary bug fixes, monitoring, and technical tweaks to ensure your site runs perfectly after launch.", color: "#2563EB", bg: "#EFF6FF" },
 ];
 
 const FEATURES_DARK = [
@@ -73,50 +75,49 @@ const TECH_LOGOS = [
 ];
 
 const DIFFERENTIATORS = [
-  { Icon: CheckCircle2,   color: "#2563EB", bg: "#EFF6FF", title: "Senior-only team",           desc: "Every project is handled by designers and devs with 5+ years of experience. No juniors learning on your budget." },
-  { Icon: HeadphonesIcon, color: "#7C3AED", bg: "#F5F3FF", title: "Dedicated project manager",  desc: "One named PM owns your project end-to-end — your single point of contact on Slack or WhatsApp." },
-  { Icon: DollarSign,     color: "#059669", bg: "#ECFDF5", title: "Fixed price, zero surprises", desc: "Your quote is locked before work begins. Scope changes don't silently inflate your invoice." },
-  { Icon: Zap,            color: "#D97706", bg: "#FFFBEB", title: "Global-ready by default",     desc: "Edge-deployed, multi-language ready, and built to impress clients in UAE, UK, USA, and Australia." },
+  { Icon: CheckCircle2,   color: "#2563EB", bg: "#EFF6FF", title: "Senior-Only Team",            desc: "Work directly with experts boasting 5+ years of experience. No juniors learning on your budget." },
+  { Icon: HeadphonesIcon, color: "#7C3AED", bg: "#F5F3FF", title: "Dedicated Project Manager",   desc: "One accountable point of contact managing your project via Slack or WhatsApp from start to finish." },
+  { Icon: DollarSign,     color: "#059669", bg: "#ECFDF5", title: "Fixed Price, Zero Surprises", desc: "Your investment is locked before work begins. We protect your budget against any hidden fees." },
+  { Icon: Zap,            color: "#D97706", bg: "#FFFBEB", title: "Global-Ready By Default",     desc: "Edge-deployed for worldwide speed, built to meet the highest professional standards in any major market." },
 ];
 
 const PROBLEMS = [
   {
-    problem: "Your site takes 8+ seconds to load",
-    solution: "Sub-second loads via edge CDN, code splitting, and fully optimised assets — 99+ Lighthouse, every time.",
+    problem: "The website takes too long to load",
+    solution: "We use advanced speed technology — CDNs and image optimisation — so your pages feel instant to your customers.",
   },
   {
-    problem: "Visitors browse but never get in touch",
-    solution: "CRO-engineered layouts with strategic CTAs, trust signals, and conversion-first UX built into every page.",
+    problem: "People visit, but they don't buy",
+    solution: "We design your site with a clear customer path, using smart layouts that guide people naturally toward a sale or a phone call.",
   },
   {
-    problem: "Google can't find your business online",
-    solution: "SSR, structured data, auto-sitemaps, and semantic HTML — your content ranks from launch day.",
+    problem: "Your business is hard to find on Google",
+    solution: "We build Google-ready code from day one, making it easy for search engines to read your site and rank you higher.",
   },
   {
-    problem: "Looks broken on phones and tablets",
-    solution: "Mobile-first design tested on 20+ real devices before handover — not just resized, actually built for mobile.",
+    problem: "The site looks messy on phones",
+    solution: "We use the mobile-first approach. Your site is tested on real phones and tablets to ensure it looks perfect on every screen.",
   },
   {
-    problem: "You can't update content without a developer",
-    solution: "CMS integration (Sanity, WordPress, or Shopify) so your team edits text, images, and products without touching code.",
+    problem: "You need a developer to change a simple photo",
+    solution: "We connect your site to an easy-to-use dashboard. You can update your own text and images in seconds without touching any code.",
   },
 ];
 
 const PROCESS = [
-  { num: "01", Icon: Search,       title: "Discovery Call",    desc: "Free 30-minute call. We understand your goals, audience, and requirements. No jargon, no pressure.",         color: "#2563EB", bg: "#EFF6FF" },
-  { num: "02", Icon: Layers,       title: "Proposal & Plan",   desc: "Detailed proposal with scope, timeline, and fixed price within 48 hours. You review, we refine.",            color: "#7C3AED", bg: "#F5F3FF" },
-  { num: "03", Icon: Code2,        title: "Design & Build",    desc: "Weekly demos so you always see progress. We build iteratively — no surprises at the end.",                   color: "#059669", bg: "#ECFDF5" },
-  { num: "04", Icon: Zap,          title: "Launch & Grow",     desc: "We go live, monitor performance, and provide 30 days free support. Your success is our goal.",               color: "#D97706", bg: "#FFFBEB" },
+  { num: "01", Icon: PhoneCall, title: "Discovery Call",  desc: "A free 30-minute consultation. We listen to your goals and map out a practical strategy. No sales pressure, no jargon — just an honest conversation.", color: "#2563EB", bg: "#EFF6FF" },
+  { num: "02", Icon: FileText,  title: "Proposal & Plan", desc: "Within 48 hours, you'll receive a full scope of work, fixed pricing, and a clear timeline. We refine the details until you are 100% confident.",      color: "#7C3AED", bg: "#F5F3FF" },
+  { num: "03", Icon: Layers,    title: "Design & Build",  desc: "Transparent weekly updates. We build in sprints with regular demos, so you see the product take shape in real-time. No surprises at the finish line.", color: "#059669", bg: "#ECFDF5" },
+  { num: "04", Icon: Rocket,    title: "Launch & Grow",   desc: "Full technical deployment. We handle the go-live process, optimize for peak speed, and provide 30 days of dedicated support to ensure total stability.", color: "#D97706", bg: "#FFFBEB" },
 ];
 
 const FAQS = [
-  { q: "How much does a website cost?", a: "Simple landing pages start at $800. Multi-page business websites with CMS run $1,500–3,500. E-commerce sites start at $3,000. We provide a fixed quote before any work begins - no hidden costs." },
-  { q: "How long does it take?", a: "Most websites launch in 2–4 weeks from kickoff. Simple landing pages ship in under 2 weeks. We commit to a timeline and stick to it." },
-  { q: "Can I edit content myself?", a: "Yes. We integrate a CMS (Sanity, WordPress, or Shopify) so your team can update text, images, blog posts, and products without touching code." },
-  { q: "Will my website work on phones?", a: "Every site is mobile-first. We test on real devices before handover - not just resized, actually designed for mobile." },
-  { q: "Do you handle hosting and domains?", a: "Yes. Vercel or Netlify hosting, domain config, SSL, and email - all included in the project cost." },
-  { q: "What if I need changes after launch?", a: "30 days of free post-launch support. After that, retainers start at $200/month." },
-  { q: "What makes you different from a freelancer?", a: "Freelancers disappear. We deliver custom-designed, performance-optimised sites with a dedicated PM, fixed pricing, and 30-day support. Agency quality without agency bloat." },
+  { q: "How long does a typical project take from start to finish?", a: "Our professional experts take you from initial brief to a live, production-grade site in just 14 days." },
+  { q: "Will my website be easy to manage after launch?", a: "Yes. We build on modern frameworks that allow you to update content easily without touching code. Also, every project includes a 30-day support window for bug fixes, monitoring, and minor technical tweaks." },
+  { q: "Is SEO included in the development process?", a: "Absolutely. We integrate technical SEO architecture from day one so your site is search-ready at launch." },
+  { q: "What is the difference between a \"site\" and a \"digital asset\"?", a: "A site just exists; an asset performs. We focus on speed, conversion logic, and technical stability." },
+  { q: "Will my website work on all mobile devices?", a: "Yes. We follow a mobile-first philosophy, ensuring a perfect user experience across all screen sizes and browsers." },
+  { q: "Do you handle website hosting and security?", a: "We deploy to global edge networks for maximum speed and include SSL encryption for total security." },
 ];
 
 
@@ -166,7 +167,7 @@ export default function WebDesignServicePage() {
             className="mb-5">
             <p className="text-sm text-[#6B7180] flex items-center gap-3">
               <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
-              Your engine for high-performance websites
+              Replacing confusion with total clarity
             </p>
             <div className="mt-3 w-64 h-px border-t border-dashed border-gray-300"/>
           </motion.div>
@@ -176,7 +177,7 @@ export default function WebDesignServicePage() {
             transition={{ duration: 0.65, delay: 0.06, ease: EASE }}
             className="max-w-4xl mb-8"
             style={{ fontSize: "clamp(2.8rem, 5.5vw, 4.5rem)", lineHeight: 1.06, letterSpacing: "-0.04em" }}>
-            <span className="font-light text-[#9CA3AF]">The new standard for </span>
+            <span className="font-light text-[#9CA3AF]">Setting a higher bar for </span>
             <span className="font-semibold text-[#0D0D1A]">web design & development</span>
           </motion.h1>
 
@@ -341,8 +342,8 @@ export default function WebDesignServicePage() {
 
           <motion.div {...fadeUp(0.05)} className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
             <h2 className="max-w-2xl" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.03em" }}>
-              <span className="font-light text-[#9CA3AF]">Everything your website needs, </span>
-              <span className="font-semibold text-[#0D0D1A]">nothing it doesn&apos;t</span>
+              <span className="font-light text-[#9CA3AF]">Streamlining your vision into </span>
+              <span className="font-semibold text-[#0D0D1A]">one powerful platform</span>
             </h2>
             <Link href="/contact" className="text-sm font-semibold text-[#0D0D1A] flex items-center gap-1.5 shrink-0 hover:gap-2.5 transition-all">
               Get a proposal <ArrowRight size={14}/>
@@ -384,10 +385,10 @@ export default function WebDesignServicePage() {
           <motion.div {...fadeUp()}>
             <h2 className="font-semibold text-white mb-4"
               style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", lineHeight: 1.15 }}>
-              Ready to outperform your competitors?
+              Are You Ready To Discover Exactly Where Your Website Is Losing Leads?
             </h2>
             <p className="text-white/70 text-base mb-8 max-w-lg mx-auto">
-              Free UX audit. Fixed pricing. We&apos;ll show you exactly what to fix - no strings attached.
+              Get a free UX audit to see what&apos;s holding you back. We offer transparent, fixed pricing to fix the gaps. No surprises, just results.
             </p>
             <div className="flex items-center justify-center gap-3">
               <Link href="/contact"
@@ -448,11 +449,10 @@ export default function WebDesignServicePage() {
               <div className="mt-3 w-48 h-px border-t border-dashed border-gray-300 mb-6"/>
 
               <h2 className="mb-4" style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)", lineHeight: 1.1, letterSpacing: "-0.03em" }}>
-                <span className="font-semibold text-[#0D0D1A]">Websites that work as hard as you do</span>
+                <span className="font-semibold text-[#0D0D1A]">Your Website Shouldn&apos;t Just Exist. It Should Perform</span>
               </h2>
               <p className="text-[#6B7180] text-base leading-relaxed mb-8">
-                Everything you need for a high-performing web presence: custom design, server-rendered code,
-                SEO architecture, and conversion optimisation. No add-ons, no surprises.
+                We build fast, search-friendly websites using custom design and professional code delivered as a complete package with no hidden costs.
               </p>
 
               {/* Key differentiators */}
@@ -582,68 +582,8 @@ export default function WebDesignServicePage() {
       </section>
 
 
-      {/* -------------------------------------------------
-          S8  PROCESS - Horizontal steps
-      */}
-      <section className="bg-[#F7F8FC] py-20 lg:py-28" id="process">
-        <div className="container-main">
-          <motion.div {...fadeUp()} className="mb-4">
-            <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>Process</p>
-          </motion.div>
-
-          <motion.h2 {...fadeUp(0.05)} className="max-w-xl mb-14"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.03em" }}>
-            <span className="font-light text-[#9CA3AF]">From first call to </span>
-            <span className="font-semibold text-[#0D0D1A]">live in 2 weeks</span>
-          </motion.h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 relative">
-            {/* Connector line — desktop only */}
-            <div
-              className="hidden lg:block absolute top-[2.2rem] left-[calc(12.5%+2.2rem)] right-[calc(12.5%+2.2rem)] h-px z-0"
-              style={{ background: "linear-gradient(to right, #E5E7EB, #C4B5FD 50%, #E5E7EB)" }}
-            />
-            {PROCESS.map((p, i) => (
-              <motion.div key={p.num} {...fadeUp(0.06 + i * 0.08)}
-                className="relative z-10 group/step">
-                <div className="relative h-full bg-white rounded-2xl p-6 border border-gray-100/80
-                  shadow-[0_1px_8px_rgba(15,23,42,0.05)]
-                  hover:shadow-[0_8px_32px_rgba(15,23,42,0.10)]
-                  hover:-translate-y-1
-                  transition-all duration-300 overflow-hidden">
-                  {/* Accent top bar */}
-                  <div
-                    className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl opacity-0 group-hover/step:opacity-100 transition-opacity duration-300"
-                    style={{ background: `linear-gradient(90deg, ${p.color}, ${p.color}99)` }}
-                  />
-                  {/* Subtle bg tint */}
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover/step:opacity-100 transition-opacity duration-300 pointer-events-none"
-                    style={{ background: `radial-gradient(ellipse at 20% 0%, ${p.bg} 0%, transparent 60%)` }}
-                  />
-                  {/* Icon + Number row */}
-                  <div className="relative z-10 flex items-center justify-between mb-5">
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover/step:scale-110"
-                      style={{ background: p.bg }}
-                    >
-                      <p.Icon size={20} style={{ color: p.color }}/>
-                    </div>
-                    <span className="text-3xl font-black tabular-nums text-gray-100 group-hover/step:text-gray-200 transition-colors select-none leading-none">
-                      {p.num}
-                    </span>
-                  </div>
-                  {/* Text */}
-                  <div className="relative z-10">
-                    <h3 className="font-bold text-base text-[#0D0D1A] mb-2">{p.title}</h3>
-                    <p className="text-sm text-[#6B7180] leading-relaxed">{p.desc}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* S8 PROCESS */}
+      <ProcessSteps steps={PROCESS} />
 
 
 

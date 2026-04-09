@@ -8,7 +8,9 @@ import {
   ArrowRight, Plus, Minus, CheckCircle2, XCircle,
   TrendingUp, Search, Target, BarChart3, Mail, Share2,
   Layers, RefreshCw, DollarSign, HeadphonesIcon, Zap, Globe2,
+  PhoneCall, FileText, Rocket, MessageSquare,
 } from "lucide-react";
+import ProcessSteps from "@/components/sections/ProcessSteps";
 
 /* --- Animation --------------------------------------- */
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -22,9 +24,9 @@ const fadeUp = (delay = 0) => ({
 /* --- Data -------------------------------------------- */
 
 const HERO_SERVICES = [
-  { icon: TrendingUp, title: "Revenue-Focused",  desc: "Every campaign measured against real leads and ROAS — not vanity metrics", color: "#D97706" },
-  { icon: Globe2,     title: "Multi-Channel",     desc: "SEO, Google Ads, Meta Ads — one unified strategy, maximum reach",           color: "#2563EB" },
-  { icon: BarChart3,  title: "Transparent ROI",   desc: "Plain-English monthly reports: what we spent, what it returned",            color: "#059669" },
+  { icon: TrendingUp, title: "Revenue-Focused",  desc: "We ignore vanity metrics to focus on the only thing that matters: finding people who actually buy from you.", color: "#D97706" },
+  { icon: Globe2,     title: "Multi-Channel",     desc: "We pull your search and social together into one simple plan, so you're seen everywhere that counts.",         color: "#2563EB" },
+  { icon: BarChart3,  title: "Transparent ROI",   desc: "No jargon or messy charts. Just a clear monthly update on what you spent and what it brought back.",          color: "#059669" },
 ];
 
 const TECH_LOGOS = [
@@ -43,74 +45,86 @@ const TECH_LOGOS = [
 ];
 
 const DIFFERENTIATORS = [
-  { Icon: CheckCircle2,   color: "#D97706", bg: "#FFFBEB", title: "Strategy before spending",       desc: "We define KPIs and build a full channel strategy before a single rupee goes to ads." },
-  { Icon: HeadphonesIcon, color: "#7C3AED", bg: "#F5F3FF", title: "Dedicated account manager",      desc: "One named strategist owns your account — your single contact for every campaign question." },
-  { Icon: DollarSign,     color: "#2563EB", bg: "#EFF6FF", title: "No long-term lock-in",           desc: "Month-to-month retainers after the first 3 months. We earn your business every month." },
-  { Icon: Zap,            color: "#059669", bg: "#ECFDF5", title: "Results in 2–4 weeks",           desc: "Paid campaigns show measurable lead data within 2–4 weeks of launch — not months of waiting." },
+  { Icon: CheckCircle2,   color: "#D97706", bg: "#FFFBEB", title: "Strategy before spending",       desc: "We establish KPIs and a full-channel roadmap before a single rupee goes to ads." },
+  { Icon: HeadphonesIcon, color: "#7C3AED", bg: "#F5F3FF", title: "Dedicated account manager",      desc: "A senior strategist owns your account—your single point of contact for every campaign question." },
+  { Icon: DollarSign,     color: "#2563EB", bg: "#EFF6FF", title: "No long-term lock-in",           desc: "Month-to-month retainers after 90 days. We earn your business through results every single month." },
+  { Icon: Zap,            color: "#059669", bg: "#ECFDF5", title: "Results in 2–4 weeks",           desc: "Paid campaigns deliver measurable lead data within 2–4 weeks, not months of waiting for results." },
 ];
 
 const PROBLEMS = [
   {
-    problem:  "Ad spend disappearing with no idea what's working",
-    solution: "Every rupee tracked to real outcomes — cost per lead, ROAS, and conversion rate reported every month in plain English.",
+    problem:  "Your ad spend is a black hole.",
+    solution: "We track every rupee to real outcomes. You get a monthly report in plain English covering your cost per lead and ROAS.",
   },
   {
-    problem:  "Website traffic that never turns into enquiries",
-    solution: "CRO-optimised landing pages and A/B testing that systematically improve your conversion rate month over month.",
+    problem:  "Visitors arrive, then they leave.",
+    solution: "We build CRO-optimized pages that stop the \"window shopping\" and systematically improve your conversion rate.",
   },
   {
-    problem:  "Competitors ranking above you on Google",
-    solution: "Technical SEO combined with a content strategy built around the exact keywords your buyers search — rankings that compound over time.",
+    problem:  "Competitors are winning the search.",
+    solution: "We use Technical SEO to answer the exact keywords your buyers use, building a presence that compounds over time.",
   },
   {
-    problem:  "Social media posts getting no engagement or reach",
-    solution: "Data-driven content calendars with paid amplification — we build a real audience that actually buys from you.",
+    problem:  "Your social posts are invisible.",
+    solution: "We skip the shouting and use paid amplification to make sure your content finds an audience that actually buys.",
   },
   {
-    problem:  "Marketing reports full of impressions and follower counts",
-    solution: "We refuse to report vanity metrics. Every report is tied to leads generated, revenue attributed, and cost per acquisition.",
+    problem:  "You're tired of \"vanity metrics.\"",
+    solution: "We refuse to report empty likes. Every update is tied to leads generated and the actual cost of winning a customer.",
   },
 ];
 
 const SERVICES = [
-  { Icon: Search,      title: "Search Engine Optimisation",       desc: "Technical SEO, content strategy, and link building — organic rankings that compound over time.",                          color: "#D97706", bg: "#FFFBEB" },
-  { Icon: Target,      title: "Google Ads (Search & Display)",    desc: "High-intent campaigns that put you in front of buyers the moment they search for what you offer.",                        color: "#2563EB", bg: "#EFF6FF" },
-  { Icon: Share2,      title: "Meta Ads (Facebook & Instagram)",  desc: "Audience-targeted campaigns that drive awareness, leads, and retargeting across Meta platforms.",                         color: "#7C3AED", bg: "#F5F3FF" },
-  { Icon: Globe2,      title: "LinkedIn Advertising",             desc: "B2B lead generation targeting decision-makers by industry, job title, and company size.",                                 color: "#059669", bg: "#ECFDF5" },
-  { Icon: TrendingUp,  title: "Content Marketing",                desc: "Blog posts, guides, and resources that rank on Google and build authority in your industry.",                             color: "#D97706", bg: "#FFFBEB" },
-  { Icon: BarChart3,   title: "Conversion Rate Optimisation",     desc: "A/B testing, heatmaps, and user behaviour analysis that turn more visitors into paying customers.",                       color: "#2563EB", bg: "#EFF6FF" },
-  { Icon: Mail,        title: "Email Marketing",                  desc: "Nurture sequences and broadcast campaigns that move leads down the funnel and drive repeat business.",                    color: "#7C3AED", bg: "#F5F3FF" },
-  { Icon: Layers,      title: "Local SEO",                        desc: "Google Business Profile, local citations, and review strategy — dominate searches in your area.",                         color: "#059669", bg: "#ECFDF5" },
-  { Icon: RefreshCw,   title: "Monthly Performance Reports",      desc: "Clear, jargon-free reports every month — what we spent, what it earned, and what changes next.",                          color: "#D97706", bg: "#FFFBEB" },
+  { Icon: Search,      title: "Search Engine Optimization",       desc: "We use technical SEO and content to build rankings that actually last and grow.",                                         color: "#D97706", bg: "#FFFBEB" },
+  { Icon: Globe2,      title: "LinkedIn Advertising",             desc: "Direct B2B lead generation targeting the exact decision-makers you need to reach.",                                       color: "#059669", bg: "#ECFDF5" },
+  { Icon: Mail,        title: "Email Marketing",                  desc: "Simple, effective campaigns that keep leads moving and bring customers back for more.",                                    color: "#7C3AED", bg: "#F5F3FF" },
+  { Icon: Target,      title: "Google Ads (Search & Display)",    desc: "High-intent campaigns that put you in front of buyers the moment they search.",                                           color: "#2563EB", bg: "#EFF6FF" },
+  { Icon: TrendingUp,  title: "Content Marketing",                desc: "Blog posts and resources that rank on Google to build real industry authority.",                                          color: "#D97706", bg: "#FFFBEB" },
+  { Icon: Layers,      title: "Local SEO",                        desc: "Optimize your Google Profile and citations to dominate local searches in your area.",                                     color: "#059669", bg: "#ECFDF5" },
+  { Icon: Share2,      title: "Meta Ads (Facebook & Instagram)",  desc: "Targeted campaigns that drive awareness, leads, and retargeting across all Meta platforms.",                              color: "#7C3AED", bg: "#F5F3FF" },
+  { Icon: BarChart3,   title: "Conversion Rate Optimization",     desc: "Using A/B testing and heatmaps to turn more of your visitors into customers.",                                            color: "#2563EB", bg: "#EFF6FF" },
+  { Icon: RefreshCw,   title: "Monthly Performance Reports",      desc: "Clear monthly updates on what we spent, what you earned, and what's next.",                                              color: "#D97706", bg: "#FFFBEB" },
 ];
 
 const PROCESS = [
-  { num: "01", Icon: Search,      title: "Discovery Call",    desc: "Free 30-min call. We audit your current digital presence, understand your goals, and identify quick wins.",                                color: "#D97706", bg: "#FFFBEB" },
-  { num: "02", Icon: BarChart3,   title: "Audit & Strategy",  desc: "Full competitor analysis, keyword research, and a channel-by-channel growth strategy built around your budget.",                           color: "#7C3AED", bg: "#F5F3FF" },
-  { num: "03", Icon: TrendingUp,  title: "Launch & Optimise", desc: "Campaigns go live with full tracking. Weekly optimisations based on real performance data.",                                               color: "#2563EB", bg: "#EFF6FF" },
-  { num: "04", Icon: Zap,         title: "Report & Scale",    desc: "Monthly plain-English reports with ROI breakdown and a forward roadmap to scale what's working.",                                          color: "#059669", bg: "#ECFDF5" },
+  { num: "01", Icon: PhoneCall, title: "Discovery Call",  desc: "A free 30-minute consultation. We listen to your goals and map out a practical strategy. No sales pressure, no jargon — just an honest conversation.", color: "#2563EB", bg: "#EFF6FF" },
+  { num: "02", Icon: FileText,  title: "Proposal & Plan", desc: "Within 48 hours, you'll receive a full scope of work, fixed pricing, and a clear timeline. We refine the details until you are 100% confident.",      color: "#7C3AED", bg: "#F5F3FF" },
+  { num: "03", Icon: Layers,    title: "Design & Build",  desc: "Transparent weekly updates. We build in sprints with regular demos, so you see the product take shape in real-time. No surprises at the finish line.", color: "#059669", bg: "#ECFDF5" },
+  { num: "04", Icon: Rocket,    title: "Launch & Grow",   desc: "Full technical deployment. We handle the go-live process, optimize for peak speed, and provide 30 days of dedicated support to ensure total stability.", color: "#D97706", bg: "#FFFBEB" },
 ];
 
 const FAQS = [
   {
-    q: "How long before I see results?",
-    a: "Paid ads (Google, Meta) typically show measurable data within 2–4 weeks once campaigns are optimised. SEO is a longer game — expect meaningful organic ranking improvements in 3–6 months. We set realistic expectations upfront.",
+    q: "Why Should I Invest In Marketing Instead Of Sales?",
+    a: "Marketing creates the demand; sales harvest it. Good marketing makes your sales team's job ten times easier by bringing in leads who are already convinced you're the expert.",
   },
   {
-    q: "What's the minimum ad budget I need?",
-    a: "We recommend a minimum of $500/month in ad spend for Google or Meta Ads to generate enough data to optimise effectively. Our management fee is separate from your ad budget — we'll quote both clearly upfront.",
+    q: "How Do You Determine The Right Budget For My Brand?",
+    a: "We don't guess. We look at your profit margins and your revenue goals, then work backward to find the exact spend required to acquire a customer profitably.",
   },
   {
-    q: "Do you manage both Google and Meta Ads?",
-    a: "Yes. We manage all major paid channels — Google Search, Display, Shopping, Meta (Facebook and Instagram), LinkedIn, and YouTube. We recommend the right mix based on your industry and target audience.",
+    q: "What Is The Biggest Mistake Most Businesses Make Online?",
+    a: "Chasing \"Data.\" Businesses spend thousands on \"likes\" and \"followers\" that don't convert. We focus on intent by targeting people who are actually looking to spend money.",
   },
   {
-    q: "How do you report results?",
-    a: "Monthly reports in plain English — what we spent, what leads and conversions it generated, cost per lead, ROAS, and what we're changing next month. No confusing dashboards, no vanity metrics.",
+    q: "How Do You Stay Ahead Of Algorithm Changes?",
+    a: "We don't chase the algorithm; we focus on the user. Platforms like Google and Meta change their rules constantly, but they always reward high-quality content and a seamless user experience.",
   },
   {
-    q: "Do you also handle content and social media?",
-    a: "Yes. Content writing, social media management, and email campaigns are available as part of a full-service retainer. Just let us know during the consultation and we'll scope it in.",
+    q: "Is SEO Still Relevant With The Rise Of AI?",
+    a: "More than ever. AI search engines still pull from authoritative sources. If you aren't an established authority in your niche, AI tools won't recommend you. We build that authority.",
+  },
+  {
+    q: "Why Do I Need A \"Full-Funnel\" Strategy?",
+    a: "Because people rarely buy the first time they see an ad. You need a strategy that introduces you (Top), educates them (Middle), and converts them (Bottom). Anything less is just burning cash.",
+  },
+  {
+    q: "How Often Will I See Reports On My Performance?",
+    a: "You shouldn't have to wait for a report to see your data. We provide a 24/7 live dashboard, plus a monthly deep-dive to discuss strategy and next steps.",
+  },
+  {
+    q: "What Happens If A Campaign Doesn't Perform?",
+    a: "We turn to a new strategy. Digital marketing is about testing and refining. If the data shows a channel isn't working, we don't keep spending — we move the budget to where the results are.",
   },
 ];
 
@@ -161,7 +175,7 @@ export default function DigitalMarketingServicePage() {
             className="mb-5">
             <p className="text-sm text-[#6B7180] flex items-center gap-3">
               <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
-              Your engine for measurable online growth
+              Don't Just Get More Traffic. Get The Right Attention.
             </p>
             <div className="mt-3 w-64 h-px border-t border-dashed border-gray-300"/>
           </motion.div>
@@ -171,8 +185,8 @@ export default function DigitalMarketingServicePage() {
             transition={{ duration: 0.65, delay: 0.06, ease: EASE }}
             className="max-w-4xl mb-8"
             style={{ fontSize: "clamp(2.8rem, 5.5vw, 4.5rem)", lineHeight: 1.06, letterSpacing: "-0.04em" }}>
-            <span className="font-light text-[#9CA3AF]">Marketing that fills </span>
-            <span className="font-semibold text-[#0D0D1A]">your pipeline</span>
+            <span className="font-light text-[#9CA3AF]">Let&apos;s Stop Wasting </span>
+            <span className="font-semibold text-[#0D0D1A]">Your Budget On &ldquo;Likes.&rdquo;</span>
           </motion.h1>
 
           {/* Dual CTAs */}
@@ -263,11 +277,11 @@ export default function DigitalMarketingServicePage() {
 
           <motion.div {...fadeUp(0.05)} className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
             <h2 className="max-w-xl" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.03em" }}>
-              <span className="font-light text-[#9CA3AF]">Most marketing burns money. </span>
-              <span className="font-semibold text-[#0D0D1A]">Yours should make it.</span>
+              <span className="font-light text-[#9CA3AF]">If They Don&apos;t See You, </span>
+              <span className="font-semibold text-[#0D0D1A]">You Don&apos;t Exist. Let&apos;s Change That.</span>
             </h2>
             <p className="text-sm text-[#9CA3AF] max-w-xs">
-              Here are the 5 problems every marketing budget faces — and exactly how we fix them.
+              Here are the 5 biggest gaps between your brand and your audience, and the clear path we use to bridge them.
             </p>
           </motion.div>
 
@@ -331,13 +345,13 @@ export default function DigitalMarketingServicePage() {
         <div className="container-main relative">
           <motion.p {...fadeUp()} className="text-sm text-[#6B7180] mb-3 flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
-            What&apos;s included
+            Our core services
           </motion.p>
 
           <motion.div {...fadeUp(0.05)} className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
             <h2 className="max-w-2xl" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.03em" }}>
-              <span className="font-light text-[#9CA3AF]">Everything your growth needs, </span>
-              <span className="font-semibold text-[#0D0D1A]">nothing it doesn&apos;t</span>
+              <span className="font-light text-[#9CA3AF]">A complete setup </span>
+              <span className="font-semibold text-[#0D0D1A]">built to get results.</span>
             </h2>
             <Link href="/contact" className="text-sm font-semibold text-[#0D0D1A] flex items-center gap-1.5 shrink-0 hover:gap-2.5 transition-all">
               Get a proposal <ArrowRight size={14}/>
@@ -379,21 +393,24 @@ export default function DigitalMarketingServicePage() {
           <motion.div {...fadeUp()}>
             <h2 className="font-semibold text-white mb-4"
               style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", lineHeight: 1.15 }}>
-              Ready to turn your marketing budget into measurable revenue?
+              Turn your{" "}
+              <span className="italic relative inline-block px-2 py-0.5 rounded-md" style={{ background: "rgba(255,255,255,0.18)", boxShadow: "inset 0 0 0 1.5px rgba(255,255,255,0.45)" }}>what ifs</span>
+              {" "}into{" "}
+              <span className="italic relative inline-block px-2 py-0.5 rounded-md" style={{ background: "rgba(255,255,255,0.18)", boxShadow: "inset 0 0 0 1.5px rgba(255,255,255,0.45)" }}>what&apos;s next.</span>
             </h2>
             <p className="text-white/70 text-base mb-8 max-w-lg mx-auto">
-              Free marketing audit. No long-term contracts. We&apos;ll show you exactly where you&apos;re leaving money on the table.
+              We bridge the gap between a scattered budget and a focused revenue engine. No jargon, just a clear roadmap to more.
             </p>
             <div className="flex items-center justify-center gap-3">
               <Link href="/contact"
                 className="inline-flex items-center gap-2 font-semibold text-sm px-7 py-3.5 rounded-full
                   bg-white text-[#B45309] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,255,255,0.2)] transition-all duration-200">
-                Get My Free Audit <ArrowRight size={15}/>
+                Talk to Our Strategist <ArrowRight size={15}/>
               </Link>
               <a href="tel:+918264954344"
                 className="inline-flex items-center gap-2 font-semibold text-sm text-white/90 border border-white/30
                   px-6 py-3.5 rounded-full hover:bg-white/10 transition-all duration-200">
-                Talk to a Strategist
+                Get an Audit
               </a>
             </div>
           </motion.div>
@@ -438,16 +455,17 @@ export default function DigitalMarketingServicePage() {
             <motion.div {...fadeUp(0.15)}>
               <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
-                Why teams choose us
+                Why Choose Us
               </p>
               <div className="mt-3 w-48 h-px border-t border-dashed border-gray-300 mb-6"/>
 
               <h2 className="mb-4" style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)", lineHeight: 1.1, letterSpacing: "-0.03em" }}>
-                <span className="font-semibold text-[#0D0D1A]">Marketing your CFO will actually approve</span>
+                <span className="font-semibold" style={{ color: "#D97706" }}>Own the market,</span>
+                <span className="font-semibold text-[#0D0D1A]"> don&apos;t just join it.</span>
               </h2>
               <p className="text-[#6B7180] text-base leading-relaxed mb-8">
-                We don&apos;t do vanity metrics. Every campaign is built around real business outcomes — leads in your pipeline,
-                cost per acquisition you can afford, and revenue you can trace back to what we ran.
+                We build the systems that put you in front of buyers at the exact moment they search.
+                High-performance strategy delivered with absolute accountability.
               </p>
 
               {/* Key differentiators */}
@@ -581,68 +599,8 @@ export default function DigitalMarketingServicePage() {
       </section>
 
 
-      {/* -------------------------------------------------
-          S8  PROCESS - Horizontal steps
-      */}
-      <section className="bg-[#F7F8FC] py-20 lg:py-28" id="process">
-        <div className="container-main">
-          <motion.div {...fadeUp()} className="mb-4">
-            <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>Process</p>
-          </motion.div>
-
-          <motion.h2 {...fadeUp(0.05)} className="max-w-xl mb-14"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.03em" }}>
-            <span className="font-light text-[#9CA3AF]">From first call to </span>
-            <span className="font-semibold text-[#0D0D1A]">leads in 2 weeks</span>
-          </motion.h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 relative">
-            {/* Connector line — desktop only */}
-            <div
-              className="hidden lg:block absolute top-[2.2rem] left-[calc(12.5%+2.2rem)] right-[calc(12.5%+2.2rem)] h-px z-0"
-              style={{ background: "linear-gradient(to right, #E5E7EB, #C4B5FD 50%, #E5E7EB)" }}
-            />
-            {PROCESS.map((p, i) => (
-              <motion.div key={p.num} {...fadeUp(0.06 + i * 0.08)}
-                className="relative z-10 group/step">
-                <div className="relative h-full bg-white rounded-2xl p-6 border border-gray-100/80
-                  shadow-[0_1px_8px_rgba(15,23,42,0.05)]
-                  hover:shadow-[0_8px_32px_rgba(15,23,42,0.10)]
-                  hover:-translate-y-1
-                  transition-all duration-300 overflow-hidden">
-                  {/* Accent top bar */}
-                  <div
-                    className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl opacity-0 group-hover/step:opacity-100 transition-opacity duration-300"
-                    style={{ background: `linear-gradient(90deg, ${p.color}, ${p.color}99)` }}
-                  />
-                  {/* Subtle bg tint */}
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover/step:opacity-100 transition-opacity duration-300 pointer-events-none"
-                    style={{ background: `radial-gradient(ellipse at 20% 0%, ${p.bg} 0%, transparent 60%)` }}
-                  />
-                  {/* Icon + Number row */}
-                  <div className="relative z-10 flex items-center justify-between mb-5">
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover/step:scale-110"
-                      style={{ background: p.bg }}
-                    >
-                      <p.Icon size={20} style={{ color: p.color }}/>
-                    </div>
-                    <span className="text-3xl font-black tabular-nums text-gray-100 group-hover/step:text-gray-200 transition-colors select-none leading-none">
-                      {p.num}
-                    </span>
-                  </div>
-                  {/* Text */}
-                  <div className="relative z-10">
-                    <h3 className="font-bold text-base text-[#0D0D1A] mb-2">{p.title}</h3>
-                    <p className="text-sm text-[#6B7180] leading-relaxed">{p.desc}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* S8 PROCESS */}
+      <ProcessSteps steps={PROCESS} />
 
 
 
@@ -650,68 +608,92 @@ export default function DigitalMarketingServicePage() {
       {/* -------------------------------------------------
           S10  FAQ - Homepage style
       */}
-      <section className="section-pad bg-white">
+      <section className="section-pad bg-[#F7F8FC]">
         <div className="container-main">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 pb-10 border-b border-gray-200">
-            <div>
-              <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>FAQ</p>
-              <h2 className="heading-xl font-black text-[#0D0D1A]">
-                Frequently asked questions
+          <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-12 lg:gap-20 items-start">
+
+            {/* Left sticky panel */}
+            <div className="lg:sticky lg:top-28">
+              <span className="section-label mb-5 inline-flex">FAQs</span>
+              <h2 className="heading-xl font-black text-[#0D0D1A] mb-5 leading-tight">
+                Frequently asked<br />questions
               </h2>
+              <p className="text-[#6B7180] text-base leading-relaxed mb-8">
+                Can&apos;t find what you&apos;re looking for? We&apos;re always happy to help directly.
+              </p>
+
+              {/* CTA card */}
+              <div className="relative rounded-2xl overflow-hidden p-6"
+                style={{ background: "linear-gradient(140deg,#0F172A 0%,#1e2d5a 100%)" }}>
+                <div aria-hidden className="pointer-events-none absolute inset-0"
+                  style={{
+                    backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)",
+                    backgroundSize: "24px 24px",
+                  }}/>
+                <div className="relative z-10">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center mb-4">
+                    <MessageSquare size={18} className="text-white/70"/>
+                  </div>
+                  <h3 className="text-white font-bold text-base leading-snug mb-2" style={{ letterSpacing: "-0.02em" }}>
+                    Still have questions?
+                  </h3>
+                  <p className="text-white/45 text-sm leading-relaxed mb-5">
+                    Our team responds within 24 hours — no bots, just real answers.
+                  </p>
+                  <Link href="/contact" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-[#0F172A] text-xs font-bold hover:bg-gray-50 transition-colors group">
+                    Talk to us
+                    <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform"/>
+                  </Link>
+                </div>
+              </div>
             </div>
-            <Link href="/contact" className="btn-primary group shrink-0">
-              Get a free quote
-              <span className="btn-arrow"><ArrowRight size={16}/></span>
-            </Link>
-          </div>
 
-          <div className="flex flex-col">
-            {FAQS.map((faq, i) => (
-              <motion.div key={i}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: i * 0.05, duration: 0.35 }}
-                className="border-b border-gray-200 last:border-0">
-                <button
-                  className="w-full flex items-start justify-between gap-8 py-6 text-left group"
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}>
-                  <span className={`font-semibold text-base leading-snug transition-colors
-                    ${openFaq === i ? "text-[#0D0D1A]" : "text-[#374151] group-hover:text-[#0D0D1A]"}`}>
-                    {faq.q}
-                  </span>
-                  <span className={`shrink-0 w-8 h-8 rounded-full border flex items-center justify-center mt-0.5 transition-all
-                    ${openFaq === i
-                      ? "border-[#0D0D1A] bg-[#0D0D1A] text-white"
-                      : "border-gray-300 text-[#6B7180] group-hover:border-gray-500"}`}>
-                    {openFaq === i ? <Minus size={14}/> : <Plus size={14}/>}
-                  </span>
-                </button>
-                <AnimatePresence>
-                  {openFaq === i && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.22 }}
-                      className="overflow-hidden">
-                      <p className="pb-6 text-[#6B7180] text-base leading-relaxed max-w-3xl">
-                        {faq.a}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
+            {/* Right: accordion */}
+            <div className="flex flex-col">
+              {FAQS.map((faq, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ delay: i * 0.04, duration: 0.3 }}
+                  className={`border-b border-gray-200 last:border-0 ${openFaq === i ? "bg-white rounded-2xl border border-gray-100 shadow-[0_2px_16px_rgba(15,23,42,0.06)] mb-2 -mx-4 px-4" : ""}`}
+                >
+                  <button
+                    className="w-full flex items-center justify-between gap-6 py-5 text-left group"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className={`font-semibold text-[15px] leading-snug transition-colors
+                      ${openFaq === i ? "text-[#0D0D1A]" : "text-[#374151] group-hover:text-[#0D0D1A]"}`}>
+                      {faq.q}
+                    </span>
+                    <span className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200
+                      ${openFaq === i
+                        ? "bg-[#0D0D1A] text-white"
+                        : "bg-gray-100 text-[#6B7180] group-hover:bg-gray-200"}`}>
+                      {openFaq === i ? <Minus size={13}/> : <Plus size={13}/>}
+                    </span>
+                  </button>
+                  <AnimatePresence>
+                    {openFaq === i && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.22 }}
+                        className="overflow-hidden"
+                      >
+                        <p className="pb-5 text-[#6B7180] text-sm leading-relaxed">
+                          {faq.a}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              ))}
+            </div>
 
-          <p className="mt-10 text-center text-sm text-[#9CA3AF]">
-            Still have questions?{" "}
-            <Link href="/contact" className="text-[#0D0D1A] font-semibold underline underline-offset-2 hover:no-underline">
-              Send us a message
-            </Link>
-            {" "}- we respond within 24 hours.
-          </p>
+          </div>
         </div>
       </section>
 
