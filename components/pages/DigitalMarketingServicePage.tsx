@@ -600,7 +600,7 @@ export default function DigitalMarketingServicePage() {
 
 
       {/* S8 PROCESS */}
-      <ProcessSteps steps={PROCESS} />
+      <ProcessSteps />
 
 
 
