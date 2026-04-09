@@ -583,7 +583,7 @@ export default function WebDesignServicePage() {
 
 
       {/* S8 PROCESS */}
-      <ProcessSteps steps={PROCESS} />
+      <ProcessSteps />
 
 
 

@@ -583,7 +583,7 @@ export default function MobileAppServicePage() {
 
 
       {/* S8 PROCESS */}
-      <ProcessSteps steps={PROCESS} />
+      <ProcessSteps />
 
 
 

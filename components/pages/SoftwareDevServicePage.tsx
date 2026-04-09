@@ -582,7 +582,7 @@ export default function SoftwareDevServicePage() {
 
 
       {/* S8 PROCESS */}
-      <ProcessSteps steps={PROCESS} />
+      <ProcessSteps />
 
 
 
