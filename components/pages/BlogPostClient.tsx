@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { PortableText, type PortableTextComponents } from "next-sanity";
 import { urlFor, type SanityPost } from "@/lib/sanity";
+import DOMPurify from "isomorphic-dompurify";
 
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
@@ -124,7 +125,7 @@ const portableTextComponents: PortableTextComponents = {
     html: ({ value }) => (
       <div
         className="my-8 overflow-x-auto"
-        dangerouslySetInnerHTML={{ __html: value?.code || "" }}
+        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(value?.code || "") }}
       />
     ),
   },
