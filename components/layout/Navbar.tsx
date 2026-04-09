@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, ChevronRight, Phone, Globe, Code2, Smartphone, Megaphone, ArrowRight, Calendar } from "lucide-react";
 import { clsx } from "clsx";
@@ -99,16 +100,8 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-[68px]">
 
             {/* ── Logo ── */}
-            <Link href="/" className="flex items-center gap-2.5 shrink-0">
-              {/* Brand mark */}
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
-                style={{ background: "linear-gradient(135deg, #1A47DB 0%, #6D28D9 100%)" }}>
-                <span className="text-white font-black text-sm select-none">U</span>
-              </div>
-              <span className="text-xl font-black tracking-tight">
-                <span className="text-[#0D0D1A]">Unitas</span>
-                <span className="text-gradient">pro</span>
-              </span>
+            <Link href="/" className="flex items-center shrink-0">
+              <Image src="/unitaspro-logo.png" alt="Unitaspro" width={140} height={40} className="h-9 w-auto" priority />
             </Link>
 
             {/* ── Desktop nav ── */}
@@ -224,15 +217,8 @@ export default function Navbar() {
           >
             {/* Header row */}
             <div className="flex items-center justify-between px-5 h-[68px] border-b border-gray-100">
-              <Link href="/" className="flex items-center gap-2.5" onClick={() => setMobileOpen(false)}>
-                <div className="w-7 h-7 rounded-lg flex items-center justify-center"
-                  style={{ background: "linear-gradient(135deg,#1A47DB,#6D28D9)" }}>
-                  <span className="text-white font-black text-xs">U</span>
-                </div>
-                <span className="text-lg font-black tracking-tight">
-                  <span className="text-[#0D0D1A]">Unitas</span>
-                  <span className="text-gradient">pro</span>
-                </span>
+              <Link href="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
+                <Image src="/unitaspro-logo.png" alt="Unitaspro" width={120} height={36} className="h-8 w-auto" priority />
               </Link>
               <button onClick={() => setMobileOpen(false)}
                 className="w-9 h-9 flex items-center justify-center rounded-xl bg-gray-100">
