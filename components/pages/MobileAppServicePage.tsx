@@ -24,9 +24,9 @@ const fadeUp = (delay = 0) => ({
 /* --- Data -------------------------------------------- */
 
 const HERO_SERVICES = [
-  { icon: Smartphone, title: "iOS & Android", desc: "One codebase, both platforms — up to 40% cost saving with React Native", color: "#059669" },
-  { icon: Star,       title: "Beautiful UX",  desc: "Every screen user-tested before code is written — no guesswork",          color: "#7C3AED" },
-  { icon: Zap,        title: "App Store Ready", desc: "End-to-end submission: screenshots, ASO, ratings strategy included",    color: "#D97706" },
+  { icon: Smartphone, title: "iOS & Android",       desc: "We use React Native to build one codebase that works perfectly on both platforms.",                                       color: "#059669" },
+  { icon: Star,       title: "User-Tested Design",  desc: "Every screen is tested with real users before we code to ensure it's easy to use.",                                     color: "#7C3AED" },
+  { icon: Zap,        title: "App Store Launch",    desc: "We handle the entire submission process, including App Store Optimization and launch assets.",                           color: "#D97706" },
 ];
 
 const TECH_LOGOS = [
@@ -163,7 +163,7 @@ export default function MobileAppServicePage() {
             className="mb-5">
             <p className="text-sm text-[#6B7180] flex items-center gap-3">
               <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
-              Your partner for mobile apps that grow
+              Mobile Applications Are Designed To Grow
             </p>
             <div className="mt-3 w-64 h-px border-t border-dashed border-gray-300"/>
           </motion.div>
@@ -173,8 +173,8 @@ export default function MobileAppServicePage() {
             transition={{ duration: 0.65, delay: 0.06, ease: EASE }}
             className="max-w-4xl mb-8"
             style={{ fontSize: "clamp(2.8rem, 5.5vw, 4.5rem)", lineHeight: 1.06, letterSpacing: "-0.04em" }}>
-            <span className="font-light text-[#9CA3AF]">Mobile apps users </span>
-            <span className="font-semibold text-[#0D0D1A]">actually come back to</span>
+            <span className="font-light text-[#9CA3AF]">Built For Your Users. </span>
+            <span className="font-semibold text-[#0D0D1A]">Owned Entirely By You.</span>
           </motion.h1>
 
           {/* Dual CTAs */}
