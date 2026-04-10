@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight, Clock, Users, Globe2 } from "lucide-react";
 
@@ -126,12 +127,8 @@ export default function LeadPopup() {
 
                 <div className="relative z-10">
                   {/* Logo mark */}
-                  <div className="flex items-center gap-2 mb-8">
-                    <div className="w-7 h-7 rounded-lg flex items-center justify-center"
-                      style={{ background: "linear-gradient(135deg,#1A47DB,#6D28D9)" }}>
-                      <span className="text-white font-black text-xs">U</span>
-                    </div>
-                    <span className="text-white font-black text-sm tracking-tight">Unitaspro</span>
+                  <div className="flex items-center mb-8">
+                    <Image src="/unitaspro-logo.png" alt="Unitaspro" width={120} height={34} className="h-7 w-auto" style={{ filter: "brightness(0) invert(1)" }} />
                   </div>
 
                   <div className="mb-6">

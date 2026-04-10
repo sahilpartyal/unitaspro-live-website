@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Linkedin, Instagram, Twitter } from "lucide-react";
 import { siteConfig } from "@/lib/metadata";
 
@@ -27,15 +28,8 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
 
           {/* Logo */}
-          <Link href="/" className="inline-flex items-center gap-2 shrink-0">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg, #1A47DB 0%, #6D28D9 100%)" }}>
-              <span className="text-white font-black text-sm">U</span>
-            </div>
-            <span className="font-black text-lg">
-              <span className="text-white">Unitas</span>
-              <span style={{ color: "#60A5FA" }}>pro</span>
-            </span>
+          <Link href="/" className="inline-flex items-center shrink-0">
+            <Image src="/unitaspro-logo.png" alt="Unitaspro" width={130} height={36} className="h-8 w-auto" style={{ filter: "brightness(0) invert(1)" }} />
           </Link>
 
           {/* Links */}
