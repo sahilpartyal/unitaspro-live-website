@@ -101,7 +101,7 @@ export default function Navbar() {
 
             {/* ── Logo ── */}
             <Link href="/" className="flex items-center shrink-0">
-              <Image src="/unitaspro-logo.png" alt="Unitaspro" width={140} height={40} className="h-9 w-auto" priority />
+              <Image src="/unitaspro-logo.png" alt="Unitaspro" width={140} height={40} className="h-9 w-auto" style={{ filter: "brightness(0)" }} priority />
             </Link>
 
             {/* ── Desktop nav ── */}
@@ -218,7 +218,7 @@ export default function Navbar() {
             {/* Header row */}
             <div className="flex items-center justify-between px-5 h-[68px] border-b border-gray-100">
               <Link href="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
-                <Image src="/unitaspro-logo.png" alt="Unitaspro" width={120} height={36} className="h-8 w-auto" priority />
+                <Image src="/unitaspro-logo.png" alt="Unitaspro" width={120} height={36} className="h-8 w-auto" style={{ filter: "brightness(0)" }} priority />
               </Link>
               <button onClick={() => setMobileOpen(false)}
                 className="w-9 h-9 flex items-center justify-center rounded-xl bg-gray-100">
