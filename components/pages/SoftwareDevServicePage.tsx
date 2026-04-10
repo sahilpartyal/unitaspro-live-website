@@ -8,7 +8,7 @@ import {
   ArrowRight, Plus, Minus, CheckCircle2, XCircle,
   Code2, Database, Server, Shield, GitBranch, Cpu,
   Layers, RefreshCw, DollarSign, HeadphonesIcon, Zap, Search,
-  PhoneCall, FileText, Rocket,
+  PhoneCall, FileText, Rocket, MessageSquare,
 } from "lucide-react";
 import ProcessSteps from "@/components/sections/ProcessSteps";
 
@@ -24,9 +24,9 @@ const fadeUp = (delay = 0) => ({
 /* --- Data -------------------------------------------- */
 
 const HERO_SERVICES = [
-  { icon: Code2,     title: "Clean Architecture",  desc: "Modular, documented codebases that scale without costly rewrites",            color: "#7C3AED" },
-  { icon: GitBranch, title: "Sprint-Based Dev",     desc: "Weekly demos — you control direction and priorities at every step",           color: "#2563EB" },
-  { icon: Shield,    title: "Cloud & Security",     desc: "AWS/GCP, role-based auth, automated backups, 99.9% uptime",                  color: "#059669" },
+  { icon: Code2,     title: "Clean Architecture",      desc: "Modular, documented codebases engineered for horizontal scaling and long-term maintenance.", color: "#7C3AED" },
+  { icon: GitBranch, title: "Weekly Sprint Delivery",   desc: "Live demos every 7 days to verify project milestones and technical requirements.",           color: "#2563EB" },
+  { icon: Shield,    title: "Cloud & Security",         desc: "AWS/GCP deployment featuring RBAC, automated backups, and 99.9% guaranteed uptime.",        color: "#059669" },
 ];
 
 const TECH_LOGOS = [
@@ -45,45 +45,45 @@ const TECH_LOGOS = [
 ];
 
 const DIFFERENTIATORS = [
-  { Icon: CheckCircle2,   color: "#7C3AED", bg: "#F5F3FF", title: "Senior-only engineers",          desc: "Every project handled by developers with 5+ years. No juniors learning on your budget." },
-  { Icon: HeadphonesIcon, color: "#2563EB", bg: "#EFF6FF", title: "Dedicated project manager",       desc: "One named PM owns your project end-to-end — your single contact on Slack or WhatsApp." },
-  { Icon: DollarSign,     color: "#059669", bg: "#ECFDF5", title: "Fixed price, zero surprises",     desc: "Quote locked before work starts. Scope changes never silently inflate your invoice." },
-  { Icon: Zap,            color: "#D97706", bg: "#FFFBEB", title: "Full code ownership",             desc: "All source code, repos, and documentation delivered to you. You own everything we build." },
+  { Icon: CheckCircle2,   color: "#7C3AED", bg: "#F5F3FF", title: "Senior-only engineers",      desc: "Experts with 5+ years of experience. No juniors working on your budget." },
+  { Icon: HeadphonesIcon, color: "#2563EB", bg: "#EFF6FF", title: "Dedicated project manager",  desc: "Your single point of contact, available anytime on Slack or Teams." },
+  { Icon: DollarSign,     color: "#059669", bg: "#ECFDF5", title: "Fixed price, zero surprises", desc: "Price is locked before work starts. No hidden fees or surprise costs." },
+  { Icon: Zap,            color: "#D97706", bg: "#FFFBEB", title: "Full code ownership",         desc: "You own everything we build — all source code, repos, and documentation." },
 ];
 
 const PROBLEMS = [
   {
-    problem:  "Off-the-shelf software doesn't fit your workflow",
-    solution: "We build to your exact process — every feature, permission, and automation matches how your team actually works.",
+    problem:  "Generic software gaps",
+    solution: "We build features and permissions that mirror your specific workflows.",
   },
   {
-    problem:  "Requirements get lost between meetings and code",
-    solution: "Full documentation upfront: architecture diagrams, API specs, and database schemas agreed before a line of code is written.",
+    problem:  "Undefined requirements",
+    solution: "API specs and architecture diagrams are finalized before coding.",
   },
   {
-    problem:  "Budget blown before the product even ships",
-    solution: "Fixed-price sprint contracts with weekly demos — you see progress and can shift priorities before costs get out of hand.",
+    problem:  "Unpredictable costs",
+    solution: "Weekly milestones ensure costs remain predictable and transparent.",
   },
   {
-    problem:  "You've been burned by devs who disappear mid-project",
-    solution: "NDA on day one, senior engineers only, dedicated PM, and 30-day post-launch support — we're accountable end to end.",
+    problem:  "Lack of accountability",
+    solution: "Every project includes a dedicated PM and 30-day post-launch support.",
   },
   {
-    problem:  "Bugs surface in production with no warning",
-    solution: "CI/CD pipelines, automated test suites, and real-time monitoring on every project — issues caught before your users see them.",
+    problem:  "Unstable production code",
+    solution: "CI/CD pipelines and real-time monitoring catch issues before they reach users.",
   },
 ];
 
 const SERVICES = [
-  { Icon: Code2,        title: "Custom Web Applications",     desc: "Full-stack apps that handle your exact business logic — no compromises to fit a template.",                           color: "#7C3AED", bg: "#F5F3FF" },
-  { Icon: Server,       title: "SaaS Product Development",    desc: "From MVP to multi-tenant SaaS. We build the product, the infrastructure, and the billing.",                           color: "#2563EB", bg: "#EFF6FF" },
-  { Icon: Database,     title: "Database Architecture",       desc: "Schema design for real-world scale — PostgreSQL, MongoDB, Redis, optimised from day one.",                            color: "#059669", bg: "#ECFDF5" },
-  { Icon: GitBranch,    title: "API Design & Integration",    desc: "Clean REST and GraphQL APIs. We connect your tools and third-party services seamlessly.",                             color: "#D97706", bg: "#FFFBEB" },
-  { Icon: Layers,       title: "Admin Dashboards & CRMs",     desc: "Internal tools that replace spreadsheets and manual processes — built in weeks, not months.",                         color: "#7C3AED", bg: "#F5F3FF" },
-  { Icon: Cpu,          title: "Automation & Workflows",      desc: "Eliminate repetitive tasks with smart automation. Save hours per week, every week.",                                  color: "#2563EB", bg: "#EFF6FF" },
-  { Icon: Shield,       title: "Cloud Deployment (AWS / GCP)", desc: "Containerised, auto-scaling infrastructure. Zero downtime deployments, always.",                                   color: "#059669", bg: "#ECFDF5" },
-  { Icon: RefreshCw,    title: "Performance & Security Audits", desc: "We identify bottlenecks and vulnerabilities before they become expensive problems.",                               color: "#D97706", bg: "#FFFBEB" },
-  { Icon: CheckCircle2, title: "Ongoing Maintenance",         desc: "Retainer-based support — bug fixes, dependency updates, and feature additions as needed.",                           color: "#7C3AED", bg: "#F5F3FF" },
+  { Icon: Code2,        title: "Custom Web Applications",       desc: "Full-stack applications engineered for your business logic without using restricted templates.",                         color: "#7C3AED", bg: "#F5F3FF" },
+  { Icon: GitBranch,    title: "API Design & Integration",      desc: "REST and GraphQL development to connect internal tools with third-party services.",                                      color: "#D97706", bg: "#FFFBEB" },
+  { Icon: Shield,       title: "Cloud Deployment (AWS / GCP)",  desc: "Containerized, auto-scaling infrastructure with zero-downtime deployment protocols for every project.",                  color: "#059669", bg: "#ECFDF5" },
+  { Icon: Server,       title: "SaaS Product Development",      desc: "We build multi-tenant SaaS platforms from MVP to full infrastructure and billing systems.",                              color: "#2563EB", bg: "#EFF6FF" },
+  { Icon: Layers,       title: "Admin Dashboards & CRMs",       desc: "Custom internal tools to automate manual workflows and replace spreadsheets in weeks.",                                  color: "#7C3AED", bg: "#F5F3FF" },
+  { Icon: RefreshCw,    title: "Performance & Security Audits", desc: "We identify technical bottlenecks and security vulnerabilities before they impact your business.",                        color: "#D97706", bg: "#FFFBEB" },
+  { Icon: Database,     title: "Database Architecture",         desc: "Scalable schema design using PostgreSQL, MongoDB, and Redis, optimized for high-performance data management.",            color: "#059669", bg: "#ECFDF5" },
+  { Icon: Cpu,          title: "Automation & Workflows",        desc: "Eliminate repetitive manual tasks with custom automation scripts to save hours of weekly labor.",                         color: "#2563EB", bg: "#EFF6FF" },
+  { Icon: CheckCircle2, title: "Ongoing Maintenance",           desc: "Retainer-based technical support, including bug fixes, dependency updates, and on-demand feature additions.",             color: "#7C3AED", bg: "#F5F3FF" },
 ];
 
 const PROCESS = [
@@ -95,24 +95,24 @@ const PROCESS = [
 
 const FAQS = [
   {
-    q: "How do you choose the tech stack?",
-    a: "We recommend based on your project's needs — scale, team size, budget, and long-term maintenance. We use Node.js or Python for backends, React/Next.js for frontends, and PostgreSQL or MongoDB for databases. Every choice explained in plain English.",
+    q: "How Do You Handle Pricing?",
+    a: "We work on a fixed-price basis, scoped per project. Once we agree on the requirements, your quote is locked. You'll never see a surprise invoice or hidden fees for \"extra hours\" we didn't discuss.",
   },
   {
-    q: "How do you keep me updated during development?",
-    a: "We work in 1–2 week sprints with a live demo at the end of each. You always know what's built, what's next, and where your budget stands. We use Notion or Linear for full task visibility.",
+    q: "Who Actually Owns The Code?",
+    a: "You do. 100%. As soon as a sprint is completed and paid for, the intellectual property, source code, and documentation belong to your business. We provide full access to the repositories from day one.",
   },
   {
-    q: "Do you sign NDAs?",
-    a: "Yes, always — before any project discussion. Your idea, codebase, and business data stay 100% confidential.",
+    q: "Can I Speak Directly With The Developers?",
+    a: "Yes. You are assigned a dedicated project manager as your main point of contact, but our senior engineers are available for technical deep-dives. We maintain proper communication via a dedicated Slack or WhatsApp channel.",
   },
   {
-    q: "Can you work with our existing codebase?",
-    a: "Yes. We regularly take over legacy codebases, add features, fix bugs, and refactor for performance. We always start with a code audit so you know exactly what you're working with.",
+    q: "What Happens After The Software Is Launched?",
+    a: "We don't just \"hand over the keys\" and disappear. We offer retainer-based maintenance to handle security updates, bug fixes, and new feature additions as your user base grows.",
   },
   {
-    q: "What happens after launch?",
-    a: "30 days of free post-launch support on every project. After that, monthly retainers start at $300/month covering bug fixes, dependency updates, monitoring, and new feature development.",
+    q: "Why 8 Weeks? Is That Enough Time?",
+    a: "We focus on high-impact engineering. By using senior developers and avoiding \"bloated\" feature lists, we can build a production-ready MVP that solves your core problem in 8 weeks without sacrificing quality.",
   },
 ];
 
@@ -163,7 +163,7 @@ export default function SoftwareDevServicePage() {
             className="mb-5">
             <p className="text-sm text-[#6B7180] flex items-center gap-3">
               <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
-              Your engine for scalable custom software
+              High-performance infrastructure for growing enterprises
             </p>
             <div className="mt-3 w-64 h-px border-t border-dashed border-gray-300"/>
           </motion.div>
@@ -173,8 +173,8 @@ export default function SoftwareDevServicePage() {
             transition={{ duration: 0.65, delay: 0.06, ease: EASE }}
             className="max-w-4xl mb-8"
             style={{ fontSize: "clamp(2.8rem, 5.5vw, 4.5rem)", lineHeight: 1.06, letterSpacing: "-0.04em" }}>
-            <span className="font-light text-[#9CA3AF]">The reliable partner for </span>
-            <span className="font-semibold text-[#0D0D1A]">custom software</span>
+            <span className="font-light text-[#9CA3AF]">We Build Custom Software </span>
+            <span className="font-semibold text-[#0D0D1A]">That Scales To Millions Of Users.</span>
           </motion.h1>
 
           {/* Dual CTAs */}
@@ -265,11 +265,11 @@ export default function SoftwareDevServicePage() {
 
           <motion.div {...fadeUp(0.05)} className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
             <h2 className="max-w-xl" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.03em" }}>
-              <span className="font-light text-[#9CA3AF]">Most software fights your team. </span>
-              <span className="font-semibold text-[#0D0D1A]">Yours should work for it.</span>
+              <span className="font-light text-[#9CA3AF]">Manual Work Drains Your Team. </span>
+              <span className="font-semibold text-[#0D0D1A]">Automated Software Empowers Them.</span>
             </h2>
             <p className="text-sm text-[#9CA3AF] max-w-xs">
-              Here are the 5 problems every custom software project has — and exactly how we fix them.
+              Here are the 5 problems every custom software project has and exactly how we fix them.
             </p>
           </motion.div>
 
@@ -338,8 +338,8 @@ export default function SoftwareDevServicePage() {
 
           <motion.div {...fadeUp(0.05)} className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
             <h2 className="max-w-2xl" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.03em" }}>
-              <span className="font-light text-[#9CA3AF]">Everything your software needs, </span>
-              <span className="font-semibold text-[#0D0D1A]">nothing it doesn&apos;t</span>
+              <span className="font-light text-[#9CA3AF]">Smart Software Designed To </span>
+              <span className="font-semibold text-[#0D0D1A]">Simplify Your Workflow</span>
             </h2>
             <Link href="/contact" className="text-sm font-semibold text-[#0D0D1A] flex items-center gap-1.5 shrink-0 hover:gap-2.5 transition-all">
               Get a proposal <ArrowRight size={14}/>
@@ -381,21 +381,21 @@ export default function SoftwareDevServicePage() {
           <motion.div {...fadeUp()}>
             <h2 className="font-semibold text-white mb-4"
               style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", lineHeight: 1.15 }}>
-              Ready to stop wrestling with software that wasn&apos;t built for you?
+              Replace Manual Workarounds With Custom Automation.
             </h2>
             <p className="text-white/70 text-base mb-8 max-w-lg mx-auto">
-              Free discovery call. Fixed pricing. We&apos;ll scope your project in 48 hours — no strings attached.
+              Start with a free technical audit and project scope delivered in 2 days.
             </p>
             <div className="flex items-center justify-center gap-3">
               <Link href="/contact"
                 className="inline-flex items-center gap-2 font-semibold text-sm px-7 py-3.5 rounded-full
                   bg-white text-[#4F46E5] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,255,255,0.2)] transition-all duration-200">
-                Book a Free Call <ArrowRight size={15}/>
+                Request a Proposal <ArrowRight size={15}/>
               </Link>
               <a href="tel:+918264954344"
                 className="inline-flex items-center gap-2 font-semibold text-sm text-white/90 border border-white/30
                   px-6 py-3.5 rounded-full hover:bg-white/10 transition-all duration-200">
-                Talk to an Engineer
+                Talk to an Expert
               </a>
             </div>
           </motion.div>
@@ -440,15 +440,15 @@ export default function SoftwareDevServicePage() {
             <motion.div {...fadeUp(0.15)}>
               <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
-                Why teams choose us
+                Why Choose Us
               </p>
               <div className="mt-3 w-48 h-px border-t border-dashed border-gray-300 mb-6"/>
 
               <h2 className="mb-4" style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)", lineHeight: 1.1, letterSpacing: "-0.03em" }}>
-                <span className="font-semibold text-[#0D0D1A]">Software engineered around your business, not the other way around</span>
+                <span className="font-semibold text-[#0D0D1A]">Software built to fix your specific bottlenecks.</span>
               </h2>
               <p className="text-[#6B7180] text-base leading-relaxed mb-8">
-                We don&apos;t sell you a feature list and disappear. Every sprint has a demo, every decision is documented, and every line of code stays with you at the end.
+                No black-box development or hidden surprises. We maintain transparency through constant updates and detailed technical records, delivering a product that you fully own and control.
               </p>
 
               {/* Key differentiators */}
@@ -588,70 +588,94 @@ export default function SoftwareDevServicePage() {
 
 
       {/* -------------------------------------------------
-          S10  FAQ - Homepage style
+          S10  FAQ - Homepage style (2-col)
       */}
-      <section className="section-pad bg-white">
+      <section className="section-pad bg-[#F7F8FC]">
         <div className="container-main">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 pb-10 border-b border-gray-200">
-            <div>
-              <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>FAQ</p>
-              <h2 className="heading-xl font-black text-[#0D0D1A]">
-                Frequently asked questions
+          <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-12 lg:gap-20 items-start">
+
+            {/* Left sticky panel */}
+            <div className="lg:sticky lg:top-28">
+              <span className="section-label mb-5 inline-flex">FAQ</span>
+              <h2 className="heading-xl font-black text-[#0D0D1A] mb-5 leading-tight">
+                Frequently asked<br />questions
               </h2>
+              <p className="text-[#6B7180] text-base leading-relaxed mb-8">
+                Can&apos;t find what you&apos;re looking for? We&apos;re always happy to help directly.
+              </p>
+
+              {/* CTA card */}
+              <div className="relative rounded-2xl overflow-hidden p-6"
+                style={{ background: "linear-gradient(140deg,#0F172A 0%,#1e2d5a 100%)" }}>
+                <div aria-hidden className="pointer-events-none absolute inset-0"
+                  style={{
+                    backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)",
+                    backgroundSize: "24px 24px",
+                  }}/>
+                <div className="relative z-10">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center mb-4">
+                    <MessageSquare size={18} className="text-white/70"/>
+                  </div>
+                  <h3 className="text-white font-bold text-base leading-snug mb-2" style={{ letterSpacing: "-0.02em" }}>
+                    Still have questions?
+                  </h3>
+                  <p className="text-white/45 text-sm leading-relaxed mb-5">
+                    Our team responds within 24 hours — no bots, just real answers.
+                  </p>
+                  <Link href="/contact" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-[#0F172A] text-xs font-bold hover:bg-gray-50 transition-colors group">
+                    Talk to us
+                    <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform"/>
+                  </Link>
+                </div>
+              </div>
             </div>
-            <Link href="/contact" className="btn-primary group shrink-0">
-              Get a free quote
-              <span className="btn-arrow"><ArrowRight size={16}/></span>
-            </Link>
-          </div>
 
-          <div className="flex flex-col">
-            {FAQS.map((faq, i) => (
-              <motion.div key={i}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: i * 0.05, duration: 0.35 }}
-                className="border-b border-gray-200 last:border-0">
-                <button
-                  className="w-full flex items-start justify-between gap-8 py-6 text-left group"
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}>
-                  <span className={`font-semibold text-base leading-snug transition-colors
-                    ${openFaq === i ? "text-[#0D0D1A]" : "text-[#374151] group-hover:text-[#0D0D1A]"}`}>
-                    {faq.q}
-                  </span>
-                  <span className={`shrink-0 w-8 h-8 rounded-full border flex items-center justify-center mt-0.5 transition-all
-                    ${openFaq === i
-                      ? "border-[#0D0D1A] bg-[#0D0D1A] text-white"
-                      : "border-gray-300 text-[#6B7180] group-hover:border-gray-500"}`}>
-                    {openFaq === i ? <Minus size={14}/> : <Plus size={14}/>}
-                  </span>
-                </button>
-                <AnimatePresence>
-                  {openFaq === i && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.22 }}
-                      className="overflow-hidden">
-                      <p className="pb-6 text-[#6B7180] text-base leading-relaxed max-w-3xl">
-                        {faq.a}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
+            {/* Right: accordion */}
+            <div className="flex flex-col">
+              {FAQS.map((faq, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ delay: i * 0.04, duration: 0.3 }}
+                  className={`border-b border-gray-200 last:border-0 ${openFaq === i ? "bg-white rounded-2xl border border-gray-100 shadow-[0_2px_16px_rgba(15,23,42,0.06)] mb-2 -mx-4 px-4" : ""}`}
+                >
+                  <button
+                    className="w-full flex items-center justify-between gap-6 py-5 text-left group"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className={`font-semibold text-[15px] leading-snug transition-colors
+                      ${openFaq === i ? "text-[#0D0D1A]" : "text-[#374151] group-hover:text-[#0D0D1A]"}`}>
+                      {faq.q}
+                    </span>
+                    <span className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200
+                      ${openFaq === i
+                        ? "bg-[#0D0D1A] text-white"
+                        : "bg-gray-100 text-[#6B7180] group-hover:bg-gray-200"}`}>
+                      {openFaq === i ? <Minus size={13}/> : <Plus size={13}/>}
+                    </span>
+                  </button>
+                  <AnimatePresence>
+                    {openFaq === i && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.22 }}
+                        className="overflow-hidden"
+                      >
+                        <p className="pb-5 text-[#6B7180] text-sm leading-relaxed">
+                          {faq.a}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              ))}
+            </div>
 
-          <p className="mt-10 text-center text-sm text-[#9CA3AF]">
-            Still have questions?{" "}
-            <Link href="/contact" className="text-[#0D0D1A] font-semibold underline underline-offset-2 hover:no-underline">
-              Send us a message
-            </Link>
-            {" "}- we respond within 24 hours.
-          </p>
+          </div>
         </div>
       </section>
 

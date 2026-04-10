@@ -8,7 +8,7 @@ import {
   ArrowRight, Plus, Minus, CheckCircle2, XCircle,
   PenTool, Code2, Gauge, Search, Smartphone, ShieldCheck,
   Target, Layers, RefreshCw, DollarSign, Zap, HeadphonesIcon,
-  PhoneCall, FileText, Rocket,
+  PhoneCall, FileText, Rocket, MessageSquare,
 } from "lucide-react";
 import ProcessSteps from "@/components/sections/ProcessSteps";
 
@@ -589,70 +589,94 @@ export default function WebDesignServicePage() {
 
 
       {/* -------------------------------------------------
-          S10  FAQ - Homepage style
+          S10  FAQ - Homepage style (2-col)
       */}
-      <section className="section-pad bg-white">
+      <section className="section-pad bg-[#F7F8FC]">
         <div className="container-main">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 pb-10 border-b border-gray-200">
-            <div>
-              <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>FAQ</p>
-              <h2 className="heading-xl font-black text-[#0D0D1A]">
-                Frequently asked questions
+          <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-12 lg:gap-20 items-start">
+
+            {/* Left sticky panel */}
+            <div className="lg:sticky lg:top-28">
+              <span className="section-label mb-5 inline-flex">FAQ</span>
+              <h2 className="heading-xl font-black text-[#0D0D1A] mb-5 leading-tight">
+                Frequently asked<br />questions
               </h2>
+              <p className="text-[#6B7180] text-base leading-relaxed mb-8">
+                Can&apos;t find what you&apos;re looking for? We&apos;re always happy to help directly.
+              </p>
+
+              {/* CTA card */}
+              <div className="relative rounded-2xl overflow-hidden p-6"
+                style={{ background: "linear-gradient(140deg,#0F172A 0%,#1e2d5a 100%)" }}>
+                <div aria-hidden className="pointer-events-none absolute inset-0"
+                  style={{
+                    backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)",
+                    backgroundSize: "24px 24px",
+                  }}/>
+                <div className="relative z-10">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center mb-4">
+                    <MessageSquare size={18} className="text-white/70"/>
+                  </div>
+                  <h3 className="text-white font-bold text-base leading-snug mb-2" style={{ letterSpacing: "-0.02em" }}>
+                    Still have questions?
+                  </h3>
+                  <p className="text-white/45 text-sm leading-relaxed mb-5">
+                    Our team responds within 24 hours — no bots, just real answers.
+                  </p>
+                  <Link href="/contact" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-[#0F172A] text-xs font-bold hover:bg-gray-50 transition-colors group">
+                    Talk to us
+                    <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform"/>
+                  </Link>
+                </div>
+              </div>
             </div>
-            <Link href="/contact" className="btn-primary group shrink-0">
-              Talk to Us
-              <span className="btn-arrow"><ArrowRight size={16}/></span>
-            </Link>
-          </div>
 
-          <div className="flex flex-col">
-            {FAQS.map((faq, i) => (
-              <motion.div key={i}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: i * 0.05, duration: 0.35 }}
-                className="border-b border-gray-200 last:border-0">
-                <button
-                  className="w-full flex items-start justify-between gap-8 py-6 text-left group"
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}>
-                  <span className={`font-semibold text-base leading-snug transition-colors
-                    ${openFaq === i ? "text-[#0D0D1A]" : "text-[#374151] group-hover:text-[#0D0D1A]"}`}>
-                    {faq.q}
-                  </span>
-                  <span className={`shrink-0 w-8 h-8 rounded-full border flex items-center justify-center mt-0.5 transition-all
-                    ${openFaq === i
-                      ? "border-[#0D0D1A] bg-[#0D0D1A] text-white"
-                      : "border-gray-300 text-[#6B7180] group-hover:border-gray-500"}`}>
-                    {openFaq === i ? <Minus size={14}/> : <Plus size={14}/>}
-                  </span>
-                </button>
-                <AnimatePresence>
-                  {openFaq === i && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.22 }}
-                      className="overflow-hidden">
-                      <p className="pb-6 text-[#6B7180] text-base leading-relaxed max-w-3xl">
-                        {faq.a}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
+            {/* Right: accordion */}
+            <div className="flex flex-col">
+              {FAQS.map((faq, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ delay: i * 0.04, duration: 0.3 }}
+                  className={`border-b border-gray-200 last:border-0 ${openFaq === i ? "bg-white rounded-2xl border border-gray-100 shadow-[0_2px_16px_rgba(15,23,42,0.06)] mb-2 -mx-4 px-4" : ""}`}
+                >
+                  <button
+                    className="w-full flex items-center justify-between gap-6 py-5 text-left group"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className={`font-semibold text-[15px] leading-snug transition-colors
+                      ${openFaq === i ? "text-[#0D0D1A]" : "text-[#374151] group-hover:text-[#0D0D1A]"}`}>
+                      {faq.q}
+                    </span>
+                    <span className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200
+                      ${openFaq === i
+                        ? "bg-[#0D0D1A] text-white"
+                        : "bg-gray-100 text-[#6B7180] group-hover:bg-gray-200"}`}>
+                      {openFaq === i ? <Minus size={13}/> : <Plus size={13}/>}
+                    </span>
+                  </button>
+                  <AnimatePresence>
+                    {openFaq === i && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.22 }}
+                        className="overflow-hidden"
+                      >
+                        <p className="pb-5 text-[#6B7180] text-sm leading-relaxed">
+                          {faq.a}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              ))}
+            </div>
 
-          <p className="mt-10 text-center text-sm text-[#9CA3AF]">
-            Still have questions?{" "}
-            <Link href="/contact" className="text-[#0D0D1A] font-semibold underline underline-offset-2 hover:no-underline">
-              Send us a message
-            </Link>
-            {" "}- we respond within 24 hours.
-          </p>
+          </div>
         </div>
       </section>
 

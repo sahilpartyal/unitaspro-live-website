@@ -62,7 +62,6 @@ const servicesMega = [
 
 const navLinks = [
   { label: "Services",  href: "/services",   hasMega: true },
-  { label: "Portfolio", href: "/portfolio",  hasMega: false },
   { label: "About",     href: "/about",      hasMega: false },
   { label: "Blog",      href: "/blog",       hasMega: false },
   { label: "Contact",   href: "/contact",    hasMega: false },

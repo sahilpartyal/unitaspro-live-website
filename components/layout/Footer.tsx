@@ -5,7 +5,6 @@ import { siteConfig } from "@/lib/metadata";
 
 const links = [
   { label: "Services",  href: "/services" },
-  { label: "Portfolio", href: "/portfolio" },
   { label: "About",     href: "/about" },
   { label: "Blog",      href: "/blog" },
   { label: "Contact",   href: "/contact" },

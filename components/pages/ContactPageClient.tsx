@@ -21,9 +21,9 @@ const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 /* ── Data ── */
 
 const HERO_HIGHLIGHTS = [
-  { icon: Clock, title: "24hr Response", desc: "We reply to every enquiry within one business day", color: "#2563EB" },
-  { icon: MessageSquare, title: "Free Consultation", desc: "30-minute call to understand your goals — no strings", color: "#7C3AED" },
-  { icon: Globe2, title: "Global Clients", desc: "Serving UAE, Australia, UK, USA & India", color: "#059669" },
+  { icon: Clock, title: "24hr Response", desc: "Get a technical project reply within one day.", color: "#2563EB" },
+  { icon: MessageSquare, title: "Free Consultation", desc: "A 30-minute strategy session to map your goals.", color: "#7C3AED" },
+  { icon: Globe2, title: "Global Clients", desc: "Proudly scaling brands across five major international regions.", color: "#059669" },
 ];
 
 const CONTACT_INFO = [
@@ -212,7 +212,7 @@ export default function ContactPageClient() {
           >
             <p className="text-sm text-[#6B7180] flex items-center gap-3">
               <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block" />
-              Let&apos;s start a conversation
+              Ready To Build A Digital Legacy For Your Brand.
             </p>
             <div className="mt-3 w-64 h-px border-t border-dashed border-gray-300" />
           </motion.div>
@@ -230,9 +230,9 @@ export default function ContactPageClient() {
             }}
           >
             <span className="font-light text-[#9CA3AF]">
-              Let&apos;s talk about{" "}
+              We Build, You{" "}
             </span>
-            <span className="font-semibold text-[#0D0D1A]">your next project</span>
+            <span className="font-semibold text-[#0D0D1A]">Grow Faster</span>
           </motion.h1>
 
           {/* Dual CTAs */}
@@ -607,40 +607,40 @@ export default function ContactPageClient() {
       <section className="bg-[#F7F8FC] border-t border-gray-100">
         <div className="container-main py-16 lg:py-20">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>Common Questions</p>
+            <p className="text-sm text-[#6B7180] mb-3 flex items-center justify-center gap-2"><span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>No Surprises. Just Results.</p>
             <h2 className="heading-xl text-[#0D0D1A] mb-3">
-              Before you reach out
+              Before You Reach Out
             </h2>
             <p className="text-[#6B7180] text-lg">
-              Quick answers to common questions about working with us.
+              Learn more about our timelines, pricing, and international delivery standards.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               {
-                q: "How quickly do you respond?",
-                a: "Within 24 hours on business days. Most enquiries get a reply within a few hours.",
+                q: "How Quickly Do You Respond?",
+                a: "We guarantee a professional technical response within 24 business hours.",
               },
               {
-                q: "Is the consultation really free?",
-                a: "Yes — a 30-minute call to understand your project. No commitment, no pressure, no hidden fees.",
+                q: "Is The Consultation Really Free?",
+                a: "Yes, our initial 30-minute strategy session is complimentary with no commitment.",
               },
               {
-                q: "What information should I include?",
-                a: "Your project goals, timeline, and budget range. The more detail you share, the better our initial proposal.",
+                q: "What Information Should I Include?",
+                a: "Please provide your project goals, preferred timeline, and estimated budget range.",
               },
               {
-                q: "Do you work with international clients?",
-                a: "Absolutely. We serve clients in UAE, Australia, UK, USA, and India with timezone-flexible communication.",
+                q: "Do You Work With International Clients?",
+                a: "We currently serve partners in the UAE, Canada, UK, and India.",
               },
               {
-                q: "What happens after I send the form?",
-                a: "We review your details, then schedule a free discovery call to discuss scope, timeline, and pricing.",
+                q: "What Happens After I Send The Form?",
+                a: "Our engineers review your brief and schedule a discovery call session.",
               },
               {
-                q: "Do you sign NDAs?",
-                a: "Yes. We're happy to sign an NDA before any detailed discussions about your project.",
+                q: "Do You Sign NDA?",
+                a: "We provide signed NDA documents to protect your intellectual property immediately.",
               },
             ].map((faq, i) => (
               <motion.div

@@ -26,9 +26,9 @@ const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 /* ── Data ── */
 
 const HERO_HIGHLIGHTS = [
-  { icon: Lightbulb, title: "Senior-Only Team", desc: "5+ years experience on every project — no juniors", color: "#2563EB" },
-  { icon: Handshake, title: "Transparent Process", desc: "Fixed pricing, weekly updates, no surprises", color: "#7C3AED" },
-  { icon: Rocket, title: "Global Delivery", desc: "Serving UAE, Australia, UK, USA & India", color: "#059669" },
+  { icon: Lightbulb, title: "Senior-Only Team", desc: "Work directly with seniors having five or more years' experience.", color: "#2563EB" },
+  { icon: Handshake, title: "Transparent Process", desc: "We provide fixed quotes and consistent weekly progress reports.", color: "#7C3AED" },
+  { icon: Rocket, title: "Global Delivery", desc: "Serving high-growth brands in the UAE, UK, Australia, Canada, and India.", color: "#059669" },
 ];
 
 const stats = [
@@ -42,28 +42,28 @@ const values = [
   {
     icon: Heart,
     title: "Client-Centric",
-    desc: "Your success is our metric. We build products that solve real problems and move business forward.",
+    desc: "We align every technical decision with your business goals. If a feature doesn't help you grow, we don't build it.",
     accent: "#2563EB",
     accentBg: "#EFF6FF",
   },
   {
     icon: Shield,
     title: "Quality First",
-    desc: "No shortcuts. Every line of code and every pixel is delivered with craftsmanship and pride.",
+    desc: "We skip the shortcuts to avoid technical debt. Every line of code is written to be a long-term asset for your company.",
     accent: "#7C3AED",
     accentBg: "#F5F3FF",
   },
   {
     icon: MessageSquare,
     title: "Transparent",
-    desc: "Clear communication, honest timelines, proactive updates. No surprises — ever.",
+    desc: "Direct Slack access, honest timelines, and real-time updates. We kill the agency black box with total visibility.",
     accent: "#059669",
     accentBg: "#ECFDF5",
   },
   {
     icon: Globe2,
     title: "Global Thinking",
-    desc: "Built to international standards for clients in UAE, Australia, UK, USA and beyond.",
+    desc: "Engineering for the world stage. We deliver international-grade software for leaders in the UAE, Canada, UK, and beyond.",
     accent: "#D97706",
     accentBg: "#FFFBEB",
   },
@@ -73,22 +73,22 @@ const differentiators = [
   {
     icon: Target,
     title: "Results-Driven",
-    desc: "Every project is tied to real business outcomes — leads, revenue, retention.",
+    desc: "We align every technical choice with your bottom line. If it doesn't drive revenue or retention, we don't build it.",
   },
   {
     icon: Clock,
     title: "On-Time Delivery",
-    desc: "Structured delivery with weekly milestones and a fixed timeline you can count on.",
+    desc: "No \"black hole\" development. You get a fixed schedule with weekly updates, so you always know exactly where we are.",
   },
   {
     icon: Zap,
     title: "Senior-Only Team",
-    desc: "No juniors learning on your budget. Every team member has 5+ years of production experience.",
+    desc: "We don't use your project as a training ground. You get direct access to experts with 5+ years of real-world experience.",
   },
   {
     icon: TrendingUp,
     title: "Long-Term Partners",
-    desc: "We don't just build and leave — 30-day post-launch support and ongoing maintenance.",
+    desc: "A launch is just the start. We stay by your side with dedicated support to ensure your product scales as you grow.",
   },
 ];
 
@@ -173,7 +173,7 @@ export default function AboutPageClient() {
             className="mb-5">
             <p className="text-sm text-[#6B7180] flex items-center gap-3">
               <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
-              Your trusted IT partner since 2018
+              Expert Design, Software Development, And Marketing Since 2018
             </p>
             <div className="mt-3 w-64 h-px border-t border-dashed border-gray-300"/>
           </motion.div>
@@ -183,8 +183,8 @@ export default function AboutPageClient() {
             transition={{ duration: 0.65, delay: 0.06, ease: EASE }}
             className="max-w-4xl mb-8"
             style={{ fontSize: "clamp(2.8rem, 5.5vw, 4.5rem)", lineHeight: 1.06, letterSpacing: "-0.04em" }}>
-            <span className="font-light text-[#9CA3AF]">A team that cares about </span>
-            <span className="font-semibold text-[#0D0D1A]">your digital growth</span>
+            <span className="font-light text-[#9CA3AF]">Launch Faster. </span>
+            <span className="font-semibold text-[#0D0D1A]">Grow Much Bigger</span>
           </motion.h1>
 
           {/* Dual CTAs */}
@@ -286,14 +286,10 @@ export default function AboutPageClient() {
             >
               <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>Our Story</p>
               <h2 className="heading-xl font-black text-[#0D0D1A] mt-1 mb-5 leading-tight">
-                Built from a passion
-                <br />
-                for great software
+                Proven In The Real World. Trusted By The Best
               </h2>
               <p className="text-[#6B7180] text-base leading-relaxed mb-8">
-                What started as a small web development studio grew into a
-                full-service IT company trusted by businesses across 12+
-                countries.
+                We&apos;ve spent years in the trenches building for international markets. We take everything we&apos;ve learned from 30+ successful launches and apply it directly to your project.
               </p>
 
               {/* Mini stats */}
@@ -320,15 +316,15 @@ export default function AboutPageClient() {
               {[
                 {
                   year: "The Beginning",
-                  text: "Unitaspro was founded with a simple belief: great software should be accessible to every business, not just the ones with deep pockets. We started as a small web development studio in Mohali, driven by a passion for clean code and honest work.",
+                  text: "Unitaspro launched in 2018 as a Mohali-based company. We provide professional software & mobile app development along with digital marketing services for businesses of all sizes. Our foundation is built on clean code and transparent technical work.",
                 },
                 {
                   year: "Growing Global",
-                  text: "Today we work with startups, growing businesses, and established enterprises across the UAE, Australia, the UK, and beyond. Our team is made up of engineers, designers, and marketers who are genuinely passionate about what they build.",
+                  text: "We now serve startups and established enterprises across the UAE, Australia, Canada and the UK. Our team includes senior engineers, designers, and digital marketers focused on building reliable digital products for international markets.",
                 },
                 {
                   year: "Our Approach",
-                  text: "Every project we take on gets our full attention — we don't believe in cookie-cutter solutions. We listen, understand, and craft digital products that fit your exact needs. Your success is the only metric that matters.",
+                  text: "Every project receives a custom roadmap and our full attention. We do not use generic templates or shortcuts. We build specific digital solutions that match your exact business goals and metrics.",
                 },
               ].map((item, i) => (
                 <motion.div
@@ -377,13 +373,10 @@ export default function AboutPageClient() {
             <div className="max-w-lg">
               <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>Our Values</p>
               <h2 className="heading-xl text-[#0D0D1A] mb-3">
-                What guides
-                <br />
-                every decision
+                Doing It Right, Even When It&apos;s Harder.
               </h2>
               <p className="text-[#6B7180] text-lg">
-                Four principles that shape how we work, build, and grow
-                together.
+                Shortcuts lead to technical debt. We follow these principles to build products that last for years, not months.
               </p>
             </div>
           </div>
@@ -472,16 +465,12 @@ export default function AboutPageClient() {
               transition={{ duration: 0.6, ease: EASE }}
               className="lg:col-span-2 self-start lg:sticky lg:top-28"
             >
-              <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>Why Unitaspro</p>
+              <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>Why Choose Us</p>
               <h2 className="heading-xl font-black text-[#0D0D1A] mt-1 mb-5 leading-tight">
-                What makes us
-                <br />
-                different
+                Built For The Long Term, Not Just The Launch.
               </h2>
               <p className="text-[#6B7180] text-base leading-relaxed mb-8">
-                We don&apos;t just write code — we build products that compete
-                globally, delivered predictably with real expertise at every
-                stage.
+                No complex jargon or hidden costs. Just an experienced team dedicated to building high-quality products that help your business stand out and stay ahead.
               </p>
               <Link href="/contact" className="btn-primary group">
                 Start a Project
@@ -557,7 +546,7 @@ export default function AboutPageClient() {
       </section>
 
       {/* ═══════════════════ TEAM ═══════════════════ */}
-      <section className="section-pad bg-[#F7F8FC]">
+      <section className="section-pad bg-[#F7F8FC] hidden">
         <div className="container-main">
           {/* Header */}
           <div className="text-center max-w-2xl mx-auto mb-14">

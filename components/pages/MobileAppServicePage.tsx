@@ -8,7 +8,7 @@ import {
   ArrowRight, Plus, Minus, CheckCircle2, XCircle,
   Smartphone, Code2, Star, Bell, Wifi, CreditCard,
   Layers, RefreshCw, DollarSign, HeadphonesIcon, Zap, Search,
-  PhoneCall, FileText, Rocket,
+  PhoneCall, FileText, Rocket, MessageSquare,
 } from "lucide-react";
 import ProcessSteps from "@/components/sections/ProcessSteps";
 
@@ -45,10 +45,10 @@ const TECH_LOGOS = [
 ];
 
 const DIFFERENTIATORS = [
-  { Icon: CheckCircle2,   color: "#059669", bg: "#ECFDF5", title: "Senior-only mobile devs",         desc: "Every app built by engineers with 5+ years in React Native or Flutter. No juniors on your project." },
-  { Icon: HeadphonesIcon, color: "#7C3AED", bg: "#F5F3FF", title: "Dedicated project manager",       desc: "One named PM owns your project end-to-end — your single contact on Slack or WhatsApp." },
-  { Icon: DollarSign,     color: "#2563EB", bg: "#EFF6FF", title: "Fixed price, zero surprises",     desc: "Quote locked before work starts. Scope changes never silently inflate your invoice." },
-  { Icon: Zap,            color: "#D97706", bg: "#FFFBEB", title: "TestFlight access throughout",    desc: "Test on your own device at every sprint via TestFlight (iOS) and Play internal testing (Android)." },
+  { Icon: CheckCircle2,   color: "#059669", bg: "#ECFDF5", title: "Senior-only mobile devs",         desc: "Expert engineers with 5+ years of experience. No junior developers will ever touch your project." },
+  { Icon: HeadphonesIcon, color: "#7C3AED", bg: "#F5F3FF", title: "Dedicated project manager",       desc: "A single point of contact owning your project end-to-end via Slack or WhatsApp." },
+  { Icon: DollarSign,     color: "#2563EB", bg: "#EFF6FF", title: "Fixed price, zero surprises",     desc: "Your quote is locked before work starts. Scope changes will never silently inflate your invoice." },
+  { Icon: Zap,            color: "#D97706", bg: "#FFFBEB", title: "TestFlight access throughout",    desc: "Test every sprint on your own device via TestFlight (iOS) and Google Play internal testing." },
 ];
 
 const PROBLEMS = [
@@ -75,15 +75,15 @@ const PROBLEMS = [
 ];
 
 const SERVICES = [
-  { Icon: Smartphone,   title: "iOS & Android Development",  desc: "Cross-platform apps using React Native or Flutter — native performance on both platforms from one codebase.",                             color: "#059669", bg: "#ECFDF5" },
-  { Icon: Star,         title: "Custom UX Design",           desc: "Every screen designed for real users. Onboarding flows, gestures, and interactions that feel effortless.",                                 color: "#7C3AED", bg: "#F5F3FF" },
-  { Icon: Bell,         title: "Push Notifications",         desc: "Targeted, personalised push campaigns that bring users back — without the spam that drives uninstalls.",                                   color: "#2563EB", bg: "#EFF6FF" },
-  { Icon: Wifi,         title: "Offline Mode Support",       desc: "Apps that work without a connection and sync automatically when back online.",                                                             color: "#D97706", bg: "#FFFBEB" },
-  { Icon: CreditCard,   title: "Payment Integration",        desc: "Stripe, Apple Pay, Google Pay, and regional gateways — secure, PCI-compliant from launch.",                                               color: "#059669", bg: "#ECFDF5" },
-  { Icon: Code2,        title: "Real-Time Features",         desc: "Live chat, activity feeds, and real-time data using WebSockets and Firebase — fast and reliable.",                                        color: "#7C3AED", bg: "#F5F3FF" },
-  { Icon: Layers,       title: "Backend API Development",    desc: "We build the server, database, and API your app needs — or connect to your existing backend.",                                            color: "#2563EB", bg: "#EFF6FF" },
-  { Icon: Zap,          title: "App Store Submission",       desc: "End-to-end App Store and Play Store submission including ASO, screenshots, and compliance review.",                                       color: "#D97706", bg: "#FFFBEB" },
-  { Icon: RefreshCw,    title: "Post-Launch Maintenance",    desc: "OS update compatibility, bug fixes, and feature additions — retainers from $300/month after launch.",                                     color: "#059669", bg: "#ECFDF5" },
+  { Icon: Smartphone,   title: "iOS & Android Development",  desc: "One codebase, two platforms. We build with React Native so your app runs natively on iPhone and Android without doubling the cost.",      color: "#059669", bg: "#ECFDF5" },
+  { Icon: Wifi,         title: "Offline Mode Support",       desc: "Your app works even without internet. Data syncs automatically when the connection comes back, so users are never stuck.",                 color: "#D97706", bg: "#FFFBEB" },
+  { Icon: Layers,       title: "Backend API Development",    desc: "We build the full backend behind your app — the server, database, and API — or connect it to systems you already use.",                   color: "#2563EB", bg: "#EFF6FF" },
+  { Icon: Star,         title: "Custom UX Design",           desc: "Every screen is designed around how your users actually think and move. Clean, intuitive, and tested before a single line of code is written.", color: "#7C3AED", bg: "#F5F3FF" },
+  { Icon: CreditCard,   title: "Payment Integration",        desc: "Accept payments through Stripe, Apple Pay, Google Pay, or local gateways. PCI-compliant and ready to transact from day one.",             color: "#059669", bg: "#ECFDF5" },
+  { Icon: Zap,          title: "App Store Submission",       desc: "We handle the full App Store and Play Store submission, including screenshots, metadata, compliance checks, and approval follow-up.",      color: "#D97706", bg: "#FFFBEB" },
+  { Icon: Bell,         title: "Push Notifications",         desc: "Smart, targeted push messages that bring users back at the right moment. Personalised by behaviour, not just broadcast to everyone.",      color: "#2563EB", bg: "#EFF6FF" },
+  { Icon: Code2,        title: "Real-Time Features",         desc: "Live chat, instant updates, and real-time feeds built with WebSockets and Firebase. Fast, reliable, and scales with your user base.",      color: "#7C3AED", bg: "#F5F3FF" },
+  { Icon: RefreshCw,    title: "Post-Launch Maintenance",    desc: "We stay with you after launch. OS updates, bug fixes, and new features handled on a monthly retainer so your app never falls behind.",     color: "#059669", bg: "#ECFDF5" },
 ];
 
 const PROCESS = [
@@ -95,24 +95,36 @@ const PROCESS = [
 
 const FAQS = [
   {
-    q: "Do you build for both iOS and Android?",
-    a: "Yes. We use React Native or Flutter to build one codebase that works on both platforms — cutting development cost by up to 40% without sacrificing quality or native performance.",
+    q: "Will My App Work On Both iOS And Android?",
+    a: "Yes. We use cross-platform frameworks like React Native or Flutter. You get one codebase that runs perfectly on both stores, cutting your development and maintenance costs in half.",
   },
   {
-    q: "Can I see the app during development?",
-    a: "Yes. We share builds via TestFlight (iOS) and Google Play internal testing throughout development so you can test on your own device and give feedback at every sprint.",
+    q: "What If I Need To Change The Scope Mid-Project?",
+    a: "We work in agile sprints. If you need to pivot or add a feature, we will discuss the impact on the timeline and budget immediately. No \"silent\" invoices or surprise charges.",
   },
   {
-    q: "How long does app development take?",
-    a: "A typical app takes 6–10 weeks depending on complexity. Simple utility apps ship in 4–6 weeks; feature-rich apps with payments, real-time features, and custom backends take longer. We provide a detailed timeline upfront.",
+    q: "Can You Integrate With My Existing Software?",
+    a: "Yes. Whether it's a custom CRM, a legacy database, or third-party APIs like Stripe and Twilio, we build the bridges (APIs) to make sure your data flows securely.",
   },
   {
-    q: "Do you handle App Store and Google Play submission?",
-    a: "Yes, completely. App Store and Google Play submission — including screenshots, descriptions, app icons, and ASO metadata — is included in every project.",
+    q: "How Do You Ensure The App Doesn't Crash?",
+    a: "We don't just test on simulators. We test on a fleet of 20+ physical iOS and Android devices to ensure performance, battery life, and stability are solid in the real world.",
   },
   {
-    q: "What about updates after launch?",
-    a: "We offer post-launch maintenance retainers from $300/month covering OS update compatibility, bug fixes, feature additions, and performance monitoring. We recommend at least a 3-month retainer after launch.",
+    q: "What Happens If Apple Or Google Rejects The App?",
+    a: "We handle the entire submission process. If there's a rejection based on guidelines, we fix it and manage the appeal until your app is live. It's part of the service.",
+  },
+  {
+    q: "How Do We Communicate During The Build?",
+    a: "You'll have a dedicated Project Manager and a direct Slack or WhatsApp channel. No \"support tickets\" — just direct, human conversation with the people running your project.",
+  },
+  {
+    q: "Do You Provide The Backend And Servers?",
+    a: "Yes. We build the entire engine — the servers, databases, and security layers. We can host it on your infrastructure (AWS/Google Cloud) or set it up for you.",
+  },
+  {
+    q: "How Do I Know People Will Actually Use It?",
+    a: "We don't just code. We start with UX discovery to map out user flows. By solving real friction points before we build, we ensure the app is a tool users actually want to keep.",
   },
 ];
 
@@ -338,8 +350,8 @@ export default function MobileAppServicePage() {
 
           <motion.div {...fadeUp(0.05)} className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
             <h2 className="max-w-2xl" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.03em" }}>
-              <span className="font-light text-[#9CA3AF]">Everything your app needs, </span>
-              <span className="font-semibold text-[#0D0D1A]">nothing it doesn&apos;t</span>
+              <span className="font-light text-[#9CA3AF]">Apps Designed To </span>
+              <span className="font-semibold text-[#0D0D1A]">Stay On The Home Screen</span>
             </h2>
             <Link href="/contact" className="text-sm font-semibold text-[#0D0D1A] flex items-center gap-1.5 shrink-0 hover:gap-2.5 transition-all">
               Get a proposal <ArrowRight size={14}/>
@@ -381,21 +393,21 @@ export default function MobileAppServicePage() {
           <motion.div {...fadeUp()}>
             <h2 className="font-semibold text-white mb-4"
               style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", lineHeight: 1.15 }}>
-              Ready to build an app your users actually love?
+              Let&apos;s Build A Product That Users Never Delete
             </h2>
             <p className="text-white/70 text-base mb-8 max-w-lg mx-auto">
-              Fixed pricing. TestFlight access throughout. We&apos;ll scope your app in 48 hours — no strings attached.
+              We offer fixed-price development with zero hidden fees. Get your 48-hour scope today.
             </p>
             <div className="flex items-center justify-center gap-3">
               <Link href="/contact"
                 className="inline-flex items-center gap-2 font-semibold text-sm px-7 py-3.5 rounded-full
                   bg-white text-[#059669] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,255,255,0.2)] transition-all duration-200">
-                Get a Free Scope <ArrowRight size={15}/>
+                Request a quote <ArrowRight size={15}/>
               </Link>
               <a href="tel:+918264954344"
                 className="inline-flex items-center gap-2 font-semibold text-sm text-white/90 border border-white/30
                   px-6 py-3.5 rounded-full hover:bg-white/10 transition-all duration-200">
-                Talk to a Mobile Dev
+                Book a demo
               </a>
             </div>
           </motion.div>
@@ -440,15 +452,15 @@ export default function MobileAppServicePage() {
             <motion.div {...fadeUp(0.15)}>
               <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
-                Why teams choose us
+                Why Choose Us
               </p>
               <div className="mt-3 w-48 h-px border-t border-dashed border-gray-300 mb-6"/>
 
               <h2 className="mb-4" style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)", lineHeight: 1.1, letterSpacing: "-0.03em" }}>
-                <span className="font-semibold text-[#0D0D1A]">Apps built around your users, not just your feature list</span>
+                <span className="font-semibold text-[#0D0D1A]">A Team That Listens First And Builds Second</span>
               </h2>
               <p className="text-[#6B7180] text-base leading-relaxed mb-8">
-                We don&apos;t just code what&apos;s on the spec sheet. Every screen is designed around how real users think and move — resulting in apps with higher retention, better reviews, and users who actually stay.
+                We don&apos;t just jump into the work. We take the time to hear your ideas and understand your goals first — resulting in a better experience for you, fewer changes later on, and a tool that works exactly how you want.
               </p>
 
               {/* Key differentiators */}
@@ -589,70 +601,94 @@ export default function MobileAppServicePage() {
 
 
       {/* -------------------------------------------------
-          S10  FAQ - Homepage style
+          S10  FAQ - Homepage style (2-col)
       */}
-      <section className="section-pad bg-white">
+      <section className="section-pad bg-[#F7F8FC]">
         <div className="container-main">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 pb-10 border-b border-gray-200">
-            <div>
-              <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>FAQ</p>
-              <h2 className="heading-xl font-black text-[#0D0D1A]">
-                Frequently asked questions
+          <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-12 lg:gap-20 items-start">
+
+            {/* Left sticky panel */}
+            <div className="lg:sticky lg:top-28">
+              <span className="section-label mb-5 inline-flex">FAQ</span>
+              <h2 className="heading-xl font-black text-[#0D0D1A] mb-5 leading-tight">
+                Frequently asked<br />questions
               </h2>
+              <p className="text-[#6B7180] text-base leading-relaxed mb-8">
+                Can&apos;t find what you&apos;re looking for? We&apos;re always happy to help directly.
+              </p>
+
+              {/* CTA card */}
+              <div className="relative rounded-2xl overflow-hidden p-6"
+                style={{ background: "linear-gradient(140deg,#0F172A 0%,#1e2d5a 100%)" }}>
+                <div aria-hidden className="pointer-events-none absolute inset-0"
+                  style={{
+                    backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)",
+                    backgroundSize: "24px 24px",
+                  }}/>
+                <div className="relative z-10">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center mb-4">
+                    <MessageSquare size={18} className="text-white/70"/>
+                  </div>
+                  <h3 className="text-white font-bold text-base leading-snug mb-2" style={{ letterSpacing: "-0.02em" }}>
+                    Still have questions?
+                  </h3>
+                  <p className="text-white/45 text-sm leading-relaxed mb-5">
+                    Our team responds within 24 hours — no bots, just real answers.
+                  </p>
+                  <Link href="/contact" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-[#0F172A] text-xs font-bold hover:bg-gray-50 transition-colors group">
+                    Talk to us
+                    <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform"/>
+                  </Link>
+                </div>
+              </div>
             </div>
-            <Link href="/contact" className="btn-primary group shrink-0">
-              Get a free quote
-              <span className="btn-arrow"><ArrowRight size={16}/></span>
-            </Link>
-          </div>
 
-          <div className="flex flex-col">
-            {FAQS.map((faq, i) => (
-              <motion.div key={i}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: i * 0.05, duration: 0.35 }}
-                className="border-b border-gray-200 last:border-0">
-                <button
-                  className="w-full flex items-start justify-between gap-8 py-6 text-left group"
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}>
-                  <span className={`font-semibold text-base leading-snug transition-colors
-                    ${openFaq === i ? "text-[#0D0D1A]" : "text-[#374151] group-hover:text-[#0D0D1A]"}`}>
-                    {faq.q}
-                  </span>
-                  <span className={`shrink-0 w-8 h-8 rounded-full border flex items-center justify-center mt-0.5 transition-all
-                    ${openFaq === i
-                      ? "border-[#0D0D1A] bg-[#0D0D1A] text-white"
-                      : "border-gray-300 text-[#6B7180] group-hover:border-gray-500"}`}>
-                    {openFaq === i ? <Minus size={14}/> : <Plus size={14}/>}
-                  </span>
-                </button>
-                <AnimatePresence>
-                  {openFaq === i && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.22 }}
-                      className="overflow-hidden">
-                      <p className="pb-6 text-[#6B7180] text-base leading-relaxed max-w-3xl">
-                        {faq.a}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
+            {/* Right: accordion */}
+            <div className="flex flex-col">
+              {FAQS.map((faq, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ delay: i * 0.04, duration: 0.3 }}
+                  className={`border-b border-gray-200 last:border-0 ${openFaq === i ? "bg-white rounded-2xl border border-gray-100 shadow-[0_2px_16px_rgba(15,23,42,0.06)] mb-2 -mx-4 px-4" : ""}`}
+                >
+                  <button
+                    className="w-full flex items-center justify-between gap-6 py-5 text-left group"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className={`font-semibold text-[15px] leading-snug transition-colors
+                      ${openFaq === i ? "text-[#0D0D1A]" : "text-[#374151] group-hover:text-[#0D0D1A]"}`}>
+                      {faq.q}
+                    </span>
+                    <span className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200
+                      ${openFaq === i
+                        ? "bg-[#0D0D1A] text-white"
+                        : "bg-gray-100 text-[#6B7180] group-hover:bg-gray-200"}`}>
+                      {openFaq === i ? <Minus size={13}/> : <Plus size={13}/>}
+                    </span>
+                  </button>
+                  <AnimatePresence>
+                    {openFaq === i && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.22 }}
+                        className="overflow-hidden"
+                      >
+                        <p className="pb-5 text-[#6B7180] text-sm leading-relaxed">
+                          {faq.a}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              ))}
+            </div>
 
-          <p className="mt-10 text-center text-sm text-[#9CA3AF]">
-            Still have questions?{" "}
-            <Link href="/contact" className="text-[#0D0D1A] font-semibold underline underline-offset-2 hover:no-underline">
-              Send us a message
-            </Link>
-            {" "}- we respond within 24 hours.
-          </p>
+          </div>
         </div>
       </section>
 
