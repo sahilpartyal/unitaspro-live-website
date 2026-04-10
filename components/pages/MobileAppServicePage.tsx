@@ -53,24 +53,24 @@ const DIFFERENTIATORS = [
 
 const PROBLEMS = [
   {
-    problem:  "Your app crashes on real devices",
-    solution: "Tested on 20+ real iOS and Android devices before every release — not just simulators.",
+    problem:  "Frequent Crashes On Real Devices",
+    solution: "We test on 20+ physical iOS and Android devices — never relying solely on simulators.",
   },
   {
-    problem:  "Users install once, then never open it again",
-    solution: "UX-first development: wireframes, user flows, and onboarding tested before a line of code is written.",
+    problem:  "High Abandonment After The First Open",
+    solution: "UX-led engineering. We validate wireframes and user flows before writing a single line of code.",
   },
   {
-    problem:  "Building for iOS and Android separately doubles costs",
-    solution: "React Native or Flutter: one codebase for both platforms, up to 40% cheaper with no loss in native performance.",
+    problem:  "Doubled Costs for iOS and Android",
+    solution: "We use React Native or Flutter to build a high-performance codebase that serves both stores.",
   },
   {
-    problem:  "App Store rejections delay your launch",
-    solution: "We own the full submission process — guidelines compliance, screenshots, metadata, and appeals if needed.",
+    problem:  "Delayed Launches Due To App Store Rejections",
+    solution: "We handle the full submission, from compliance and metadata to managing appeals if needed.",
   },
   {
-    problem:  "The app breaks with every iOS or Android update",
-    solution: "Post-launch monitoring and a retainer plan that keeps your app current with every major OS release.",
+    problem:  "Apps Breaking After Every iOS or Android Update",
+    solution: "Active post-launch monitoring ensures your app stays current with every major iOS or Android release.",
   },
 ];
 
@@ -260,16 +260,16 @@ export default function MobileAppServicePage() {
         <div className="container-main relative">
           <motion.div {...fadeUp()} className="mb-3 flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
-            <p className="text-sm text-[#6B7180]">The problem &amp; the fix</p>
+            <p className="text-sm text-[#6B7180]">The Problem &amp; The Fix</p>
           </motion.div>
 
           <motion.div {...fadeUp(0.05)} className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
             <h2 className="max-w-xl" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.03em" }}>
-              <span className="font-light text-[#9CA3AF]">Most apps get installed once. </span>
-              <span className="font-semibold text-[#0D0D1A]">Yours should keep them coming back.</span>
+              <span className="font-light text-[#9CA3AF]">If It&apos;s Hard To Use, </span>
+              <span className="font-semibold text-[#0D0D1A]">They Won&apos;t Use It. It&apos;s That Simple.</span>
             </h2>
             <p className="text-sm text-[#9CA3AF] max-w-xs">
-              Here are the 5 problems every mobile app project has — and exactly how we fix them.
+              We remove the complexity that kills user engagement, ensuring your app delivers value in seconds.
             </p>
           </motion.div>
 
