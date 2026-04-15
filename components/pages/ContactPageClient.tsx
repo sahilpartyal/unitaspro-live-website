@@ -34,8 +34,8 @@ const CONTACT_INFO = [
 
 const TRUST_POINTS = [
   { icon: Shield, text: "Fixed pricing — no hidden costs" },
-  { icon: CheckCircle2, text: "120+ projects delivered on time" },
-  { icon: Globe2, text: "Clients in 12+ countries" },
+  { icon: CheckCircle2, text: "150+ projects delivered on time" },
+  { icon: Globe2, text: "Clients in 15+ countries" },
 ];
 
 const COUNTRIES = [

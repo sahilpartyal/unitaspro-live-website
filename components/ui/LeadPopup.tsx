@@ -94,7 +94,7 @@ export default function LeadPopup() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9998]"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30"
             onClick={dismiss}
           />
 
@@ -104,7 +104,7 @@ export default function LeadPopup() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 24, scale: 0.96 }}
             transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+            className="fixed inset-0 z-30 flex items-center justify-center p-4 overflow-x-hidden overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative w-full max-w-[780px] bg-white rounded-3xl shadow-[0_40px_100px_rgba(15,23,42,0.25)] overflow-hidden grid grid-cols-1 md:grid-cols-[1fr_1.1fr]">

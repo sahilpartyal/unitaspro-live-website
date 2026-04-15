@@ -107,11 +107,11 @@ export default function Testimonials() {
           </div>
           <div className="w-px h-6 bg-gray-200 hidden sm:block"/>
           <div className="text-sm text-[#6B7180]">
-            <span className="font-semibold text-[#0D0D1A]">80+</span> happy clients
+            <span className="font-semibold text-[#0D0D1A]">95+</span> happy clients
           </div>
           <div className="w-px h-6 bg-gray-200 hidden sm:block"/>
           <div className="text-sm text-[#6B7180]">
-            <span className="font-semibold text-[#0D0D1A]">98%</span> client satisfaction
+            <span className="font-semibold text-[#0D0D1A]">97%</span> client satisfaction
           </div>
           <div className="w-px h-6 bg-gray-200 hidden sm:block"/>
           <div className="text-sm text-[#6B7180]">

@@ -4,10 +4,11 @@ import { Linkedin, Instagram, Twitter } from "lucide-react";
 import { siteConfig } from "@/lib/metadata";
 
 const links = [
-  { label: "Services",  href: "/services" },
-  { label: "About",     href: "/about" },
-  { label: "Blog",      href: "/blog" },
-  { label: "Contact",   href: "/contact" },
+  { label: "Services",   href: "/services" },
+  { label: "Industries", href: "/industries" },
+  { label: "About",      href: "/about" },
+  { label: "Blog",       href: "/blog" },
+  { label: "Contact",    href: "/contact" },
 ];
 
 const social = [
