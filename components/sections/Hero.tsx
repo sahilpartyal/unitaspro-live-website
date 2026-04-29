@@ -1,133 +1,209 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, CheckCircle, Phone } from "lucide-react";
+import { ArrowUpRight, Star } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
-const rotatingWords = ["Websites", "Software", "Mobile Apps", "Digital Products"];
+const rotatingWords = ["future,", "software,", "mobile apps,", "the web,"];
 
 export default function Hero() {
   const [wordIndex, setWordIndex] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(() => setWordIndex(i => (i + 1) % rotatingWords.length), 2400);
+    const t = setInterval(
+      () => setWordIndex((i) => (i + 1) % rotatingWords.length),
+      2800
+    );
     return () => clearInterval(t);
   }, []);
 
   return (
     <section
-      className="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-32"
+      className="relative flex flex-col min-h-screen px-6 pt-28 pb-10 md:px-14 lg:px-[88px] lg:pt-[108px] lg:pb-12 overflow-hidden"
       style={{ background: "linear-gradient(160deg,#ECEEF8 0%,#F4F5FC 55%,#EDF0FB 100%)" }}
     >
       {/* Dot grid */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 opacity-35"
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: "radial-gradient(circle,#b8bcdf 1px,transparent 1px)",
+          backgroundImage: "radial-gradient(circle,#bfc3e0 1px,transparent 1px)",
           backgroundSize: "30px 30px",
-          maskImage: "radial-gradient(ellipse 90% 90% at 50% 50%,black 20%,transparent 100%)",
-          WebkitMaskImage: "radial-gradient(ellipse 90% 90% at 50% 50%,black 20%,transparent 100%)",
+          opacity: 0.2,
         }}
       />
-      {/* Glow */}
-      <div aria-hidden className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full opacity-20"
-        style={{ background: "radial-gradient(ellipse,#a5b4fc 0%,transparent 65%)" }}/>
 
-      {/* Abstract SVG rings */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg"
-          className="absolute w-full max-w-5xl opacity-[0.04]" preserveAspectRatio="xMidYMid slice">
-          <circle cx="450" cy="300" r="280" fill="none" stroke="#1A56DB" strokeWidth="1.5"/>
-          <circle cx="450" cy="300" r="210" fill="none" stroke="#1A56DB" strokeWidth="0.9"/>
-          <circle cx="450" cy="300" r="140" fill="none" stroke="#1A56DB" strokeWidth="0.6"/>
-          <circle cx="450" cy="300" r="350" fill="none" stroke="#1A56DB" strokeWidth="0.4" strokeDasharray="4 12"/>
-          <line x1="170" y1="300" x2="730" y2="300" stroke="#1A56DB" strokeWidth="0.5" strokeDasharray="6 8"/>
-          <line x1="450" y1="20" x2="450" y2="580" stroke="#1A56DB" strokeWidth="0.5" strokeDasharray="6 8"/>
-        </svg>
-      </div>
+      {/* Purple glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-48 -right-24 w-[600px] h-[500px] rounded-full"
+        style={{ background: "radial-gradient(ellipse,rgba(165,180,252,0.18) 0%,transparent 65%)" }}
+      />
 
-      {/* ── Centred content — wide container ── */}
-      <div className="container-main relative">
-        <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
+      {/* ── Eyebrow ── */}
+      <motion.div
+        initial={{ opacity: 0, x: -16 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.55, ease: "easeOut" }}
+        className="relative z-10 flex items-center gap-3.5 mb-10 lg:mb-12"
+      >
+        <div className="w-9 h-[2.5px] rounded-full flex-shrink-0 bg-[#2563EB]" />
+        <span
+          className="font-bold uppercase text-gray-400 tracking-[0.13em]"
+          style={{ fontSize: 11 }}
+        >
+          An IT Services Agency&nbsp;&nbsp;·&nbsp;&nbsp;Est. 2018
+        </span>
+      </motion.div>
 
-          {/* Eyebrow badge */}
-          <motion.div initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.4 }}>
-            <span className="inline-flex items-center gap-2 bg-white border border-brand-100 text-brand-700 font-semibold text-[11px] px-4 py-2 rounded-full tracking-widest uppercase shadow-sm mb-7">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500 inline-block animate-pulse"/>
-              WORLD-WIDE DIGITAL EXPERTISE 
-            </span>
-          </motion.div>
+      {/* ── Hero body ── */}
+      <div className="relative z-10 flex flex-col lg:flex-row lg:items-end flex-1 gap-12 lg:gap-0">
 
-          {/* Headline — 2 lines at wide viewport */}
-          <motion.h1
-            initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }}
-            transition={{ duration:0.6, delay:0.08 }}
-            className="font-black text-[#0D0D1A] mb-5"
-            style={{ fontSize:"clamp(2.8rem,6vw,5rem)", lineHeight:1.06, letterSpacing:"-0.03em" }}
-          >
-            We Build{" "}
-            <AnimatePresence mode="wait">
+        {/* LEFT: Headline + CTAs */}
+        <div className="flex-none">
+
+          <h1 className="mb-12 lg:mb-16" style={{ lineHeight: 1.0, letterSpacing: "-0.044em" }}>
+
+            {/* Line 1 */}
+            <span className="block overflow-hidden" style={{ paddingBottom: "0.05em" }}>
               <motion.span
-                key={wordIndex}
-                initial={{ opacity:0, y:16 }}
-                animate={{ opacity:1, y:0 }}
-                exit={{ opacity:0, y:-16 }}
-                transition={{ duration:0.3 }}
-                className="text-gradient inline-block"
+                className="block font-extrabold text-[#0A0F1E]"
+                style={{ fontSize: "clamp(42px, 8.5vw, 112px)" }}
+                initial={{ y: "110%" }}
+                animate={{ y: "0%" }}
+                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
               >
-                {rotatingWords[wordIndex]}
+                Building
               </motion.span>
-            </AnimatePresence>
-            {" "}That Grow Your Business
-          </motion.h1>
+            </span>
 
-          {/* Sub — max 2 lines */}
-          <motion.p
-            initial={{ opacity:0, y:14 }} animate={{ opacity:1, y:0 }}
-            transition={{ duration:0.5, delay:0.18 }}
-            className="text-[#4B5163] text-xl leading-relaxed mb-9 max-w-2xl"
-          >
-            Your partner for custom websites, apps, software, and marketing strategies. We deliver full-stack tech solutions that turn ambitious ideas into global success stories.
+            {/* Line 2 — rotating italic word */}
+            <span className="block overflow-hidden" style={{ paddingBottom: "0.05em" }}>
+              <motion.span
+                className="block font-extrabold text-[#0A0F1E]"
+                style={{ fontSize: "clamp(42px, 8.5vw, 112px)" }}
+                initial={{ y: "110%" }}
+                animate={{ y: "0%" }}
+                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+              >
+                the digital{" "}
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={wordIndex}
+                    initial={{ opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="inline-block italic text-[#2563EB]"
+                  >
+                    {rotatingWords[wordIndex]}
+                  </motion.span>
+                </AnimatePresence>
+              </motion.span>
+            </span>
 
-          </motion.p>
+            {/* Line 3 */}
+            <span className="block overflow-hidden" style={{ paddingBottom: "0.05em" }}>
+              <motion.span
+                className="block font-extrabold text-[#0A0F1E]"
+                style={{ fontSize: "clamp(42px, 8.5vw, 112px)" }}
+                initial={{ y: "110%" }}
+                animate={{ y: "0%" }}
+                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
+              >
+                with precision.
+              </motion.span>
+            </span>
+          </h1>
 
           {/* CTAs */}
           <motion.div
-            initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }}
-            transition={{ duration:0.45, delay:0.26 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.65, ease: "easeOut" }}
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-3.5"
           >
-            <Link href="/contact" className="btn-primary group">
-              Get Free Quote
-              <span className="btn-arrow"><ArrowRight size={16}/></span>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-[#0A0F1E] hover:bg-[#2563EB] text-white font-bold text-sm rounded-[10px] transition-all duration-200 hover:-translate-y-0.5"
+              style={{
+                padding: "15px 28px",
+                letterSpacing: "-0.01em",
+                boxShadow: "0 4px 14px rgba(10,15,30,0.22)",
+              }}
+            >
+              Get Free Quote <ArrowUpRight size={15} />
             </Link>
             <a
               href="tel:+918264954344"
-              className="inline-flex items-center gap-2.5 bg-white text-[#0D0D1A] font-semibold text-sm px-5 py-3 rounded-full border border-gray-200 shadow-sm transition-all duration-200 hover:border-gray-400 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 bg-transparent text-[#0A0F1E] hover:text-[#2563EB] font-bold text-sm rounded-[10px] transition-all duration-200 hover:-translate-y-0.5 border-2 hover:border-[#2563EB]"
+              style={{
+                padding: "14px 28px",
+                letterSpacing: "-0.01em",
+                borderColor: "rgba(10,15,30,0.18)",
+              }}
             >
-              <div className="w-7 h-7 rounded-full bg-brand-50 flex items-center justify-center">
-                <Phone size={13} className="text-brand-600"/>
-              </div>
               Book a Free Call
             </a>
           </motion.div>
-
-          {/* Trust micro-badges */}
-          <motion.div
-            initial={{ opacity:0 }} animate={{ opacity:1 }}
-            transition={{ duration:0.4, delay:0.36 }}
-            className="flex flex-wrap justify-center gap-x-6 gap-y-2"
-          >
-            {["Expert Project Evaluation","No Obligation, Just Value","Guaranteed Feedback"].map(t => (
-              <div key={t} className="flex items-center gap-1.5 text-xs text-[#6B7180] font-medium">
-                <CheckCircle size={13} className="text-brand-600 shrink-0"/>
-                {t}
-              </div>
-            ))}
-          </motion.div>
-
         </div>
+
+        {/* RIGHT: Description — bottom-aligned on desktop */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+          className="lg:pl-20 lg:pb-2 max-w-[340px]"
+        >
+          <p className="text-gray-500" style={{ fontSize: 15.5, lineHeight: 1.72 }}>
+            Unitaspro is a full-service IT agency building websites, mobile apps,
+            and software for companies that refuse to ship the average.
+          </p>
+        </motion.div>
       </div>
+
+      {/* ── Trust strip ── */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.85, ease: "easeOut" }}
+        className="relative z-10 flex flex-wrap items-center gap-6 pt-12 lg:pt-20 mt-auto"
+      >
+        {/* Stars */}
+        <div className="flex items-center gap-2">
+          <div className="flex gap-px">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} size={12} className="fill-amber-400 text-amber-400" />
+            ))}
+          </div>
+          <span className="text-[12px] font-medium text-gray-400">
+            95+ happy clients worldwide
+          </span>
+        </div>
+
+        <div className="hidden lg:block w-px h-5 bg-black/10" />
+
+        {/* Stats */}
+        {[
+          { num: "150+", label: "Projects Delivered" },
+          { num: "97%",  label: "Client Satisfaction" },
+          { num: "8+",   label: "Years Experience" },
+        ].map(({ num, label }, i) => (
+          <div key={i} className="flex items-center gap-6">
+            <div className="flex items-center gap-2">
+              <span
+                className="font-extrabold text-[#0A0F1E] leading-none"
+                style={{ fontSize: 22, letterSpacing: "-0.04em" }}
+              >
+                {num}
+              </span>
+              <span className="text-[12px] font-medium text-gray-400">{label}</span>
+            </div>
+            {i < 2 && <div className="hidden lg:block w-px h-5 bg-black/10" />}
+          </div>
+        ))}
+      </motion.div>
     </section>
   );
 }

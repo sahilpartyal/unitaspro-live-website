@@ -44,7 +44,7 @@ export default function ProcessSteps() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
           <div className="max-w-2xl">
             <span className="section-label mb-4">How It Works</span>
-            <h2 className="heading-xl font-black text-[#0D0D1A] mb-3 leading-tight">
+            <h2 className="heading-xl font-bold text-[#0D0D1A] mb-3 leading-tight">
               Turning complex ideas into<br />seamless digital reality
             </h2>
             <p className="text-[#6B7180] text-lg">
@@ -88,7 +88,7 @@ export default function ProcessSteps() {
                   >
                     <step.Icon size={20} style={{ color: step.color }} />
                   </div>
-                  <span className="text-3xl font-black tabular-nums text-gray-100 group-hover/step:text-gray-200 transition-colors select-none leading-none">
+                  <span className="text-3xl font-bold tabular-nums text-gray-100 group-hover/step:text-gray-200 transition-colors select-none leading-none">
                     {step.num}
                   </span>
                 </div>

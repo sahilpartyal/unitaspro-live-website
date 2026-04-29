@@ -11,9 +11,9 @@ import BlogPreviewWrapper from "@/components/sections/BlogPreviewWrapper";
 import FAQ             from "@/components/sections/FAQ";
 
 export const metadata: Metadata = {
-  title: "Unitaspro — IT Services Company | Web Design, Software Development, Mobile Apps",
+  title: "Unitaspro — Custom Software & App Development",
   description:
-    "Unitaspro is a results-driven IT services company in Mohali, India. We build websites, custom software, mobile apps, and run digital marketing for businesses in UAE, Australia, UK & USA.",
+    "Custom software, mobile apps & web development for businesses worldwide. Fixed price, 4-12 week delivery. Get a free quote today.",
   alternates: { canonical: "https://unitaspro.com" },
 };
 

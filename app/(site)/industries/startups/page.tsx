@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import StartupsIndustryPage from "@/components/pages/StartupsIndustryPage";
 
-export const metadata: Metadata = {
-  title: "Startup & SaaS Software Development | Unitaspro",
+export const metadata = buildMetadata({
+  title: "Startup & SaaS Development",
   description:
-    "Custom MVP builds, SaaS platforms, and growth-stage product development for startups and founders. Production-grade architecture, launched in 4 weeks.",
-  alternates: { canonical: "https://unitaspro.com/industries/startups" },
-};
+    "MVP builds and SaaS platforms for startups. Production-grade architecture, launched in 4 weeks. Get a free quote.",
+  path: "/industries/startups",
+});
 
 export default function StartupsPage() {
   return <StartupsIndustryPage />;

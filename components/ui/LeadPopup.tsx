@@ -134,9 +134,9 @@ export default function LeadPopup() {
                   <div className="mb-6">
                     <div className="flex items-center gap-1.5 mb-3">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"/>
-                      <span className="text-[10px] font-semibold text-white/40 uppercase tracking-[0.15em]">Free consultation</span>
+                      <span className="text-xs font-semibold text-white/40 uppercase tracking-[0.15em]">Free consultation</span>
                     </div>
-                    <h2 className="text-white font-black text-2xl leading-snug mb-3" style={{ letterSpacing: "-0.03em" }}>
+                    <h2 className="text-white font-bold text-2xl leading-snug mb-3" style={{ letterSpacing: "-0.03em" }}>
                       Ready to build<br/>something great?
                     </h2>
                     <p className="text-white/45 text-sm leading-relaxed">
@@ -167,7 +167,7 @@ export default function LeadPopup() {
                 {/* Bottom divider line */}
                 <div className="relative z-10 mt-8">
                   <div className="h-px w-full opacity-10 bg-white mb-5"/>
-                  <p className="text-white/25 text-[11px] leading-relaxed">
+                  <p className="text-white/25 text-xs leading-relaxed">
                     No commitment required. We&apos;ll listen first, then recommend.
                   </p>
                 </div>
@@ -180,7 +180,7 @@ export default function LeadPopup() {
                   onClick={dismiss}
                   className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
                 >
-                  <X size={14} className="text-gray-500"/>
+                  <X size={14} className="text-[#6B7180]"/>
                 </button>
 
                 {sent ? (
@@ -195,7 +195,7 @@ export default function LeadPopup() {
                         <path d="M5 13l4 4L19 7" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </motion.div>
-                    <h3 className="font-black text-[#0D0D1A] text-xl mb-2">We'll be in touch!</h3>
+                    <h3 className="font-bold text-[#0D0D1A] text-xl mb-2">We'll be in touch!</h3>
                     <p className="text-[#9CA3AF] text-sm mb-6">Expect a reply within 24 hours.</p>
                     <button onClick={dismiss} className="btn-primary group">
                       Continue browsing
@@ -205,7 +205,7 @@ export default function LeadPopup() {
                 ) : (
                   <>
                     <div className="mb-5">
-                      <h3 className="font-black text-[#0D0D1A] text-lg leading-snug" style={{ letterSpacing: "-0.02em" }}>
+                      <h3 className="font-bold text-[#0D0D1A] text-lg leading-snug" style={{ letterSpacing: "-0.02em" }}>
                         Get a free quote
                       </h3>
                       <p className="text-[#9CA3AF] text-xs mt-1">Takes 30 seconds. No spam, ever.</p>
@@ -218,12 +218,12 @@ export default function LeadPopup() {
                         <div>
                           <input name="firstName" type="text" value={form.firstName} onChange={handleChange}
                             placeholder="First Name *" className={inp(!!errors.firstName)}/>
-                          {errors.firstName && <p className="text-[10px] text-red-500 mt-1 pl-1">{errors.firstName}</p>}
+                          {errors.firstName && <p className="text-xs text-red-500 mt-1 pl-1">{errors.firstName}</p>}
                         </div>
                         <div>
                           <input name="lastName" type="text" value={form.lastName} onChange={handleChange}
                             placeholder="Last Name *" className={inp(!!errors.lastName)}/>
-                          {errors.lastName && <p className="text-[10px] text-red-500 mt-1 pl-1">{errors.lastName}</p>}
+                          {errors.lastName && <p className="text-xs text-red-500 mt-1 pl-1">{errors.lastName}</p>}
                         </div>
                       </div>
 
@@ -231,7 +231,7 @@ export default function LeadPopup() {
                       <div>
                         <input name="email" type="email" value={form.email} onChange={handleChange}
                           placeholder="Email Address *" className={inp(!!errors.email)}/>
-                        {errors.email && <p className="text-[10px] text-red-500 mt-1 pl-1">{errors.email}</p>}
+                        {errors.email && <p className="text-xs text-red-500 mt-1 pl-1">{errors.email}</p>}
                       </div>
 
                       {/* Phone */}
@@ -272,7 +272,7 @@ export default function LeadPopup() {
                         <span className="btn-arrow"><ArrowRight size={14}/></span>
                       </button>
 
-                      <p className="text-center text-[10px] text-gray-400">
+                      <p className="text-center text-xs text-[#9CA3AF]">
                         By submitting you agree to be contacted by our team.
                       </p>
                     </form>

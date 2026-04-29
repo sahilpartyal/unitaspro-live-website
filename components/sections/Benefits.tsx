@@ -61,7 +61,7 @@ export default function Benefits() {
           >
             <span className="section-label mb-4 inline-flex">Why Choose Us</span>
 
-            <h2 className="heading-xl font-black text-[#0D0D1A] mt-1 mb-5 leading-tight">
+            <h2 className="heading-xl font-bold text-[#0D0D1A] mt-1 mb-5 leading-tight">
               The Digital Backbone<br />for Visionary Brands
             </h2>
 
@@ -73,8 +73,8 @@ export default function Benefits() {
             <div className="flex items-center gap-6 mb-8 pb-8 border-b border-gray-100">
               {trust.map((t) => (
                 <div key={t.label}>
-                  <div className="text-2xl font-black text-[#0D0D1A] leading-none mb-0.5">{t.value}</div>
-                  <div className="text-xs text-gray-400 font-medium">{t.label}</div>
+                  <div className="text-2xl font-bold text-[#0D0D1A] leading-none mb-0.5">{t.value}</div>
+                  <div className="text-xs text-[#9CA3AF] font-medium">{t.label}</div>
                 </div>
               ))}
             </div>

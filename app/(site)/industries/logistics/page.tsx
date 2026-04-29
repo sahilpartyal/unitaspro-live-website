@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import LogisticsIndustryPage from "@/components/pages/LogisticsIndustryPage";
 
-export const metadata: Metadata = {
-  title: "Logistics & Supply Chain Software Development | Unitaspro",
+export const metadata = buildMetadata({
+  title: "Logistics & Supply Chain Software",
   description:
-    "Custom fleet tracking, warehouse management, and last-mile delivery platforms for logistics companies, 3PLs, and courier operators. Built in 8 weeks.",
-  alternates: { canonical: "https://unitaspro.com/industries/logistics" },
-};
+    "Fleet tracking, warehouse management, and last-mile delivery platforms for logistics companies and 3PLs. Get a free quote.",
+  path: "/industries/logistics",
+});
 
 export default function LogisticsPage() {
   return <LogisticsIndustryPage />;

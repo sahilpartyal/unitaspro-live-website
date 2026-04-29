@@ -22,11 +22,13 @@ export const metadata: Metadata = {
     title: "Unitaspro — We Build Software That Grows Your Business",
     description:
       "Results-driven IT company helping businesses worldwide build powerful digital products.",
+    images: [{ url: "https://unitaspro.com/og-image.png", width: 1200, height: 630, alt: "Unitaspro" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Unitaspro — IT Services Company",
     description: "Web design, software development, mobile apps & digital marketing.",
+    images: ["https://unitaspro.com/og-image.png"],
   },
   robots: { index: true, follow: true },
 };

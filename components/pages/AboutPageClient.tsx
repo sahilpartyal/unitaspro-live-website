@@ -285,7 +285,7 @@ export default function AboutPageClient() {
               className="lg:col-span-2 self-start lg:sticky lg:top-28"
             >
               <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>Our Story</p>
-              <h2 className="heading-xl font-black text-[#0D0D1A] mt-1 mb-5 leading-tight">
+              <h2 className="heading-xl font-bold text-[#0D0D1A] mt-1 mb-5 leading-tight">
                 Proven In The Real World. Trusted By The Best
               </h2>
               <p className="text-[#6B7180] text-base leading-relaxed mb-8">
@@ -300,10 +300,10 @@ export default function AboutPageClient() {
                   { v: "4", l: "Core services" },
                 ].map((s) => (
                   <div key={s.l}>
-                    <div className="text-2xl font-black text-[#0D0D1A] leading-none mb-0.5">
+                    <div className="text-2xl font-bold text-[#0D0D1A] leading-none mb-0.5">
                       {s.v}
                     </div>
-                    <div className="text-xs text-gray-400 font-medium">
+                    <div className="text-xs text-[#9CA3AF] font-medium">
                       {s.l}
                     </div>
                   </div>
@@ -432,7 +432,7 @@ export default function AboutPageClient() {
                     >
                       <v.icon size={20} style={{ color: v.accent }} />
                     </div>
-                    <span className="text-3xl font-black tabular-nums text-gray-100 group-hover/step:text-gray-200 transition-colors select-none">
+                    <span className="text-3xl font-bold tabular-nums text-gray-100 group-hover/step:text-gray-200 transition-colors select-none">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
@@ -466,7 +466,7 @@ export default function AboutPageClient() {
               className="lg:col-span-2 self-start lg:sticky lg:top-28"
             >
               <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>Why Choose Us</p>
-              <h2 className="heading-xl font-black text-[#0D0D1A] mt-1 mb-5 leading-tight">
+              <h2 className="heading-xl font-bold text-[#0D0D1A] mt-1 mb-5 leading-tight">
                 Built For The Long Term, Not Just The Launch.
               </h2>
               <p className="text-[#6B7180] text-base leading-relaxed mb-8">

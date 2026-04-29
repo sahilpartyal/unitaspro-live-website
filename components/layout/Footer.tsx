@@ -36,7 +36,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
             {links.map(l => (
               <Link key={l.label} href={l.href}
-                className="text-slate-500 text-sm hover:text-white transition-colors">
+                className="text-[#6B7180] text-[15px] hover:text-white transition-colors">
                 {l.label}
               </Link>
             ))}
@@ -46,7 +46,7 @@ export default function Footer() {
           <div className="flex items-center gap-2">
             {social.map(({ label, href, Icon }) => (
               <Link key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-                className="w-8 h-8 rounded-lg border border-white/[0.08] flex items-center justify-center text-slate-600 hover:text-white hover:border-white/20 transition-all">
+                className="w-8 h-8 rounded-lg border border-white/[0.08] flex items-center justify-center text-[#6B7180] hover:text-white hover:border-white/20 transition-all">
                 <Icon size={13}/>
               </Link>
             ))}
@@ -57,9 +57,13 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="container-main py-4">
-        <div className="flex items-center justify-between gap-4">
-          <span className="text-xs text-slate-700">© {year} Unitaspro. All rights reserved.</span>
-          <span className="text-xs text-slate-700">Mohali, India · Serving globally</span>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+          <span className="text-sm text-[#9CA3AF]">© {year} Unitaspro. All rights reserved.</span>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy-policy" className="text-sm text-[#9CA3AF] hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="text-sm text-[#9CA3AF] hover:text-white transition-colors">Terms of Service</Link>
+            <span className="text-sm text-[#9CA3AF]">Mohali, India · Serving globally</span>
+          </div>
         </div>
       </div>
 

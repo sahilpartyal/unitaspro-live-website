@@ -51,7 +51,7 @@ export default function ClientLogos() {
       `}</style>
 
       <div className="container-main mb-8">
-        <p className="text-center text-[11px] font-bold text-gray-400 uppercase tracking-[0.22em]">
+        <p className="text-center text-xs font-bold text-[#9CA3AF] uppercase tracking-[0.22em]">
           Trusted by businesses across 12+ countries
         </p>
       </div>

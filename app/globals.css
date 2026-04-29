@@ -60,7 +60,7 @@
 
   /* ── Primary button — pill + circle arrow ── */
   .btn-primary {
-    @apply inline-flex items-center font-semibold text-sm w-fit
+    @apply inline-flex items-center font-semibold text-[15px] w-fit
            bg-[#0F172A] text-white
            pl-6 pr-1.5 py-1.5
            rounded-full
@@ -78,7 +78,7 @@
 
   /* ── Secondary button ── */
   .btn-secondary {
-    @apply inline-flex items-center gap-2 bg-white text-[#0F172A] font-semibold text-sm w-fit
+    @apply inline-flex items-center gap-2 bg-white text-[#0F172A] font-semibold text-[15px] w-fit
            px-6 py-3.5 rounded-full border border-gray-200 transition-all duration-200
            hover:border-gray-400 hover:-translate-y-0.5
            focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2

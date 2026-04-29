@@ -371,7 +371,7 @@ export default function BlogPostClient({
                         className="w-8 h-8 rounded-lg bg-white border border-gray-200 flex items-center justify-center
                           text-[#6B7180] hover:text-[#0D0D1A] hover:border-gray-400 transition-all"
                       >
-                        {copied ? <span className="text-[10px] text-green-600">Done</span> : <Link2 size={13} />}
+                        {copied ? <span className="text-xs text-green-600">Done</span> : <Link2 size={13} />}
                       </button>
                     </div>
                   </div>
@@ -558,7 +558,7 @@ export default function BlogPostClient({
                         />
                         {rp.category && (
                           <span
-                            className={`absolute top-3 left-3 text-[10px] font-bold px-2.5 py-1 rounded-full ${rp.category.color}`}
+                            className={`absolute top-3 left-3 text-xs font-bold px-2.5 py-1 rounded-full ${rp.category.color}`}
                           >
                             {rp.category.name}
                           </span>
@@ -573,14 +573,14 @@ export default function BlogPostClient({
                         {rp.excerpt}
                       </p>
                       <div className="flex items-center justify-between pt-3 mt-3 border-t border-gray-50">
-                        <span className="text-[10px] text-[#9CA3AF]">
+                        <span className="text-xs text-[#9CA3AF]">
                           {new Date(rp.publishedAt).toLocaleDateString("en-US", {
                             month: "short",
                             day: "numeric",
                             year: "numeric",
                           })}
                         </span>
-                        <span className="flex items-center gap-1 text-[10px] font-semibold text-brand-600">
+                        <span className="flex items-center gap-1 text-xs font-semibold text-brand-600">
                           Read <ArrowRight size={10} />
                         </span>
                       </div>

@@ -238,7 +238,7 @@ export default function BlogListingClient({
                               {/* Category overlay badge */}
                               {post.category && (
                                 <span
-                                  className={`absolute top-4 left-4 text-[10px] font-bold px-3 py-1 rounded-full ${post.category.color} backdrop-blur-sm`}
+                                  className={`absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full ${post.category.color} backdrop-blur-sm`}
                                 >
                                   {post.category.name}
                                 </span>
@@ -268,16 +268,16 @@ export default function BlogListingClient({
                                   />
                                 )}
                                 <div>
-                                  <div className="text-[11px] font-semibold text-[#0D0D1A]">
+                                  <div className="text-xs font-semibold text-[#0D0D1A]">
                                     {post.author?.name}
                                   </div>
-                                  <div className="text-[10px] text-[#9CA3AF]">
+                                  <div className="text-xs text-[#9CA3AF]">
                                     {formatDate(post.publishedAt)}
                                   </div>
                                 </div>
                               </div>
                               {post.readTime && (
-                                <span className="flex items-center gap-1 text-[10px] text-[#9CA3AF]">
+                                <span className="flex items-center gap-1 text-xs text-[#9CA3AF]">
                                   <Clock size={10} />
                                   {post.readTime}
                                 </span>

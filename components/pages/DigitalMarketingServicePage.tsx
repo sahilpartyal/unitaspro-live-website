@@ -134,9 +134,11 @@ const FAQS = [
    ------------------------------------------------------- */
 export default function DigitalMarketingServicePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQS.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) };
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}/>
 
       {/* -------------------------------------------------
           S1  HERO - Hyperline style with abstract pattern
@@ -487,7 +489,7 @@ export default function DigitalMarketingServicePage() {
                 </div>
                 <div>
                   <div className="text-xs font-semibold text-[#0D0D1A]">Campaign live</div>
-                  <div className="text-[11px] text-[#9CA3AF]">First results in 2–4 weeks</div>
+                  <div className="text-xs text-[#9CA3AF]">First results in 2–4 weeks</div>
                 </div>
               </motion.div>
             </motion.div>
@@ -563,7 +565,7 @@ export default function DigitalMarketingServicePage() {
                     { stat: "100%",  label: "of clients receive plain-English ROI reports every single month" },
                   ].map((item) => (
                     <li key={item.stat} className="flex items-center gap-3 text-sm">
-                      <span className="font-black shrink-0" style={{ color: "#D97706", letterSpacing: "-0.03em" }}>{item.stat}</span>
+                      <span className="font-bold shrink-0" style={{ color: "#D97706", letterSpacing: "-0.03em" }}>{item.stat}</span>
                       <span className="text-[#6B7180]">{item.label}</span>
                     </li>
                   ))}
@@ -589,7 +591,7 @@ export default function DigitalMarketingServicePage() {
 
             {/* Right top */}
             <motion.div {...fadeUp(0.12)} className="rounded-2xl p-6" style={{ background: "#FFFBEB" }}>
-              <div className="font-black text-[#0D0D1A] leading-none mb-2"
+              <div className="font-bold text-[#0D0D1A] leading-none mb-2"
                 style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", letterSpacing: "-0.04em" }}>
                 12+
               </div>
@@ -598,7 +600,7 @@ export default function DigitalMarketingServicePage() {
 
             {/* Right second */}
             <motion.div {...fadeUp(0.16)} className="rounded-2xl p-6" style={{ background: "#FFFBEB" }}>
-              <div className="font-black text-[#0D0D1A] leading-none mb-2"
+              <div className="font-bold text-[#0D0D1A] leading-none mb-2"
                 style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", letterSpacing: "-0.04em" }}>
                 3–6 mo
               </div>
@@ -607,7 +609,7 @@ export default function DigitalMarketingServicePage() {
 
             {/* Bottom row — 2 stats + CTA */}
             <motion.div {...fadeUp(0.2)} className="rounded-2xl p-6" style={{ background: "#FFFBEB" }}>
-              <div className="font-black text-[#0D0D1A] leading-none mb-2"
+              <div className="font-bold text-[#0D0D1A] leading-none mb-2"
                 style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", letterSpacing: "-0.04em" }}>
                 $500
               </div>
@@ -615,7 +617,7 @@ export default function DigitalMarketingServicePage() {
             </motion.div>
 
             <motion.div {...fadeUp(0.24)} className="rounded-2xl p-6" style={{ background: "#FFFBEB" }}>
-              <div className="font-black text-[#0D0D1A] leading-none mb-2"
+              <div className="font-bold text-[#0D0D1A] leading-none mb-2"
                 style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", letterSpacing: "-0.04em" }}>
                 4×
               </div>
@@ -656,7 +658,7 @@ export default function DigitalMarketingServicePage() {
             {/* Left sticky panel */}
             <div className="lg:sticky lg:top-28">
               <span className="section-label mb-5 inline-flex">FAQs</span>
-              <h2 className="heading-xl font-black text-[#0D0D1A] mb-5 leading-tight">
+              <h2 className="heading-xl font-bold text-[#0D0D1A] mb-5 leading-tight">
                 Frequently asked<br />questions
               </h2>
               <p className="text-[#6B7180] text-base leading-relaxed mb-8">

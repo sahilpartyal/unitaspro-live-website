@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import TransportIndustryPage from "@/components/pages/TransportIndustryPage";
 
-export const metadata: Metadata = {
-  title: "Transport & Mobility Software Development | Unitaspro",
+export const metadata = buildMetadata({
+  title: "Transport & Mobility Software",
   description:
-    "Custom booking apps, fleet tracking dashboards, and driver management systems for chauffeur companies, taxi fleets, and transport operators. Built in 4 weeks.",
-  alternates: { canonical: "https://unitaspro.com/industries/transport" },
-};
+    "Custom booking apps and fleet tracking for transport operators. Fixed price, 4-week delivery. Get a free quote.",
+  path: "/industries/transport",
+});
 
 export default function TransportPage() {
   return <TransportIndustryPage />;

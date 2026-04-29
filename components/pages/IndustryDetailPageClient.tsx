@@ -60,7 +60,7 @@ export default function IndustryDetailPageClient({ slug }: Props) {
             className="max-w-3xl mb-8"
             style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)", lineHeight: 1.07, letterSpacing: "-0.04em" }}>
             <span className="font-light text-[#9CA3AF]">Solutions for </span>
-            <span className="font-black text-[#0D0D1A]">{industry.name}.</span>
+            <span className="font-bold text-[#0D0D1A]">{industry.name}.</span>
           </motion.h1>
 
           <motion.p

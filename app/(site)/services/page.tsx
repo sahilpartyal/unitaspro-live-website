@@ -4,9 +4,9 @@ import Link from "next/link";
 import { Globe, Code2, Smartphone, Megaphone, ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Our Services",
+  title: "Web, Software & App Development Services",
   description:
-    "Unitaspro offers web design, software development, mobile app development, and digital marketing services for businesses worldwide.",
+    "Web design, custom software, mobile apps, and digital marketing — all under one roof. Get a free quote from Unitaspro today.",
   path: "/services",
 });
 

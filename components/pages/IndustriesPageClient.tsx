@@ -107,7 +107,7 @@ export default function IndustriesPageClient() {
                     <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5 bg-white shadow-sm">
                       <ind.icon size={22} style={{ color: ind.accent }}/>
                     </div>
-                    <h2 className="font-black text-[#0D0D1A] text-xl leading-snug mb-2" style={{ letterSpacing: "-0.02em" }}>
+                    <h2 className="font-bold text-[#0D0D1A] text-xl leading-snug mb-2" style={{ letterSpacing: "-0.02em" }}>
                       {ind.name}
                     </h2>
                     <p className="text-sm font-medium" style={{ color: ind.accent }}>

@@ -61,14 +61,14 @@ const servicesMega = [
 ];
 
 const industriesList = [
-  { icon: Car,          label: "Transport & Mobility",    href: "/industries/transport",   accent: "#2563EB", accentBg: "#EFF6FF", desc: "Fleet, dispatch & booking apps" },
-  { icon: TrendingUp,   label: "Finance & Fintech",       href: "/industries/finance",     accent: "#059669", accentBg: "#ECFDF5", desc: "Compliance-ready financial platforms" },
-  { icon: Building2,    label: "Real Estate & Property",  href: "/industries/real-estate", accent: "#D97706", accentBg: "#FFFBEB", desc: "Portals, CRMs & listing tools" },
-  { icon: ShoppingCart, label: "E-Commerce & Retail",     href: "/industries/ecommerce",   accent: "#7C3AED", accentBg: "#F5F3FF", desc: "Stores built to convert and scale" },
-  { icon: Heart,        label: "Healthcare & Wellness",   href: "/industries/healthcare",  accent: "#E11D48", accentBg: "#FFF1F2", desc: "Patient apps & telemedicine tools" },
-  { icon: Plane,        label: "Hospitality & Travel",    href: "/industries/hospitality", accent: "#0891B2", accentBg: "#ECFEFF", desc: "Booking engines & hotel dashboards" },
-  { icon: Package,      label: "Logistics & Supply Chain",href: "/industries/logistics",   accent: "#EA580C", accentBg: "#FFF7ED", desc: "Tracking, WMS & dispatch tools" },
-  { icon: Rocket,       label: "Startups & SaaS",         href: "/industries/startups",    accent: "#4F46E5", accentBg: "#EEF2FF", desc: "MVPs to full SaaS platforms" },
+  { icon: Car,          label: "Transport & Mobility",     href: "/industries/transport",   desc: "Custom dispatch, booking, and fleet tracking platforms for transport operators." },
+  { icon: TrendingUp,   label: "Finance & Fintech",        href: "/industries/finance",     desc: "Secure banking portals, lending platforms, and compliance-ready dashboards." },
+  { icon: Building2,    label: "Real Estate & Property",   href: "/industries/real-estate", desc: "Property portals, agent CRMs, and listing platforms that close deals faster." },
+  { icon: ShoppingCart, label: "E-Commerce & Retail",      href: "/industries/ecommerce",   desc: "Custom storefronts, inventory management, and checkout flows that convert." },
+  { icon: Heart,        label: "Healthcare & Wellness",    href: "/industries/healthcare",  desc: "Patient portals, telemedicine apps, and clinic management systems." },
+  { icon: Plane,        label: "Hospitality & Travel",     href: "/industries/hospitality", desc: "Direct booking engines, hotel dashboards, and guest loyalty platforms." },
+  { icon: Package,      label: "Logistics & Supply Chain", href: "/industries/logistics",   desc: "Real-time tracking, warehouse management, and last-mile delivery tools." },
+  { icon: Rocket,       label: "Startups & SaaS",          href: "/industries/startups",    desc: "MVPs to production-grade SaaS platforms with billing and multi-tenancy." },
 ];
 
 const navLinks = [
@@ -101,17 +101,17 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ── Main navbar ── */}
-      <header
-        className={clsx(
-          "sticky top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled
-            ? "bg-white backdrop-blur-lg border-b border-gray-100 shadow-[0_1px_8px_rgba(15,23,42,0.06)]"
-            : "bg-white border-b border-gray-100"
-        )}
-      >
-        <div className="container-main">
-          <div className="flex items-center justify-between h-[68px]">
+      {/* ── Main navbar — floating white pill ── */}
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 lg:px-8 pt-4">
+        <div
+          className={clsx(
+            "max-w-6xl mx-auto rounded-full bg-white border transition-all duration-300 px-6 lg:px-8",
+            scrolled
+              ? "border-gray-200 shadow-[0_4px_24px_rgba(15,23,42,0.10)]"
+              : "border-gray-200/80 shadow-[0_2px_16px_rgba(15,23,42,0.06)]"
+          )}
+        >
+          <div className="flex items-center justify-between h-[64px]">
 
             {/* ── Logo ── */}
             <Link href="/" className="flex items-center shrink-0">
@@ -119,15 +119,15 @@ export default function Navbar() {
             </Link>
 
             {/* ── Desktop nav ── */}
-            <nav className="hidden lg:flex items-center gap-0.5">
+            <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) =>
                 link.hasMega ? (
                   <div key={link.label} className="relative"
                     onMouseEnter={() => setMegaOpen(true)}
                     onMouseLeave={() => setMegaOpen(false)}>
                     <button className={clsx(
-                      "flex items-center gap-1 px-4 py-2.5 min-h-[44px] rounded-lg text-sm font-medium transition-colors duration-150",
-                      megaOpen ? "text-brand-600 bg-brand-50" : "text-[#374151] hover:text-[#0D0D1A] hover:bg-gray-50"
+                      "flex items-center gap-1 px-4 py-2.5 min-h-[44px] rounded-lg text-base font-semibold transition-colors duration-150",
+                      megaOpen ? "text-[#2563EB]" : "text-[#374151] hover:text-[#0D0D1A]"
                     )}>
                       {link.label}
                       <ChevronDown size={13} className={clsx("transition-transform duration-200", megaOpen && "rotate-180")}/>
@@ -138,20 +138,23 @@ export default function Navbar() {
                           initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }}
                           transition={{ duration: 0.18, ease: [0.22,1,0.36,1] }}
                           className="absolute top-full -left-4 mt-2.5 bg-white rounded-2xl border border-gray-100 shadow-[0_24px_64px_rgba(15,23,42,0.12)] overflow-hidden"
-                          style={{ width: "320px" }}
+                          style={{ width: "340px" }}
                         >
-                          <div className="p-4">
-                            {servicesMega.flatMap(g => g.items).map((item) => (
+                          <div>
+                            {servicesMega.flatMap(g => g.items).map((item, idx, arr) => (
                               <Link key={item.href} href={item.href} onClick={() => setMegaOpen(false)}
-                                className="group flex items-start gap-3 px-2 py-3">
-                                <item.icon size={18} strokeWidth={1.8} style={{ color: item.accent }} className="shrink-0 mt-0.5"/>
+                                className={clsx(
+                                  "group flex items-start gap-4 px-6 py-5 hover:bg-[#F8F9FC] transition-colors",
+                                  idx < arr.length - 1 && "border-b border-gray-100/80"
+                                )}>
+                                <item.icon size={22} strokeWidth={1.6} className="shrink-0 mt-0.5 text-[#2563EB]"/>
                                 <div className="flex-1 min-w-0">
-                                  <h4 className="text-[13px] font-bold text-[#0D0D1A] mb-0.5">
+                                  <span className="text-[15px] font-bold text-[#0D0D1A] group-hover:text-[#2563EB] transition-colors">
                                     {item.label}
-                                  </h4>
-                                  <p className="text-[11px] text-[#6B7180] leading-relaxed">
+                                  </span>
+                                  <p className="text-sm text-[#6B7180] leading-relaxed mt-1">
                                     {item.desc}.{" "}
-                                    <span className="inline-block group-hover:translate-x-0.5 transition-transform">↗</span>
+                                    <span className="text-[#2563EB] inline-block group-hover:translate-x-0.5 transition-transform">↗</span>
                                   </p>
                                 </div>
                               </Link>
@@ -166,8 +169,8 @@ export default function Navbar() {
                     onMouseEnter={() => setIndustriesOpen(true)}
                     onMouseLeave={() => setIndustriesOpen(false)}>
                     <button className={clsx(
-                      "flex items-center gap-1 px-4 py-2.5 min-h-[44px] rounded-lg text-sm font-medium transition-colors duration-150",
-                      industriesOpen ? "text-brand-600 bg-brand-50" : "text-[#374151] hover:text-[#0D0D1A] hover:bg-gray-50"
+                      "flex items-center gap-1 px-4 py-2.5 min-h-[44px] rounded-lg text-base font-semibold transition-colors duration-150",
+                      industriesOpen ? "text-[#2563EB]" : "text-[#374151] hover:text-[#0D0D1A]"
                     )}>
                       {link.label}
                       <ChevronDown size={13} className={clsx("transition-transform duration-200", industriesOpen && "rotate-180")}/>
@@ -177,42 +180,28 @@ export default function Navbar() {
                         <motion.div
                           initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }}
                           transition={{ duration: 0.18, ease: [0.22,1,0.36,1] }}
-                          className="absolute top-full -left-10 mt-2.5 bg-white rounded-2xl border border-gray-100 shadow-[0_24px_64px_rgba(15,23,42,0.12)] overflow-hidden"
-                          style={{ width: "640px" }}
+                          className="absolute top-full left-0 mt-2.5 bg-white rounded-2xl border border-gray-100 shadow-[0_24px_64px_rgba(15,23,42,0.12)] overflow-hidden"
+                          style={{ width: "680px" }}
                         >
-                          <div className="flex p-4 gap-0">
-                            {/* Left: Build */}
-                            <div className="flex-1 pr-4 border-r border-gray-100">
-                              {industriesList.slice(0, 4).map((ind) => (
-                                <Link key={ind.href} href={ind.href} onClick={() => setIndustriesOpen(false)}
-                                  className="group flex items-start gap-3 px-2 py-2.5">
-                                  <ind.icon size={18} strokeWidth={1.8} style={{ color: ind.accent }} className="shrink-0 mt-0.5"/>
-                                  <div className="flex-1 min-w-0">
-                                    <h4 className="text-[13px] font-bold text-[#0D0D1A] mb-0.5">{ind.label}</h4>
-                                    <p className="text-[11px] text-[#6B7180] leading-relaxed">
-                                      {ind.desc}.{" "}
-                                      <span className="inline-block group-hover:translate-x-0.5 transition-transform">↗</span>
-                                    </p>
-                                  </div>
-                                </Link>
-                              ))}
-                            </div>
-                            {/* Right: Serve */}
-                            <div className="flex-1 pl-4">
-                              {industriesList.slice(4).map((ind) => (
-                                <Link key={ind.href} href={ind.href} onClick={() => setIndustriesOpen(false)}
-                                  className="group flex items-start gap-3 px-2 py-2.5">
-                                  <ind.icon size={18} strokeWidth={1.8} style={{ color: ind.accent }} className="shrink-0 mt-0.5"/>
-                                  <div className="flex-1 min-w-0">
-                                    <h4 className="text-[13px] font-bold text-[#0D0D1A] mb-0.5">{ind.label}</h4>
-                                    <p className="text-[11px] text-[#6B7180] leading-relaxed">
-                                      {ind.desc}.{" "}
-                                      <span className="inline-block group-hover:translate-x-0.5 transition-transform">↗</span>
-                                    </p>
-                                  </div>
-                                </Link>
-                              ))}
-                            </div>
+                          <div className="grid grid-cols-2">
+                            {industriesList.map((ind, idx) => (
+                              <Link key={ind.href} href={ind.href} onClick={() => setIndustriesOpen(false)}
+                                className={clsx(
+                                  "group flex items-start gap-4 px-6 py-5 hover:bg-[#F8F9FC] transition-colors",
+                                  idx < industriesList.length - 2 && "border-b border-gray-100/80"
+                                )}>
+                                <ind.icon size={22} strokeWidth={1.6} className="shrink-0 mt-0.5 text-[#2563EB]"/>
+                                <div className="flex-1 min-w-0">
+                                  <span className="text-[15px] font-bold text-[#0D0D1A] group-hover:text-[#2563EB] transition-colors">
+                                    {ind.label}
+                                  </span>
+                                  <p className="text-sm text-[#6B7180] leading-relaxed mt-1">
+                                    {ind.desc}{" "}
+                                    <span className="text-[#2563EB] inline-block group-hover:translate-x-0.5 transition-transform">↗</span>
+                                  </p>
+                                </div>
+                              </Link>
+                            ))}
                           </div>
                         </motion.div>
                       )}
@@ -220,7 +209,7 @@ export default function Navbar() {
                   </div>
                 ) : (
                   <Link key={link.href} href={link.href}
-                    className="px-4 py-2.5 min-h-[44px] inline-flex items-center rounded-lg text-sm font-medium text-[#374151] hover:text-[#0D0D1A] hover:bg-gray-50 transition-colors duration-150">
+                    className="px-4 py-2.5 min-h-[44px] inline-flex items-center rounded-lg text-base font-semibold text-[#374151] hover:text-[#0D0D1A] transition-colors duration-150">
                     {link.label}
                   </Link>
                 )
@@ -245,7 +234,6 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-
       </header>
 
       {/* ── Mobile menu — fixed full-screen overlay ── */}
@@ -275,7 +263,7 @@ export default function Navbar() {
                 onClick={() => setMobServices(!mobServices)}
                 className="flex items-center justify-between w-full px-3 py-3.5 text-[15px] font-semibold text-[#0D0D1A]">
                 Services
-                <ChevronDown size={16} className={clsx("text-gray-400 transition-transform duration-200", mobServices && "rotate-180")}/>
+                <ChevronDown size={16} className={clsx("text-[#9CA3AF] transition-transform duration-200", mobServices && "rotate-180")}/>
               </button>
               <AnimatePresence>
                 {mobServices && (
@@ -304,7 +292,7 @@ export default function Navbar() {
                 onClick={() => setMobIndustries(!mobIndustries)}
                 className="flex items-center justify-between w-full px-3 py-3.5 text-[15px] font-semibold text-[#0D0D1A]">
                 Industries
-                <ChevronDown size={16} className={clsx("text-gray-400 transition-transform duration-200", mobIndustries && "rotate-180")}/>
+                <ChevronDown size={16} className={clsx("text-[#9CA3AF] transition-transform duration-200", mobIndustries && "rotate-180")}/>
               </button>
               <AnimatePresence>
                 {mobIndustries && (
@@ -317,7 +305,7 @@ export default function Navbar() {
                         <Link key={ind.href} href={ind.href}
                           className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors"
                           onClick={() => setMobileOpen(false)}>
-                          <ind.icon size={16} strokeWidth={1.8} style={{ color: ind.accent }} className="shrink-0"/>
+                          <ind.icon size={16} strokeWidth={1.8} className="shrink-0 text-[#2563EB]"/>
                           <span className="text-sm text-[#374151]">{ind.label}</span>
                         </Link>
                       ))}

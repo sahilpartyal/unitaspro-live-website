@@ -4,9 +4,9 @@ import { getAllPosts, getAllCategories } from "@/lib/sanity";
 import BlogListingClient from "@/components/pages/BlogListingClient";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Blog | Tips, Strategies & Case Studies",
+  title: "Insights & Case Studies",
   description:
-    "Expert insights on web development, software engineering, mobile apps, and digital marketing from the Unitaspro team.",
+    "Expert insights on web development, software, mobile apps, and digital marketing. Tips, strategies, and case studies from the Unitaspro team.",
   path: "/blog",
 });
 

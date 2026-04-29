@@ -41,11 +41,13 @@ export function buildMetadata(options: {
       title: fullTitle,
       description: metaDesc,
       siteName: siteConfig.name,
+      images: [{ url: `${siteConfig.url}/og-image.png`, width: 1200, height: 630, alt: siteConfig.name }],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description: metaDesc,
+      images: [`${siteConfig.url}/og-image.png`],
     },
   };
 }

@@ -3,8 +3,8 @@ import { buildMetadata } from "@/lib/metadata";
 import SoftwareDevServicePage from "@/components/pages/SoftwareDevServicePage";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Custom Software Development | SaaS, APIs & Enterprise Tools",
-  description: "Custom software development by Unitaspro. SaaS platforms, enterprise tools, APIs, and automation built to your exact specifications. Fixed pricing, weekly demos.",
+  title: "Custom Software Development Services",
+  description: "Custom SaaS platforms, APIs, and enterprise tools built to your specs. Fixed pricing, weekly demos. Get a free consultation.",
   path: "/services/software-development",
 });
 

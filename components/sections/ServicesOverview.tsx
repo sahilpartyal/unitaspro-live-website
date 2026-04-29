@@ -15,7 +15,7 @@ function WebDesignMockup() {
           <div className="flex gap-1.5 shrink-0">
             {["#FF5F57","#FEBC2E","#28C840"].map(c => <div key={c} className="w-2 h-2 rounded-full" style={{ background: c }}/>)}
           </div>
-          <div className="flex-1 bg-white border border-gray-200 rounded px-2 py-0.5 text-[9px] text-gray-400 flex items-center justify-center gap-1">
+          <div className="flex-1 bg-white border border-gray-200 rounded px-2 py-0.5 text-xs text-[#9CA3AF] flex items-center justify-center gap-1">
             <div className="w-1.5 h-1.5 rounded-full bg-green-400"/>
             yourclient.com
           </div>
@@ -32,8 +32,8 @@ function WebDesignMockup() {
         <div className="grid grid-cols-3 divide-x divide-gray-100 bg-white">
           {[{v:"340%",l:"ROI"},{v:"98",l:"Speed"},{v:"4.9★",l:"Rating"}].map(s => (
             <div key={s.l} className="py-2 text-center">
-              <div className="text-[10px] font-black text-gray-800">{s.v}</div>
-              <div className="text-[8px] text-gray-400">{s.l}</div>
+              <div className="text-xs font-bold text-gray-800">{s.v}</div>
+              <div className="text-[8px] text-[#9CA3AF]">{s.l}</div>
             </div>
           ))}
         </div>
@@ -54,8 +54,8 @@ function WebDesignMockup() {
           <Zap size={10} className="text-white"/>
         </div>
         <div>
-          <div className="text-[8px] text-gray-400">PageSpeed</div>
-          <div className="text-[11px] font-black text-gray-900">98 / 100</div>
+          <div className="text-[8px] text-[#9CA3AF]">PageSpeed</div>
+          <div className="text-xs font-bold text-[#0D0D1A]">98 / 100</div>
         </div>
       </div>
       <div className="absolute -top-3 -right-3 bg-white rounded-xl shadow-[0_6px_20px_rgba(15,23,42,0.10)] border border-gray-100 px-2.5 py-1.5 flex items-center gap-1.5">
@@ -63,8 +63,8 @@ function WebDesignMockup() {
           <TrendingUp size={10} className="text-blue-600"/>
         </div>
         <div>
-          <div className="text-[8px] text-gray-400">Conversion</div>
-          <div className="text-[11px] font-black text-gray-900">+340%</div>
+          <div className="text-[8px] text-[#9CA3AF]">Conversion</div>
+          <div className="text-xs font-bold text-[#0D0D1A]">+340%</div>
         </div>
       </div>
     </div>
@@ -77,10 +77,10 @@ function SoftwareMockup() {
       <div className="bg-[#1E1E2E] rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(15,23,42,0.35)]">
         <div className="flex items-end gap-0 px-3 pt-2.5">
           {["api.ts","schema.sql","routes.ts"].map((tab,i) => (
-            <div key={tab} className={`px-2.5 py-1 text-[10px] rounded-t-md font-mono ${i===0?"bg-[#2A2A3E] text-white":"text-gray-500"}`}>{tab}</div>
+            <div key={tab} className={`px-2.5 py-1 text-xs rounded-t-md font-mono ${i===0?"bg-[#2A2A3E] text-white":"text-[#6B7180]"}`}>{tab}</div>
           ))}
         </div>
-        <div className="bg-[#2A2A3E] px-3 py-3 font-mono text-[10px] leading-6">
+        <div className="bg-[#2A2A3E] px-3 py-3 font-mono text-xs leading-6">
           <div><span className="text-purple-400">export async function </span><span className="text-blue-300">getUsers</span><span className="text-white">() {"{"}</span></div>
           <div className="pl-3"><span className="text-purple-400">const </span><span className="text-blue-200">users </span><span className="text-white">= await </span><span className="text-yellow-300">db</span><span className="text-white">.</span><span className="text-blue-300">query</span><span className="text-white">(</span></div>
           <div className="pl-6"><span className="text-green-300">`SELECT * FROM users WHERE active = true`</span></div>
@@ -88,24 +88,24 @@ function SoftwareMockup() {
           <div className="pl-3"><span className="text-purple-400">return </span><span className="text-white">users.rows;</span></div>
           <div><span className="text-white">{"}"}</span></div>
         </div>
-        <div className="bg-[#0D0D1A] px-3 py-2.5 font-mono text-[10px] space-y-1">
+        <div className="bg-[#0D0D1A] px-3 py-2.5 font-mono text-xs space-y-1">
           <div className="text-green-400">✓ Server running on :8080</div>
           <div className="text-blue-400">✓ PostgreSQL connected (pool: 20)</div>
           <div className="text-yellow-300">⚡ 142 tests passing · 0 failing</div>
           <div className="flex items-center gap-1 mt-1">
             <span className="text-green-500">$</span>
-            <span className="text-gray-400">npm run deploy</span>
+            <span className="text-[#9CA3AF]">npm run deploy</span>
             <span className="animate-pulse text-white">█</span>
           </div>
         </div>
       </div>
       <div className="absolute -top-3 -right-3 bg-white rounded-xl shadow-lg border border-gray-100 p-2 flex items-center gap-1.5">
         <div className="w-6 h-6 rounded-md bg-orange-50 flex items-center justify-center shrink-0">
-          <span className="text-orange-500 font-black text-[8px]">AWS</span>
+          <span className="text-orange-500 font-bold text-[8px]">AWS</span>
         </div>
         <div>
-          <div className="text-[8px] text-gray-400">Deployed to</div>
-          <div className="text-[11px] font-black text-gray-900">Production ✓</div>
+          <div className="text-[8px] text-[#9CA3AF]">Deployed to</div>
+          <div className="text-xs font-bold text-[#0D0D1A]">Production ✓</div>
         </div>
       </div>
     </div>
@@ -118,12 +118,12 @@ function MobileAppMockup() {
       <div className="w-[140px] bg-[#0F172A] rounded-[2rem] border-[4px] border-slate-700 overflow-hidden shadow-[0_24px_64px_rgba(15,23,42,0.45)] shrink-0">
         <div className="flex justify-center pt-1.5 pb-1"><div className="w-10 h-2.5 bg-black rounded-full"/></div>
         <div className="px-2.5 pb-4">
-          <div className="text-white text-[9px] font-bold mb-2">Good morning, Alex 👋</div>
+          <div className="text-white text-xs font-bold mb-2">Good morning, Alex 👋</div>
           <div className="grid grid-cols-2 gap-1 mb-2">
             {[{l:"Revenue",v:"$12.4k",c:"#60A5FA"},{l:"Orders",v:"284",c:"#A78BFA"},{l:"Users",v:"1.2k",c:"#34D399"},{l:"Rating",v:"4.9★",c:"#FBBF24"}].map(s => (
               <div key={s.l} className="rounded-lg p-1.5" style={{ background:"rgba(255,255,255,0.07)" }}>
                 <div className="text-[7px] text-white/40">{s.l}</div>
-                <div className="text-[10px] font-black" style={{ color: s.c }}>{s.v}</div>
+                <div className="text-xs font-bold" style={{ color: s.c }}>{s.v}</div>
               </div>
             ))}
           </div>
@@ -138,7 +138,7 @@ function MobileAppMockup() {
       <div className="w-[140px] mt-10 bg-white rounded-[2rem] border-[4px] border-gray-200 overflow-hidden shadow-[0_24px_64px_rgba(15,23,42,0.15)] shrink-0">
         <div className="flex justify-center pt-1.5 pb-1"><div className="w-10 h-2.5 bg-black rounded-full"/></div>
         <div className="px-2.5 pb-4">
-          <div className="text-gray-900 text-[9px] font-bold mb-2">Nearby Services</div>
+          <div className="text-[#0D0D1A] text-xs font-bold mb-2">Nearby Services</div>
           {[{bg:"#EFF6FF",ic:"#2563EB"},{bg:"#F5F3FF",ic:"#7C3AED"},{bg:"#ECFDF5",ic:"#059669"},{bg:"#FFFBEB",ic:"#D97706"}].map((c,i) => (
             <div key={i} className="flex items-center gap-1.5 rounded-lg p-1.5 mb-1.5" style={{ background: c.bg }}>
               <div className="w-5 h-5 rounded-md shrink-0" style={{ background: c.ic }}/>
@@ -149,7 +149,7 @@ function MobileAppMockup() {
       </div>
       <div className="absolute -bottom-2 -right-2 bg-white rounded-xl shadow-lg border border-gray-100 p-2 flex items-center gap-1.5">
         <CheckCircle size={11} className="text-green-500 shrink-0"/>
-        <div><div className="text-[8px] text-gray-400">App Store</div><div className="text-[10px] font-black text-gray-900">Live ✓</div></div>
+        <div><div className="text-[8px] text-[#9CA3AF]">App Store</div><div className="text-xs font-bold text-[#0D0D1A]">Live ✓</div></div>
       </div>
     </div>
   );
@@ -162,35 +162,35 @@ function MarketingMockup() {
     <div className="relative w-full max-w-[340px] mx-auto">
       <div className="bg-white rounded-2xl overflow-hidden shadow-[0_20px_56px_rgba(15,23,42,0.12)] border border-gray-100">
         <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-gray-100">
-          <div><div className="text-[11px] font-bold text-gray-900">Campaign Dashboard</div><div className="text-[9px] text-gray-400">March 2026</div></div>
-          <div className="flex items-center gap-1 text-[9px] font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full"><TrendingUp size={9}/> +34%</div>
+          <div><div className="text-xs font-bold text-[#0D0D1A]">Campaign Dashboard</div><div className="text-xs text-[#9CA3AF]">March 2026</div></div>
+          <div className="flex items-center gap-1 text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full"><TrendingUp size={9}/> +34%</div>
         </div>
         <div className="grid grid-cols-3 divide-x divide-gray-100 border-b border-gray-100">
           {[{l:"Impressions",v:"2.4M"},{l:"Click Rate",v:"6.8%"},{l:"Conversions",v:"3.2%"}].map(s => (
             <div key={s.l} className="py-2 text-center">
-              <div className="text-[8px] text-gray-400 mb-0.5">{s.l}</div>
-              <div className="text-sm font-black text-gray-900">{s.v}</div>
+              <div className="text-[8px] text-[#9CA3AF] mb-0.5">{s.l}</div>
+              <div className="text-sm font-bold text-[#0D0D1A]">{s.v}</div>
             </div>
           ))}
         </div>
         <div className="p-3">
-          <div className="text-[10px] font-semibold text-gray-700 mb-2">Organic Traffic Growth</div>
+          <div className="text-xs font-semibold text-gray-700 mb-2">Organic Traffic Growth</div>
           <div className="flex items-end gap-0.5 h-14">
             {bars.map((h,i) => <div key={i} className="flex-1 rounded-t" style={{ height:`${(h/130)*100}%`, background:i>=9?"linear-gradient(180deg,#2563EB,#1A47DB)":"#EEF2FF" }}/>)}
           </div>
-          <div className="flex justify-between mt-1">{months.map(m => <span key={m} className="text-[6px] text-gray-400">{m}</span>)}</div>
+          <div className="flex justify-between mt-1">{months.map(m => <span key={m} className="text-[6px] text-[#9CA3AF]">{m}</span>)}</div>
         </div>
         <div className="px-3 pb-3">
           <div className="flex items-center gap-2 bg-amber-50 rounded-lg px-2.5 py-2">
             <Search size={10} className="text-amber-500 shrink-0"/>
-            <div className="flex-1"><div className="text-[10px] font-semibold text-gray-900">IT company in Mohali</div><div className="text-[8px] text-gray-400">Ranked #1 · +8 positions</div></div>
-            <span className="text-[11px] font-black text-amber-600">↑8</span>
+            <div className="flex-1"><div className="text-xs font-semibold text-[#0D0D1A]">IT company in Mohali</div><div className="text-[8px] text-[#9CA3AF]">Ranked #1 · +8 positions</div></div>
+            <span className="text-xs font-bold text-amber-600">↑8</span>
           </div>
         </div>
       </div>
       <div className="absolute -top-3 -right-3 bg-white rounded-xl shadow-lg border border-gray-100 p-2 flex items-center gap-1.5">
         <Star size={11} className="text-yellow-400 fill-yellow-400 shrink-0"/>
-        <div><div className="text-[9px] font-black text-gray-900">ROI: +280%</div><div className="text-[8px] text-gray-400">avg. result</div></div>
+        <div><div className="text-xs font-bold text-[#0D0D1A]">ROI: +280%</div><div className="text-[8px] text-[#9CA3AF]">avg. result</div></div>
       </div>
     </div>
   );
@@ -275,7 +275,7 @@ export default function ServicesOverview() {
             transition={{ duration: 0.6, ease: EASE }}
             className="lg:col-span-2 self-start lg:sticky lg:top-28"
           >
-            <h2 className="heading-xl font-black text-[#0D0D1A] mb-10 leading-tight">
+            <h2 className="heading-xl font-bold text-[#0D0D1A] mb-10 leading-tight">
               High-End Tech and<br />Marketing, All in<br />One Place
             </h2>
 
@@ -307,19 +307,19 @@ export default function ServicesOverview() {
 
                     <div className="flex items-start gap-3">
                       <span
-                        className="text-[10px] font-mono font-bold mt-0.5 shrink-0 transition-colors duration-200"
+                        className="text-xs font-mono font-bold mt-0.5 shrink-0 transition-colors duration-200"
                         style={{ color: isActive ? s.accentColor : "#C4C9D4" }}
                       >
                         {s.number}
                       </span>
                       <div>
                         <div className={`text-sm font-semibold leading-snug transition-colors duration-200 ${
-                          isActive ? "text-[#0D0D1A]" : "text-gray-400 group-hover:text-gray-600"
+                          isActive ? "text-[#0D0D1A]" : "text-[#9CA3AF] group-hover:text-[#6B7180]"
                         }`}>
                           {s.label}
                         </div>
                         <div className={`text-xs mt-0.5 transition-colors duration-200 leading-relaxed ${
-                          isActive ? "text-gray-500" : "text-gray-300 group-hover:text-gray-400"
+                          isActive ? "text-[#6B7180]" : "text-gray-300 group-hover:text-[#9CA3AF]"
                         }`}>
                           {s.tagline}
                         </div>
@@ -366,7 +366,7 @@ export default function ServicesOverview() {
                       <div className="flex flex-col gap-4">
                         {/* Label */}
                         <span
-                          className="inline-block text-[11px] font-bold px-3 py-1.5 rounded-full w-fit tracking-wide"
+                          className="inline-block text-xs font-bold px-3 py-1.5 rounded-full w-fit tracking-wide"
                           style={{ background: service.accentBg, color: service.accentColor }}
                         >
                           {service.label}
@@ -374,7 +374,7 @@ export default function ServicesOverview() {
 
                         {/* Title */}
                         <h3
-                          className="font-black text-[#0D0D1A] leading-tight"
+                          className="font-bold text-[#0D0D1A] leading-tight"
                           style={{ fontSize: "clamp(1.3rem, 1.9vw, 1.65rem)", letterSpacing: "-0.025em" }}
                         >
                           {service.title}
@@ -390,7 +390,7 @@ export default function ServicesOverview() {
                           {service.tags.map(tag => (
                             <span
                               key={tag}
-                              className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-gray-50 border border-gray-200 text-gray-500"
+                              className="text-xs font-medium px-2.5 py-1 rounded-full bg-gray-50 border border-gray-200 text-[#6B7180]"
                             >
                               {tag}
                             </span>

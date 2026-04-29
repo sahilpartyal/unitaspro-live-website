@@ -3,9 +3,9 @@ import { buildMetadata } from "@/lib/metadata";
 import ContactPageClient from "@/components/pages/ContactPageClient";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Contact Us",
+  title: "Contact Us — Free Software Consultation",
   description:
-    "Get in touch with Unitaspro. Free consultation, 24-hour response. Let's discuss your web design, software, mobile app, or marketing project.",
+    "Reach out to Unitaspro for a free consultation. We respond within 24 hours. Let's discuss your web, software, or app project — get a free quote.",
   path: "/contact",
 });
 

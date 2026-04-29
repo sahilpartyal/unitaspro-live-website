@@ -105,8 +105,20 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const CtaIcon = data.ctaIcon;
 
+  /* FAQPage structured data for rich snippets */
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: data.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}/>
 
       {/* ──────────────────────────────────────────────
           HERO
@@ -267,8 +279,8 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
                       <Ic size={20} style={{ color: c.color }}/>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-bold text-[15px] text-[#0D0D1A] leading-snug">{feat.title}</h3>
-                      <p className="text-[13px] text-[#6B7180] leading-snug mt-1 line-clamp-2">{feat.desc}</p>
+                      <h3 className="font-bold text-[15px] text-[#0D0D1A] font-semibold leading-snug">{feat.title}</h3>
+                      <p className="text-sm text-[#6B7180] leading-snug mt-1 line-clamp-2">{feat.desc}</p>
                     </div>
                   </motion.div>
                 );
@@ -669,7 +681,7 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
                 <span className="w-1.5 h-1.5 rounded-sm bg-[#2563EB] inline-block"/>
                 <p className="text-sm text-[#6B7180]">FAQ</p>
               </div>
-              <h2 className="heading-xl font-black text-[#0D0D1A] mb-5 leading-tight">
+              <h2 className="heading-xl font-bold text-[#0D0D1A] mb-5 leading-tight">
                 {data.faqHeading}
               </h2>
               <p className="text-[#6B7180] text-base leading-relaxed mb-8">

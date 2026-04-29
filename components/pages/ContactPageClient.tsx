@@ -306,7 +306,7 @@ export default function ContactPageClient() {
               className="lg:col-span-4 self-start lg:sticky lg:top-28 order-2 lg:order-1"
             >
               <p className="text-sm text-[#6B7180] mb-3 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>Contact Info</p>
-              <h2 className="heading-xl font-black text-[#0D0D1A] mt-1 mb-5 leading-tight">
+              <h2 className="heading-xl font-bold text-[#0D0D1A] mt-1 mb-5 leading-tight">
                 Reach us
                 <br />
                 directly
@@ -328,7 +328,7 @@ export default function ContactPageClient() {
                       <c.icon size={15} className="text-brand-600" />
                     </div>
                     <div>
-                      <div className="text-[10px] font-bold text-[#9CA3AF] uppercase tracking-[0.18em] mb-0.5">
+                      <div className="text-xs font-bold text-[#9CA3AF] uppercase tracking-[0.18em] mb-0.5">
                         {c.label}
                       </div>
                       {c.href ? (
@@ -386,7 +386,7 @@ export default function ContactPageClient() {
                     <CheckCircle2 size={32} className="text-green-600" />
                   </motion.div>
                   <div>
-                    <h2 className="font-black text-[#0D0D1A] text-2xl mb-2">
+                    <h2 className="font-bold text-[#0D0D1A] text-2xl mb-2">
                       Message received!
                     </h2>
                     <p className="text-[#6B7180] text-base">
@@ -420,7 +420,7 @@ export default function ContactPageClient() {
                   <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div className="flex flex-col gap-1.5">
-                        <label className="text-[10px] font-bold text-[#374151] uppercase tracking-[0.18em]">
+                        <label className="text-xs font-bold text-[#374151] uppercase tracking-[0.18em]">
                           Full Name *
                         </label>
                         <input
@@ -434,7 +434,7 @@ export default function ContactPageClient() {
                         />
                       </div>
                       <div className="flex flex-col gap-1.5">
-                        <label className="text-[10px] font-bold text-[#374151] uppercase tracking-[0.18em]">
+                        <label className="text-xs font-bold text-[#374151] uppercase tracking-[0.18em]">
                           Email *
                         </label>
                         <input
@@ -451,7 +451,7 @@ export default function ContactPageClient() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div className="flex flex-col gap-1.5">
-                        <label className="text-[10px] font-bold text-[#374151] uppercase tracking-[0.18em]">
+                        <label className="text-xs font-bold text-[#374151] uppercase tracking-[0.18em]">
                           Phone / WhatsApp
                         </label>
                         <div className="flex gap-0">
@@ -495,7 +495,7 @@ export default function ContactPageClient() {
                                   {/* List */}
                                   <div className="max-h-52 overflow-y-auto overscroll-contain">
                                     {filteredCountries.length === 0 ? (
-                                      <div className="px-4 py-3 text-sm text-gray-400">No results</div>
+                                      <div className="px-4 py-3 text-sm text-[#9CA3AF]">No results</div>
                                     ) : (
                                       filteredCountries.map((c) => (
                                         <button
@@ -538,7 +538,7 @@ export default function ContactPageClient() {
                         </div>
                       </div>
                       <div className="flex flex-col gap-1.5">
-                        <label className="text-[10px] font-bold text-[#374151] uppercase tracking-[0.18em]">
+                        <label className="text-xs font-bold text-[#374151] uppercase tracking-[0.18em]">
                           Service Needed
                         </label>
                         <select
@@ -566,7 +566,7 @@ export default function ContactPageClient() {
                     </div>
 
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] font-bold text-[#374151] uppercase tracking-[0.18em]">
+                      <label className="text-xs font-bold text-[#374151] uppercase tracking-[0.18em]">
                         Message
                       </label>
                       <textarea

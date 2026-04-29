@@ -43,7 +43,7 @@ export default function CTABanner() {
               <span className="w-8 h-px bg-white/20 inline-block"/>
               Let&apos;s work together
             </p>
-            <h2 className="font-black leading-[0.95] text-white"
+            <h2 className="font-bold leading-[0.95] text-white"
               style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)", letterSpacing: "-0.03em" }}>
               Have an idea?<br />
               <span className="relative inline-block">

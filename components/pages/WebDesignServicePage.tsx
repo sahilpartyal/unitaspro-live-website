@@ -126,9 +126,11 @@ const FAQS = [
    ------------------------------------------------------- */
 export default function WebDesignServicePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQS.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) };
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}/>
 
       {/* -------------------------------------------------
           S1  HERO - Hyperline style with abstract pattern
@@ -476,7 +478,7 @@ export default function WebDesignServicePage() {
                 </div>
                 <div>
                   <div className="text-xs font-semibold text-[#0D0D1A]">Delivered on time</div>
-                  <div className="text-[11px] text-[#9CA3AF]">0 missed deadlines in 3 years</div>
+                  <div className="text-xs text-[#9CA3AF]">0 missed deadlines in 3 years</div>
                 </div>
               </motion.div>
             </motion.div>
@@ -547,7 +549,7 @@ export default function WebDesignServicePage() {
                     { stat: "100%",  label: "fixed-price, zero scope creep" },
                   ].map((item) => (
                     <li key={item.stat} className="flex items-center gap-3 text-sm">
-                      <span className="font-black text-[#2563EB] shrink-0" style={{ letterSpacing: "-0.03em" }}>{item.stat}</span>
+                      <span className="font-bold text-[#2563EB] shrink-0" style={{ letterSpacing: "-0.03em" }}>{item.stat}</span>
                       <span className="text-[#6B7180]">{item.label}</span>
                     </li>
                   ))}
@@ -572,7 +574,7 @@ export default function WebDesignServicePage() {
 
             {/* Right top */}
             <motion.div {...fadeUp(0.12)} className="rounded-2xl bg-[#EFF6FF] p-6">
-              <div className="font-black text-[#0D0D1A] leading-none mb-2"
+              <div className="font-bold text-[#0D0D1A] leading-none mb-2"
                 style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", letterSpacing: "-0.04em" }}>
                 50+
               </div>
@@ -581,7 +583,7 @@ export default function WebDesignServicePage() {
 
             {/* Right bottom */}
             <motion.div {...fadeUp(0.16)} className="rounded-2xl bg-[#EFF6FF] p-6">
-              <div className="font-black text-[#0D0D1A] leading-none mb-2"
+              <div className="font-bold text-[#0D0D1A] leading-none mb-2"
                 style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", letterSpacing: "-0.04em" }}>
                 5 yrs
               </div>
@@ -590,7 +592,7 @@ export default function WebDesignServicePage() {
 
             {/* Bottom row — 2 stats + CTA */}
             <motion.div {...fadeUp(0.2)} className="rounded-2xl bg-[#EFF6FF] p-6">
-              <div className="font-black text-[#0D0D1A] leading-none mb-2"
+              <div className="font-bold text-[#0D0D1A] leading-none mb-2"
                 style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", letterSpacing: "-0.04em" }}>
                 $0
               </div>
@@ -598,7 +600,7 @@ export default function WebDesignServicePage() {
             </motion.div>
 
             <motion.div {...fadeUp(0.24)} className="rounded-2xl bg-[#EFF6FF] p-6">
-              <div className="font-black text-[#0D0D1A] leading-none mb-2"
+              <div className="font-bold text-[#0D0D1A] leading-none mb-2"
                 style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", letterSpacing: "-0.04em" }}>
                 12+
               </div>
@@ -639,7 +641,7 @@ export default function WebDesignServicePage() {
             {/* Left sticky panel */}
             <div className="lg:sticky lg:top-28">
               <span className="section-label mb-5 inline-flex">FAQ</span>
-              <h2 className="heading-xl font-black text-[#0D0D1A] mb-5 leading-tight">
+              <h2 className="heading-xl font-bold text-[#0D0D1A] mb-5 leading-tight">
                 Frequently asked<br />questions
               </h2>
               <p className="text-[#6B7180] text-base leading-relaxed mb-8">

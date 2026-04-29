@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import RealEstateIndustryPage from "@/components/pages/RealEstateIndustryPage";
 
-export const metadata: Metadata = {
-  title: "Real Estate Software Development | Unitaspro",
+export const metadata = buildMetadata({
+  title: "Real Estate Software Solutions",
   description:
-    "Custom property portals, agent CRM systems, and buyer platforms for real estate developers, agencies, and brokerages. Built in 8 weeks.",
-  alternates: { canonical: "https://unitaspro.com/industries/real-estate" },
-};
+    "Custom property portals and agent CRM systems for real estate agencies and developers. Fixed price, 8-week delivery. Get a free quote.",
+  path: "/industries/real-estate",
+});
 
 export default function RealEstatePage() {
   return <RealEstateIndustryPage />;

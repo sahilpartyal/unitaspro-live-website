@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import FinanceIndustryPage from "@/components/pages/FinanceIndustryPage";
 
-export const metadata: Metadata = {
-  title: "Finance & Fintech Software Development | Unitaspro",
+export const metadata = buildMetadata({
+  title: "Finance & Fintech Software",
   description:
-    "Custom banking portals, lending platforms, and fintech dashboards for financial services companies. KYC, payments, loan origination and more. Built in 8 weeks.",
-  alternates: { canonical: "https://unitaspro.com/industries/finance" },
-};
+    "Secure banking portals, lending platforms, and KYC dashboards for financial services. Fixed price, 8-week delivery. Get a free quote.",
+  path: "/industries/finance",
+});
 
 export default function FinancePage() {
   return <FinanceIndustryPage />;

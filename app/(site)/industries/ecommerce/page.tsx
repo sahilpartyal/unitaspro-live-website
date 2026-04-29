@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import EcommerceIndustryPage from "@/components/pages/EcommerceIndustryPage";
 
-export const metadata: Metadata = {
-  title: "E-Commerce Software Development | Unitaspro",
+export const metadata = buildMetadata({
+  title: "E-Commerce Software Solutions",
   description:
-    "Custom storefronts, marketplace platforms, and order management systems for D2C brands, retailers, and marketplace operators. Built in 6 weeks.",
-  alternates: { canonical: "https://unitaspro.com/industries/ecommerce" },
-};
+    "Custom storefronts and marketplace platforms for D2C brands and retailers. Fixed price, 6-week delivery. Get a free quote.",
+  path: "/industries/ecommerce",
+});
 
 export default function EcommercePage() {
   return <EcommerceIndustryPage />;

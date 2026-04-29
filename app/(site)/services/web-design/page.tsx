@@ -3,8 +3,8 @@ import { buildMetadata } from "@/lib/metadata";
 import WebDesignServicePage from "@/components/pages/WebDesignServicePage";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Web Design & Development | Modern UI/UX, High-Performance Sites",
-  description: "High-performance web design & development built on Next.js and React. Mobile-first design, SEO-friendly architecture, conversion rate optimisation, and 99+ Lighthouse scores. Get your free UX audit today.",
+  title: "Web Design & Development Services",
+  description: "Mobile-first web design & development on Next.js and React. SEO-friendly, 99+ Lighthouse scores, and built to convert. Get a free UX audit.",
   path: "/services/web-design",
 });
 
