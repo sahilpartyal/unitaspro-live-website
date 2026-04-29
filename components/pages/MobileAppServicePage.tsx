@@ -143,7 +143,7 @@ export default function MobileAppServicePage() {
       {/* -------------------------------------------------
           S1  HERO - Hyperline style with abstract pattern
       */}
-      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-32 lg:pb-12">
+      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-[13rem] lg:pb-12">
         {/* Abstract geometric pattern - right side */}
         <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[55%] h-full hidden lg:block">
           {/* Grid pattern */}

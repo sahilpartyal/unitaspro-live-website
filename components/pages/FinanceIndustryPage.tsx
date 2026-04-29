@@ -106,7 +106,8 @@ const data: IndustryPageData = {
     },
     {
       label: "Admin Dashboard",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80",
+      type: "desktop",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80",
       features: [
         { icon: Layers,      title: "Portfolio Overview",  desc: "Get a complete view of the loan book, disbursements, and outstanding balances." },
         { icon: AlertCircle, title: "Risk Engine",         desc: "Configure credit risk scoring rules and manage multi-level approval workflows." },

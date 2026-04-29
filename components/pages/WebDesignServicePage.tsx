@@ -135,7 +135,7 @@ export default function WebDesignServicePage() {
       {/* -------------------------------------------------
           S1  HERO - Hyperline style with abstract pattern
       */}
-      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-32 lg:pb-12">
+      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-[13rem] lg:pb-12">
         {/* Abstract geometric pattern - right side */}
         <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[55%] h-full hidden lg:block">
           {/* Grid pattern */}
@@ -607,18 +607,6 @@ export default function WebDesignServicePage() {
               <p className="text-sm text-[#6B7180]">Industries served — healthcare, retail, fintech, real estate, and more</p>
             </motion.div>
 
-            {/* CTA card — replaced "View Case Studies" with See Our Work */}
-            <motion.div {...fadeUp(0.28)}>
-              <Link href="/portfolio"
-                className="flex items-center justify-between rounded-2xl bg-[#0D0D1A] p-6 h-full
-                  hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(15,23,42,0.2)] transition-all duration-200 group">
-                <span className="font-semibold text-white text-lg">See Our Work</span>
-                <span className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0
-                  group-hover:translate-x-1 transition-transform duration-200">
-                  <ArrowRight size={18} className="text-[#0D0D1A]"/>
-                </span>
-              </Link>
-            </motion.div>
 
           </div>
         </div>

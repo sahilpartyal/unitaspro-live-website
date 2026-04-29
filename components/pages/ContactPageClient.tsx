@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useCountryFromIP } from "@/lib/useCountryFromIP";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -88,10 +89,18 @@ export default function ContactPageClient() {
   });
   const [phoneRevealed, setPhoneRevealed] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(COUNTRIES[0]);
+  const detectedCountry = useCountryFromIP();
   const [countryOpen, setCountryOpen] = useState(false);
   const [countrySearch, setCountrySearch] = useState("");
   const countryRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
+
+  // Auto-select country dial code based on IP
+  useEffect(() => {
+    if (!detectedCountry) return;
+    const match = COUNTRIES.find((c) => c.code === detectedCountry);
+    if (match) setSelectedCountry(match);
+  }, [detectedCountry]);
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -161,7 +170,7 @@ export default function ContactPageClient() {
   return (
     <>
       {/* ═══════════════════ HERO — Service-page style ═══════════════════ */}
-      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-32 lg:pb-12">
+      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-[13rem] lg:pb-12">
         {/* Abstract geometric pattern — right side */}
         <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[55%] h-full hidden lg:block">
           <div

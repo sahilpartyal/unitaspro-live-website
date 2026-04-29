@@ -2,9 +2,9 @@ import { buildMetadata } from "@/lib/metadata";
 import HospitalityIndustryPage from "@/components/pages/HospitalityIndustryPage";
 
 export const metadata = buildMetadata({
-  title: "Hospitality Software Solutions",
+  title: "Hotel & Hospitality Software Development | Unitaspro",
   description:
-    "Custom hotel PMS, direct booking engines, and guest apps for hotels and resorts. Commission-free. Get a free quote.",
+    "Custom hotel PMS, commission-free direct booking engines, and guest apps for hotels and resorts. Replace OTA fees with your own platform. Get a free quote.",
   path: "/industries/hospitality",
 });
 

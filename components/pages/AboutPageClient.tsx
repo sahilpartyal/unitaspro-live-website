@@ -141,7 +141,7 @@ export default function AboutPageClient() {
   return (
     <>
       {/* ═══════════════════ HERO — Service-page style ═══════════════════ */}
-      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-32 lg:pb-12">
+      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-[13rem] lg:pb-12">
         {/* Abstract geometric pattern — right side */}
         <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[55%] h-full hidden lg:block">
           <div className="absolute inset-0 opacity-[0.06]"
@@ -183,8 +183,8 @@ export default function AboutPageClient() {
             transition={{ duration: 0.65, delay: 0.06, ease: EASE }}
             className="max-w-4xl mb-8"
             style={{ fontSize: "clamp(2.8rem, 5.5vw, 4.5rem)", lineHeight: 1.06, letterSpacing: "-0.04em" }}>
-            <span className="font-light text-[#9CA3AF]">Launch Faster. </span>
-            <span className="font-semibold text-[#0D0D1A]">Grow Much Bigger</span>
+            <span className="font-light text-[#9CA3AF]">Custom Software Development </span>
+            <span className="font-semibold text-[#0D0D1A]">Agency You Can Trust</span>
           </motion.h1>
 
           {/* Dual CTAs */}

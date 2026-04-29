@@ -60,6 +60,14 @@ export const organizationSchema = {
   email: siteConfig.email,
   telephone: siteConfig.phone,
   description: siteConfig.description,
+  foundingDate: "2017",
+  logo: {
+    "@type": "ImageObject",
+    url: `${siteConfig.url}/unitaspro-logo.png`,
+    width: 200,
+    height: 60,
+  },
+  image: `${siteConfig.url}/og-image.png`,
   address: {
     "@type": "PostalAddress",
     streetAddress: "E 279, Industrial Area, Sector 75",
@@ -68,5 +76,19 @@ export const organizationSchema = {
     postalCode: "160055",
     addressCountry: "IN",
   },
-  sameAs: Object.values(siteConfig.social),
+  areaServed: [
+    { "@type": "Country", name: "India" },
+    { "@type": "Country", name: "United States" },
+    { "@type": "Country", name: "United Kingdom" },
+    { "@type": "Country", name: "United Arab Emirates" },
+    { "@type": "Country", name: "Australia" },
+    { "@type": "Country", name: "Canada" },
+    { "@type": "Country", name: "Singapore" },
+  ],
+  numberOfEmployees: { "@type": "QuantitativeValue", minValue: 10, maxValue: 49 },
+  sameAs: [
+    ...Object.values(siteConfig.social),
+    "https://www.clutch.co/profile/unitaspro",
+    "https://www.goodfirms.co/company/unitaspro",
+  ],
 };

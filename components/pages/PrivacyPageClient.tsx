@@ -92,7 +92,7 @@ export default function PrivacyPageClient() {
   return (
     <>
       {/* Hero — inner page style with grid + diamond decoration */}
-      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-32 lg:pb-14">
+      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-[13rem] lg:pb-14">
         <div aria-hidden className="pointer-events-none absolute top-16 left-[20%] w-64 h-64 rounded-full blur-3xl opacity-[0.06]"
           style={{ background: "radial-gradient(circle, #2563EB, transparent)" }}/>
 

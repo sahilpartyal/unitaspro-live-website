@@ -101,14 +101,21 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ── Main navbar — floating white pill ── */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 lg:px-8 pt-4">
+      {/* ── Main navbar ── */}
+      <header
+        className={clsx(
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          scrolled
+            ? "bg-white border-b border-gray-200 shadow-[0_2px_16px_rgba(15,23,42,0.08)]"
+            : "px-4 lg:px-8 pt-4"
+        )}
+      >
         <div
           className={clsx(
-            "max-w-6xl mx-auto rounded-full bg-white border transition-all duration-300 px-6 lg:px-8",
+            "mx-auto bg-white border transition-all duration-300",
             scrolled
-              ? "border-gray-200 shadow-[0_4px_24px_rgba(15,23,42,0.10)]"
-              : "border-gray-200/80 shadow-[0_2px_16px_rgba(15,23,42,0.06)]"
+              ? "max-w-7xl px-4 sm:px-6 lg:px-8 rounded-none border-transparent"
+              : "max-w-6xl px-6 lg:px-8 rounded-full border-gray-200/80 shadow-[0_2px_16px_rgba(15,23,42,0.06)]"
           )}
         >
           <div className="flex items-center justify-between h-[64px]">

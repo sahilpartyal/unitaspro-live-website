@@ -192,7 +192,7 @@ export default function BlogPostClient({
       </div>
 
       {/* ═══════════════════ HERO ═══════════════════ */}
-      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-32 lg:pb-16">
+      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-[13rem] lg:pb-16">
         <div
           aria-hidden
           className="pointer-events-none absolute top-0 right-0 w-[55%] h-full hidden lg:block"

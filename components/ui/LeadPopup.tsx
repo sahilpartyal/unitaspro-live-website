@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
+import { useCountryFromIP } from "@/lib/useCountryFromIP";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight, Clock, Users, Globe2 } from "lucide-react";
@@ -24,6 +25,13 @@ export default function LeadPopup() {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phone: "", service: "", message: "" });
   const pathname = usePathname();
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const detectedCountry = useCountryFromIP();
+
+  useEffect(() => {
+    if (!detectedCountry) return;
+    const match = COUNTRIES.find((c) => c.code === detectedCountry);
+    if (match) setSelectedCountry(match);
+  }, [detectedCountry]);
 
   useEffect(() => {
     if (timerRef.current) clearTimeout(timerRef.current);

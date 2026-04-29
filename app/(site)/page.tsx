@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Hero            from "@/components/sections/Hero";
-import Stats           from "@/components/sections/Stats";
 import ServicesOverview from "@/components/sections/ServicesOverview";
 import ProcessSteps    from "@/components/sections/ProcessSteps";
 import Benefits        from "@/components/sections/Benefits";
@@ -21,7 +20,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Stats />
       <ServicesOverview />
       <ProcessSteps />
       <Benefits />

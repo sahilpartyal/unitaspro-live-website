@@ -62,6 +62,11 @@ export interface IndustryPageData {
   heroHeadingLight: string;
   heroHeadingBold: string;
   heroHighlights: HeroHighlight[];
+  /** Problem & Solution (optional) */
+  problemSectionLight?: string;
+  problemSectionBold?: string;
+  problemSubtitle?: string;
+  problems?: { problem: string; solution: string }[];
   /** Before / After (optional) */
   beforeAfter?: {
     heading: string;
@@ -123,7 +128,7 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
       {/* ──────────────────────────────────────────────
           HERO
       ────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-0 lg:pt-32">
+      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-0 lg:pt-[13rem]">
 
         {/* Subtle colour orbs for depth */}
         <div aria-hidden className="pointer-events-none absolute top-16 left-[20%] w-64 h-64 rounded-full blur-3xl opacity-[0.06]"
@@ -224,6 +229,80 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
 
       {/* ── Stats bar ── */}
       <Stats />
+
+      {/* ──────────────────────────────────────────────
+          PROBLEM & SOLUTION (optional)
+      ────────────────────────────────────────────── */}
+      {data.problems && data.problems.length > 0 && (
+        <section className="relative bg-[#FAFBFD] py-20 lg:py-28 overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.035]"
+            style={{
+              backgroundImage: "radial-gradient(circle, #0D0D1A 1px, transparent 1px)",
+              backgroundSize: "28px 28px",
+            }}/>
+
+          <div className="container-main relative">
+            <motion.div {...fadeUp()} className="mb-3 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-sm bg-[#2563EB] inline-block"/>
+              <p className="text-sm text-[#6B7180]">The problem & the fix</p>
+            </motion.div>
+
+            <motion.div {...fadeUp(0.05)} className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+              <h2 className="max-w-xl" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.03em" }}>
+                <span className="font-light text-[#9CA3AF]">{data.problemSectionLight} </span>
+                <span className="font-semibold text-[#0D0D1A]">{data.problemSectionBold}</span>
+              </h2>
+              {data.problemSubtitle && (
+                <p className="text-sm text-[#9CA3AF] max-w-xs">{data.problemSubtitle}</p>
+              )}
+            </motion.div>
+
+            {/* Column headers */}
+            <div className="hidden md:grid md:grid-cols-2 gap-0 mb-3 px-5">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#EF4444]">
+                <XCircle size={13}/> The Problem
+              </div>
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#2563EB]">
+                <CheckCircle2 size={13}/> Our Solution
+              </div>
+            </div>
+
+            {/* Rows */}
+            <div className="flex flex-col divide-y divide-gray-200/80 border border-gray-200/80 rounded-2xl overflow-hidden">
+              {data.problems.map((row, i) => (
+                <motion.div
+                  key={i}
+                  {...fadeUp(0.06 + i * 0.07)}
+                  className="grid grid-cols-1 md:grid-cols-2 group hover:bg-white transition-colors duration-200"
+                >
+                  <div className="flex items-start gap-3 p-5 md:border-r border-gray-200/80">
+                    <div className="w-6 h-6 rounded-full bg-red-50 flex items-center justify-center shrink-0 mt-0.5
+                      group-hover:bg-red-100 transition-colors duration-200">
+                      <XCircle size={14} className="text-red-400"/>
+                    </div>
+                    <p className="text-sm font-medium text-[#374151] leading-snug">{row.problem}</p>
+                  </div>
+                  <div className="flex items-start gap-3 p-5 bg-white/50 md:bg-transparent">
+                    <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center shrink-0 mt-0.5
+                      group-hover:bg-blue-100 transition-colors duration-200">
+                      <CheckCircle2 size={14} className="text-[#2563EB]"/>
+                    </div>
+                    <p className="text-sm text-[#6B7180] leading-relaxed">{row.solution}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div {...fadeUp(0.45)} className="mt-8 flex flex-col sm:flex-row items-center gap-4">
+              <Link href="/contact" className="btn-primary group">
+                Get a free quote
+                <span className="btn-arrow"><ArrowRight size={15}/></span>
+              </Link>
+              <p className="text-sm text-[#9CA3AF]">Free consultation included — no strings attached.</p>
+            </motion.div>
+          </div>
+        </section>
+      )}
 
       {/* ──────────────────────────────────────────────
           PANEL SHOWCASE — Savio-style: center mockup, feature cards flanking
