@@ -105,9 +105,10 @@ export default function Navbar() {
       <header
         className={clsx(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled
-            ? "bg-white border-b border-gray-200 shadow-[0_2px_16px_rgba(15,23,42,0.08)]"
-            : "px-4 lg:px-8 pt-4"
+          // Mobile: always full-width solid white
+          "bg-white border-b border-gray-200 shadow-[0_2px_16px_rgba(15,23,42,0.08)]",
+          // Desktop: floating pill when at top, solid when scrolled
+          !scrolled && "lg:bg-transparent lg:border-b-0 lg:shadow-none lg:px-8 lg:pt-4"
         )}
       >
         <div
@@ -115,10 +116,13 @@ export default function Navbar() {
             "mx-auto bg-white border transition-all duration-300",
             scrolled
               ? "max-w-7xl px-4 sm:px-6 lg:px-8 rounded-none border-transparent"
-              : "max-w-6xl px-6 lg:px-8 rounded-full border-gray-200/80 shadow-[0_2px_16px_rgba(15,23,42,0.06)]"
+              : [
+                  "max-w-7xl px-4 sm:px-6 rounded-none border-transparent",
+                  "lg:max-w-6xl lg:px-8 lg:rounded-full lg:border-gray-200/80 lg:shadow-[0_2px_16px_rgba(15,23,42,0.06)]"
+                ]
           )}
         >
-          <div className="flex items-center justify-between h-[64px]">
+          <div className="flex items-center justify-between h-[56px] lg:h-[64px]">
 
             {/* ── Logo ── */}
             <Link href="/" className="flex items-center shrink-0">
@@ -251,7 +255,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden fixed inset-0 z-40 bg-white overflow-y-auto"
+            className="lg:hidden fixed inset-0 z-[60] bg-white overflow-y-auto"
           >
             {/* Header row */}
             <div className="flex items-center justify-between px-5 h-[68px] border-b border-gray-100">

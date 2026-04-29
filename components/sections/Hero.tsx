@@ -20,7 +20,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative flex flex-col min-h-screen overflow-hidden bg-[#070D1F]">
+    <section className="relative flex flex-col lg:min-h-screen overflow-hidden bg-[#070D1F]">
 
       {/* Background image */}
       <div className="absolute inset-0 z-0">
@@ -58,7 +58,7 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-20 pb-12 lg:pt-[13rem] lg:pb-12">
+      <div className="relative z-10 flex flex-col flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-28 pb-14 lg:pt-[13rem] lg:pb-12">
 
         {/* Heading */}
         <h1 className="font-extrabold text-white mb-7 lg:mb-8" style={{ lineHeight: 1.0, letterSpacing: "-0.044em" }}>
@@ -156,7 +156,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
-          className="flex flex-wrap items-center gap-6 mt-auto pt-8 lg:pt-10"
+          className="flex flex-wrap items-center gap-6 mt-10 lg:mt-auto pt-0 lg:pt-10"
         >
           <div className="flex items-center gap-2">
             <div className="flex gap-px">
