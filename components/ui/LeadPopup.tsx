@@ -29,6 +29,8 @@ export default function LeadPopup() {
     if (timerRef.current) clearTimeout(timerRef.current);
     setSent(false);
     setVisible(false);
+    // Don't show popup on contact page — user is already filling out a form
+    if (pathname === "/contact") return;
     timerRef.current = setTimeout(() => setVisible(true), 4500);
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
   }, [pathname]);
