@@ -249,7 +249,7 @@ export default function Navbar() {
             {/* Header row */}
             <div className="flex items-center justify-between px-5 h-[68px] border-b border-gray-100">
               <Link href="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
-                <Image src="/unitaspro-logo.png" alt="Unitaspro" width={120} height={36} className="h-8 w-auto" style={{ filter: "brightness(0)" }} priority />
+                <Image src="/unitaspro-logo.png" alt="Unitaspro" width={120} height={36} className="h-8 w-auto" style={{ filter: "brightness(0)" }} />
               </Link>
               <button onClick={() => setMobileOpen(false)}
                 className="w-9 h-9 flex items-center justify-center rounded-xl bg-gray-100">
