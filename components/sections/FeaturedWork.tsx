@@ -51,8 +51,8 @@ export default function FeaturedWork() {
               Real results for real businesses — from startups to established enterprises.
             </p>
           </div>
-          <Link href="/portfolio" className="btn-secondary whitespace-nowrap shrink-0">
-            View All Projects <ArrowRight size={16} />
+          <Link href="/contact" className="btn-secondary whitespace-nowrap shrink-0">
+            Start Your Project <ArrowRight size={16} />
           </Link>
         </div>
 
