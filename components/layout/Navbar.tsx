@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, Phone, Globe, Code2, Smartphone, Megaphone, ArrowRight, Calendar, Car, TrendingUp, Building2, ShoppingCart, Heart, Plane, Package, Rocket } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Globe, Code2, Smartphone, Megaphone, ArrowRight, Car, TrendingUp, Building2, ShoppingCart, Heart, Plane, Package, Rocket } from "lucide-react";
 import { clsx } from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -146,31 +146,20 @@ export default function Navbar() {
                     <AnimatePresence>
                       {megaOpen && (
                         <motion.div
-                          initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }}
-                          transition={{ duration: 0.18, ease: [0.22,1,0.36,1] }}
-                          className="absolute top-full -left-4 mt-2.5 bg-white rounded-2xl border border-gray-100 shadow-[0_24px_64px_rgba(15,23,42,0.12)] overflow-hidden"
-                          style={{ width: "340px" }}
+                          initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 6 }}
+                          transition={{ duration: 0.15, ease: [0.22,1,0.36,1] }}
+                          className="absolute top-full -left-2 mt-2 bg-white rounded-xl border border-gray-200 shadow-[0_6px_20px_rgba(15,23,42,0.07)] overflow-hidden p-1.5"
+                          style={{ width: "240px" }}
                         >
-                          <div>
-                            {servicesMega.flatMap(g => g.items).map((item, idx, arr) => (
-                              <Link key={item.href} href={item.href} onClick={() => setMegaOpen(false)}
-                                className={clsx(
-                                  "group flex items-start gap-4 px-6 py-5 hover:bg-[#F8F9FC] transition-colors",
-                                  idx < arr.length - 1 && "border-b border-gray-100/80"
-                                )}>
-                                <item.icon size={22} strokeWidth={1.6} className="shrink-0 mt-0.5 text-[#2563EB]"/>
-                                <div className="flex-1 min-w-0">
-                                  <span className="text-[15px] font-bold text-[#0D0D1A] group-hover:text-[#2563EB] transition-colors">
-                                    {item.label}
-                                  </span>
-                                  <p className="text-sm text-[#6B7180] leading-relaxed mt-1">
-                                    {item.desc}.{" "}
-                                    <span className="text-[#2563EB] inline-block group-hover:translate-x-0.5 transition-transform">↗</span>
-                                  </p>
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
+                          {servicesMega.flatMap(g => g.items).map((item) => (
+                            <Link key={item.href} href={item.href} onClick={() => setMegaOpen(false)}
+                              className="group flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-[#F8F9FC] transition-colors">
+                              <span className="text-[13px] font-semibold text-[#374151] group-hover:text-[#0D0D1A] transition-colors">
+                                {item.label}
+                              </span>
+                              <span className="text-[#D1D5DB] group-hover:text-[#2563EB] transition-colors">›</span>
+                            </Link>
+                          ))}
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -189,31 +178,20 @@ export default function Navbar() {
                     <AnimatePresence>
                       {industriesOpen && (
                         <motion.div
-                          initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }}
-                          transition={{ duration: 0.18, ease: [0.22,1,0.36,1] }}
-                          className="absolute top-full left-0 mt-2.5 bg-white rounded-2xl border border-gray-100 shadow-[0_24px_64px_rgba(15,23,42,0.12)] overflow-hidden"
-                          style={{ width: "680px" }}
+                          initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 6 }}
+                          transition={{ duration: 0.15, ease: [0.22,1,0.36,1] }}
+                          className="absolute top-full -left-2 mt-2 bg-white rounded-xl border border-gray-200 shadow-[0_6px_20px_rgba(15,23,42,0.07)] overflow-hidden p-1.5"
+                          style={{ width: "240px" }}
                         >
-                          <div className="grid grid-cols-2">
-                            {industriesList.map((ind, idx) => (
-                              <Link key={ind.href} href={ind.href} onClick={() => setIndustriesOpen(false)}
-                                className={clsx(
-                                  "group flex items-start gap-4 px-6 py-5 hover:bg-[#F8F9FC] transition-colors",
-                                  idx < industriesList.length - 2 && "border-b border-gray-100/80"
-                                )}>
-                                <ind.icon size={22} strokeWidth={1.6} className="shrink-0 mt-0.5 text-[#2563EB]"/>
-                                <div className="flex-1 min-w-0">
-                                  <span className="text-[15px] font-bold text-[#0D0D1A] group-hover:text-[#2563EB] transition-colors">
-                                    {ind.label}
-                                  </span>
-                                  <p className="text-sm text-[#6B7180] leading-relaxed mt-1">
-                                    {ind.desc}{" "}
-                                    <span className="text-[#2563EB] inline-block group-hover:translate-x-0.5 transition-transform">↗</span>
-                                  </p>
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
+                          {industriesList.map((ind) => (
+                            <Link key={ind.href} href={ind.href} onClick={() => setIndustriesOpen(false)}
+                              className="group flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-[#F8F9FC] transition-colors">
+                              <span className="text-[13px] font-semibold text-[#374151] group-hover:text-[#0D0D1A] transition-colors">
+                                {ind.label}
+                              </span>
+                              <span className="text-[#D1D5DB] group-hover:text-[#2563EB] transition-colors">›</span>
+                            </Link>
+                          ))}
                         </motion.div>
                       )}
                     </AnimatePresence>
