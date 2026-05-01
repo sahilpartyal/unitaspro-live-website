@@ -263,10 +263,9 @@ export default function Navbar() {
                     <div className="pl-3 pb-2 flex flex-col gap-0.5">
                       {servicesMega.flatMap(g => g.items).map((item) => (
                         <Link key={item.href} href={item.href}
-                          className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors"
+                          className="px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-sm text-[#374151] block"
                           onClick={() => setMobileOpen(false)}>
-                          <item.icon size={16} strokeWidth={1.8} style={{ color: item.accent }} className="shrink-0"/>
-                          <span className="text-sm text-[#374151]">{item.label}</span>
+                          {item.label}
                         </Link>
                       ))}
                     </div>
@@ -292,10 +291,9 @@ export default function Navbar() {
                     <div className="pl-3 pb-2 flex flex-col gap-0.5">
                       {industriesList.map((ind) => (
                         <Link key={ind.href} href={ind.href}
-                          className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors"
+                          className="px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-sm text-[#374151] block"
                           onClick={() => setMobileOpen(false)}>
-                          <ind.icon size={16} strokeWidth={1.8} className="shrink-0 text-[#2563EB]"/>
-                          <span className="text-sm text-[#374151]">{ind.label}</span>
+                          {ind.label}
                         </Link>
                       ))}
                     </div>

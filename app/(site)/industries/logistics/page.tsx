@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import LogisticsIndustryPage from "@/components/pages/LogisticsIndustryPage";
 
 export const metadata = buildMetadata({
-  title: "Logistics & Supply Chain Software",
+  title: "Logistics & Supply Chain Software Development",
   description:
     "Fleet tracking, warehouse management, and last-mile delivery platforms for logistics companies and 3PLs. Get a free quote.",
   path: "/industries/logistics",

@@ -58,7 +58,7 @@ const PROBLEMS = [
   },
   {
     problem:  "Visitors arrive, then they leave.",
-    solution: "We build CRO-optimized pages that stop the \"window shopping\" and systematically improve your conversion rate.",
+    solution: "Unitaspro builds CRO-optimized pages that stop the \"window shopping\" and systematically improve your conversion rate.",
   },
   {
     problem:  "Competitors are winning the search.",
@@ -507,8 +507,7 @@ export default function DigitalMarketingServicePage() {
                 <span className="font-semibold text-[#0D0D1A]"> don&apos;t just join it.</span>
               </h2>
               <p className="text-[#6B7180] text-base leading-relaxed mb-8">
-                We build the systems that put you in front of buyers at the exact moment they search.
-                High-performance strategy delivered with absolute accountability.
+                In 8+ years running paid and organic campaigns for clients across India, UAE, UK, and Australia, Unitaspro has found that most budgets are wasted on traffic that was never going to convert. Unitaspro builds the systems that put you in front of buyers at the exact moment they search — high-performance strategy delivered with full accountability.
               </p>
 
               {/* Key differentiators */}
@@ -648,6 +647,40 @@ export default function DigitalMarketingServicePage() {
 
 
 
+      {/* ─── INDUSTRIES WE SERVE ─────────────────────────── */}
+      <section className="section-pad bg-white border-t border-gray-100">
+        <div className="container-main">
+          <div className="mb-8">
+            <span className="section-label mb-4 inline-flex">Industries We Serve</span>
+            <h2 className="heading-xl font-bold text-[#0D0D1A] max-w-2xl">
+              Unitaspro runs digital marketing for 8 industries worldwide.
+            </h2>
+            <p className="text-[#6B7180] text-base mt-3 max-w-xl leading-relaxed">
+              Each industry has different buyer intent, seasonality, and ad platform dynamics. Explore how Unitaspro approaches growth in your sector.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { label: "Transport & Mobility",     href: "/industries/transport"   },
+              { label: "Finance & Fintech",         href: "/industries/finance"     },
+              { label: "Healthcare & Wellness",     href: "/industries/healthcare"  },
+              { label: "E-Commerce & Retail",       href: "/industries/ecommerce"   },
+              { label: "Real Estate & Property",    href: "/industries/real-estate" },
+              { label: "Hospitality & Travel",      href: "/industries/hospitality" },
+              { label: "Logistics & Supply Chain",  href: "/industries/logistics"   },
+              { label: "Startups & SaaS",           href: "/industries/startups"    },
+            ].map((ind) => (
+              <Link key={ind.href} href={ind.href}
+                className="group flex items-center justify-between px-4 py-3 rounded-xl border border-gray-200
+                  hover:border-[#D97706] hover:bg-[#FFFBEB] transition-all duration-200">
+                <span className="text-sm font-semibold text-[#374151] group-hover:text-[#D97706] transition-colors leading-snug">{ind.label}</span>
+                <ArrowRight size={13} className="text-gray-300 group-hover:text-[#D97706] shrink-0 transition-colors" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* -------------------------------------------------
           S10  FAQ - Homepage style
       */}
@@ -681,7 +714,7 @@ export default function DigitalMarketingServicePage() {
                     Still have questions?
                   </h3>
                   <p className="text-white/45 text-sm leading-relaxed mb-5">
-                    Our team responds within 24 hours — no bots, just real answers.
+                    Unitaspro&apos;s team responds within 24 hours — no bots, just real answers.
                   </p>
                   <Link href="/contact" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-[#0F172A] text-xs font-bold hover:bg-gray-50 transition-colors group">
                     Talk to us

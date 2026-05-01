@@ -5,7 +5,7 @@ import ProcessSteps    from "@/components/sections/ProcessSteps";
 import Benefits        from "@/components/sections/Benefits";
 import FeaturedWork    from "@/components/sections/FeaturedWork";
 import IndustriesSection from "@/components/sections/IndustriesSection";
-import Testimonials    from "@/components/sections/Testimonials";
+// import Testimonials    from "@/components/sections/Testimonials";
 import BlogPreviewWrapper from "@/components/sections/BlogPreviewWrapper";
 import FAQ             from "@/components/sections/FAQ";
 
@@ -25,7 +25,7 @@ export default function HomePage() {
       <Benefits />
       <FeaturedWork />
       <IndustriesSection />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <BlogPreviewWrapper />
       <FAQ />
     </>

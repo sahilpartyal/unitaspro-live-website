@@ -21,11 +21,25 @@ export default function LeadPopup() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [captcha, setCaptcha] = useState({ a: 1, b: 1 });
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [captchaInput, setCaptchaInput] = useState("");
   const [selectedCountry, setSelectedCountry] = useState(COUNTRIES[0]);
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phone: "", service: "", message: "" });
   const pathname = usePathname();
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const detectedCountry = useCountryFromIP();
+
+  async function fetchCaptcha() {
+    try {
+      const res = await fetch("/api/captcha");
+      const data = await res.json();
+      setCaptcha({ a: data.a, b: data.b });
+      setCaptchaToken(data.token);
+    } catch { /* keep previous challenge */ }
+  }
+
+  useEffect(() => { void fetchCaptcha(); }, []);
 
   useEffect(() => {
     if (!detectedCountry) return;
@@ -76,10 +90,22 @@ export default function LeadPopup() {
           phone: form.phone ? `${selectedCountry.dial} ${form.phone}` : "",
           service: form.service,
           message: form.message || "—",
+          captchaA: captcha.a,
+          captchaB: captcha.b,
+          captchaToken,
+          captchaAnswer: captchaInput,
         }),
       });
       const data = await res.json();
-      if (data.success) setSent(true);
+      if (data.success) {
+        setSent(true);
+        setCaptchaInput("");
+        void fetchCaptcha();
+      } else if (data.error?.includes("Captcha")) {
+        setErrors({ captcha: "Incorrect answer, try again" });
+        setCaptchaInput("");
+        void fetchCaptcha();
+      }
     } catch {
       setSent(true);
     } finally {
@@ -275,6 +301,27 @@ export default function LeadPopup() {
                       <textarea name="message" rows={3} value={form.message} onChange={handleChange}
                         placeholder="Project details (optional)"
                         className={`${inp()} resize-none`}/>
+
+                      {/* Captcha */}
+                      <div>
+                        <div className="flex items-center gap-3">
+                          <div className="flex items-center px-4 rounded-xl bg-[#F7F8FC] border border-gray-200 shrink-0 h-[44px]">
+                            <span className="font-bold text-[#0D0D1A] text-sm tabular-nums">
+                              {captcha.a} × {captcha.b} = ?
+                            </span>
+                          </div>
+                          <input
+                            type="text"
+                            inputMode="numeric"
+                            value={captchaInput}
+                            onChange={(e) => { setCaptchaInput(e.target.value.replace(/\D/g, "")); setErrors(er => ({ ...er, captcha: "" })); }}
+                            placeholder="Answer"
+                            maxLength={3}
+                            className={`h-[44px] w-24 px-3.5 rounded-xl text-sm text-[#0D0D1A] placeholder-gray-400 bg-[#F7F8FC] border transition-all duration-150 focus:outline-none focus:ring-2 focus:bg-white ${errors.captcha ? "border-red-300 focus:ring-red-400/20 focus:border-red-400" : "border-gray-200 focus:ring-blue-500/15 focus:border-blue-400"}`}
+                          />
+                        </div>
+                        {errors.captcha && <p className="text-xs text-red-500 mt-1 pl-1">{errors.captcha}</p>}
+                      </div>
 
                       <button type="submit" disabled={loading}
                         className="btn-primary group w-full justify-between mt-1 disabled:opacity-60 disabled:cursor-not-allowed">

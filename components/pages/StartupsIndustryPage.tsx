@@ -92,6 +92,7 @@ const data: IndustryPageData = {
     {
       label: "SaaS Admin Panel",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80",
+      type: "desktop" as const,
       features: [
         { icon: Users,         title: "User Management",      desc: "Manage users, organisations, and subscription plans from a single admin view." },
         { icon: Layers,        title: "Feature Flags",        desc: "Toggle features on or off per account, tier, or cohort — no code deploys needed." },
@@ -104,6 +105,7 @@ const data: IndustryPageData = {
     {
       label: "Analytics Dashboard",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80",
+      type: "desktop" as const,
       features: [
         { icon: TrendingUp,       title: "Active Users",        desc: "Track daily, weekly, and monthly active users to measure real product engagement." },
         { icon: Target,           title: "Adoption Funnels",    desc: "Visualise activation and feature adoption funnels to find exactly where users drop off." },

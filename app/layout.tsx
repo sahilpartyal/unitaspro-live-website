@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { organizationSchema } from "@/lib/metadata";
+import { organizationSchema, webSiteSchema } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   title: "Unitaspro — We Build Software That Grows Your Business",
@@ -43,6 +43,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
         />
       </head>
       <body>{children}</body>

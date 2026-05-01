@@ -80,6 +80,7 @@ const data: IndustryPageData = {
     {
       label: "Customer Portal",
       image: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=900&q=80",
+      type: "desktop" as const,
       features: [
         { icon: CreditCard,  title: "Instant Quotes",      desc: "Book shipments and get instant price quotes without waiting for callbacks." },
         { icon: MapPin,      title: "Live Tracking",        desc: "Real-time shipment tracking from pickup to final delivery on an interactive map." },
@@ -104,6 +105,7 @@ const data: IndustryPageData = {
     {
       label: "Operations Dashboard",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80",
+      type: "desktop" as const,
       features: [
         { icon: Truck,      title: "Fleet Map",           desc: "Live fleet map showing every vehicle, status, and current route in real time." },
         { icon: Package,    title: "Order Management",    desc: "End-to-end order management from booking through dispatch to final delivery." },

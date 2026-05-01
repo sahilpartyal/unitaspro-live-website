@@ -746,6 +746,34 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
       </section>
 
       {/* ──────────────────────────────────────────────
+          RELATED SERVICES
+      ────────────────────────────────────────────── */}
+      <section className="py-12 bg-white border-t border-gray-100">
+        <div className="container-main">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div>
+              <span className="section-label mb-3 inline-flex">Powered By Unitaspro</span>
+              <h2 className="text-xl font-bold text-[#0D0D1A] leading-snug">Services behind this platform</h2>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {[
+                { label: "Web Design & Development",  href: "/services/web-design",            color: "#2563EB", bg: "hover:bg-[#EFF6FF] hover:border-[#2563EB] hover:text-[#2563EB]" },
+                { label: "Software Development",      href: "/services/software-development",   color: "#7C3AED", bg: "hover:bg-[#F5F3FF] hover:border-[#7C3AED] hover:text-[#7C3AED]" },
+                { label: "Mobile App Development",    href: "/services/mobile-app",             color: "#059669", bg: "hover:bg-[#ECFDF5] hover:border-[#059669] hover:text-[#059669]" },
+                { label: "Digital Marketing",         href: "/services/digital-marketing",      color: "#D97706", bg: "hover:bg-[#FFFBEB] hover:border-[#D97706] hover:text-[#D97706]" },
+              ].map((s) => (
+                <Link key={s.href} href={s.href}
+                  className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 text-sm font-semibold text-[#374151] transition-all duration-200 ${s.bg}`}>
+                  {s.label}
+                  <ArrowRight size={12} className="opacity-40"/>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ──────────────────────────────────────────────
           FAQ
       ────────────────────────────────────────────── */}
       <section className="section-pad bg-[#F7F8FC]">

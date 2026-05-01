@@ -6,7 +6,7 @@ import { ArrowRight, Star } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
-const rotatingWords = ["future,", "software,", "mobile apps,", "the web,"];
+const rotatingWords = ["Software,", "Web Apps,", "Mobile Apps,"];
 
 export default function Hero() {
   const [wordIndex, setWordIndex] = useState(0);
@@ -72,7 +72,7 @@ export default function Hero() {
               animate={{ y: "0%" }}
               transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
             >
-              Building
+              Custom
             </motion.span>
           </span>
 
@@ -85,7 +85,6 @@ export default function Hero() {
               animate={{ y: "0%" }}
               transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
             >
-              the digital{" "}
               <AnimatePresence mode="wait">
                 <motion.span
                   key={wordIndex}
@@ -93,7 +92,7 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
-                  className="inline-block text-[#2563EB]"
+                  className="inline-block bg-gradient-to-r from-[#7B9FFF] to-[#8B5CF6] bg-clip-text text-transparent"
                 >
                   {rotatingWords[wordIndex]}
                 </motion.span>
@@ -110,7 +109,7 @@ export default function Hero() {
               animate={{ y: "0%" }}
               transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
             >
-              with precision.
+              Built to Scale.
             </motion.span>
           </span>
         </h1>

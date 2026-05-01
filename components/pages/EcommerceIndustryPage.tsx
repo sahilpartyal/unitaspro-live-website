@@ -92,6 +92,7 @@ const data: IndustryPageData = {
     {
       label: "Vendor Dashboard",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&q=80",
+      type: "desktop" as const,
       features: [
         { icon: Upload,         title: "Bulk Product Upload", desc: "Manage and publish product listings in bulk with CSV import and media manager." },
         { icon: AlertCircle,    title: "Inventory Alerts",    desc: "Real-time notifications for low stock, new orders, and return requests." },
@@ -104,6 +105,7 @@ const data: IndustryPageData = {
     {
       label: "Admin Panel",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80",
+      type: "desktop" as const,
       features: [
         { icon: ClipboardList, title: "Order Lifecycle",      desc: "Full order management from placement through fulfilment to delivery and returns." },
         { icon: LayoutGrid,    title: "Warehouse Inventory",  desc: "Unified inventory view across all warehouses with real-time stock sync." },

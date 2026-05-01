@@ -92,6 +92,7 @@ const data: IndustryPageData = {
     {
       label: "Staff Operations",
       image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=80",
+      type: "desktop" as const,
       features: [
         { icon: Calendar, title: "Room Assignments",    desc: "View all reservations and assign rooms from a single real-time dashboard." },
         { icon: Shield,   title: "Housekeeping Board",  desc: "Track room status, assign cleaning tasks, and run inspection checklists." },
@@ -104,6 +105,7 @@ const data: IndustryPageData = {
     {
       label: "Management Dashboard",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80",
+      type: "desktop" as const,
       features: [
         { icon: BarChart3, title: "Revenue Overview",    desc: "See live occupancy, ADR, and RevPAR metrics at a glance." },
         { icon: Globe,     title: "Channel Insights",    desc: "Compare channel performance and manage rates across every distribution source." },

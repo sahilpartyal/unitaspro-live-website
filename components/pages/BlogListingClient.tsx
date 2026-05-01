@@ -232,6 +232,7 @@ export default function BlogListingClient({
                                 src={urlFor(post.mainImage).width(600).height(375).url()}
                                 alt={post.mainImage.alt || post.title}
                                 fill
+                                priority={i === 0}
                                 className="object-cover group-hover/card:scale-105 transition-transform duration-500"
                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                               />

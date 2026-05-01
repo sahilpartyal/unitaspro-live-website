@@ -103,7 +103,8 @@ export default function Footer() {
             </ul>
             <div className="mt-6 pt-6 border-t border-white/[0.06]">
               <p className="text-xs text-[#6B7180] leading-relaxed">
-                Mohali, India<br/>
+                E 279, Industrial Area, Sector 75<br/>
+                Sahibzada Ajit Singh Nagar, Punjab 160055<br/>
                 Serving clients globally
               </p>
             </div>

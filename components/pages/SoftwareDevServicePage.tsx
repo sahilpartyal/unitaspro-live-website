@@ -54,7 +54,7 @@ const DIFFERENTIATORS = [
 const PROBLEMS = [
   {
     problem:  "Generic software gaps",
-    solution: "We build features and permissions that mirror your specific workflows.",
+    solution: "Unitaspro builds features and permissions that mirror your specific workflows.",
   },
   {
     problem:  "Undefined requirements",
@@ -78,7 +78,7 @@ const SERVICES = [
   { Icon: Code2,        title: "Custom Web Applications",       desc: "Full-stack applications engineered for your business logic without using restricted templates.",                         color: "#7C3AED", bg: "#F5F3FF" },
   { Icon: GitBranch,    title: "API Design & Integration",      desc: "REST and GraphQL development to connect internal tools with third-party services.",                                      color: "#D97706", bg: "#FFFBEB" },
   { Icon: Shield,       title: "Cloud Deployment (AWS / GCP)",  desc: "Containerized, auto-scaling infrastructure with zero-downtime deployment protocols for every project.",                  color: "#059669", bg: "#ECFDF5" },
-  { Icon: Server,       title: "SaaS Product Development",      desc: "We build multi-tenant SaaS platforms from MVP to full infrastructure and billing systems.",                              color: "#2563EB", bg: "#EFF6FF" },
+  { Icon: Server,       title: "SaaS Product Development",      desc: "Unitaspro builds multi-tenant SaaS platforms from MVP to full infrastructure and billing systems.",                              color: "#2563EB", bg: "#EFF6FF" },
   { Icon: Layers,       title: "Admin Dashboards & CRMs",       desc: "Custom internal tools to automate manual workflows and replace spreadsheets in weeks.",                                  color: "#7C3AED", bg: "#F5F3FF" },
   { Icon: RefreshCw,    title: "Performance & Security Audits", desc: "We identify technical bottlenecks and security vulnerabilities before they impact your business.",                        color: "#D97706", bg: "#FFFBEB" },
   { Icon: Database,     title: "Database Architecture",         desc: "Scalable schema design using PostgreSQL, MongoDB, and Redis, optimized for high-performance data management.",            color: "#059669", bg: "#ECFDF5" },
@@ -175,7 +175,7 @@ export default function SoftwareDevServicePage() {
             transition={{ duration: 0.65, delay: 0.06, ease: EASE }}
             className="max-w-4xl mb-8"
             style={{ fontSize: "clamp(2.8rem, 5.5vw, 4.5rem)", lineHeight: 1.06, letterSpacing: "-0.04em" }}>
-            <span className="font-light text-[#9CA3AF]">We Build Custom Software </span>
+            <span className="font-light text-[#9CA3AF]">Unitaspro Builds Custom Software </span>
             <span className="font-semibold text-[#0D0D1A]">That Scales To Millions Of Users.</span>
           </motion.h1>
 
@@ -491,7 +491,7 @@ export default function SoftwareDevServicePage() {
                 <span className="font-semibold text-[#0D0D1A]">Software built to fix your specific bottlenecks.</span>
               </h2>
               <p className="text-[#6B7180] text-base leading-relaxed mb-8">
-                No black-box development or hidden surprises. We maintain transparency through constant updates and detailed technical records, delivering a product that you fully own and control.
+                In 8+ years of custom software delivery across 12+ industries, Unitaspro has shipped platforms for transport operators, fintech startups, healthcare providers, and e-commerce brands. Every project is built with full transparency — constant updates, detailed technical records, and a product you fully own and control.
               </p>
 
               {/* Key differentiators */}
@@ -630,6 +630,40 @@ export default function SoftwareDevServicePage() {
 
 
 
+      {/* ─── INDUSTRIES WE SERVE ─────────────────────────── */}
+      <section className="section-pad bg-white border-t border-gray-100">
+        <div className="container-main">
+          <div className="mb-8">
+            <span className="section-label mb-4 inline-flex">Industries We Serve</span>
+            <h2 className="heading-xl font-bold text-[#0D0D1A] max-w-2xl">
+              Unitaspro builds software for 8 industries worldwide.
+            </h2>
+            <p className="text-[#6B7180] text-base mt-3 max-w-xl leading-relaxed">
+              Every industry has different data models, compliance needs, and workflows. Explore how Unitaspro approaches software development in your sector.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { label: "Transport & Mobility",     href: "/industries/transport"   },
+              { label: "Finance & Fintech",         href: "/industries/finance"     },
+              { label: "Healthcare & Wellness",     href: "/industries/healthcare"  },
+              { label: "E-Commerce & Retail",       href: "/industries/ecommerce"   },
+              { label: "Real Estate & Property",    href: "/industries/real-estate" },
+              { label: "Hospitality & Travel",      href: "/industries/hospitality" },
+              { label: "Logistics & Supply Chain",  href: "/industries/logistics"   },
+              { label: "Startups & SaaS",           href: "/industries/startups"    },
+            ].map((ind) => (
+              <Link key={ind.href} href={ind.href}
+                className="group flex items-center justify-between px-4 py-3 rounded-xl border border-gray-200
+                  hover:border-[#7C3AED] hover:bg-[#F5F3FF] transition-all duration-200">
+                <span className="text-sm font-semibold text-[#374151] group-hover:text-[#7C3AED] transition-colors leading-snug">{ind.label}</span>
+                <ArrowRight size={13} className="text-gray-300 group-hover:text-[#7C3AED] shrink-0 transition-colors" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* -------------------------------------------------
           S10  FAQ - Homepage style (2-col)
       */}
@@ -663,7 +697,7 @@ export default function SoftwareDevServicePage() {
                     Still have questions?
                   </h3>
                   <p className="text-white/45 text-sm leading-relaxed mb-5">
-                    Our team responds within 24 hours — no bots, just real answers.
+                    Unitaspro&apos;s team responds within 24 hours — no bots, just real answers.
                   </p>
                   <Link href="/contact" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-[#0F172A] text-xs font-bold hover:bg-gray-50 transition-colors group">
                     Talk to us

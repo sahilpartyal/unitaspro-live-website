@@ -80,6 +80,7 @@ const data: IndustryPageData = {
     {
       label: "Buyer Portal",
       image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&q=80",
+      type: "desktop" as const,
       features: [
         { icon: Search,     title: "Smart Search",       desc: "Search and shortlist properties in minutes with advanced filters by price, type, and location." },
         { icon: Eye,        title: "Virtual Tours",      desc: "Explore properties remotely with 360° virtual tours and interactive floor plan viewers." },
@@ -104,6 +105,7 @@ const data: IndustryPageData = {
     {
       label: "Admin Dashboard",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80",
+      type: "desktop" as const,
       features: [
         { icon: Layers,     title: "Unit Inventory",     desc: "View the complete unit inventory with a real-time availability matrix across projects." },
         { icon: Globe,      title: "Multi-Platform Sync",desc: "Manage and syndicate listings across all portals from a single dashboard." },

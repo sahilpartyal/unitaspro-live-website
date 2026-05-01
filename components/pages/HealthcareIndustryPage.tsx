@@ -92,6 +92,7 @@ const data: IndustryPageData = {
     {
       label: "Doctor Dashboard",
       image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=900&q=80",
+      type: "desktop" as const,
       features: [
         { icon: LayoutDashboard, title: "Daily Schedule",       desc: "View today's appointments with full patient history at a glance." },
         { icon: PenLine,         title: "Digital Notes",        desc: "Write clinical notes, diagnoses, and prescriptions digitally in seconds." },
@@ -104,6 +105,7 @@ const data: IndustryPageData = {
     {
       label: "Admin Panel",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80",
+      type: "desktop" as const,
       features: [
         { icon: CalendarRange,  title: "Occupancy Calendar",    desc: "View full clinic occupancy and appointment calendars across departments." },
         { icon: Receipt,        title: "Billing & Claims",      desc: "Manage billing, insurance claims, and collections from one dashboard." },

@@ -75,7 +75,7 @@ const PROBLEMS = [
 ];
 
 const SERVICES = [
-  { Icon: Smartphone,   title: "iOS & Android Development",  desc: "One codebase, two platforms. We build with React Native so your app runs natively on iPhone and Android without doubling the cost.",      color: "#059669", bg: "#ECFDF5" },
+  { Icon: Smartphone,   title: "iOS & Android Development",  desc: "One codebase, two platforms. Unitaspro builds with React Native so your app runs natively on iPhone and Android without doubling the cost.",      color: "#059669", bg: "#ECFDF5" },
   { Icon: Wifi,         title: "Offline Mode Support",       desc: "Your app works even without internet. Data syncs automatically when the connection comes back, so users are never stuck.",                 color: "#D97706", bg: "#FFFBEB" },
   { Icon: Layers,       title: "Backend API Development",    desc: "We build the full backend behind your app — the server, database, and API — or connect it to systems you already use.",                   color: "#2563EB", bg: "#EFF6FF" },
   { Icon: Star,         title: "Custom UX Design",           desc: "Every screen is designed around how your users actually think and move. Clean, intuitive, and tested before a single line of code is written.", color: "#7C3AED", bg: "#F5F3FF" },
@@ -503,7 +503,7 @@ export default function MobileAppServicePage() {
                 <span className="font-semibold text-[#0D0D1A]">A Team That Listens First And Builds Second</span>
               </h2>
               <p className="text-[#6B7180] text-base leading-relaxed mb-8">
-                We don&apos;t just jump into the work. We take the time to hear your ideas and understand your goals first — resulting in a better experience for you, fewer changes later on, and a tool that works exactly how you want.
+                In 8+ years building mobile apps for clients across healthcare, logistics, transport, and e-commerce, Unitaspro has learned that the best apps come from listening first. We spend time understanding your users&apos; real workflows before writing a single line of code — fewer revisions, faster launch, and an app that actually gets used.
               </p>
 
               {/* Key differentiators */}
@@ -643,6 +643,40 @@ export default function MobileAppServicePage() {
 
 
 
+      {/* ─── INDUSTRIES WE SERVE ─────────────────────────── */}
+      <section className="section-pad bg-white border-t border-gray-100">
+        <div className="container-main">
+          <div className="mb-8">
+            <span className="section-label mb-4 inline-flex">Industries We Serve</span>
+            <h2 className="heading-xl font-bold text-[#0D0D1A] max-w-2xl">
+              Unitaspro builds mobile apps for 8 industries worldwide.
+            </h2>
+            <p className="text-[#6B7180] text-base mt-3 max-w-xl leading-relaxed">
+              From patient-facing healthcare apps to driver dispatch tools — Unitaspro has shipped mobile products in every major sector. Explore yours.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { label: "Transport & Mobility",     href: "/industries/transport"   },
+              { label: "Finance & Fintech",         href: "/industries/finance"     },
+              { label: "Healthcare & Wellness",     href: "/industries/healthcare"  },
+              { label: "E-Commerce & Retail",       href: "/industries/ecommerce"   },
+              { label: "Real Estate & Property",    href: "/industries/real-estate" },
+              { label: "Hospitality & Travel",      href: "/industries/hospitality" },
+              { label: "Logistics & Supply Chain",  href: "/industries/logistics"   },
+              { label: "Startups & SaaS",           href: "/industries/startups"    },
+            ].map((ind) => (
+              <Link key={ind.href} href={ind.href}
+                className="group flex items-center justify-between px-4 py-3 rounded-xl border border-gray-200
+                  hover:border-[#059669] hover:bg-[#ECFDF5] transition-all duration-200">
+                <span className="text-sm font-semibold text-[#374151] group-hover:text-[#059669] transition-colors leading-snug">{ind.label}</span>
+                <ArrowRight size={13} className="text-gray-300 group-hover:text-[#059669] shrink-0 transition-colors" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* -------------------------------------------------
           S10  FAQ - Homepage style (2-col)
       */}
@@ -676,7 +710,7 @@ export default function MobileAppServicePage() {
                     Still have questions?
                   </h3>
                   <p className="text-white/45 text-sm leading-relaxed mb-5">
-                    Our team responds within 24 hours — no bots, just real answers.
+                    Unitaspro&apos;s team responds within 24 hours — no bots, just real answers.
                   </p>
                   <Link href="/contact" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-[#0F172A] text-xs font-bold hover:bg-gray-50 transition-colors group">
                     Talk to us

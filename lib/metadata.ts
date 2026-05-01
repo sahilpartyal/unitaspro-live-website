@@ -54,7 +54,7 @@ export function buildMetadata(options: {
 
 export const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": ["Organization", "LocalBusiness"],
+  "@type": ["Organization", "ProfessionalService"],
   name: siteConfig.name,
   url: siteConfig.url,
   email: siteConfig.email,
@@ -91,4 +91,11 @@ export const organizationSchema = {
     "https://www.clutch.co/profile/unitaspro",
     "https://www.goodfirms.co/company/unitaspro",
   ],
+};
+
+export const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.name,
+  url: siteConfig.url,
 };
