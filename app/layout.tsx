@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: "Web design, software development, mobile apps & digital marketing.",
     images: ["https://unitaspro.com/og-image.png"],
   },
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: false },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -5,10 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
-        disallow: ["/studio", "/api/"],
+        disallow: "/",
       },
     ],
-    sitemap: "https://unitaspro.com/sitemap.xml",
   };
 }
