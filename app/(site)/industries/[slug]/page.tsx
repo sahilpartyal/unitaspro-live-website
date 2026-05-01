@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { INDUSTRIES, getIndustryBySlug } from "@/lib/industries-data";
+import { getIndustryBySlug } from "@/lib/industries-data";
 import IndustryDetailPageClient from "@/components/pages/IndustryDetailPageClient";
 
 interface Props {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  return INDUSTRIES.map((ind) => ({ slug: ind.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
