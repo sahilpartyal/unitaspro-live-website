@@ -2,11 +2,7 @@
 
 import IndustryPageTemplate, { type IndustryPageData } from "./IndustryPageTemplate";
 import {
-  Truck, Package, MapPin,
-  BarChart3, Bell, Users, Shield, CreditCard, RefreshCcw, Zap, Scan, Route,
-  PhoneCall, FileText, Layers, Rocket,
-  Smartphone, Globe, Code2, BookOpen, HeadphonesIcon, Ship, Container, Warehouse, Train,
-  AlertTriangle, Wallet, WifiOff, Clock,
+  Truck, Package, MapPin, BarChart3, Bell, Users, Shield, CreditCard, RefreshCcw, Scan, Route, FileText, Layers, Globe, Code2, BookOpen, HeadphonesIcon, Ship, Warehouse, AlertTriangle, Wallet, WifiOff, Clock,
 } from "lucide-react";
 
 const data: IndustryPageData = {
@@ -119,24 +115,7 @@ const data: IndustryPageData = {
     },
   ],
 
-  /* Tech stack */
-  techLogos: [
-    { name: "React",       url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
-    { name: "Node.js",     url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
-    { name: "TypeScript",  url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
-    { name: "PostgreSQL",  url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
-    { name: "Redis",       url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" },
-    { name: "AWS",         url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" },
-    { name: "Docker",      url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
-    { name: "MongoDB",     url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
-    { name: "Flutter",     url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" },
-    { name: "Figma",       url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" },
-    { name: "GitHub",      url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" },
-    { name: "Google Cloud", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" },
-    { name: "Next.js",    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
-  ],
-
-  /* Use cases */
+    /* Use cases */
   useCases: {
     heading: "Built for every type of logistics operation.",
     subtitle: "Whether you move parcels, pallets, or containers — the platform adapts to your supply chain.",
@@ -168,45 +147,7 @@ const data: IndustryPageData = {
     ],
   },
 
-  /* Deliverables */
-  deliverables: {
-    heading: "Everything you own at the end of the build.",
-    items: [
-      { icon: Smartphone,     title: "iOS App (App Store)",        desc: "Fully submitted and live on Apple App Store under your developer account." },
-      { icon: Globe,          title: "Android App (Google Play)",  desc: "Published on Google Play Store — reviewed, listed, and ready for download." },
-      { icon: BarChart3,      title: "Web Admin Dashboard",        desc: "Browser-based operations hub for dispatchers, warehouse managers, and finance teams." },
-      { icon: Code2,          title: "Full Source Code",           desc: "Complete codebase in a private GitHub repo — yours to own, fork, and extend." },
-      { icon: BookOpen,       title: "Technical Documentation",    desc: "API docs, deployment guide, and environment setup — handed over at launch." },
-      { icon: HeadphonesIcon, title: "30-Day Post-Launch Support", desc: "Dedicated support for bugs, tweaks, and go-live issues after delivery." },
-    ],
-  },
-
-  /* Comparison */
-  comparison: {
-    heading: "Why build custom instead of using off-the-shelf logistics software?",
-    cols: ["Custom Build", "White-label TMS", "Generic SaaS"],
-    rows: [
-      { feature: "Branded entirely as your company",         custom: true,       alt1: false,       alt2: false      },
-      { feature: "You own the source code",                  custom: true,       alt1: false,       alt2: false      },
-      { feature: "Zero per-shipment platform fees",          custom: true,       alt1: false,       alt2: false      },
-      { feature: "Custom routing & dispatch logic",          custom: true,       alt1: "Limited",   alt2: "Limited"  },
-      { feature: "Multi-modal support (road, air, sea)",     custom: true,       alt1: "Limited",   alt2: false      },
-      { feature: "Your own shipment & client data",          custom: true,       alt1: false,       alt2: false      },
-      { feature: "Integrates with your ERP & WMS",           custom: true,       alt1: false,       alt2: "Limited"  },
-      { feature: "No recurring licence fees",                custom: true,       alt1: false,       alt2: false      },
-    ],
-  },
-
-  /* Process */
-  processHeading: "From discovery call to live platform — in four steps.",
-  process: [
-    { num: "01", icon: PhoneCall, title: "Discovery Call",   desc: "We map your fleet size, order volume, and warehouse workflow in a 30-minute call before writing a line of code." },
-    { num: "02", icon: FileText,  title: "Proposal & Scope", desc: "Fixed price, fixed timeline, full spec within 48 hours. You know exactly what gets built and what it costs — upfront." },
-    { num: "03", icon: Layers,    title: "Design & Build",   desc: "Weekly demos on a shared staging environment. Real working software every sprint — no surprises at launch." },
-    { num: "04", icon: Rocket,    title: "Launch & Support", desc: "Full deployment with driver and warehouse training. 30 days dedicated post-launch support." },
-  ],
-
-  /* FAQ */
+    /* FAQ */
   faqHeading: "Questions about your logistics build",
   faqSubtitle: "For courier companies, 3PLs, warehouses, and freight operators evaluating a custom platform.",
   faqs: [

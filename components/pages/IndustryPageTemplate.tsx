@@ -91,8 +91,6 @@ export interface IndustryPageData {
   ctaLabel: string;
   ctaHeading: string;
   ctaSub: string;
-  /** Legacy — kept for backward compat with industry data files */
-  [key: string]: unknown;
 }
 
 /* ── Animations ─────────────────────────────────────── */

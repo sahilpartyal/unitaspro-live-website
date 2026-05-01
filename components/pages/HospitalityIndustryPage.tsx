@@ -2,11 +2,7 @@
 
 import IndustryPageTemplate, { type IndustryPageData } from "./IndustryPageTemplate";
 import {
-  Hotel, Calendar, Star,
-  MapPin, Bell, Users, BarChart3, CreditCard, Utensils, Shield, MessageSquare, Zap,
-  PhoneCall, FileText, Layers, Rocket,
-  Smartphone, Globe, Code2, BookOpen, HeadphonesIcon,
-  Building2, UtensilsCrossed, Wine, Palmtree,
+  Hotel, Calendar, Star, MapPin, Bell, Users, BarChart3, CreditCard, Utensils, Shield, MessageSquare, Zap, FileText, Smartphone, Globe, Code2, BookOpen, HeadphonesIcon, Building2, UtensilsCrossed, Wine, Palmtree,
 } from "lucide-react";
 
 const data: IndustryPageData = {
@@ -119,24 +115,7 @@ const data: IndustryPageData = {
     },
   ],
 
-  /* Tech stack */
-  techLogos: [
-    { name: "React",       url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
-    { name: "Node.js",     url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
-    { name: "TypeScript",  url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
-    { name: "PostgreSQL",  url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
-    { name: "Redis",       url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" },
-    { name: "AWS",         url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" },
-    { name: "Docker",      url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
-    { name: "MongoDB",     url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
-    { name: "Flutter",     url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" },
-    { name: "Figma",       url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" },
-    { name: "GitHub",      url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" },
-    { name: "Google Cloud", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" },
-    { name: "Next.js",    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
-  ],
-
-  /* Use cases */
+    /* Use cases */
   useCases: {
     heading: "Built for every type of hospitality business.",
     subtitle: "From boutique hotels to restaurant chains — the platform adapts to your service model.",
@@ -168,45 +147,7 @@ const data: IndustryPageData = {
     ],
   },
 
-  /* Deliverables */
-  deliverables: {
-    heading: "Everything you own at the end of the build.",
-    items: [
-      { icon: Smartphone,     title: "iOS App (App Store)",        desc: "Fully submitted and live on Apple App Store under your developer account." },
-      { icon: Globe,          title: "Android App (Google Play)",  desc: "Published on Google Play Store — reviewed, listed, and ready for download." },
-      { icon: BarChart3,      title: "Web Admin Dashboard",        desc: "Browser-based operations hub for property managers, chefs, and finance teams." },
-      { icon: Code2,          title: "Full Source Code",           desc: "Complete codebase in a private GitHub repo — yours to own, fork, and extend." },
-      { icon: BookOpen,       title: "Technical Documentation",    desc: "API docs, deployment guide, and environment setup — handed over at launch." },
-      { icon: HeadphonesIcon, title: "30-Day Post-Launch Support", desc: "Dedicated support for bugs, tweaks, and go-live issues after delivery." },
-    ],
-  },
-
-  /* Comparison */
-  comparison: {
-    heading: "Why build custom instead of using off-the-shelf hospitality software?",
-    cols: ["Custom Build", "OTA Platform", "Generic PMS"],
-    rows: [
-      { feature: "Branded entirely as your property",        custom: true,       alt1: false,       alt2: false      },
-      { feature: "You own the source code",                  custom: true,       alt1: false,       alt2: false      },
-      { feature: "Zero per-booking commission fees",         custom: true,       alt1: false,       alt2: true       },
-      { feature: "Custom booking flow & guest experience",   custom: true,       alt1: "Limited",   alt2: "Limited"  },
-      { feature: "Multi-property & multi-outlet support",    custom: true,       alt1: false,       alt2: "Limited"  },
-      { feature: "Your own guest data — no shared pool",     custom: true,       alt1: false,       alt2: false      },
-      { feature: "Integrates with your POS & channel manager", custom: true,     alt1: "Limited",   alt2: "Limited"  },
-      { feature: "No recurring licence fees",                custom: true,       alt1: false,       alt2: false      },
-    ],
-  },
-
-  /* Process */
-  processHeading: "From discovery call to live platform — in four steps.",
-  process: [
-    { num: "01", icon: PhoneCall, title: "Discovery Call",   desc: "We map your property types, current tools, and guest journey in a 30-minute call before writing a line of code." },
-    { num: "02", icon: FileText,  title: "Proposal & Scope", desc: "Fixed price, fixed timeline, full spec within 48 hours. You know exactly what gets built and what it costs — upfront." },
-    { num: "03", icon: Layers,    title: "Design & Build",   desc: "Weekly demos on a shared staging environment. Real working software every sprint — no surprises at go-live." },
-    { num: "04", icon: Rocket,    title: "Launch & Support", desc: "Full deployment with staff training. 30 days dedicated post-launch support for a smooth go-live." },
-  ],
-
-  /* FAQ */
+    /* FAQ */
   faqHeading: "Questions about your hospitality build",
   faqSubtitle: "For hotels, resorts, serviced apartments, and hospitality groups evaluating a custom platform.",
   faqs: [

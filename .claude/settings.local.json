@@ -122,7 +122,8 @@
       "WebFetch(domain:themeforest.net)",
       "WebFetch(domain:www.awwwards.com)",
       "WebFetch(domain:www.ideo.com)",
-      "WebFetch(domain:framer.com)"
+      "WebFetch(domain:framer.com)",
+      "Bash(git *)"
     ]
   }
 }

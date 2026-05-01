@@ -2,13 +2,7 @@
 
 import IndustryPageTemplate, { type IndustryPageData } from "./IndustryPageTemplate";
 import {
-  Car, Navigation, Clock,
-  MapPin, Zap, CreditCard, BarChart3, Bell, Star, Users, Shield,
-  PhoneCall, FileText, Layers, Rocket,
-  Briefcase, Building2, Bus, Truck,
-  Smartphone, Code2, BookOpen, HeadphonesIcon, Globe, Database,
-  Timer, Calculator, History, CheckCircle, Wallet, MessageCircle,
-  CalendarClock, Radar, ClipboardCheck, Map,
+  Car, Navigation, Clock, MapPin, Zap, CreditCard, BarChart3, Bell, Star, Users, Shield, Briefcase, Bus, Truck, Code2, BookOpen, HeadphonesIcon, Globe, Timer, Calculator, History, CheckCircle, Wallet, MessageCircle, CalendarClock, Radar, ClipboardCheck, Map,
 } from "lucide-react";
 
 const data: IndustryPageData = {
@@ -126,24 +120,7 @@ const data: IndustryPageData = {
     },
   ],
 
-  /* Tech stack */
-  techLogos: [
-    { name: "React Native", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
-    { name: "Node.js",      url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
-    { name: "TypeScript",   url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
-    { name: "PostgreSQL",   url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
-    { name: "Firebase",     url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" },
-    { name: "Redis",        url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" },
-    { name: "AWS",          url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" },
-    { name: "Docker",       url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
-    { name: "Google Cloud", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" },
-    { name: "MongoDB",      url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
-    { name: "Flutter",     url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" },
-    { name: "Figma",       url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" },
-    { name: "GitHub",      url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" },
-  ],
-
-  /* Use cases */
+    /* Use cases */
   useCases: {
     heading: "Built for every type of transport business.",
     subtitle: "Whether you run 5 vehicles or 500, the platform adapts to your operation — not the other way around.",
@@ -175,45 +152,7 @@ const data: IndustryPageData = {
     ],
   },
 
-  /* Deliverables */
-  deliverables: {
-    heading: "Everything you own at the end of the build.",
-    items: [
-      { icon: Smartphone,     title: "iOS App (App Store)",        desc: "Fully submitted and live on Apple App Store under your developer account." },
-      { icon: Globe,          title: "Android App (Google Play)",  desc: "Published on Google Play Store — reviewed, listed, and ready for download." },
-      { icon: BarChart3,      title: "Web Admin Dashboard",        desc: "Browser-based operations hub for dispatchers, managers, and finance teams." },
-      { icon: Code2,          title: "Full Source Code",           desc: "Complete codebase in a private GitHub repo — yours to own, fork, and extend." },
-      { icon: BookOpen,       title: "Technical Documentation",    desc: "API docs, deployment guide, and environment setup — handed over at launch." },
-      { icon: HeadphonesIcon, title: "30-Day Post-Launch Support", desc: "Dedicated support for bugs, tweaks, and go-live issues after delivery." },
-    ],
-  },
-
-  /* Comparison */
-  comparison: {
-    heading: "Why build custom instead of using a white-label platform?",
-    cols: ["Custom Build", "White-label (Uber)", "Off-the-shelf App"],
-    rows: [
-      { feature: "Branded entirely as your company",    custom: true,       alt1: false,       alt2: false      },
-      { feature: "You own the source code",             custom: true,       alt1: false,       alt2: false      },
-      { feature: "Zero per-trip platform fees",         custom: true,       alt1: false,       alt2: false      },
-      { feature: "Custom pricing & fare rules",         custom: true,       alt1: "Limited",   alt2: false      },
-      { feature: "Custom driver workflow & job types",  custom: true,       alt1: "Limited",   alt2: "Limited"  },
-      { feature: "Your own passenger & driver data",    custom: true,       alt1: false,       alt2: false      },
-      { feature: "Integrates with your existing tools", custom: true,       alt1: false,       alt2: "Limited"  },
-      { feature: "No recurring licence fees",           custom: true,       alt1: false,       alt2: false      },
-    ],
-  },
-
-  /* Process */
-  processHeading: "From discovery call to live app — in four steps.",
-  process: [
-    { num: "01", icon: PhoneCall, title: "Discovery Call",   desc: "We map your fleet size, booking flow, and existing tools in a free 30-minute call. We learn how your operation works before writing a line of code." },
-    { num: "02", icon: FileText,  title: "Proposal & Scope", desc: "Fixed price, fixed timeline, full spec delivered within 48 hours. You know exactly what gets built, when it ships, and what it costs — before we start." },
-    { num: "03", icon: Layers,    title: "Design & Build",   desc: "Weekly demos on a shared staging environment. Real working software every sprint — no status updates, no surprises at the finish line." },
-    { num: "04", icon: Rocket,    title: "Launch & Support", desc: "We handle full deployment to the App Store and Google Play. 30 days of dedicated post-launch support for a smooth go-live." },
-  ],
-
-  /* FAQ */
+    /* FAQ */
   faqHeading: "Questions about your transport build",
   faqSubtitle: "For fleet operators, chauffeur companies, and transport startups evaluating a custom build.",
   faqs: [

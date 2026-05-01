@@ -2,10 +2,7 @@
 
 import IndustryPageTemplate, { type IndustryPageData } from "./IndustryPageTemplate";
 import {
-  Rocket, Zap, BarChart3,
-  Code2, Users, Shield, CreditCard, Bell, RefreshCcw, Globe, Layers, TrendingUp,
-  PhoneCall, FileText, Smartphone, BookOpen, HeadphonesIcon, Lightbulb, Target, Repeat,
-  UserPlus, Lock, MousePointerClick,
+  Rocket, Zap, BarChart3, Code2, Users, Shield, CreditCard, Bell, RefreshCcw, Globe, Layers, TrendingUp, FileText, Smartphone, BookOpen, HeadphonesIcon, Lightbulb, Target, Repeat, UserPlus, Lock, MousePointerClick,
 } from "lucide-react";
 
 const data: IndustryPageData = {
@@ -118,21 +115,7 @@ const data: IndustryPageData = {
     },
   ],
 
-  /* Tech stack */
-  techLogos: [
-    { name: "React",       url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
-    { name: "Node.js",     url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
-    { name: "TypeScript",  url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
-    { name: "PostgreSQL",  url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
-    { name: "Firebase",    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" },
-    { name: "Redis",       url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" },
-    { name: "AWS",         url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" },
-    { name: "Docker",      url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
-    { name: "Google Cloud", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" },
-    { name: "Next.js",    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
-  ],
-
-  /* Use cases */
+    /* Use cases */
   useCases: {
     heading: "Built for every stage of your startup.",
     subtitle: "Whether you're validating an idea or scaling to your Series A — we build what the stage demands.",
@@ -164,45 +147,7 @@ const data: IndustryPageData = {
     ],
   },
 
-  /* Deliverables */
-  deliverables: {
-    heading: "Everything you own at the end of the build.",
-    items: [
-      { icon: Smartphone,     title: "iOS App (App Store)",        desc: "Fully submitted and live on Apple App Store under your developer account." },
-      { icon: Globe,          title: "Android App (Google Play)",  desc: "Published on Google Play Store — reviewed, listed, and ready for download." },
-      { icon: BarChart3,      title: "Web Admin Dashboard",        desc: "Browser-based operations hub for your team to manage users, content, and data." },
-      { icon: Code2,          title: "Full Source Code",           desc: "Complete codebase in a private GitHub repo — yours to own, fork, and extend." },
-      { icon: BookOpen,       title: "Technical Documentation",    desc: "API docs, deployment guide, and environment setup — handed over at launch." },
-      { icon: HeadphonesIcon, title: "30-Day Post-Launch Support", desc: "Dedicated support for bugs, tweaks, and go-live issues after delivery." },
-    ],
-  },
-
-  /* Comparison */
-  comparison: {
-    heading: "Why hire a dev team instead of using no-code or freelancers?",
-    cols: ["Unitaspro Build", "No-Code (Bubble)", "Freelancer / Upwork"],
-    rows: [
-      { feature: "Production-grade, scalable code",          custom: true,       alt1: false,       alt2: "Varies"   },
-      { feature: "You own the source code",                  custom: true,       alt1: false,       alt2: true       },
-      { feature: "Fixed price, fixed timeline",              custom: true,       alt1: true,        alt2: false      },
-      { feature: "Dedicated team with weekly demos",         custom: true,       alt1: false,       alt2: false      },
-      { feature: "Mobile apps (iOS + Android)",              custom: true,       alt1: "Limited",   alt2: "Varies"   },
-      { feature: "Post-launch support included",             custom: true,       alt1: false,       alt2: false      },
-      { feature: "Can scale to 100k+ users",                 custom: true,       alt1: false,       alt2: "Varies"   },
-      { feature: "Investor-ready documentation",             custom: true,       alt1: false,       alt2: false      },
-    ],
-  },
-
-  /* Process */
-  processHeading: "From discovery call to live product — in four steps.",
-  process: [
-    { num: "01", icon: PhoneCall,   title: "Discovery Call",   desc: "We map your target user, core problem, and must-have features in a 30-minute call. We align on what success looks like before writing code." },
-    { num: "02", icon: FileText,    title: "Proposal & Scope", desc: "Fixed price, fixed timeline, full spec within 48 hours. No scope creep, no moving goalposts — just a clear plan you can sign off on." },
-    { num: "03", icon: Code2,       title: "Design & Build",   desc: "Weekly demos on a shared staging environment. Real working software every sprint — you see progress, not promises." },
-    { num: "04", icon: Rocket,      title: "Launch & Support", desc: "Full production deployment with infrastructure handover. 30 days dedicated support for a smooth launch and first user feedback cycle." },
-  ],
-
-  /* FAQ */
+    /* FAQ */
   faqHeading: "Questions about your startup build",
   faqSubtitle: "For founders, product teams, and growth-stage companies evaluating a custom build partner.",
   faqs: [
