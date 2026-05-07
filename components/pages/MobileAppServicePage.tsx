@@ -24,9 +24,9 @@ const fadeUp = (delay = 0) => ({
 /* --- Data -------------------------------------------- */
 
 const HERO_SERVICES = [
-  { icon: Smartphone, title: "iOS & Android",       desc: "We use React Native to build one codebase that works perfectly on both platforms.",                                       color: "#059669" },
-  { icon: Star,       title: "User-Tested Design",  desc: "Every screen is tested with real users before we code to ensure it's easy to use.",                                     color: "#7C3AED" },
-  { icon: Zap,        title: "App Store Launch",    desc: "We handle the entire submission process, including App Store Optimization and launch assets.",                           color: "#D97706" },
+  { icon: Smartphone, title: "iOS & Android",       desc: "We use React Native to build one codebase that works perfectly on both platforms.",                                       color: "#374151" },
+  { icon: Star,       title: "User-Tested Design",  desc: "Every screen is tested with real users before we code to ensure it's easy to use.",                                     color: "#374151" },
+  { icon: Zap,        title: "App Store Launch",    desc: "We handle the entire submission process, including App Store Optimization and launch assets.",                           color: "#374151" },
 ];
 
 const TECH_LOGOS = [
@@ -45,10 +45,10 @@ const TECH_LOGOS = [
 ];
 
 const DIFFERENTIATORS = [
-  { Icon: CheckCircle2,   color: "#059669", bg: "#ECFDF5", title: "Senior-only mobile devs",         desc: "Expert engineers with 5+ years of experience. No junior developers will ever touch your project." },
-  { Icon: HeadphonesIcon, color: "#7C3AED", bg: "#F5F3FF", title: "Dedicated project manager",       desc: "A single point of contact owning your project end-to-end via Slack or WhatsApp." },
-  { Icon: DollarSign,     color: "#2563EB", bg: "#EFF6FF", title: "Fixed price, zero surprises",     desc: "Your quote is locked before work starts. Scope changes will never silently inflate your invoice." },
-  { Icon: Zap,            color: "#D97706", bg: "#FFFBEB", title: "TestFlight access throughout",    desc: "Test every sprint on your own device via TestFlight (iOS) and Google Play internal testing." },
+  { Icon: CheckCircle2,   color: "#374151", bg: "#F1F3F8", title: "Senior-only mobile devs",         desc: "Expert engineers with 5+ years of experience. No junior developers will ever touch your project." },
+  { Icon: HeadphonesIcon, color: "#374151", bg: "#F1F3F8", title: "Dedicated project manager",       desc: "A single point of contact owning your project end-to-end via Slack or WhatsApp." },
+  { Icon: DollarSign,     color: "#0D0D1A", bg: "#F1F3F8", title: "Fixed price, zero surprises",     desc: "Your quote is locked before work starts. Scope changes will never silently inflate your invoice." },
+  { Icon: Zap,            color: "#374151", bg: "#F1F3F8", title: "TestFlight access throughout",    desc: "Test every sprint on your own device via TestFlight (iOS) and Google Play internal testing." },
 ];
 
 const PROBLEMS = [
@@ -75,22 +75,22 @@ const PROBLEMS = [
 ];
 
 const SERVICES = [
-  { Icon: Smartphone,   title: "iOS & Android Development",  desc: "One codebase, two platforms. Unitaspro builds with React Native so your app runs natively on iPhone and Android without doubling the cost.",      color: "#059669", bg: "#ECFDF5" },
-  { Icon: Wifi,         title: "Offline Mode Support",       desc: "Your app works even without internet. Data syncs automatically when the connection comes back, so users are never stuck.",                 color: "#D97706", bg: "#FFFBEB" },
-  { Icon: Layers,       title: "Backend API Development",    desc: "We build the full backend behind your app — the server, database, and API — or connect it to systems you already use.",                   color: "#2563EB", bg: "#EFF6FF" },
-  { Icon: Star,         title: "Custom UX Design",           desc: "Every screen is designed around how your users actually think and move. Clean, intuitive, and tested before a single line of code is written.", color: "#7C3AED", bg: "#F5F3FF" },
-  { Icon: CreditCard,   title: "Payment Integration",        desc: "Accept payments through Stripe, Apple Pay, Google Pay, or local gateways. PCI-compliant and ready to transact from day one.",             color: "#059669", bg: "#ECFDF5" },
-  { Icon: Zap,          title: "App Store Submission",       desc: "We handle the full App Store and Play Store submission, including screenshots, metadata, compliance checks, and approval follow-up.",      color: "#D97706", bg: "#FFFBEB" },
-  { Icon: Bell,         title: "Push Notifications",         desc: "Smart, targeted push messages that bring users back at the right moment. Personalised by behaviour, not just broadcast to everyone.",      color: "#2563EB", bg: "#EFF6FF" },
-  { Icon: Code2,        title: "Real-Time Features",         desc: "Live chat, instant updates, and real-time feeds built with WebSockets and Firebase. Fast, reliable, and scales with your user base.",      color: "#7C3AED", bg: "#F5F3FF" },
-  { Icon: RefreshCw,    title: "Post-Launch Maintenance",    desc: "We stay with you after launch. OS updates, bug fixes, and new features handled on a monthly retainer so your app never falls behind.",     color: "#059669", bg: "#ECFDF5" },
+  { Icon: Smartphone,   title: "iOS & Android Development",  desc: "One codebase, two platforms. Unitaspro builds with React Native so your app runs natively on iPhone and Android without doubling the cost.",      color: "#374151", bg: "#F1F3F8" },
+  { Icon: Wifi,         title: "Offline Mode Support",       desc: "Your app works even without internet. Data syncs automatically when the connection comes back, so users are never stuck.",                 color: "#374151", bg: "#F1F3F8" },
+  { Icon: Layers,       title: "Backend API Development",    desc: "We build the full backend behind your app — the server, database, and API — or connect it to systems you already use.",                   color: "#0D0D1A", bg: "#F1F3F8" },
+  { Icon: Star,         title: "Custom UX Design",           desc: "Every screen is designed around how your users actually think and move. Clean, intuitive, and tested before a single line of code is written.", color: "#374151", bg: "#F1F3F8" },
+  { Icon: CreditCard,   title: "Payment Integration",        desc: "Accept payments through Stripe, Apple Pay, Google Pay, or local gateways. PCI-compliant and ready to transact from day one.",             color: "#374151", bg: "#F1F3F8" },
+  { Icon: Zap,          title: "App Store Submission",       desc: "We handle the full App Store and Play Store submission, including screenshots, metadata, compliance checks, and approval follow-up.",      color: "#374151", bg: "#F1F3F8" },
+  { Icon: Bell,         title: "Push Notifications",         desc: "Smart, targeted push messages that bring users back at the right moment. Personalised by behaviour, not just broadcast to everyone.",      color: "#0D0D1A", bg: "#F1F3F8" },
+  { Icon: Code2,        title: "Real-Time Features",         desc: "Live chat, instant updates, and real-time feeds built with WebSockets and Firebase. Fast, reliable, and scales with your user base.",      color: "#374151", bg: "#F1F3F8" },
+  { Icon: RefreshCw,    title: "Post-Launch Maintenance",    desc: "We stay with you after launch. OS updates, bug fixes, and new features handled on a monthly retainer so your app never falls behind.",     color: "#374151", bg: "#F1F3F8" },
 ];
 
 const PROCESS = [
-  { num: "01", Icon: PhoneCall, title: "Discovery Call",  desc: "A free 30-minute consultation. We listen to your goals and map out a practical strategy. No sales pressure, no jargon — just an honest conversation.", color: "#2563EB", bg: "#EFF6FF" },
-  { num: "02", Icon: FileText,  title: "Proposal & Plan", desc: "Within 48 hours, you'll receive a full scope of work, fixed pricing, and a clear timeline. We refine the details until you are 100% confident.",      color: "#7C3AED", bg: "#F5F3FF" },
-  { num: "03", Icon: Layers,    title: "Design & Build",  desc: "Transparent weekly updates. We build in sprints with regular demos, so you see the product take shape in real-time. No surprises at the finish line.", color: "#059669", bg: "#ECFDF5" },
-  { num: "04", Icon: Rocket,    title: "Launch & Grow",   desc: "Full technical deployment. We handle the go-live process, optimize for peak speed, and provide 30 days of dedicated support to ensure total stability.", color: "#D97706", bg: "#FFFBEB" },
+  { num: "01", Icon: PhoneCall, title: "Discovery Call",  desc: "A free 30-minute consultation. We listen to your goals and map out a practical strategy. No sales pressure, no jargon — just an honest conversation.", color: "#0D0D1A", bg: "#F1F3F8" },
+  { num: "02", Icon: FileText,  title: "Proposal & Plan", desc: "Within 48 hours, you'll receive a full scope of work, fixed pricing, and a clear timeline. We refine the details until you are 100% confident.",      color: "#374151", bg: "#F1F3F8" },
+  { num: "03", Icon: Layers,    title: "Design & Build",  desc: "Transparent weekly updates. We build in sprints with regular demos, so you see the product take shape in real-time. No surprises at the finish line.", color: "#374151", bg: "#F1F3F8" },
+  { num: "04", Icon: Rocket,    title: "Launch & Grow",   desc: "Full technical deployment. We handle the go-live process, optimize for peak speed, and provide 30 days of dedicated support to ensure total stability.", color: "#374151", bg: "#F1F3F8" },
 ];
 
 const FAQS = [
@@ -143,7 +143,7 @@ export default function MobileAppServicePage() {
       {/* -------------------------------------------------
           S1  HERO - Hyperline style with abstract pattern
       */}
-      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-[13rem] lg:pb-12">
+      <section className="relative overflow-hidden bg-[#F8F9FC] pt-32 lg:pt-[13rem] pb-12">
         {/* Abstract geometric pattern - right side */}
         <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[55%] h-full hidden lg:block">
           {/* Grid pattern */}
@@ -195,15 +195,15 @@ export default function MobileAppServicePage() {
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.16 }}
             className="flex items-center gap-3 mb-24">
-            <Link href="/contact" className="btn-primary group">
+            <Link href="/contact" className="btn-primary group whitespace-nowrap shrink-0">
               Get a free quote
               <span className="btn-arrow"><ArrowRight size={15}/></span>
             </Link>
             <Link href="#process"
-              className="inline-flex items-center gap-2 bg-white text-[#0D0D1A] font-semibold text-sm
-                px-6 py-3 rounded-full border border-gray-200 transition-all duration-200
-                hover:border-gray-400 hover:-translate-y-0.5">
-              Book a demo
+              className="hidden min-[576px]:inline-flex items-center gap-2 bg-white text-[#0D0D1A] font-semibold text-sm
+                px-6 py-3.5 rounded-full border border-gray-200 transition-all duration-200
+                hover:border-gray-400 hover:-translate-y-0.5 whitespace-nowrap shrink-0">
+              How we work
             </Link>
           </motion.div>
 
@@ -278,7 +278,7 @@ export default function MobileAppServicePage() {
           <motion.div {...fadeUp()} className="text-center max-w-lg mx-auto mb-12">
             <h2 className="heading-xl text-[#0D0D1A] mb-3">
               Built With Tools That{" "}
-              <span className="text-[#2563EB]">Power the Web</span>
+              <span className="text-[#0D0D1A]">Power the Web</span>
             </h2>
             <p className="text-sm text-[#6B7180]">
               We use production-grade, battle-tested technology — so your platform is fast, secure, and built to scale.
@@ -333,7 +333,7 @@ export default function MobileAppServicePage() {
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#EF4444]">
               <XCircle size={13}/> The Problem
             </div>
-            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#059669]">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#374151]">
               <CheckCircle2 size={13}/> Our Solution
             </div>
           </div>
@@ -358,7 +358,7 @@ export default function MobileAppServicePage() {
                 <div className="flex items-start gap-3 p-5 bg-white/50 md:bg-transparent">
                   <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5
                     group-hover:opacity-90 transition-colors duration-200" style={{ background: "#D1FAE5" }}>
-                    <CheckCircle2 size={14} style={{ color: "#059669" }}/>
+                    <CheckCircle2 size={14} style={{ color: "#374151" }}/>
                   </div>
                   <p className="text-sm text-[#6B7180] leading-relaxed">{row.solution}</p>
                 </div>
@@ -383,7 +383,7 @@ export default function MobileAppServicePage() {
       */}
       <section className="relative bg-white py-20 lg:py-28 overflow-hidden border-t border-gray-100">
         <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[500px] h-[400px] rounded-full opacity-[0.04]"
-          style={{ background: "radial-gradient(ellipse, #059669 0%, transparent 70%)" }}/>
+          style={{ background: "radial-gradient(ellipse, #374151 0%, transparent 70%)" }}/>
 
         <div className="container-main relative">
           <motion.p {...fadeUp()} className="text-sm text-[#6B7180] mb-3 flex items-center gap-2">
@@ -425,33 +425,34 @@ export default function MobileAppServicePage() {
       </section>
 
 
-      {/* -------------------------------------------------
-          S4  CTA - Vibrant green gradient
-      */}
-      <section className="relative overflow-hidden py-16 lg:py-20"
-        style={{ background: "linear-gradient(135deg, #059669 0%, #047857 40%, #065F46 100%)" }}>
-        <div aria-hidden className="pointer-events-none absolute inset-0 opacity-20"
-          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, white 0%, transparent 50%), radial-gradient(circle at 80% 50%, white 0%, transparent 50%)" }}/>
-        <div className="container-main relative text-center">
-          <motion.div {...fadeUp()}>
-            <h2 className="font-semibold text-white mb-4"
-              style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", lineHeight: 1.15 }}>
-              Let&apos;s Build A Product That Users Never Delete
-            </h2>
-            <p className="text-white/70 text-base mb-8 max-w-lg mx-auto">
-              We offer fixed-price development with zero hidden fees. Get your 48-hour scope today.
-            </p>
-            <div className="flex items-center justify-center gap-3">
-              <Link href="/contact"
-                className="inline-flex items-center gap-2 font-semibold text-sm px-7 py-3.5 rounded-full
-                  bg-white text-[#059669] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,255,255,0.2)] transition-all duration-200">
-                Request a quote <ArrowRight size={15}/>
-              </Link>
-              <a href="tel:+918264954344"
-                className="inline-flex items-center gap-2 font-semibold text-sm text-white/90 border border-white/30
-                  px-6 py-3.5 rounded-full hover:bg-white/10 transition-all duration-200">
-                Book a demo
-              </a>
+      {/* S4 CTA */}
+      <section className="py-10 lg:py-12 bg-[#F8F9FC]">
+        <div className="container-main">
+          <motion.div {...fadeUp()} className="relative overflow-hidden rounded-3xl"
+            style={{ background: "linear-gradient(135deg,#0A0F1E 0%,#1a2d6e 100%)" }}>
+            <div aria-hidden className="pointer-events-none absolute inset-0"
+              style={{
+                backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)",
+                backgroundSize: "32px 32px",
+              }}/>
+            <div className="relative grid grid-cols-1 md:grid-cols-[1fr_42%]">
+              <div className="flex flex-col justify-center gap-4 px-8 py-12 lg:px-12">
+                <h2 className="text-white font-semibold leading-tight"
+                  style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", letterSpacing: "-0.03em" }}>
+                  Ready to launch your app on iOS and Android?
+                </h2>
+                <p className="text-white/60 text-sm leading-relaxed max-w-sm">
+                  Fixed price. Fixed timeline. We scope before we quote — no surprises, ever.
+                </p>
+                <Link href="/contact"
+                  className="self-start inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-full
+                    bg-white text-[#0A0F1E] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,255,255,0.15)] transition-all duration-200">
+                  Get a Free Quote <ArrowRight size={14}/>
+                </Link>
+              </div>
+              <div className="relative hidden md:block min-h-[240px]">
+                <Image src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80" alt="Mobile app development" fill className="object-cover" sizes="40vw"/>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -481,8 +482,8 @@ export default function MobileAppServicePage() {
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
               >
-                <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "#ECFDF5" }}>
-                  <CheckCircle2 size={18} style={{ color: "#059669" }}/>
+                <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "#F1F3F8" }}>
+                  <CheckCircle2 size={18} style={{ color: "#374151" }}/>
                 </div>
                 <div>
                   <div className="text-xs font-semibold text-[#0D0D1A]">App Store approved</div>
@@ -545,9 +546,9 @@ export default function MobileAppServicePage() {
             {/* Left tall — outcomes list */}
             <motion.div {...fadeUp()}
               className="lg:row-span-2 rounded-2xl p-8 flex flex-col justify-between min-h-[320px]"
-              style={{ background: "#ECFDF5" }}>
+              style={{ background: "#F1F3F8" }}>
               <div>
-                <div className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "#059669" }}>
+                <div className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "#374151" }}>
                   WHAT YOU CAN EXPECT
                 </div>
                 <h3 className="text-lg font-semibold text-[#0D0D1A] leading-snug mb-5" style={{ letterSpacing: "-0.02em" }}>
@@ -560,7 +561,7 @@ export default function MobileAppServicePage() {
                     { stat: "100%",  label: "App Store & Play Store approved on first submission" },
                   ].map((item) => (
                     <li key={item.stat} className="flex items-center gap-3 text-sm">
-                      <span className="font-bold shrink-0" style={{ color: "#059669", letterSpacing: "-0.03em" }}>{item.stat}</span>
+                      <span className="font-bold shrink-0" style={{ color: "#374151", letterSpacing: "-0.03em" }}>{item.stat}</span>
                       <span className="text-[#6B7180]">{item.label}</span>
                     </li>
                   ))}
@@ -568,7 +569,7 @@ export default function MobileAppServicePage() {
               </div>
               <Link href="/contact"
                 className="mt-8 inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all"
-                style={{ color: "#059669" }}>
+                style={{ color: "#374151" }}>
                 Get a free scope <ArrowRight size={14}/>
               </Link>
             </motion.div>
@@ -585,7 +586,7 @@ export default function MobileAppServicePage() {
             </motion.div>
 
             {/* Right top */}
-            <motion.div {...fadeUp(0.12)} className="rounded-2xl p-6" style={{ background: "#ECFDF5" }}>
+            <motion.div {...fadeUp(0.12)} className="rounded-2xl p-6" style={{ background: "#F1F3F8" }}>
               <div className="font-bold text-[#0D0D1A] leading-none mb-2"
                 style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", letterSpacing: "-0.04em" }}>
                 20+
@@ -594,7 +595,7 @@ export default function MobileAppServicePage() {
             </motion.div>
 
             {/* Right second */}
-            <motion.div {...fadeUp(0.16)} className="rounded-2xl p-6" style={{ background: "#ECFDF5" }}>
+            <motion.div {...fadeUp(0.16)} className="rounded-2xl p-6" style={{ background: "#F1F3F8" }}>
               <div className="font-bold text-[#0D0D1A] leading-none mb-2"
                 style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", letterSpacing: "-0.04em" }}>
                 6 wks
@@ -603,7 +604,7 @@ export default function MobileAppServicePage() {
             </motion.div>
 
             {/* Bottom row — 2 stats + CTA */}
-            <motion.div {...fadeUp(0.2)} className="rounded-2xl p-6" style={{ background: "#ECFDF5" }}>
+            <motion.div {...fadeUp(0.2)} className="rounded-2xl p-6" style={{ background: "#F1F3F8" }}>
               <div className="font-bold text-[#0D0D1A] leading-none mb-2"
                 style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", letterSpacing: "-0.04em" }}>
                 40%
@@ -611,7 +612,7 @@ export default function MobileAppServicePage() {
               <p className="text-sm text-[#6B7180]">Cost saving with cross-platform vs building separate iOS and Android apps</p>
             </motion.div>
 
-            <motion.div {...fadeUp(0.24)} className="rounded-2xl p-6" style={{ background: "#ECFDF5" }}>
+            <motion.div {...fadeUp(0.24)} className="rounded-2xl p-6" style={{ background: "#F1F3F8" }}>
               <div className="font-bold text-[#0D0D1A] leading-none mb-2"
                 style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", letterSpacing: "-0.04em" }}>
                 2 plat
@@ -668,9 +669,9 @@ export default function MobileAppServicePage() {
             ].map((ind) => (
               <Link key={ind.href} href={ind.href}
                 className="group flex items-center justify-between px-4 py-3 rounded-xl border border-gray-200
-                  hover:border-[#059669] hover:bg-[#ECFDF5] transition-all duration-200">
-                <span className="text-sm font-semibold text-[#374151] group-hover:text-[#059669] transition-colors leading-snug">{ind.label}</span>
-                <ArrowRight size={13} className="text-gray-300 group-hover:text-[#059669] shrink-0 transition-colors" />
+                  hover:border-[#374151] hover:bg-[#F1F3F8] transition-all duration-200">
+                <span className="text-sm font-semibold text-[#374151] group-hover:text-[#374151] transition-colors leading-snug">{ind.label}</span>
+                <ArrowRight size={13} className="text-gray-300 group-hover:text-[#374151] shrink-0 transition-colors" />
               </Link>
             ))}
           </div>

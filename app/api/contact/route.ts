@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { signChallenge } from "@/lib/captcha";
+import { signChallenge, computeAnswer } from "@/lib/captcha";
 
 function escapeHtml(str: string): string {
   return str
@@ -12,7 +12,7 @@ function escapeHtml(str: string): string {
 }
 
 export async function POST(req: NextRequest) {
-  const { name, email, phone, service, message, captchaA, captchaB, captchaToken, captchaAnswer } = await req.json();
+  const { name, email, phone, service, message, captchaA, captchaOp, captchaB, captchaToken, captchaAnswer } = await req.json();
   const safeName    = escapeHtml(String(name    ?? ""));
   const safeEmail   = escapeHtml(String(email   ?? ""));
   const safePhone   = escapeHtml(String(phone   ?? ""));
@@ -23,14 +23,16 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Missing required fields." }, { status: 400 });
   }
 
-  const a = parseInt(String(captchaA ?? ""), 10);
-  const b = parseInt(String(captchaB ?? ""), 10);
+  const a   = parseInt(String(captchaA ?? ""), 10);
+  const b   = parseInt(String(captchaB ?? ""), 10);
+  const op  = String(captchaOp ?? "×");
   const ans = parseInt(String(captchaAnswer ?? ""), 10);
-  const expectedToken = signChallenge(a, b);
+  const expectedToken = signChallenge(a, op, b);
+  const expectedAns   = computeAnswer(a, op, b);
   if (
     !Number.isFinite(a) || !Number.isFinite(b) || !Number.isFinite(ans) ||
     captchaToken !== expectedToken ||
-    a * b !== ans
+    expectedAns !== ans
   ) {
     return NextResponse.json({ error: "Captcha verification failed." }, { status: 400 });
   }
@@ -69,7 +71,6 @@ export async function POST(req: NextRequest) {
       `,
     });
 
-    console.log("Email sent:", info.messageId);
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("Email error:", err);

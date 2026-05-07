@@ -92,9 +92,9 @@ export default function PrivacyPageClient() {
   return (
     <>
       {/* Hero — inner page style with grid + diamond decoration */}
-      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-[13rem] lg:pb-14">
+      <section className="relative overflow-hidden bg-[#F8F9FC] pt-32 lg:pt-[13rem] pb-12 lg:pb-14">
         <div aria-hidden className="pointer-events-none absolute top-16 left-[20%] w-64 h-64 rounded-full blur-3xl opacity-[0.06]"
-          style={{ background: "radial-gradient(circle, #2563EB, transparent)" }}/>
+          style={{ background: "radial-gradient(circle, #0D0D1A, transparent)" }}/>
 
         {/* Grid + diamonds — right side */}
         <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[55%] h-full hidden lg:block">
@@ -122,7 +122,7 @@ export default function PrivacyPageClient() {
         <div className="container-main relative">
           <div className="mb-5">
             <p className="text-sm text-[#6B7180] flex items-center gap-3">
-              <span className="w-1.5 h-1.5 rounded-sm bg-[#2563EB] inline-block"/>
+              <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
               Legal
             </p>
             <div className="mt-3 w-64 h-px border-t border-dashed border-gray-300"/>
@@ -165,7 +165,7 @@ export default function PrivacyPageClient() {
                         }}
                         className={`text-left text-[13px] py-1.5 border-l-2 pl-3 transition-all duration-200 leading-snug ${
                           activeSection === s.id
-                            ? "border-[#2563EB] text-[#2563EB] font-medium"
+                            ? "border-[#0D0D1A] text-[#0D0D1A] font-medium"
                             : "border-transparent text-[#6B7180] hover:text-[#0D0D1A] hover:border-gray-300"
                         }`}
                       >
@@ -208,9 +208,9 @@ export default function PrivacyPageClient() {
                   <h2 className="font-semibold text-[#0D0D1A] text-lg mb-3">Contact us about your data</h2>
                   <p className="text-[#6B7180] text-[15px] leading-[1.8]">
                     Email{" "}
-                    <a href="mailto:info@unitaspro.com" className="text-[#2563EB] hover:underline">info@unitaspro.com</a>
+                    <a href="mailto:info@unitaspro.com" className="text-[#0D0D1A] hover:underline">info@unitaspro.com</a>
                     {" "}or call{" "}
-                    <a href="tel:+918264954344" className="text-[#2563EB] hover:underline">+91 82649 54344</a>.
+                    <a href="tel:+918264954344" className="text-[#0D0D1A] hover:underline">+91 82649 54344</a>.
                     {" "}Address: E 279, Industrial Area, Sector 75, Mohali, Punjab 160055, India.
                   </p>
                 </div>

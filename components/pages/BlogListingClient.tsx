@@ -60,7 +60,7 @@ export default function BlogListingClient({
   return (
     <>
       {/* ═══════════════════ HERO ═══════════════════ */}
-      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-[13rem] lg:pb-12">
+      <section className="relative overflow-hidden bg-[#F8F9FC] pt-32 lg:pt-[13rem] pb-12">
         <div
           aria-hidden
           className="pointer-events-none absolute top-0 right-0 w-[55%] h-full hidden lg:block"
@@ -391,7 +391,7 @@ export default function BlogListingClient({
               <button
                 type="submit"
                 className="px-6 py-3.5 rounded-xl bg-white text-[#0F172A] font-semibold text-sm
-                  hover:bg-blue-50 transition-colors shrink-0"
+                  hover:bg-[#F1F3F8] transition-colors shrink-0"
               >
                 Subscribe
               </button>

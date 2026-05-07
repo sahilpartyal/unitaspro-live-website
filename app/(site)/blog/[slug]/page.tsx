@@ -71,19 +71,33 @@ export default async function BlogPostPage({ params }: Props) {
 
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
     image: post.mainImage
       ? urlFor(post.mainImage).width(1200).url()
       : undefined,
     datePublished: post.publishedAt,
+    dateModified: post.publishedAt,
     author: { "@type": "Person", name: post.author.name },
     publisher: {
       "@type": "Organization",
       name: siteConfig.name,
       url: siteConfig.url,
+      logo: { "@type": "ImageObject", url: `${siteConfig.url}/unitaspro-logo.png` },
     },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${siteConfig.url}/blog/${post.slug.current}` },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${siteConfig.url}/blog` },
+      ...(post.category ? [{ "@type": "ListItem", position: 3, name: post.category.name, item: `${siteConfig.url}/blog` }] : []),
+      { "@type": "ListItem", position: post.category ? 4 : 3, name: post.title, item: `${siteConfig.url}/blog/${post.slug.current}` },
+    ],
   };
 
   return (
@@ -91,6 +105,10 @@ export default async function BlogPostPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <BlogPostClient post={post} relatedPosts={relatedPosts} />
     </>

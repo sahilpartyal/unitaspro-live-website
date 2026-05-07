@@ -11,7 +11,7 @@ const testimonials = [
     review: "Unitaspro built our SaaS platform from scratch. The quality of code was exceptional and they delivered on time. Communication throughout was outstanding — I always knew exactly where things stood.",
     rating: 5,
     initials: "JH",
-    color: "bg-blue-100 text-blue-700",
+    color: "bg-[#F1F3F8] text-[#374151]",
     featured: true,
   },
   {
@@ -21,7 +21,7 @@ const testimonials = [
     review: "We needed an e-commerce platform in a tight timeline. Unitaspro met the deadline and added features we didn't even ask for. They truly understood our business.",
     rating: 4.5,
     initials: "AA",
-    color: "bg-violet-100 text-violet-700",
+    color: "bg-[#F1F3F8] text-[#374151]",
     featured: false,
   },
   {
@@ -31,7 +31,7 @@ const testimonials = [
     review: "The mobile app they built has a 4.8 rating on the App Store. Incredible attention to UI/UX detail. We've already engaged them for our next project.",
     rating: 5,
     initials: "RS",
-    color: "bg-emerald-100 text-emerald-700",
+    color: "bg-[#F1F3F8] text-[#374151]",
     featured: false,
   },
   {
@@ -41,7 +41,7 @@ const testimonials = [
     review: "Professional, transparent, and genuinely skilled. They rebuilt our internal dashboard and the result is night and day from what we had. Highly recommend.",
     rating: 4,
     initials: "MW",
-    color: "bg-amber-100 text-amber-700",
+    color: "bg-[#F1F3F8] text-[#374151]",
     featured: false,
   },
   {
@@ -51,7 +51,7 @@ const testimonials = [
     review: "What stood out was how proactive they were. They flagged issues before they became problems and always came with solutions. The team felt like an extension of our own.",
     rating: 4.5,
     initials: "SC",
-    color: "bg-rose-100 text-rose-700",
+    color: "bg-[#F1F3F8] text-[#374151]",
     featured: false,
   },
 ];

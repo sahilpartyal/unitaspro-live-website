@@ -17,7 +17,7 @@ export default function IndustriesPageClient() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-[13rem] lg:pb-12">
+      <section className="relative overflow-hidden bg-[#F8F9FC] pt-32 lg:pt-[13rem] pb-12">
         <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[55%] h-full hidden lg:block">
           <div className="absolute inset-0 opacity-[0.06]"
             style={{
@@ -66,10 +66,10 @@ export default function IndustriesPageClient() {
               <span className="btn-arrow"><ArrowRight size={15}/></span>
             </Link>
             <a href="tel:+918264954344"
-              className="inline-flex items-center gap-2 bg-white text-[#0D0D1A] font-semibold text-sm
-                px-6 py-3 rounded-full border border-gray-200 transition-all duration-200
-                hover:border-gray-400 hover:-translate-y-0.5">
-              Book a call
+              className="hidden min-[576px]:inline-flex items-center gap-2 bg-white text-[#0D0D1A] font-semibold text-sm
+                px-6 py-3.5 rounded-full border border-gray-200 transition-all duration-200
+                hover:border-gray-400 hover:-translate-y-0.5 whitespace-nowrap shrink-0">
+              Call us
             </a>
           </motion.div>
 

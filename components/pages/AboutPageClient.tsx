@@ -26,9 +26,9 @@ const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 /* ── Data ── */
 
 const HERO_HIGHLIGHTS = [
-  { icon: Lightbulb, title: "Senior-Only Team", desc: "Work directly with seniors having five or more years' experience.", color: "#2563EB" },
-  { icon: Handshake, title: "Transparent Process", desc: "We provide fixed quotes and consistent weekly progress reports.", color: "#7C3AED" },
-  { icon: Rocket, title: "Global Delivery", desc: "Serving high-growth brands in the UAE, UK, Australia, Canada, and India.", color: "#059669" },
+  { icon: Lightbulb, title: "Senior-Only Team", desc: "Work directly with seniors having five or more years' experience.", color: "#0D0D1A" },
+  { icon: Handshake, title: "Transparent Process", desc: "We provide fixed quotes and consistent weekly progress reports.", color: "#374151" },
+  { icon: Rocket, title: "Global Delivery", desc: "Serving high-growth brands in the UAE, UK, Australia, Canada, and India.", color: "#374151" },
 ];
 
 const stats = [
@@ -43,29 +43,29 @@ const values = [
     icon: Heart,
     title: "Client-Centric",
     desc: "We align every technical decision with your business goals. If a feature doesn't help you grow, we don't build it.",
-    accent: "#2563EB",
-    accentBg: "#EFF6FF",
+    accent: "#0D0D1A",
+    accentBg: "#F1F3F8",
   },
   {
     icon: Shield,
     title: "Quality First",
     desc: "We skip the shortcuts to avoid technical debt. Every line of code is written to be a long-term asset for your company.",
-    accent: "#7C3AED",
-    accentBg: "#F5F3FF",
+    accent: "#374151",
+    accentBg: "#F1F3F8",
   },
   {
     icon: MessageSquare,
     title: "Transparent",
     desc: "Direct Slack access, honest timelines, and real-time updates. We kill the agency black box with total visibility.",
-    accent: "#059669",
-    accentBg: "#ECFDF5",
+    accent: "#374151",
+    accentBg: "#F1F3F8",
   },
   {
     icon: Globe2,
     title: "Global Thinking",
     desc: "Engineering for the world stage. We deliver international-grade software for leaders in the UAE, Canada, UK, and beyond.",
-    accent: "#D97706",
-    accentBg: "#FFFBEB",
+    accent: "#374151",
+    accentBg: "#F1F3F8",
   },
 ];
 
@@ -97,42 +97,42 @@ const team = [
     name: "Sahil Partyal",
     role: "Founder & CEO",
     initials: "SP",
-    color: "#2563EB",
+    color: "#0D0D1A",
     quote: "Great software should be accessible to every business.",
   },
   {
     name: "Priya Sharma",
     role: "Lead Designer",
     initials: "PS",
-    color: "#7C3AED",
+    color: "#374151",
     quote: "Design is not just how it looks — it's how it works.",
   },
   {
     name: "Rohan Mehta",
     role: "Backend Engineer",
     initials: "RM",
-    color: "#059669",
+    color: "#374151",
     quote: "Clean architecture makes everything else possible.",
   },
   {
     name: "Ankit Verma",
     role: "Frontend Developer",
     initials: "AV",
-    color: "#D97706",
+    color: "#374151",
     quote: "Every interaction should feel effortless.",
   },
   {
     name: "Neha Gupta",
     role: "Digital Marketing",
     initials: "NG",
-    color: "#DC2626",
+    color: "#374151",
     quote: "Growth is a system, not an accident.",
   },
   {
     name: "Arjun Singh",
     role: "Mobile Developer",
     initials: "AS",
-    color: "#0891B2",
+    color: "#374151",
     quote: "Native performance, delightful experience.",
   },
 ];
@@ -141,7 +141,7 @@ export default function AboutPageClient() {
   return (
     <>
       {/* ═══════════════════ HERO — Service-page style ═══════════════════ */}
-      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-[13rem] lg:pb-12">
+      <section className="relative overflow-hidden bg-[#F8F9FC] pt-32 lg:pt-[13rem] pb-12">
         {/* Abstract geometric pattern — right side */}
         <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[55%] h-full hidden lg:block">
           <div className="absolute inset-0 opacity-[0.06]"
@@ -196,10 +196,10 @@ export default function AboutPageClient() {
               <span className="btn-arrow"><ArrowRight size={15}/></span>
             </Link>
             <a href="tel:+918264954344"
-              className="inline-flex items-center gap-2 bg-white text-[#0D0D1A] font-semibold text-sm
-                px-6 py-3 rounded-full border border-gray-200 transition-all duration-200
-                hover:border-gray-400 hover:-translate-y-0.5">
-              Book a free call
+              className="hidden min-[576px]:inline-flex items-center gap-2 bg-white text-[#0D0D1A] font-semibold text-sm
+                px-6 py-3.5 rounded-full border border-gray-200 transition-all duration-200
+                hover:border-gray-400 hover:-translate-y-0.5 whitespace-nowrap shrink-0">
+              Call us
             </a>
           </motion.div>
 

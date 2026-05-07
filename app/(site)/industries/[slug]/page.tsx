@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ind = getIndustryBySlug(slug);
   if (!ind) return {};
   return {
-    title: `${ind.name} Software Development | Unitaspro`,
+    title: `${ind.name} Software Development`,
     description: ind.shortDesc,
     alternates: { canonical: `https://unitaspro.com/industries/${slug}` },
   };

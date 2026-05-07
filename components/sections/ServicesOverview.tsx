@@ -3,200 +3,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, TrendingUp, Search, Zap, Star, CheckCircle } from "lucide-react";
-
-/* ─── Mockups ───────────────────────────────────────────── */
-
-function WebDesignMockup() {
-  return (
-    <div className="relative w-full max-w-[340px] mx-auto">
-      <div className="bg-white rounded-2xl overflow-hidden shadow-[0_20px_56px_rgba(15,23,42,0.16)] border border-gray-100">
-        <div className="flex items-center gap-2.5 px-3.5 py-2.5 bg-[#F7F7F8] border-b border-gray-100">
-          <div className="flex gap-1.5 shrink-0">
-            {["#FF5F57","#FEBC2E","#28C840"].map(c => <div key={c} className="w-2 h-2 rounded-full" style={{ background: c }}/>)}
-          </div>
-          <div className="flex-1 bg-white border border-gray-200 rounded px-2 py-0.5 text-xs text-[#9CA3AF] flex items-center justify-center gap-1">
-            <div className="w-1.5 h-1.5 rounded-full bg-green-400"/>
-            yourclient.com
-          </div>
-        </div>
-        <div className="bg-gradient-to-br from-[#EEF2FF] to-[#EFF6FF] px-4 pt-4 pb-3">
-          <div className="h-4 w-36 bg-gray-900 rounded mb-1.5"/>
-          <div className="h-2.5 w-28 bg-gray-600 rounded mb-1"/>
-          <div className="h-2.5 w-20 bg-gray-600 rounded mb-3"/>
-          <div className="flex gap-1.5">
-            <div className="h-7 w-20 bg-blue-600 rounded-full"/>
-            <div className="h-7 w-16 bg-white border border-gray-200 rounded-full"/>
-          </div>
-        </div>
-        <div className="grid grid-cols-3 divide-x divide-gray-100 bg-white">
-          {[{v:"340%",l:"ROI"},{v:"98",l:"Speed"},{v:"4.9★",l:"Rating"}].map(s => (
-            <div key={s.l} className="py-2 text-center">
-              <div className="text-xs font-bold text-gray-800">{s.v}</div>
-              <div className="text-[8px] text-[#9CA3AF]">{s.l}</div>
-            </div>
-          ))}
-        </div>
-        <div className="grid grid-cols-3 gap-1.5 p-3 bg-white border-t border-gray-50">
-          {[{bg:"#EFF6FF",ic:"#2563EB"},{bg:"#F5F3FF",ic:"#7C3AED"},{bg:"#ECFDF5",ic:"#059669"}].map((c,i) => (
-            <div key={i} className="rounded-lg p-2" style={{ background: c.bg }}>
-              <div className="w-4 h-4 rounded mb-1.5 flex items-center justify-center" style={{ background: c.ic }}>
-                <div className="w-1.5 h-1.5 bg-white/60 rounded-sm"/>
-              </div>
-              <div className="h-1.5 rounded mb-1" style={{ background: `${c.ic}30`, width:"80%" }}/>
-              <div className="h-1 bg-white/60 rounded w-3/4"/>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="absolute -bottom-3 -left-3 bg-white rounded-xl shadow-[0_6px_20px_rgba(15,23,42,0.12)] border border-gray-100 px-2.5 py-1.5 flex items-center gap-2">
-        <div className="w-6 h-6 rounded-lg bg-green-500 flex items-center justify-center shrink-0">
-          <Zap size={10} className="text-white"/>
-        </div>
-        <div>
-          <div className="text-[8px] text-[#9CA3AF]">PageSpeed</div>
-          <div className="text-xs font-bold text-[#0D0D1A]">98 / 100</div>
-        </div>
-      </div>
-      <div className="absolute -top-3 -right-3 bg-white rounded-xl shadow-[0_6px_20px_rgba(15,23,42,0.10)] border border-gray-100 px-2.5 py-1.5 flex items-center gap-1.5">
-        <div className="w-5 h-5 rounded-md bg-blue-50 flex items-center justify-center">
-          <TrendingUp size={10} className="text-blue-600"/>
-        </div>
-        <div>
-          <div className="text-[8px] text-[#9CA3AF]">Conversion</div>
-          <div className="text-xs font-bold text-[#0D0D1A]">+340%</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function SoftwareMockup() {
-  return (
-    <div className="relative w-full max-w-[340px] mx-auto">
-      <div className="bg-[#1E1E2E] rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(15,23,42,0.35)]">
-        <div className="flex items-end gap-0 px-3 pt-2.5">
-          {["api.ts","schema.sql","routes.ts"].map((tab,i) => (
-            <div key={tab} className={`px-2.5 py-1 text-xs rounded-t-md font-mono ${i===0?"bg-[#2A2A3E] text-white":"text-[#6B7180]"}`}>{tab}</div>
-          ))}
-        </div>
-        <div className="bg-[#2A2A3E] px-3 py-3 font-mono text-xs leading-6">
-          <div><span className="text-purple-400">export async function </span><span className="text-blue-300">getUsers</span><span className="text-white">() {"{"}</span></div>
-          <div className="pl-3"><span className="text-purple-400">const </span><span className="text-blue-200">users </span><span className="text-white">= await </span><span className="text-yellow-300">db</span><span className="text-white">.</span><span className="text-blue-300">query</span><span className="text-white">(</span></div>
-          <div className="pl-6"><span className="text-green-300">`SELECT * FROM users WHERE active = true`</span></div>
-          <div className="pl-3"><span className="text-white">);</span></div>
-          <div className="pl-3"><span className="text-purple-400">return </span><span className="text-white">users.rows;</span></div>
-          <div><span className="text-white">{"}"}</span></div>
-        </div>
-        <div className="bg-[#0D0D1A] px-3 py-2.5 font-mono text-xs space-y-1">
-          <div className="text-green-400">✓ Server running on :8080</div>
-          <div className="text-blue-400">✓ PostgreSQL connected (pool: 20)</div>
-          <div className="text-yellow-300">⚡ 142 tests passing · 0 failing</div>
-          <div className="flex items-center gap-1 mt-1">
-            <span className="text-green-500">$</span>
-            <span className="text-[#9CA3AF]">npm run deploy</span>
-            <span className="animate-pulse text-white">█</span>
-          </div>
-        </div>
-      </div>
-      <div className="absolute -top-3 -right-3 bg-white rounded-xl shadow-lg border border-gray-100 p-2 flex items-center gap-1.5">
-        <div className="w-6 h-6 rounded-md bg-orange-50 flex items-center justify-center shrink-0">
-          <span className="text-orange-500 font-bold text-[8px]">AWS</span>
-        </div>
-        <div>
-          <div className="text-[8px] text-[#9CA3AF]">Deployed to</div>
-          <div className="text-xs font-bold text-[#0D0D1A]">Production ✓</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function MobileAppMockup() {
-  return (
-    <div className="relative w-full max-w-[320px] mx-auto flex justify-center items-start gap-3">
-      <div className="w-[140px] bg-[#0F172A] rounded-[2rem] border-[4px] border-slate-700 overflow-hidden shadow-[0_24px_64px_rgba(15,23,42,0.45)] shrink-0">
-        <div className="flex justify-center pt-1.5 pb-1"><div className="w-10 h-2.5 bg-black rounded-full"/></div>
-        <div className="px-2.5 pb-4">
-          <div className="text-white text-xs font-bold mb-2">Good morning, Alex 👋</div>
-          <div className="grid grid-cols-2 gap-1 mb-2">
-            {[{l:"Revenue",v:"$12.4k",c:"#60A5FA"},{l:"Orders",v:"284",c:"#A78BFA"},{l:"Users",v:"1.2k",c:"#34D399"},{l:"Rating",v:"4.9★",c:"#FBBF24"}].map(s => (
-              <div key={s.l} className="rounded-lg p-1.5" style={{ background:"rgba(255,255,255,0.07)" }}>
-                <div className="text-[7px] text-white/40">{s.l}</div>
-                <div className="text-xs font-bold" style={{ color: s.c }}>{s.v}</div>
-              </div>
-            ))}
-          </div>
-          {[1,2,3].map(n => (
-            <div key={n} className="flex items-center gap-1.5 mb-1.5">
-              <div className="w-5 h-5 rounded-full bg-white/10 shrink-0"/>
-              <div className="flex-1"><div className="h-1 bg-white/15 rounded mb-0.5"/><div className="h-0.5 bg-white/08 rounded w-3/4"/></div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="w-[140px] mt-10 bg-white rounded-[2rem] border-[4px] border-gray-200 overflow-hidden shadow-[0_24px_64px_rgba(15,23,42,0.15)] shrink-0">
-        <div className="flex justify-center pt-1.5 pb-1"><div className="w-10 h-2.5 bg-black rounded-full"/></div>
-        <div className="px-2.5 pb-4">
-          <div className="text-[#0D0D1A] text-xs font-bold mb-2">Nearby Services</div>
-          {[{bg:"#EFF6FF",ic:"#2563EB"},{bg:"#F5F3FF",ic:"#7C3AED"},{bg:"#ECFDF5",ic:"#059669"},{bg:"#FFFBEB",ic:"#D97706"}].map((c,i) => (
-            <div key={i} className="flex items-center gap-1.5 rounded-lg p-1.5 mb-1.5" style={{ background: c.bg }}>
-              <div className="w-5 h-5 rounded-md shrink-0" style={{ background: c.ic }}/>
-              <div className="flex-1"><div className="h-1.5 bg-white/80 rounded mb-0.5"/><div className="h-1 bg-white/60 rounded w-2/3"/></div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="absolute -bottom-2 -right-2 bg-white rounded-xl shadow-lg border border-gray-100 p-2 flex items-center gap-1.5">
-        <CheckCircle size={11} className="text-green-500 shrink-0"/>
-        <div><div className="text-[8px] text-[#9CA3AF]">App Store</div><div className="text-xs font-bold text-[#0D0D1A]">Live ✓</div></div>
-      </div>
-    </div>
-  );
-}
-
-function MarketingMockup() {
-  const bars = [35,52,41,68,55,78,65,90,75,110,95,130];
-  const months = ["J","F","M","A","M","J","J","A","S","O","N","D"];
-  return (
-    <div className="relative w-full max-w-[340px] mx-auto">
-      <div className="bg-white rounded-2xl overflow-hidden shadow-[0_20px_56px_rgba(15,23,42,0.12)] border border-gray-100">
-        <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-gray-100">
-          <div><div className="text-xs font-bold text-[#0D0D1A]">Campaign Dashboard</div><div className="text-xs text-[#9CA3AF]">March 2026</div></div>
-          <div className="flex items-center gap-1 text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full"><TrendingUp size={9}/> +34%</div>
-        </div>
-        <div className="grid grid-cols-3 divide-x divide-gray-100 border-b border-gray-100">
-          {[{l:"Impressions",v:"2.4M"},{l:"Click Rate",v:"6.8%"},{l:"Conversions",v:"3.2%"}].map(s => (
-            <div key={s.l} className="py-2 text-center">
-              <div className="text-[8px] text-[#9CA3AF] mb-0.5">{s.l}</div>
-              <div className="text-sm font-bold text-[#0D0D1A]">{s.v}</div>
-            </div>
-          ))}
-        </div>
-        <div className="p-3">
-          <div className="text-xs font-semibold text-gray-700 mb-2">Organic Traffic Growth</div>
-          <div className="flex items-end gap-0.5 h-14">
-            {bars.map((h,i) => <div key={i} className="flex-1 rounded-t" style={{ height:`${(h/130)*100}%`, background:i>=9?"linear-gradient(180deg,#2563EB,#1A47DB)":"#EEF2FF" }}/>)}
-          </div>
-          <div className="flex justify-between mt-1">{months.map(m => <span key={m} className="text-[6px] text-[#9CA3AF]">{m}</span>)}</div>
-        </div>
-        <div className="px-3 pb-3">
-          <div className="flex items-center gap-2 bg-amber-50 rounded-lg px-2.5 py-2">
-            <Search size={10} className="text-amber-500 shrink-0"/>
-            <div className="flex-1"><div className="text-xs font-semibold text-[#0D0D1A]">IT company in Mohali</div><div className="text-[8px] text-[#9CA3AF]">Ranked #1 · +8 positions</div></div>
-            <span className="text-xs font-bold text-amber-600">↑8</span>
-          </div>
-        </div>
-      </div>
-      <div className="absolute -top-3 -right-3 bg-white rounded-xl shadow-lg border border-gray-100 p-2 flex items-center gap-1.5">
-        <Star size={11} className="text-yellow-400 fill-yellow-400 shrink-0"/>
-        <div><div className="text-xs font-bold text-[#0D0D1A]">ROI: +280%</div><div className="text-[8px] text-[#9CA3AF]">avg. result</div></div>
-      </div>
-    </div>
-  );
-}
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 /* ─── Data ──────────────────────────────────────────────── */
+
+const ACCENT = "#0D0D1A";
+const ACCENT_BG = "#F1F3F8";
+const SECTION_BG = "#F8F9FC";
 
 const services = [
   {
@@ -206,8 +20,7 @@ const services = [
     description: "We merge clean aesthetics with high-performance code. Using Next.js and React, we build platforms that load in under 2 seconds and are architected to rank high on Google. We focus on clear user journeys that turn casual traffic into measurable profit.",
     href: "/services/web-design",
     tags: ["Next.js", "React", "WordPress", "Webflow"],
-    accentColor: "#2563EB", accentBg: "#DBEAFE", sectionBg: "#EFF4FF",
-    Mockup: WebDesignMockup,
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80",
   },
   {
     number: "02", label: "Custom Software Development",
@@ -216,8 +29,7 @@ const services = [
     description: "We build secure, production-grade tools tailored to your specific workflow. From internal management dashboards to robust APIs, our systems act as a solid digital backbone, allowing your business to scale without the technical headaches.",
     href: "/services/software-development",
     tags: ["Node.js", "Python", "PostgreSQL", "AWS"],
-    accentColor: "#7C3AED", accentBg: "#EDE9FE", sectionBg: "#F3F0FF",
-    Mockup: SoftwareMockup,
+    image: "https://images.unsplash.com/photo-1555066931-4365d14431b9?w=800&q=80",
   },
   {
     number: "03", label: "Mobile App Development",
@@ -226,8 +38,7 @@ const services = [
     description: "We handle the entire lifecycle, from UX wireframing to App Store deployment. Using React Native and Flutter, we create fast, intuitive mobile experiences that keep your customers connected to your brand 24/7.",
     href: "/services/mobile-app",
     tags: ["React Native", "Flutter", "iOS", "Android"],
-    accentColor: "#059669", accentBg: "#D1FAE5", sectionBg: "#F0FDF6",
-    Mockup: MobileAppMockup,
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80",
   },
   {
     number: "04", label: "Digital Marketing & SEO",
@@ -236,8 +47,7 @@ const services = [
     description: "Forget vanity metrics like likes. We use technical SEO and data-driven ad campaigns to put you in front of ready-to-buy customers. Our goal is simple: lower your acquisition costs and steadily increase your monthly recurring revenue.",
     href: "/services/digital-marketing",
     tags: ["SEO", "Google Ads", "Meta Ads", "Content"],
-    accentColor: "#D97706", accentBg: "#FEF3C7", sectionBg: "#FFFBF0",
-    Mockup: MarketingMockup,
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
   },
 ];
 
@@ -300,7 +110,7 @@ export default function ServicesOverview() {
                       <motion.div
                         layoutId="activeBar"
                         className="absolute left-0 top-3 bottom-3 w-[3px] rounded-full"
-                        style={{ background: s.accentColor }}
+                        style={{ background: ACCENT }}
                         transition={{ duration: 0.28, ease: EASE }}
                       />
                     )}
@@ -308,7 +118,7 @@ export default function ServicesOverview() {
                     <div className="flex items-start gap-3">
                       <span
                         className="text-xs font-mono font-bold mt-0.5 shrink-0 transition-colors duration-200"
-                        style={{ color: isActive ? s.accentColor : "#C4C9D4" }}
+                        style={{ color: isActive ? ACCENT : "#C4C9D4" }}
                       >
                         {s.number}
                       </span>
@@ -331,7 +141,7 @@ export default function ServicesOverview() {
                       transition={{ duration: 0.2 }}
                       className="absolute right-4 top-1/2 -translate-y-1/2"
                     >
-                      <ArrowRight size={14} style={{ color: s.accentColor }} />
+                      <ArrowRight size={14} style={{ color: ACCENT }} />
                     </motion.div>
                   </motion.button>
                 );
@@ -367,7 +177,7 @@ export default function ServicesOverview() {
                         {/* Label */}
                         <span
                           className="inline-block text-xs font-bold px-3 py-1.5 rounded-full w-fit tracking-wide"
-                          style={{ background: service.accentBg, color: service.accentColor }}
+                          style={{ background: ACCENT_BG, color: ACCENT }}
                         >
                           {service.label}
                         </span>
@@ -402,7 +212,7 @@ export default function ServicesOverview() {
                       <Link
                         href={service.href}
                         className="inline-flex items-center gap-2.5 font-bold text-sm px-5 py-2.5 rounded-full transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 group w-fit mt-6"
-                        style={{ background: service.accentColor, color: "#fff" }}
+                        style={{ background: ACCENT, color: "#fff" }}
                       >
                         Explore service
                         <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors shrink-0">
@@ -411,29 +221,16 @@ export default function ServicesOverview() {
                       </Link>
                     </div>
 
-                    {/* Mockup side — accent tinted */}
-                    <div
-                      className="relative flex items-center justify-center px-6 py-10 overflow-hidden min-h-[280px]"
-                      style={{ background: service.sectionBg }}
-                    >
-                      {/* Radial glow */}
-                      <div
-                        className="absolute inset-0 pointer-events-none"
-                        style={{
-                          background: `radial-gradient(ellipse at 50% 50%, ${service.accentBg} 0%, transparent 72%)`,
-                        }}
+                    {/* Image side */}
+                    <div className="relative overflow-hidden min-h-[280px]">
+                      <Image
+                        src={service.image}
+                        alt={service.label}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, 40vw"
                       />
-                      {/* Subtle dot grid */}
-                      <div
-                        className="absolute inset-0 pointer-events-none opacity-30"
-                        style={{
-                          backgroundImage: `radial-gradient(circle, ${service.accentColor}22 1px, transparent 1px)`,
-                          backgroundSize: "20px 20px",
-                        }}
-                      />
-                      <div className="relative z-10">
-                        <service.Mockup />
-                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#0D0D1A]/10 to-transparent"/>
                     </div>
 
                   </div>

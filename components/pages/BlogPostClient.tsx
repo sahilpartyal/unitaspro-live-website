@@ -192,7 +192,7 @@ export default function BlogPostClient({
       </div>
 
       {/* ═══════════════════ HERO ═══════════════════ */}
-      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-[13rem] lg:pb-16">
+      <section className="relative overflow-hidden bg-[#F8F9FC] pt-32 lg:pt-[13rem] pb-12 lg:pb-16">
         <div
           aria-hidden
           className="pointer-events-none absolute top-0 right-0 w-[55%] h-full hidden lg:block"
@@ -422,7 +422,7 @@ export default function BlogPostClient({
                   </p>
                   <Link
                     href="/contact"
-                    className="relative z-10 inline-flex items-center gap-2 bg-white text-[#0F172A] font-semibold text-xs px-4 py-2.5 rounded-xl hover:bg-blue-50 transition-colors"
+                    className="relative z-10 inline-flex items-center gap-2 bg-white text-[#0F172A] font-semibold text-xs px-4 py-2.5 rounded-xl hover:bg-[#F1F3F8] transition-colors"
                   >
                     Get Free Quote
                     <ArrowRight size={12} />

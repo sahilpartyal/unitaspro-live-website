@@ -14,22 +14,22 @@ const fadeUp = (delay = 0) => ({
 
 const steps = [
   {
-    num: "01", Icon: PhoneCall, color: "#2563EB", bg: "#EFF6FF",
+    num: "01", Icon: PhoneCall, color: "#374151", bg: "#F1F3F8",
     title: "Discovery Call",
     desc: "A free 30-minute consultation. We listen to your goals and map out a practical strategy. No sales pressure, no jargon — just an honest conversation.",
   },
   {
-    num: "02", Icon: FileText, color: "#7C3AED", bg: "#F5F3FF",
+    num: "02", Icon: FileText, color: "#374151", bg: "#F1F3F8",
     title: "Proposal & Plan",
     desc: "Within 48 hours, you'll receive a full scope of work, fixed pricing, and a clear timeline. We refine the details until you are 100% confident.",
   },
   {
-    num: "03", Icon: Layers, color: "#059669", bg: "#ECFDF5",
+    num: "03", Icon: Layers, color: "#374151", bg: "#F1F3F8",
     title: "Design & Build",
     desc: "Transparent weekly updates. We build in sprints with regular demos, so you see the product take shape in real-time. No surprises at the finish line.",
   },
   {
-    num: "04", Icon: Rocket, color: "#D97706", bg: "#FFFBEB",
+    num: "04", Icon: Rocket, color: "#374151", bg: "#F1F3F8",
     title: "Launch & Grow",
     desc: "Full technical deployment. We handle the go-live process, optimize for peak speed, and provide 30 days of dedicated support to ensure total stability.",
   },
@@ -45,7 +45,7 @@ export default function ProcessSteps() {
           <div className="max-w-2xl">
             <span className="section-label mb-4">How It Works</span>
             <h2 className="heading-xl font-bold text-[#0D0D1A] mb-3 leading-tight">
-              Turning complex ideas into<br />seamless digital reality
+              Turning complex ideas into<br />working digital products
             </h2>
             <p className="text-[#6B7180] text-lg">
               Four clear steps — from first conversation to successful launch.
@@ -62,7 +62,7 @@ export default function ProcessSteps() {
           {/* Connector line — desktop only */}
           <div
             className="hidden lg:block absolute top-[2.2rem] left-[calc(12.5%+2.2rem)] right-[calc(12.5%+2.2rem)] h-px z-0"
-            style={{ background: "linear-gradient(to right, #E5E7EB, #C4B5FD 50%, #E5E7EB)" }}
+            style={{ background: "linear-gradient(to right, #E5E7EB, #9CA3AF 50%, #E5E7EB)" }}
           />
 
           {steps.map((step, i) => (

@@ -24,7 +24,7 @@ export default function IndustryDetailPageClient({ slug }: Props) {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-[#F8F9FC] pt-16 pb-12 lg:pt-28 lg:pb-16">
+      <section className="relative overflow-hidden bg-[#F8F9FC] pt-32 lg:pt-28 pb-12 lg:pb-16">
         <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[50%] h-full hidden lg:block">
           <div className="absolute inset-0 opacity-[0.05]"
             style={{
@@ -82,7 +82,7 @@ export default function IndustryDetailPageClient({ slug }: Props) {
               className="inline-flex items-center gap-2 bg-white text-[#0D0D1A] font-semibold text-sm
                 px-6 py-3 rounded-full border border-gray-200 transition-all duration-200
                 hover:border-gray-400 hover:-translate-y-0.5">
-              Book a call
+              Call us
             </a>
           </motion.div>
         </div>
@@ -199,7 +199,7 @@ export default function IndustryDetailPageClient({ slug }: Props) {
               <a href="tel:+918264954344"
                 className="inline-flex items-center gap-2 font-semibold text-sm text-white/90 border border-white/30
                   px-6 py-3.5 rounded-full hover:bg-white/10 transition-all duration-200">
-                Book a Call
+                Call us
               </a>
             </div>
           </motion.div>

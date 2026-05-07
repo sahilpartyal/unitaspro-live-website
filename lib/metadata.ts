@@ -85,6 +85,7 @@ export const organizationSchema = {
     { "@type": "Country", name: "Canada" },
     { "@type": "Country", name: "Singapore" },
   ],
+  founders: [{ "@type": "Person", name: "Sahil Partyal" }],
   numberOfEmployees: { "@type": "QuantitativeValue", minValue: 10, maxValue: 49 },
   sameAs: [
     ...Object.values(siteConfig.social),

@@ -12,7 +12,7 @@ const projects = [
     description: "Full-stack e-commerce solution with real-time inventory management, payment gateway integration, and a custom CMS.",
     result: "3× increase in online sales within 6 months",
     tags: ["Next.js", "Node.js", "Stripe"],
-    accentColor: "text-blue-600",
+    accentColor: "text-[#6B7180]",
     image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
   },
   {
@@ -21,7 +21,7 @@ const projects = [
     description: "Cross-platform health tracking app for a UAE-based clinic with appointment booking, health records, and telemedicine features.",
     result: "10,000+ downloads in the first quarter",
     tags: ["React Native", "Firebase", "HL7"],
-    accentColor: "text-violet-600",
+    accentColor: "text-[#6B7180]",
     image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80",
   },
   {
@@ -30,7 +30,7 @@ const projects = [
     description: "Analytics and reporting SaaS platform for a logistics company with real-time tracking, automated reports, and role-based access.",
     result: "Reduced manual reporting time by 80%",
     tags: ["React", "Python", "PostgreSQL"],
-    accentColor: "text-emerald-600",
+    accentColor: "text-[#6B7180]",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
   },
 ];

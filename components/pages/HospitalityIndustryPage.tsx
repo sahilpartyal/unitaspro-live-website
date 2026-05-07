@@ -23,7 +23,7 @@ const data: IndustryPageData = {
   problems: [
     {
       problem:  "Over-reliance on OTAs means paying 15–25% commission on every booking",
-      solution: "A branded direct booking engine with real-time availability, best-rate guarantee, and seamless payment captures direct revenue — commission free.",
+      solution: "A branded direct booking engine with real-time availability, best-rate guarantee, and integrated payment captures direct revenue — commission free.",
     },
     {
       problem:  "Front desk, housekeeping, and F&B managed in separate tools with no sync",

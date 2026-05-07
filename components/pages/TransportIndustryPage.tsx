@@ -76,7 +76,7 @@ const data: IndustryPageData = {
   ],
 
   /* Panels */
-  panelHeading: "Three apps. One seamless ecosystem.",
+  panelHeading: "Three apps. One connected ecosystem.",
   panelDesc: "A connected platform for passengers, drivers, and operators — each with their own purpose-built interface.",
   panels: [
     {
@@ -128,24 +128,28 @@ const data: IndustryPageData = {
       {
         icon: Car,
         title: "Taxi & Ride-Hailing",
+        image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=80",
         desc: "On-demand booking with surge pricing, driver matching, and passenger tracking.",
         points: ["Metered or fixed-fare rides", "Surge pricing zones", "Multi-car types"],
       },
       {
         icon: Briefcase,
         title: "Chauffeur & Corporate",
+        image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&q=80",
         desc: "Pre-scheduled bookings, corporate accounts, and executive-grade passenger experience.",
         points: ["Pre-booking up to 60 days", "Corporate billing & invoicing", "Flight tracking integration"],
       },
       {
         icon: Bus,
         title: "Shuttle & School Transport",
+        image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&q=80",
         desc: "Fixed-route scheduling, stop management, and real-time tracking for group travel.",
         points: ["Route & stop management", "Parent or employee tracking", "Capacity management"],
       },
       {
         icon: Truck,
         title: "Freight & Logistics",
+        image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80",
         desc: "Multi-stop dispatch, driver payroll, and proof-of-delivery for goods transport.",
         points: ["Multi-stop route planning", "POD with signature capture", "Driver payroll integration"],
       },
@@ -183,6 +187,7 @@ const data: IndustryPageData = {
   ctaLabel:   "Transport & Mobility",
   ctaHeading: "Ready to modernise your fleet operations?",
   ctaSub:     "Tell us how your fleet works today. We'll design the system that fixes the gaps — fixed price, fixed timeline.",
+  ctaImage:   "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=900&q=80&auto=format&fit=crop",
 };
 
 export default function TransportIndustryPage() {

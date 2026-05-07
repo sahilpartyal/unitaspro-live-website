@@ -12,10 +12,10 @@ import Stats from "@/components/sections/Stats";
 
 /* ── Fixed color palette (same for every industry) ── */
 const FEATURE_COLORS = [
-  { color: "#2563EB", bg: "#EFF6FF" },
-  { color: "#7C3AED", bg: "#F5F3FF" },
-  { color: "#059669", bg: "#ECFDF5" },
-  { color: "#D97706", bg: "#FFFBEB" },
+  { color: "#0D0D1A", bg: "#F1F3F8" },
+  { color: "#374151", bg: "#F1F3F8" },
+  { color: "#374151", bg: "#F1F3F8" },
+  { color: "#374151", bg: "#F1F3F8" },
 ];
 
 /* ── Types ──────────────────────────────────────────── */
@@ -54,6 +54,7 @@ export interface UseCase {
   title: string;
   desc: string;
   points: string[];
+  image?: string;
 }
 
 export interface IndustryPageData {
@@ -91,6 +92,8 @@ export interface IndustryPageData {
   ctaLabel: string;
   ctaHeading: string;
   ctaSub: string;
+  /** Optional image URL — enables the split photo CTA layout */
+  ctaImage?: string;
 }
 
 /* ── Animations ─────────────────────────────────────── */
@@ -126,13 +129,13 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
       {/* ──────────────────────────────────────────────
           HERO
       ────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-0 lg:pt-[13rem]">
+      <section className="relative overflow-hidden bg-[#F8F9FC] pt-32 lg:pt-[13rem] pb-0">
 
         {/* Subtle colour orbs for depth */}
         <div aria-hidden className="pointer-events-none absolute top-16 left-[20%] w-64 h-64 rounded-full blur-3xl opacity-[0.06]"
-          style={{ background: "radial-gradient(circle, #2563EB, transparent)" }}/>
+          style={{ background: "radial-gradient(circle, #0D0D1A, transparent)" }}/>
         <div aria-hidden className="pointer-events-none absolute top-32 left-[8%] w-40 h-40 rounded-full blur-2xl opacity-[0.04]"
-          style={{ background: "radial-gradient(circle, #7C3AED, transparent)" }}/>
+          style={{ background: "radial-gradient(circle, #374151, transparent)" }}/>
 
         {/* Grid decoration — right side */}
         <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[55%] h-full hidden lg:block">
@@ -161,7 +164,7 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
           {/* Eyebrow */}
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }} className="mb-5">
             <p className="text-sm text-[#6B7180] flex items-center gap-3">
-              <span className="w-1.5 h-1.5 rounded-sm bg-[#2563EB] inline-block"/>
+              <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
               {data.heroEyebrow}
             </p>
             <div className="mt-3 w-64 h-px border-t border-dashed border-gray-300"/>
@@ -185,10 +188,10 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
               <span className="btn-arrow"><ArrowRight size={15}/></span>
             </Link>
             <a href="tel:+918264954344"
-              className="inline-flex items-center gap-2 bg-white text-[#0D0D1A] font-semibold text-sm
-                px-6 py-3 rounded-full border border-gray-200 transition-all duration-200
-                hover:border-gray-400 hover:-translate-y-0.5">
-              Book a call
+              className="hidden min-[576px]:inline-flex items-center gap-2 bg-white text-[#0D0D1A] font-semibold text-sm
+                px-6 py-3.5 rounded-full border border-gray-200 transition-all duration-200
+                hover:border-gray-400 hover:-translate-y-0.5 whitespace-nowrap shrink-0">
+              Call us
             </a>
           </motion.div>
 
@@ -228,79 +231,6 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
       {/* ── Stats bar ── */}
       <Stats />
 
-      {/* ──────────────────────────────────────────────
-          PROBLEM & SOLUTION (optional)
-      ────────────────────────────────────────────── */}
-      {data.problems && data.problems.length > 0 && (
-        <section className="relative bg-[#FAFBFD] py-20 lg:py-28 overflow-hidden">
-          <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.035]"
-            style={{
-              backgroundImage: "radial-gradient(circle, #0D0D1A 1px, transparent 1px)",
-              backgroundSize: "28px 28px",
-            }}/>
-
-          <div className="container-main relative">
-            <motion.div {...fadeUp()} className="mb-3 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-sm bg-[#2563EB] inline-block"/>
-              <p className="text-sm text-[#6B7180]">The problem & the fix</p>
-            </motion.div>
-
-            <motion.div {...fadeUp(0.05)} className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
-              <h2 className="max-w-xl" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.03em" }}>
-                <span className="font-light text-[#9CA3AF]">{data.problemSectionLight} </span>
-                <span className="font-semibold text-[#0D0D1A]">{data.problemSectionBold}</span>
-              </h2>
-              {data.problemSubtitle && (
-                <p className="text-sm text-[#9CA3AF] max-w-xs">{data.problemSubtitle}</p>
-              )}
-            </motion.div>
-
-            {/* Column headers */}
-            <div className="hidden md:grid md:grid-cols-2 gap-0 mb-3 px-5">
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#EF4444]">
-                <XCircle size={13}/> The Problem
-              </div>
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#2563EB]">
-                <CheckCircle2 size={13}/> Our Solution
-              </div>
-            </div>
-
-            {/* Rows */}
-            <div className="flex flex-col divide-y divide-gray-200/80 border border-gray-200/80 rounded-2xl overflow-hidden">
-              {data.problems.map((row, i) => (
-                <motion.div
-                  key={i}
-                  {...fadeUp(0.06 + i * 0.07)}
-                  className="grid grid-cols-1 md:grid-cols-2 group hover:bg-white transition-colors duration-200"
-                >
-                  <div className="flex items-start gap-3 p-5 md:border-r border-gray-200/80">
-                    <div className="w-6 h-6 rounded-full bg-red-50 flex items-center justify-center shrink-0 mt-0.5
-                      group-hover:bg-red-100 transition-colors duration-200">
-                      <XCircle size={14} className="text-red-400"/>
-                    </div>
-                    <p className="text-sm font-medium text-[#374151] leading-snug">{row.problem}</p>
-                  </div>
-                  <div className="flex items-start gap-3 p-5 bg-white/50 md:bg-transparent">
-                    <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center shrink-0 mt-0.5
-                      group-hover:bg-blue-100 transition-colors duration-200">
-                      <CheckCircle2 size={14} className="text-[#2563EB]"/>
-                    </div>
-                    <p className="text-sm text-[#6B7180] leading-relaxed">{row.solution}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div {...fadeUp(0.45)} className="mt-8 flex flex-col sm:flex-row items-center gap-4">
-              <Link href="/contact" className="btn-primary group">
-                Get a free quote
-                <span className="btn-arrow"><ArrowRight size={15}/></span>
-              </Link>
-              <p className="text-sm text-[#9CA3AF]">Free consultation included — no strings attached.</p>
-            </motion.div>
-          </div>
-        </section>
-      )}
 
       {/* ──────────────────────────────────────────────
           PANEL SHOWCASE — Savio-style: center mockup, feature cards flanking
@@ -310,7 +240,7 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
           {/* Heading + optional description */}
           <motion.div {...fadeUp()} className="mb-4 text-center">
             <motion.div {...fadeUp()} className="mb-3 flex items-center gap-2 justify-center">
-              <span className="w-1.5 h-1.5 rounded-sm bg-[#2563EB] inline-block"/>
+              <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
               <p className="text-sm text-[#6B7180]">What We Deliver</p>
             </motion.div>
             <h2 className="heading-xl text-[#0D0D1A]">{data.panelHeading}</h2>
@@ -330,7 +260,7 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
                 }`}>
                 {p.label}
                 {activePanel === i && (
-                  <motion.div layoutId="panelTab" className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#2563EB] rounded-full"/>
+                  <motion.div layoutId="panelTab" className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#0D0D1A] rounded-full"/>
                 )}
               </button>
             ))}
@@ -510,45 +440,35 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
         </div>
       </section>
 
+
       {/* ──────────────────────────────────────────────
-          INLINE CTA — between panels and use cases
+          FEATURES GRID
       ────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden py-12 lg:py-14"
-        style={{ background: "linear-gradient(135deg,#0A0F1E 0%,#1a2d6e 100%)" }}>
-        <div aria-hidden className="pointer-events-none absolute inset-0"
-          style={{
-            backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)",
-            backgroundSize: "32px 32px",
-          }}/>
-        <div className="container-main relative">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-            <div className="flex items-start gap-4">
-              <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
-                <CtaIcon size={20} className="text-white/70"/>
-              </div>
-              <div>
-                <div className="inline-flex items-center gap-2 mb-2 px-3 py-1 rounded-full border border-white/20 bg-white/5">
-                  <span className="text-white/60 text-xs font-medium">{data.ctaLabel}</span>
+      <section className="section-pad bg-[#F8F9FC]">
+        <div className="container-main">
+          <motion.div {...fadeUp()} className="mb-10">
+            <motion.div {...fadeUp()} className="mb-3 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
+              <p className="text-sm text-[#6B7180]">Platform Features</p>
+            </motion.div>
+            <h2 className="heading-xl text-[#0D0D1A] max-w-2xl">{data.featuresHeading}</h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {data.features.map((f, i) => (
+              <motion.div key={f.title} {...fadeUp(i * 0.05)}
+                className="group/feat relative flex flex-col gap-3 p-5 rounded-2xl border border-gray-100 bg-white
+                  hover:shadow-[0_6px_28px_rgba(15,23,42,0.08)] hover:-translate-y-0.5 transition-all duration-300 overflow-hidden">
+                <div aria-hidden className="absolute top-0 inset-x-0 h-[3px] rounded-t-2xl opacity-0 group-hover/feat:opacity-100 transition-all duration-300 bg-[#0D0D1A]"/>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border border-gray-200 bg-transparent">
+                  <f.icon size={18} className="text-[#374151]"/>
                 </div>
-                <h2 className="text-white font-semibold leading-tight"
-                  style={{ fontSize: "clamp(1.2rem, 2vw, 1.6rem)", letterSpacing: "-0.02em" }}>
-                  {data.ctaHeading}
-                </h2>
-                <p className="text-white/55 text-sm mt-1 max-w-md">{data.ctaSub}</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 shrink-0">
-              <Link href="/contact"
-                className="inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-full
-                  bg-white text-[#0A0F1E] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,255,255,0.2)] transition-all duration-200">
-                Get a Free Quote <ArrowRight size={14}/>
-              </Link>
-              <a href="tel:+918264954344"
-                className="inline-flex items-center gap-2 font-semibold text-sm text-white/90 border border-white/30
-                  px-5 py-3 rounded-full hover:bg-white/10 transition-all duration-200">
-                Book a Call
-              </a>
-            </div>
+                <div>
+                  <h3 className="font-bold text-[#0D0D1A] text-sm mb-1 leading-snug">{f.title}</h3>
+                  <p className="text-xs text-[#6B7180] leading-relaxed">{f.desc}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -561,7 +481,7 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
           <div className="container-main">
             <motion.div {...fadeUp()} className="mb-10">
               <div className="mb-3 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-sm bg-[#2563EB] inline-block"/>
+                <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
                 <p className="text-sm text-[#6B7180]">Who It&apos;s For</p>
               </div>
               <h2 className="heading-xl text-[#0D0D1A] max-w-2xl">{data.useCases.heading}</h2>
@@ -571,30 +491,47 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
             </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {data.useCases.items.map((uc, i) => {
-                const c = FEATURE_COLORS[i % FEATURE_COLORS.length];
-                return (
-                  <motion.div key={uc.title} {...fadeUp(i * 0.06)}
-                    className="group/uc relative flex flex-col p-6 rounded-2xl border border-gray-100
-                      hover:shadow-[0_6px_28px_rgba(15,23,42,0.08)] hover:-translate-y-0.5 transition-all duration-300 overflow-hidden">
-                    <div aria-hidden className="absolute top-0 inset-x-0 h-[3px] rounded-t-2xl opacity-0 group-hover/uc:opacity-100 transition-all duration-300"
-                      style={{ background: c.color }}/>
-                    <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: c.bg }}>
-                      <uc.icon size={20} style={{ color: c.color }}/>
+              {data.useCases.items.map((uc, i) => (
+                <motion.div key={uc.title} {...fadeUp(i * 0.06)}
+                  className="group/uc flex flex-col rounded-2xl border border-gray-100 bg-white overflow-hidden
+                    hover:shadow-[0_8px_32px_rgba(15,23,42,0.10)] hover:-translate-y-0.5 transition-all duration-300">
+                  {/* Image or icon fallback */}
+                  {uc.image ? (
+                    <div className="relative h-44 overflow-hidden">
+                      <Image
+                        src={uc.image}
+                        alt={uc.title}
+                        fill
+                        className="object-cover group-hover/uc:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D1A]/25 to-transparent"/>
+                    </div>
+                  ) : (
+                    <div className="h-44 flex items-center justify-center bg-[#F1F3F8]">
+                      <uc.icon size={40} className="text-[#0D0D1A] opacity-40"/>
+                    </div>
+                  )}
+                  {/* Content */}
+                  <div className="flex flex-col flex-1 p-5 pt-4">
+                    <div className="flex items-center gap-2 mb-3 -mt-8 relative">
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-white border border-gray-100 shadow-sm shrink-0">
+                        <uc.icon size={18} className="text-[#0D0D1A]"/>
+                      </div>
                     </div>
                     <h3 className="font-bold text-[#0D0D1A] text-base mb-2 leading-snug">{uc.title}</h3>
-                    <p className="text-[#6B7180] text-sm leading-relaxed mb-5">{uc.desc}</p>
+                    <p className="text-[#6B7180] text-sm leading-relaxed mb-4">{uc.desc}</p>
                     <ul className="flex flex-col gap-2 mt-auto">
                       {uc.points.map((pt) => (
                         <li key={pt} className="flex items-start gap-2">
-                          <CheckCircle2 size={13} className="shrink-0 mt-0.5" style={{ color: c.color }}/>
+                          <CheckCircle2 size={13} className="shrink-0 mt-0.5 text-[#0D0D1A]"/>
                           <span className="text-xs text-[#6B7180] leading-snug">{pt}</span>
                         </li>
                       ))}
                     </ul>
-                  </motion.div>
-                );
-              })}
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -604,61 +541,52 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
           BEFORE / AFTER (optional)
       ────────────────────────────────────────────── */}
       {data.beforeAfter && (
-        <section className="section-pad bg-white">
+        <section className="section-pad bg-[#F8F9FC]">
           <div className="container-main">
-            <motion.div {...fadeUp()} className="mb-12">
+            <motion.div {...fadeUp()} className="mb-10">
               <div className="mb-3 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-sm bg-[#2563EB] inline-block"/>
+                <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
                 <p className="text-sm text-[#6B7180]">Why Custom?</p>
               </div>
               <h2 className="heading-xl text-[#0D0D1A] max-w-xl">{data.beforeAfter.heading}</h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-              {/* WITHOUT card */}
-              <motion.div {...fadeUp(0.05)}
-                className="rounded-2xl border border-gray-200 bg-[#F8F9FC] p-8 lg:p-10">
-                <div className="inline-flex items-center gap-2 mb-3 px-4 py-1.5 rounded-full border border-gray-200 bg-white">
-                  <span className="w-2 h-2 rounded-full bg-red-400"/>
-                  <span className="text-sm font-bold text-[#0D0D1A]">Without Unitaspro</span>
-                </div>
-                <p className="text-sm text-[#6B7180] mb-6">{data.beforeAfter.without.subtitle}</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {data.beforeAfter.without.points.map((pt) => (
-                    <div key={pt} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-red-50 border border-red-100 flex items-center justify-center shrink-0 mt-0.5">
-                        <XCircle size={13} className="text-red-400"/>
-                      </div>
-                      <p className="text-sm text-[#374151] leading-snug">{pt}</p>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
+            {/* Column headers */}
+            <div className="hidden md:grid md:grid-cols-2 gap-0 mb-3 px-5">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#EF4444]">
+                <XCircle size={13}/> Without Unitaspro
+              </div>
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#0D0D1A]">
+                <CheckCircle2 size={13}/> With Unitaspro
+              </div>
+            </div>
 
-              {/* WITH card */}
-              <motion.div {...fadeUp(0.1)}
-                className="rounded-2xl border border-[#2563EB]/20 p-8 lg:p-10 relative overflow-hidden"
-                style={{ background: "linear-gradient(135deg, #EFF6FF 0%, #F5F3FF 100%)" }}>
-                <div aria-hidden className="absolute top-0 right-0 w-40 h-40 rounded-full opacity-20 blur-3xl"
-                  style={{ background: "radial-gradient(circle, #2563EB, transparent)" }}/>
-                <div className="relative">
-                  <div className="inline-flex items-center gap-2 mb-3 px-4 py-1.5 rounded-full border border-[#2563EB]/20 bg-white">
-                    <span className="w-2 h-2 rounded-full bg-[#2563EB]"/>
-                    <span className="text-sm font-bold text-[#0D0D1A]">With Unitaspro</span>
+            {/* Rows — paired before/after */}
+            <div className="flex flex-col divide-y divide-gray-200/80 border border-gray-200/80 rounded-2xl overflow-hidden">
+              {data.beforeAfter.without.points.map((problem, i) => (
+                <motion.div
+                  key={i}
+                  {...fadeUp(0.06 + i * 0.07)}
+                  className="grid grid-cols-1 md:grid-cols-2 group hover:bg-white transition-colors duration-200"
+                >
+                  <div className="flex items-start gap-3 p-5 md:border-r border-gray-200/80">
+                    <div className="w-6 h-6 rounded-full bg-red-50 flex items-center justify-center shrink-0 mt-0.5
+                      group-hover:bg-red-100 transition-colors duration-200">
+                      <XCircle size={14} className="text-red-400"/>
+                    </div>
+                    <p className="text-sm font-medium text-[#374151] leading-snug">{problem}</p>
                   </div>
-                  <p className="text-sm text-[#2563EB]/70 mb-6 font-medium">{data.beforeAfter.with.subtitle}</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {data.beforeAfter.with.points.map((pt) => (
-                      <div key={pt} className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0 mt-0.5">
-                          <CheckCircle2 size={13} className="text-[#2563EB]"/>
-                        </div>
-                        <p className="text-sm text-[#374151] leading-snug">{pt}</p>
-                      </div>
-                    ))}
+                  <div className="flex items-start gap-3 p-5 bg-white/50 md:bg-transparent">
+                    <div className="w-6 h-6 rounded-full bg-[#F1F3F8] flex items-center justify-center shrink-0 mt-0.5
+                      group-hover:bg-gray-100 transition-colors duration-200">
+                      <CheckCircle2 size={14} className="text-[#0D0D1A]"/>
+                    </div>
+                    <p className="text-sm text-[#6B7180] leading-relaxed">
+                      {data.beforeAfter.with.points[i] ?? ""}
+                    </p>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -667,108 +595,106 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
       {/* ──────────────────────────────────────────────
           CTA — after before/after
       ────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden py-14 lg:py-16"
-        style={{ background: "linear-gradient(135deg,#0A0F1E 0%,#1a2d6e 100%)" }}>
-        <div aria-hidden className="pointer-events-none absolute inset-0"
-          style={{
-            backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)",
-            backgroundSize: "32px 32px",
-          }}/>
-        <div className="container-main relative">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-            <div className="flex items-start gap-4">
-              <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
-                <CtaIcon size={20} className="text-white/70"/>
-              </div>
-              <div>
-                <div className="inline-flex items-center gap-2 mb-2 px-3 py-1 rounded-full border border-white/20 bg-white/5">
-                  <span className="text-white/60 text-xs font-medium">{data.ctaLabel}</span>
-                </div>
+      <section className="py-10 lg:py-12 bg-[#F8F9FC]">
+        <div className="container-main">
+          <div className="relative overflow-hidden rounded-3xl"
+            style={{ background: "linear-gradient(135deg,#0A0F1E 0%,#1a2d6e 100%)" }}>
+            <div aria-hidden className="pointer-events-none absolute inset-0"
+              style={{
+                backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)",
+                backgroundSize: "32px 32px",
+              }}/>
+            <div className="relative grid grid-cols-1 md:grid-cols-[1fr_42%]">
+              <div className="flex flex-col justify-center gap-4 px-8 py-12 lg:px-12">
                 <h2 className="text-white font-semibold leading-tight"
-                  style={{ fontSize: "clamp(1.3rem, 2.5vw, 1.8rem)", letterSpacing: "-0.02em" }}>
+                  style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", letterSpacing: "-0.03em" }}>
                   {data.ctaHeading}
                 </h2>
-                <p className="text-white/55 text-sm mt-1 max-w-md">{data.ctaSub}</p>
+                {data.ctaSub && (
+                  <p className="text-white/60 text-sm leading-relaxed max-w-sm">{data.ctaSub}</p>
+                )}
+                <Link href="/contact"
+                  className="self-start inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-full
+                    bg-white text-[#0A0F1E] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,255,255,0.2)] transition-all duration-200">
+                  Get a Free Quote <ArrowRight size={14}/>
+                </Link>
               </div>
-            </div>
-            <div className="flex items-center gap-3 shrink-0">
-              <Link href="/contact"
-                className="inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-full
-                  bg-white text-[#0A0F1E] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,255,255,0.2)] transition-all duration-200">
-                Get a Free Quote <ArrowRight size={14}/>
-              </Link>
-              <a href="tel:+918264954344"
-                className="inline-flex items-center gap-2 font-semibold text-sm text-white/90 border border-white/30
-                  px-5 py-3 rounded-full hover:bg-white/10 transition-all duration-200">
-                Book a Call
-              </a>
+              {data.ctaImage && (
+                <div className="relative hidden md:block min-h-[240px]">
+                  <Image
+                    src={data.ctaImage}
+                    alt="Industry CTA"
+                    fill
+                    className="object-cover"
+                    sizes="40vw"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
       </section>
 
-      {/* ──────────────────────────────────────────────
-          FEATURES GRID
-      ────────────────────────────────────────────── */}
-      <section className="section-pad bg-white">
-        <div className="container-main">
-          <motion.div {...fadeUp()} className="mb-10">
-            <motion.div {...fadeUp()} className="mb-3 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-sm bg-[#2563EB] inline-block"/>
-              <p className="text-sm text-[#6B7180]">Platform Features</p>
-            </motion.div>
-            <h2 className="heading-xl text-[#0D0D1A] max-w-2xl">{data.featuresHeading}</h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {data.features.map((f, i) => {
-              const c = FEATURE_COLORS[i % FEATURE_COLORS.length];
-              return (
-                <motion.div key={f.title} {...fadeUp(i * 0.05)}
-                  className="group/feat relative flex flex-col gap-3 p-5 rounded-2xl border border-gray-100 bg-white
-                    hover:shadow-[0_6px_28px_rgba(15,23,42,0.08)] hover:-translate-y-0.5 transition-all duration-300 overflow-hidden">
-                  {/* Accent bar on hover */}
-                  <div aria-hidden className="absolute top-0 inset-x-0 h-[3px] rounded-t-2xl opacity-0 group-hover/feat:opacity-100 transition-all duration-300"
-                    style={{ background: c.color }}/>
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
-                    style={{ background: c.bg }}>
-                    <f.icon size={18} style={{ color: c.color }}/>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-[#0D0D1A] text-sm mb-1 leading-snug">{f.title}</h3>
-                    <p className="text-xs text-[#6B7180] leading-relaxed">{f.desc}</p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* ──────────────────────────────────────────────
           RELATED SERVICES
       ────────────────────────────────────────────── */}
-      <section className="py-12 bg-white border-t border-gray-100">
+      <section className="section-pad bg-white border-t border-gray-100">
         <div className="container-main">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+          <motion.div {...fadeUp()} className="mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
-              <span className="section-label mb-3 inline-flex">Powered By Unitaspro</span>
-              <h2 className="text-xl font-bold text-[#0D0D1A] leading-snug">Services behind this platform</h2>
+              <div className="mb-3 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
+                <p className="text-sm text-[#6B7180]">Powered By Unitaspro</p>
+              </div>
+              <h2 className="heading-xl text-[#0D0D1A]">Services behind this platform</h2>
+              <p className="text-[#6B7180] text-base mt-3 max-w-lg leading-relaxed">
+                Every product we build draws on a combination of these core capabilities — tailored to what your project actually needs.
+              </p>
             </div>
-            <div className="flex flex-wrap gap-3">
-              {[
-                { label: "Web Design & Development",  href: "/services/web-design",            color: "#2563EB", bg: "hover:bg-[#EFF6FF] hover:border-[#2563EB] hover:text-[#2563EB]" },
-                { label: "Software Development",      href: "/services/software-development",   color: "#7C3AED", bg: "hover:bg-[#F5F3FF] hover:border-[#7C3AED] hover:text-[#7C3AED]" },
-                { label: "Mobile App Development",    href: "/services/mobile-app",             color: "#059669", bg: "hover:bg-[#ECFDF5] hover:border-[#059669] hover:text-[#059669]" },
-                { label: "Digital Marketing",         href: "/services/digital-marketing",      color: "#D97706", bg: "hover:bg-[#FFFBEB] hover:border-[#D97706] hover:text-[#D97706]" },
-              ].map((s) => (
-                <Link key={s.href} href={s.href}
-                  className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 text-sm font-semibold text-[#374151] transition-all duration-200 ${s.bg}`}>
-                  {s.label}
-                  <ArrowRight size={12} className="opacity-40"/>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              {
+                label: "Web Design & Development",
+                href: "/services/web-design",
+                desc: "Pixel-perfect interfaces built for speed, SEO, and real conversions.",
+              },
+              {
+                label: "Software Development",
+                href: "/services/software-development",
+                desc: "Custom backends, APIs, and scalable platforms engineered from scratch.",
+              },
+              {
+                label: "Mobile App Development",
+                href: "/services/mobile-app",
+                desc: "iOS and Android apps built with React Native — one codebase, both stores.",
+              },
+              {
+                label: "Digital Marketing",
+                href: "/services/digital-marketing",
+                desc: "SEO, paid ads, and content strategy that drives qualified leads.",
+              },
+            ].map((s, i) => (
+              <motion.div key={s.href} {...fadeUp(i * 0.06)}>
+                <Link href={s.href}
+                  className="group flex flex-col justify-between h-full p-6 rounded-2xl border border-gray-100 bg-white
+                    hover:shadow-[0_6px_28px_rgba(15,23,42,0.08)] hover:-translate-y-0.5 transition-all duration-300">
+                  <div>
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 bg-[#F1F3F8]">
+                      <ArrowRight size={16} className="text-[#0D0D1A]"/>
+                    </div>
+                    <h3 className="font-bold text-[#0D0D1A] text-base mb-2 leading-snug">{s.label}</h3>
+                    <p className="text-[#6B7180] text-sm leading-relaxed">{s.desc}</p>
+                  </div>
+                  <div className="mt-5 flex items-center gap-1.5 text-[#0D0D1A] text-sm font-semibold
+                    group-hover:gap-2.5 transition-all duration-200">
+                    Learn more <ArrowRight size={13}/>
+                  </div>
                 </Link>
-              ))}
-            </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -783,7 +709,7 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
             {/* Left sticky panel */}
             <div className="lg:sticky lg:top-28">
               <div className="mb-3 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-sm bg-[#2563EB] inline-block"/>
+                <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
                 <p className="text-sm text-[#6B7180]">FAQ</p>
               </div>
               <h2 className="heading-xl font-bold text-[#0D0D1A] mb-5 leading-tight">

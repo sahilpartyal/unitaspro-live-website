@@ -61,7 +61,7 @@ export default function Hero() {
       <div className="relative z-10 flex flex-col flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-28 pb-14 lg:pt-[13rem] lg:pb-12">
 
         {/* Heading */}
-        <h1 className="font-extrabold text-white mb-7 lg:mb-8" style={{ lineHeight: 1.0, letterSpacing: "-0.044em" }}>
+        <h1 className="font-bold text-white mb-7 lg:mb-8" style={{ lineHeight: 1.0, letterSpacing: "-0.044em" }}>
 
           {/* Line 1 */}
           <span className="block overflow-hidden" style={{ paddingBottom: "0.05em" }}>
@@ -92,7 +92,7 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
-                  className="inline-block bg-gradient-to-r from-[#7B9FFF] to-[#8B5CF6] bg-clip-text text-transparent"
+                  className="inline-block bg-gradient-to-r from-[#FFFFFF] to-[#9CA3AF] bg-clip-text text-transparent"
                 >
                   {rotatingWords[wordIndex]}
                 </motion.span>
@@ -122,8 +122,8 @@ export default function Hero() {
           className="text-white/55 max-w-lg mb-10 lg:mb-12"
           style={{ fontSize: "clamp(15px, 1.5vw, 17px)", lineHeight: 1.75 }}
         >
-          Unitaspro builds world-class websites, mobile apps, and custom software for
-          companies that demand more than average. From idea to launch — we deliver.
+          Unitaspro builds websites, mobile apps, and custom software for
+          companies that have outgrown off-the-shelf tools. From idea to launch — we deliver.
         </motion.p>
 
         {/* CTAs */}
@@ -131,22 +131,26 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
+          className="flex flex-row items-center gap-3"
         >
+          {/* Primary — split pill: text left, circle arrow right */}
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2.5 bg-[#2563EB] hover:bg-[#1d51d0] text-white font-bold text-sm rounded-full transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
-            style={{ padding: "15px 30px", letterSpacing: "-0.01em", boxShadow: "0 4px 20px rgba(37,99,235,0.45)" }}
+            className="inline-flex items-center gap-3 bg-white text-[#0A0F1E] font-bold text-sm rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(255,255,255,0.2)] active:translate-y-0 whitespace-nowrap shrink-0"
+            style={{ padding: "6px 6px 6px 22px", letterSpacing: "-0.01em" }}
           >
-            Get Free Quote <ArrowRight size={15} />
+            Get Free Quote
+            <span className="w-9 h-9 rounded-full bg-[#0A0F1E] flex items-center justify-center shrink-0">
+              <ArrowRight size={14} className="text-white" />
+            </span>
           </Link>
+          {/* Secondary — outlined pill */}
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-white/70 hover:text-white font-semibold text-sm transition-colors duration-200"
-            style={{ letterSpacing: "-0.01em" }}
+            className="hidden min-[576px]:inline-flex items-center justify-center text-white font-semibold text-sm rounded-full border border-white/25 hover:border-white/50 hover:bg-white/[0.06] transition-all duration-200 whitespace-nowrap shrink-0"
+            style={{ padding: "14px 24px", letterSpacing: "-0.01em" }}
           >
-            View All Services
-            <ArrowRight size={14} className="opacity-60" />
+            View Services
           </Link>
         </motion.div>
 
@@ -178,7 +182,7 @@ export default function Hero() {
             <div key={i} className="flex items-center gap-6">
               <div className="flex items-center gap-2">
                 <span
-                  className="font-extrabold text-white leading-none"
+                  className="font-bold text-white leading-none"
                   style={{ fontSize: 22, letterSpacing: "-0.04em" }}
                 >
                   {num}

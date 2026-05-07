@@ -24,21 +24,21 @@ const fadeUp = (delay = 0) => ({
 /* --- Data -------------------------------------------- */
 
 const HERO_SERVICES = [
-  { icon: PenTool, title: "Custom Design", desc: "Brand-aligned UI/UX that builds trust and converts", color: "#2563EB" },
-  { icon: Code2, title: "Full-Stack Dev", desc: "Next.js & React — fast, scalable, production-grade", color: "#7C3AED" },
-  { icon: Target, title: "CRO Built-In", desc: "Every page is designed for conversion from day one", color: "#059669" },
+  { icon: PenTool, title: "Custom Design", desc: "Brand-aligned UI/UX that builds trust and converts", color: "#0D0D1A" },
+  { icon: Code2, title: "Full-Stack Dev", desc: "Next.js & React — fast, scalable, production-grade", color: "#374151" },
+  { icon: Target, title: "CRO Built-In", desc: "Every page is designed for conversion from day one", color: "#374151" },
 ];
 
 const SERVICES = [
-  { Icon: PenTool, title: "Bespoke UI/UX Design", desc: "Custom interfaces engineered to build trust and drive action. No templates — just intentional, purposeful design.", color: "#2563EB", bg: "#EFF6FF" },
-  { Icon: Target, title: "Conversion Optimisation", desc: "Strategic, A/B-ready layouts using data-driven design patterns to transform casual visitors into high-quality leads.", color: "#D97706", bg: "#FFFBEB" },
-  { Icon: ShieldCheck, title: "Security & ADA", desc: "WCAG 2.1 compliance and SSL encryption — ensuring your digital platform is secure, inclusive, and protected.", color: "#059669", bg: "#ECFDF5" },
-  { Icon: Code2, title: "Full-Stack Development", desc: "Fast, reliable websites built with Next.js and React. Clean code that scales as you grow.", color: "#7C3AED", bg: "#F5F3FF" },
-  { Icon: Smartphone, title: "Mobile-First Design", desc: "Built for easy thumb-scrolling. Every layout is tested on real phones for a perfect feel.", color: "#2563EB", bg: "#EFF6FF" },
-  { Icon: Layers, title: "Landing Pages", desc: "Simple, high-impact pages made for marketing campaigns that turn visitors into leads and profit.", color: "#D97706", bg: "#FFFBEB" },
-  { Icon: Search, title: "SEO Architecture", desc: "Technical SEO with SSR and structured data to ensure Google finds and ranks your business.", color: "#059669", bg: "#ECFDF5" },
-  { Icon: Gauge, title: "99+ Performance", desc: "Instant load times via Edge CDN and image optimisation, built to provide a frictionless user experience.", color: "#7C3AED", bg: "#F5F3FF" },
-  { Icon: RefreshCw, title: "30-Day Support", desc: "Complimentary bug fixes, monitoring, and technical tweaks to ensure your site runs perfectly after launch.", color: "#2563EB", bg: "#EFF6FF" },
+  { Icon: PenTool, title: "Custom UI/UX Design", desc: "Custom interfaces engineered to build trust and drive action. No templates — just intentional, purposeful design.", color: "#0D0D1A", bg: "#F1F3F8" },
+  { Icon: Target, title: "Conversion Optimisation", desc: "Strategic, A/B-ready layouts using data-driven design patterns to transform casual visitors into high-quality leads.", color: "#374151", bg: "#F1F3F8" },
+  { Icon: ShieldCheck, title: "Security & ADA", desc: "WCAG 2.1 compliance and SSL encryption — ensuring your digital platform is secure, inclusive, and protected.", color: "#374151", bg: "#F1F3F8" },
+  { Icon: Code2, title: "Full-Stack Development", desc: "Fast, reliable websites built with Next.js and React. Clean code that scales as you grow.", color: "#374151", bg: "#F1F3F8" },
+  { Icon: Smartphone, title: "Mobile-First Design", desc: "Built for easy thumb-scrolling. Every layout is tested on real phones for a perfect feel.", color: "#0D0D1A", bg: "#F1F3F8" },
+  { Icon: Layers, title: "Landing Pages", desc: "Simple, high-impact pages made for marketing campaigns that turn visitors into leads and profit.", color: "#374151", bg: "#F1F3F8" },
+  { Icon: Search, title: "SEO Architecture", desc: "Technical SEO with SSR and structured data to ensure Google finds and ranks your business.", color: "#374151", bg: "#F1F3F8" },
+  { Icon: Gauge, title: "99+ Performance", desc: "Instant load times via Edge CDN and image optimisation, built to provide a frictionless user experience.", color: "#374151", bg: "#F1F3F8" },
+  { Icon: RefreshCw, title: "30-Day Support", desc: "Complimentary bug fixes, monitoring, and technical tweaks to ensure your site runs perfectly after launch.", color: "#0D0D1A", bg: "#F1F3F8" },
 ];
 
 const FEATURES_DARK = [
@@ -75,10 +75,10 @@ const TECH_LOGOS = [
 ];
 
 const DIFFERENTIATORS = [
-  { Icon: CheckCircle2,   color: "#2563EB", bg: "#EFF6FF", title: "Senior-Only Team",            desc: "Work directly with experts boasting 5+ years of experience. No juniors learning on your budget." },
-  { Icon: HeadphonesIcon, color: "#7C3AED", bg: "#F5F3FF", title: "Dedicated Project Manager",   desc: "One accountable point of contact managing your project via Slack or WhatsApp from start to finish." },
-  { Icon: DollarSign,     color: "#059669", bg: "#ECFDF5", title: "Fixed Price, Zero Surprises", desc: "Your investment is locked before work begins. We protect your budget against any hidden fees." },
-  { Icon: Zap,            color: "#D97706", bg: "#FFFBEB", title: "Global-Ready By Default",     desc: "Edge-deployed for worldwide speed, built to meet the highest professional standards in any major market." },
+  { Icon: CheckCircle2,   color: "#0D0D1A", bg: "#F1F3F8", title: "Senior-Only Team",            desc: "Work directly with experts boasting 5+ years of experience. No juniors learning on your budget." },
+  { Icon: HeadphonesIcon, color: "#374151", bg: "#F1F3F8", title: "Dedicated Project Manager",   desc: "One accountable point of contact managing your project via Slack or WhatsApp from start to finish." },
+  { Icon: DollarSign,     color: "#374151", bg: "#F1F3F8", title: "Fixed Price, Zero Surprises", desc: "Your investment is locked before work begins. We protect your budget against any hidden fees." },
+  { Icon: Zap,            color: "#374151", bg: "#F1F3F8", title: "Global-Ready By Default",     desc: "Edge-deployed for worldwide speed, built to meet the highest professional standards in any major market." },
 ];
 
 const PROBLEMS = [
@@ -105,10 +105,10 @@ const PROBLEMS = [
 ];
 
 const PROCESS = [
-  { num: "01", Icon: PhoneCall, title: "Discovery Call",  desc: "A free 30-minute consultation. We listen to your goals and map out a practical strategy. No sales pressure, no jargon — just an honest conversation.", color: "#2563EB", bg: "#EFF6FF" },
-  { num: "02", Icon: FileText,  title: "Proposal & Plan", desc: "Within 48 hours, you'll receive a full scope of work, fixed pricing, and a clear timeline. We refine the details until you are 100% confident.",      color: "#7C3AED", bg: "#F5F3FF" },
-  { num: "03", Icon: Layers,    title: "Design & Build",  desc: "Transparent weekly updates. We build in sprints with regular demos, so you see the product take shape in real-time. No surprises at the finish line.", color: "#059669", bg: "#ECFDF5" },
-  { num: "04", Icon: Rocket,    title: "Launch & Grow",   desc: "Full technical deployment. We handle the go-live process, optimize for peak speed, and provide 30 days of dedicated support to ensure total stability.", color: "#D97706", bg: "#FFFBEB" },
+  { num: "01", Icon: PhoneCall, title: "Discovery Call",  desc: "A free 30-minute consultation. We listen to your goals and map out a practical strategy. No sales pressure, no jargon — just an honest conversation.", color: "#0D0D1A", bg: "#F1F3F8" },
+  { num: "02", Icon: FileText,  title: "Proposal & Plan", desc: "Within 48 hours, you'll receive a full scope of work, fixed pricing, and a clear timeline. We refine the details until you are 100% confident.",      color: "#374151", bg: "#F1F3F8" },
+  { num: "03", Icon: Layers,    title: "Design & Build",  desc: "Transparent weekly updates. We build in sprints with regular demos, so you see the product take shape in real-time. No surprises at the finish line.", color: "#374151", bg: "#F1F3F8" },
+  { num: "04", Icon: Rocket,    title: "Launch & Grow",   desc: "Full technical deployment. We handle the go-live process, optimize for peak speed, and provide 30 days of dedicated support to ensure total stability.", color: "#374151", bg: "#F1F3F8" },
 ];
 
 const FAQS = [
@@ -135,7 +135,7 @@ export default function WebDesignServicePage() {
       {/* -------------------------------------------------
           S1  HERO - Hyperline style with abstract pattern
       */}
-      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-[13rem] lg:pb-12">
+      <section className="relative overflow-hidden bg-[#F8F9FC] pt-32 lg:pt-[13rem] pb-12">
         {/* Abstract geometric pattern - right side */}
         <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[55%] h-full hidden lg:block">
           {/* Grid pattern */}
@@ -187,15 +187,15 @@ export default function WebDesignServicePage() {
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.16 }}
             className="flex items-center gap-3 mb-24">
-            <Link href="/contact" className="btn-primary group">
+            <Link href="/contact" className="btn-primary group whitespace-nowrap shrink-0">
               Get a free quote
               <span className="btn-arrow"><ArrowRight size={15}/></span>
             </Link>
             <Link href="#process"
-              className="inline-flex items-center gap-2 bg-white text-[#0D0D1A] font-semibold text-sm
-                px-6 py-3 rounded-full border border-gray-200 transition-all duration-200
-                hover:border-gray-400 hover:-translate-y-0.5">
-              Book a demo
+              className="hidden min-[576px]:inline-flex items-center gap-2 bg-white text-[#0D0D1A] font-semibold text-sm
+                px-6 py-3.5 rounded-full border border-gray-200 transition-all duration-200
+                hover:border-gray-400 hover:-translate-y-0.5 whitespace-nowrap shrink-0">
+              How we work
             </Link>
           </motion.div>
 
@@ -270,7 +270,7 @@ export default function WebDesignServicePage() {
           <motion.div {...fadeUp()} className="text-center max-w-lg mx-auto mb-12">
             <h2 className="heading-xl text-[#0D0D1A] mb-3">
               Built With Tools That{" "}
-              <span className="text-[#2563EB]">Power the Web</span>
+              <span className="text-[#0D0D1A]">Power the Web</span>
             </h2>
             <p className="text-sm text-[#6B7180]">
               We use production-grade, battle-tested technology — so your platform is fast, secure, and built to scale.
@@ -325,7 +325,7 @@ export default function WebDesignServicePage() {
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#EF4444]">
               <XCircle size={13}/> The Problem
             </div>
-            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#2563EB]">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#0D0D1A]">
               <CheckCircle2 size={13}/> Our Solution
             </div>
           </div>
@@ -348,9 +348,9 @@ export default function WebDesignServicePage() {
                 </div>
                 {/* Solution */}
                 <div className="flex items-start gap-3 p-5 bg-white/50 md:bg-transparent">
-                  <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center shrink-0 mt-0.5
-                    group-hover:bg-blue-100 transition-colors duration-200">
-                    <CheckCircle2 size={14} className="text-[#2563EB]"/>
+                  <div className="w-6 h-6 rounded-full bg-[#F1F3F8] flex items-center justify-center shrink-0 mt-0.5
+                    group-hover:bg-gray-100 transition-colors duration-200">
+                    <CheckCircle2 size={14} className="text-[#0D0D1A]"/>
                   </div>
                   <p className="text-sm text-[#6B7180] leading-relaxed">{row.solution}</p>
                 </div>
@@ -375,7 +375,7 @@ export default function WebDesignServicePage() {
       */}
       <section className="relative bg-white py-20 lg:py-28 overflow-hidden border-t border-gray-100">
         <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[500px] h-[400px] rounded-full opacity-[0.04]"
-          style={{ background: "radial-gradient(ellipse, #2563EB 0%, transparent 70%)" }}/>
+          style={{ background: "radial-gradient(ellipse, #0D0D1A 0%, transparent 70%)" }}/>
 
         <div className="container-main relative">
           <motion.p {...fadeUp()} className="text-sm text-[#6B7180] mb-3 flex items-center gap-2">
@@ -417,33 +417,34 @@ export default function WebDesignServicePage() {
       </section>
 
 
-      {/* -------------------------------------------------
-          S4  CTA - Vibrant purple gradient
-      */}
-      <section className="relative overflow-hidden py-16 lg:py-20"
-        style={{ background: "linear-gradient(135deg, #4F46E5 0%, #7C3AED 40%, #A855F7 100%)" }}>
-        <div aria-hidden className="pointer-events-none absolute inset-0 opacity-20"
-          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, white 0%, transparent 50%), radial-gradient(circle at 80% 50%, white 0%, transparent 50%)" }}/>
-        <div className="container-main relative text-center">
-          <motion.div {...fadeUp()}>
-            <h2 className="font-semibold text-white mb-4"
-              style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", lineHeight: 1.15 }}>
-              Are You Ready To Discover Exactly Where Your Website Is Losing Leads?
-            </h2>
-            <p className="text-white/70 text-base mb-8 max-w-lg mx-auto">
-              Get a free UX audit to see what&apos;s holding you back. We offer transparent, fixed pricing to fix the gaps. No surprises, just results.
-            </p>
-            <div className="flex items-center justify-center gap-3">
-              <Link href="/contact"
-                className="inline-flex items-center gap-2 font-semibold text-sm px-7 py-3.5 rounded-full
-                  bg-white text-[#4F46E5] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,255,255,0.2)] transition-all duration-200">
-                Get My Free Audit <ArrowRight size={15}/>
-              </Link>
-              <a href="tel:+918264954344"
-                className="inline-flex items-center gap-2 font-semibold text-sm text-white/90 border border-white/30
-                  px-6 py-3.5 rounded-full hover:bg-white/10 transition-all duration-200">
-                Talk to a Strategist
-              </a>
+      {/* S4 CTA */}
+      <section className="py-10 lg:py-12 bg-[#F8F9FC]">
+        <div className="container-main">
+          <motion.div {...fadeUp()} className="relative overflow-hidden rounded-3xl"
+            style={{ background: "linear-gradient(135deg,#0A0F1E 0%,#1a2d6e 100%)" }}>
+            <div aria-hidden className="pointer-events-none absolute inset-0"
+              style={{
+                backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)",
+                backgroundSize: "32px 32px",
+              }}/>
+            <div className="relative grid grid-cols-1 md:grid-cols-[1fr_42%]">
+              <div className="flex flex-col justify-center gap-4 px-8 py-12 lg:px-12">
+                <h2 className="text-white font-semibold leading-tight"
+                  style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", letterSpacing: "-0.03em" }}>
+                  Ready to build a website that actually converts?
+                </h2>
+                <p className="text-white/60 text-sm leading-relaxed max-w-sm">
+                  Fixed price. Fixed timeline. We scope before we quote — no surprises, ever.
+                </p>
+                <Link href="/contact"
+                  className="self-start inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-full
+                    bg-white text-[#0A0F1E] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,255,255,0.15)] transition-all duration-200">
+                  Get a Free Quote <ArrowRight size={14}/>
+                </Link>
+              </div>
+              <div className="relative hidden md:block min-h-[240px]">
+                <Image src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80" alt="Web design" fill className="object-cover" sizes="40vw"/>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -536,9 +537,9 @@ export default function WebDesignServicePage() {
 
             {/* Left tall — outcomes list */}
             <motion.div {...fadeUp()}
-              className="lg:row-span-2 rounded-2xl bg-[#EFF6FF] p-8 flex flex-col justify-between min-h-[320px]">
+              className="lg:row-span-2 rounded-2xl bg-[#F1F3F8] p-8 flex flex-col justify-between min-h-[320px]">
               <div>
-                <div className="text-xs font-semibold text-[#2563EB] uppercase tracking-widest mb-3">What you can expect</div>
+                <div className="text-xs font-semibold text-[#0D0D1A] uppercase tracking-widest mb-3">What you can expect</div>
                 <h3 className="text-lg font-semibold text-[#0D0D1A] leading-snug mb-5" style={{ letterSpacing: "-0.02em" }}>
                   Websites that grow your business.
                 </h3>
@@ -549,14 +550,14 @@ export default function WebDesignServicePage() {
                     { stat: "100%",  label: "fixed-price, zero scope creep" },
                   ].map((item) => (
                     <li key={item.stat} className="flex items-center gap-3 text-sm">
-                      <span className="font-bold text-[#2563EB] shrink-0" style={{ letterSpacing: "-0.03em" }}>{item.stat}</span>
+                      <span className="font-bold text-[#0D0D1A] shrink-0" style={{ letterSpacing: "-0.03em" }}>{item.stat}</span>
                       <span className="text-[#6B7180]">{item.label}</span>
                     </li>
                   ))}
                 </ul>
               </div>
               <Link href="/contact"
-                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#2563EB] hover:gap-3 transition-all">
+                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#0D0D1A] hover:gap-3 transition-all">
                 Get a free quote <ArrowRight size={14}/>
               </Link>
             </motion.div>
@@ -573,7 +574,7 @@ export default function WebDesignServicePage() {
             </motion.div>
 
             {/* Right top */}
-            <motion.div {...fadeUp(0.12)} className="rounded-2xl bg-[#EFF6FF] p-6">
+            <motion.div {...fadeUp(0.12)} className="rounded-2xl bg-[#F1F3F8] p-6">
               <div className="font-bold text-[#0D0D1A] leading-none mb-2"
                 style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", letterSpacing: "-0.04em" }}>
                 50+
@@ -582,7 +583,7 @@ export default function WebDesignServicePage() {
             </motion.div>
 
             {/* Right bottom */}
-            <motion.div {...fadeUp(0.16)} className="rounded-2xl bg-[#EFF6FF] p-6">
+            <motion.div {...fadeUp(0.16)} className="rounded-2xl bg-[#F1F3F8] p-6">
               <div className="font-bold text-[#0D0D1A] leading-none mb-2"
                 style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", letterSpacing: "-0.04em" }}>
                 5 yrs
@@ -591,7 +592,7 @@ export default function WebDesignServicePage() {
             </motion.div>
 
             {/* Bottom row — 2 stats + CTA */}
-            <motion.div {...fadeUp(0.2)} className="rounded-2xl bg-[#EFF6FF] p-6">
+            <motion.div {...fadeUp(0.2)} className="rounded-2xl bg-[#F1F3F8] p-6">
               <div className="font-bold text-[#0D0D1A] leading-none mb-2"
                 style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", letterSpacing: "-0.04em" }}>
                 $0
@@ -599,7 +600,7 @@ export default function WebDesignServicePage() {
               <p className="text-sm text-[#6B7180]">Scope creep on fixed-price projects — what you quote is what you pay</p>
             </motion.div>
 
-            <motion.div {...fadeUp(0.24)} className="rounded-2xl bg-[#EFF6FF] p-6">
+            <motion.div {...fadeUp(0.24)} className="rounded-2xl bg-[#F1F3F8] p-6">
               <div className="font-bold text-[#0D0D1A] leading-none mb-2"
                 style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", letterSpacing: "-0.04em" }}>
                 12+
@@ -644,9 +645,9 @@ export default function WebDesignServicePage() {
             ].map((ind) => (
               <Link key={ind.href} href={ind.href}
                 className="group flex items-center justify-between px-4 py-3 rounded-xl border border-gray-200
-                  hover:border-[#2563EB] hover:bg-[#EFF6FF] transition-all duration-200">
-                <span className="text-sm font-semibold text-[#374151] group-hover:text-[#2563EB] transition-colors leading-snug">{ind.label}</span>
-                <ArrowRight size={13} className="text-gray-300 group-hover:text-[#2563EB] shrink-0 transition-colors" />
+                  hover:border-[#0D0D1A] hover:bg-[#F1F3F8] transition-all duration-200">
+                <span className="text-sm font-semibold text-[#374151] group-hover:text-[#0D0D1A] transition-colors leading-snug">{ind.label}</span>
+                <ArrowRight size={13} className="text-gray-300 group-hover:text-[#0D0D1A] shrink-0 transition-colors" />
               </Link>
             ))}
           </div>

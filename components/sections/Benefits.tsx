@@ -6,32 +6,32 @@ import { motion } from "framer-motion";
 
 const items = [
   {
-    n: "01", icon: TrendingUp, color: "#2563EB", bg: "#EFF6FF",
+    n: "01", icon: TrendingUp,
     title: "Results-Driven",
     desc: "We focus on the numbers that actually grow your business like new leads and higher sales. We build software that works in the real world, not just something that looks good in a report.",
   },
   {
-    n: "02", icon: Clock, color: "#7C3AED", bg: "#F5F3FF",
+    n: "02", icon: Clock,
     title: "On-Time, Every Time",
     desc: "No vague updates or missed dates. We give you a clear schedule with weekly check-ins, so you always know exactly where we stand. You can plan your business around our delivery.",
   },
   {
-    n: "03", icon: ShieldCheck, color: "#059669", bg: "#ECFDF5",
+    n: "03", icon: ShieldCheck,
     title: "Quality Guaranteed",
     desc: "We test every part of your software to make sure it's fast, safe, and easy to use. To give you total peace of mind, we stay by your side with 30 days of free support after we launch.",
   },
   {
-    n: "04", icon: Headphones, color: "#D97706", bg: "#FFFBEB",
+    n: "04", icon: Headphones,
     title: "Dedicated Support",
     desc: "Forget about ticket queues or talking to a bot. You get a direct line to your project lead for quick, honest, and human-to-human conversations.",
   },
   {
-    n: "05", icon: Globe2, color: "#0891B2", bg: "#ECFEFF",
+    n: "05", icon: Globe2,
     title: "Global Standards",
     desc: "With successful projects in the UAE, UK, and USA, we know what international customers expect. We build your product to look and work perfectly, no matter where your users are.",
   },
   {
-    n: "06", icon: Award, color: "#7C3AED", bg: "#F5F3FF",
+    n: "06", icon: Award,
     title: "Senior-Only Team",
     desc: "We don't let juniors learn their craft on your project. Every person on our team is a senior professional with at least 5+ years of real experience building successful software & strategies.",
   },
@@ -98,25 +98,18 @@ export default function Benefits() {
                   -mx-4 px-4 rounded-xl hover:bg-gray-50/70 transition-colors duration-200 cursor-default"
               >
                 {/* Accent left bar */}
-                <div
-                  className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: item.color }}
-                />
+                <div className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full bg-[#0D0D1A] opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
 
                 {/* Icon */}
-                <div
-                  className="w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 mt-0.5 transition-transform duration-300 group-hover:scale-110"
-                  style={{ background: item.bg }}
-                >
-                  <item.icon size={20} style={{ color: item.color }} />
+                <div className="w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 mt-0.5 bg-[#F1F3F8] transition-transform duration-300 group-hover:scale-110">
+                  <item.icon size={20} className="text-[#374151]"/>
                 </div>
 
                 {/* Text */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-4 mb-1">
                     <h3 className="font-bold text-[#0D0D1A] text-base leading-snug">{item.title}</h3>
-                    <span className="text-xs font-mono font-bold shrink-0 tabular-nums transition-colors duration-200 group-hover:opacity-100 opacity-30"
-                      style={{ color: item.color }}>
+                    <span className="text-xs font-mono font-bold shrink-0 tabular-nums text-[#9CA3AF] transition-opacity duration-200 group-hover:opacity-100 opacity-30">
                       {item.n}
                     </span>
                   </div>

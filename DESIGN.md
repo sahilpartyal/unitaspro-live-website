@@ -32,11 +32,9 @@
 - **Approach:** Restrained — navy + blue accent, minimal palette
 - **Primary CTA:** #0F172A (dark navy)
 - **Accent:** #2563EB (blue)
-- **Feature accents (cycle with index % 4):**
-  - Blue: #2563EB / bg #EFF6FF
-  - Purple: #7C3AED / bg #F5F3FF
-  - Green: #059669 / bg #ECFDF5
-  - Amber: #D97706 / bg #FFFBEB
+- **Feature accents:** Monochrome — `#374151` / bg `#F1F3F8` (uniform across all components)
+  - The old cycling system (blue/purple/green/amber) was removed on 2026-05-05
+  - Do not reintroduce per-step or per-feature color cycling
 - **Text (5 colors only):**
   - Headings: #0D0D1A
   - Body dark: #374151
@@ -102,9 +100,16 @@
 ## Industry Page Flow
 Template: `IndustryPageTemplate.tsx`
 ```
-Hero → Stats → Panels (tabbed, white bg) → CTA → Use Cases → Before/After → CTA → Features → FAQ
+Hero → Stats → Panels (tabbed, white bg) → Features → Use Cases → Before/After → CTA → Related Services → FAQ
 ```
-**Removed sections (never add back):** Problem & Solution, Comparison table, Deliverables, Process steps, Tech logos
+**Removed sections (never add back):** Problem & Solution, Comparison table, Deliverables, Process steps, Tech logos, inline CTA between panels and use cases
+
+**Section backgrounds (alternating):**
+- Panels: bg-white
+- Features: bg-[#F8F9FC]
+- Use Cases: bg-white
+- Before/After: bg-[#F8F9FC]
+- CTA: bg-[#F8F9FC] outer + dark gradient card inside
 
 ### Panels Section
 - White background, underline tabs (blue active)
@@ -166,3 +171,8 @@ React Native, Node.js, TypeScript, PostgreSQL, Firebase, Redis, AWS, Docker, Goo
 | 2026-04-21 | Font weight 700 max (killed 900) | Lighter, more premium feel per MaxelTracker |
 | 2026-04-21 | Minimum text 12px (killed 9-11px) | Readability and consistency |
 | 2026-04-21 | 5 text colors only | Consolidated from 28 to reduce visual noise |
+| 2026-05-04 | Removed duplicate inline CTA after panels | Two identical CTAs diluted both — one specific CTA after Before/After is stronger |
+| 2026-05-04 | Moved Features before Use Cases | Features are the strongest conversion argument; burying them last lost most readers |
+| 2026-05-04 | CTA now uses data.ctaHeading + data.ctaSub | Industry-specific copy replaces generic "Let's build something great together." |
+| 2026-05-04 | Alternating bg-white / bg-[#F8F9FC] section rhythm | Five consecutive white sections had no visual break; now each section has breathing room |
+| 2026-05-05 | All feature icon colors → monochrome (#374151 / #F1F3F8) | Per-step color cycling (blue/purple/green/amber) was visually noisy and hard to maintain consistently across 20+ pages |

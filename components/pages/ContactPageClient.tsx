@@ -19,9 +19,9 @@ import {
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
 const HERO_HIGHLIGHTS = [
-  { icon: Clock, title: "24hr Response", desc: "Get a technical project reply within one day.", color: "#2563EB" },
-  { icon: MessageSquare, title: "Free Consultation", desc: "A 30-minute strategy session to map your goals.", color: "#7C3AED" },
-  { icon: Globe2, title: "Global Clients", desc: "Proudly scaling brands across five major international regions.", color: "#059669" },
+  { icon: Clock, title: "24hr Response", desc: "Get a technical project reply within one day.", color: "#0D0D1A" },
+  { icon: MessageSquare, title: "Free Consultation", desc: "A 30-minute strategy session to map your goals.", color: "#374151" },
+  { icon: Globe2, title: "Global Clients", desc: "Proudly scaling brands across five major international regions.", color: "#374151" },
 ];
 
 const CONTACT_INFO = [
@@ -79,7 +79,7 @@ export default function ContactPageClient() {
   const countryRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
-  const [captcha, setCaptcha] = useState({ a: 1, b: 1 });
+  const [captcha, setCaptcha] = useState({ a: 1, op: "×", b: 1 });
   const [captchaToken, setCaptchaToken] = useState("");
   const [captchaInput, setCaptchaInput] = useState("");
   const [captchaError, setCaptchaError] = useState(false);
@@ -89,7 +89,7 @@ export default function ContactPageClient() {
     try {
       const res = await fetch("/api/captcha");
       const data = await res.json();
-      setCaptcha({ a: data.a, b: data.b });
+      setCaptcha({ a: data.a, op: data.op ?? "×", b: data.b });
       setCaptchaToken(data.token);
     } catch { /* keep previous challenge on network error */ }
   }
@@ -156,6 +156,7 @@ export default function ContactPageClient() {
           service: form.service,
           message: form.message,
           captchaA: captcha.a,
+          captchaOp: captcha.op,
           captchaB: captcha.b,
           captchaToken,
           captchaAnswer: captchaInput,
@@ -192,7 +193,7 @@ export default function ContactPageClient() {
   return (
     <>
       {/* ═══════════════════ HERO ═══════════════════ */}
-      <section className="relative overflow-hidden bg-[#F8F9FC] pt-20 pb-12 lg:pt-[13rem] lg:pb-12">
+      <section className="relative overflow-hidden bg-[#F8F9FC] pt-32 lg:pt-[13rem] pb-12">
         <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[55%] h-full hidden lg:block">
           <div
             className="absolute inset-0 opacity-[0.06]"
@@ -250,7 +251,7 @@ export default function ContactPageClient() {
               Fill the form
               <span className="btn-arrow"><ArrowRight size={15} /></span>
             </a>
-            <a href="tel:+918264954344" className="btn-secondary">Call us directly</a>
+            <a href="tel:+918264954344" className="btn-secondary hidden min-[576px]:inline-flex">Call us directly</a>
           </motion.div>
 
           <div aria-hidden className="w-full h-px border-t border-dashed border-gray-300 mb-10" />
@@ -447,7 +448,7 @@ export default function ContactPageClient() {
                       <div className="flex items-center gap-4">
                         <div className="flex items-center px-5 py-3.5 rounded-xl bg-white border border-gray-200 shrink-0 h-[50px]">
                           <span className="font-bold text-[#0D0D1A] text-base tabular-nums">
-                            {captcha.a} × {captcha.b} = ?
+                            {captcha.a} {captcha.op} {captcha.b} = ?
                           </span>
                         </div>
                         <input
@@ -522,7 +523,7 @@ export default function ContactPageClient() {
                   hover:-translate-y-1 transition-all duration-300 overflow-hidden"
               >
                 <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl opacity-0 group-hover/step:opacity-100 transition-opacity duration-300"
-                  style={{ background: "linear-gradient(90deg, #2563EB, #2563EB99)" }}
+                  style={{ background: "linear-gradient(90deg, #0D0D1A, #0D0D1A99)" }}
                 />
                 <h3 className="font-bold text-[#0D0D1A] text-sm mb-2">{faq.q}</h3>
                 <p className="text-[#6B7180] text-sm leading-relaxed">{faq.a}</p>

@@ -17,12 +17,10 @@ export default function CTABanner() {
         }}
       />
 
-      {/* Glow */}
+      {/* Subtle glow */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-40 left-1/4 w-[600px] h-[400px] rounded-full opacity-[0.12]"
-          style={{ background: "radial-gradient(ellipse, #3B82F6 0%, transparent 65%)" }}/>
-        <div className="absolute -bottom-20 right-1/4 w-[400px] h-[300px] rounded-full opacity-[0.08]"
-          style={{ background: "radial-gradient(ellipse, #7C3AED 0%, transparent 65%)" }}/>
+        <div className="absolute -top-40 left-1/4 w-[600px] h-[400px] rounded-full opacity-[0.06]"
+          style={{ background: "radial-gradient(ellipse, #ffffff 0%, transparent 65%)" }}/>
       </div>
 
       {/* Top border line */}
@@ -46,14 +44,8 @@ export default function CTABanner() {
             <h2 className="font-bold leading-[0.95] text-white"
               style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)", letterSpacing: "-0.03em" }}>
               Have an idea?<br />
-              <span className="relative inline-block">
-                <span style={{
-                  background: "linear-gradient(135deg, #60A5FA 0%, #C084FC 60%, #60A5FA 100%)",
-                  backgroundSize: "200%",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}>Let&apos;s build it.</span>
+              <span className="relative inline-block text-white/90">
+                Let&apos;s build it.
               </span>
             </h2>
           </motion.div>
@@ -83,9 +75,9 @@ export default function CTABanner() {
             {/* CTA */}
             <div className="flex items-center gap-5">
               <Link href="/contact"
-                className="group inline-flex items-center gap-3 bg-white text-[#0A0F1E] font-bold text-sm px-7 py-4 rounded-2xl hover:bg-blue-50 transition-colors">
+                className="group inline-flex items-center gap-3 bg-white text-[#0A0F1E] font-bold text-sm px-7 py-4 rounded-2xl hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(255,255,255,0.18)] transition-all duration-200">
                 Start a Project
-                <span className="w-6 h-6 rounded-full bg-[#0A0F1E] flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                <span className="w-6 h-6 rounded-full bg-[#0A0F1E] flex items-center justify-center transition-colors">
                   <ArrowUpRight size={12} className="text-white"/>
                 </span>
               </Link>

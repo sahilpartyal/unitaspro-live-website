@@ -16,20 +16,20 @@ const servicesMega = [
         label: "Web Design & Development",
         desc: "Websites & web apps that convert",
         href: "/services/web-design",
-        color: "text-blue-600",
-        bg: "bg-blue-50",
-        accent: "#2563EB",
-        accentBg: "#EFF6FF",
+        color: "text-[#374151]",
+        bg: "bg-[#F1F3F8]",
+        accent: "#0D0D1A",
+        accentBg: "#F1F3F8",
       },
       {
         icon: Code2,
         label: "Software Development",
         desc: "SaaS, platforms & enterprise tools",
         href: "/services/software-development",
-        color: "text-violet-600",
-        bg: "bg-violet-50",
-        accent: "#7C3AED",
-        accentBg: "#F5F3FF",
+        color: "text-[#374151]",
+        bg: "bg-[#F1F3F8]",
+        accent: "#374151",
+        accentBg: "#F1F3F8",
       },
       {
         icon: Smartphone,
@@ -138,7 +138,7 @@ export default function Navbar() {
                     onMouseLeave={() => setMegaOpen(false)}>
                     <button className={clsx(
                       "flex items-center gap-1 px-4 py-2.5 min-h-[44px] rounded-lg text-base font-semibold transition-colors duration-150",
-                      megaOpen ? "text-[#2563EB]" : "text-[#374151] hover:text-[#0D0D1A]"
+                      megaOpen ? "text-[#0D0D1A]" : "text-[#374151] hover:text-[#0D0D1A]"
                     )}>
                       {link.label}
                       <ChevronDown size={13} className={clsx("transition-transform duration-200", megaOpen && "rotate-180")}/>
@@ -157,7 +157,7 @@ export default function Navbar() {
                               <span className="text-[13px] font-semibold text-[#374151] group-hover:text-[#0D0D1A] transition-colors">
                                 {item.label}
                               </span>
-                              <span className="text-[#D1D5DB] group-hover:text-[#2563EB] transition-colors">›</span>
+                              <span className="text-[#D1D5DB] group-hover:text-[#0D0D1A] transition-colors">›</span>
                             </Link>
                           ))}
                         </motion.div>
@@ -170,7 +170,7 @@ export default function Navbar() {
                     onMouseLeave={() => setIndustriesOpen(false)}>
                     <button className={clsx(
                       "flex items-center gap-1 px-4 py-2.5 min-h-[44px] rounded-lg text-base font-semibold transition-colors duration-150",
-                      industriesOpen ? "text-[#2563EB]" : "text-[#374151] hover:text-[#0D0D1A]"
+                      industriesOpen ? "text-[#0D0D1A]" : "text-[#374151] hover:text-[#0D0D1A]"
                     )}>
                       {link.label}
                       <ChevronDown size={13} className={clsx("transition-transform duration-200", industriesOpen && "rotate-180")}/>
@@ -189,7 +189,7 @@ export default function Navbar() {
                               <span className="text-[13px] font-semibold text-[#374151] group-hover:text-[#0D0D1A] transition-colors">
                                 {ind.label}
                               </span>
-                              <span className="text-[#D1D5DB] group-hover:text-[#2563EB] transition-colors">›</span>
+                              <span className="text-[#D1D5DB] group-hover:text-[#0D0D1A] transition-colors">›</span>
                             </Link>
                           ))}
                         </motion.div>
@@ -249,7 +249,7 @@ export default function Navbar() {
             <nav className="px-5 py-4 flex flex-col">
               {/* Services — collapsible */}
               <button
-                onClick={() => setMobServices(!mobServices)}
+                onClick={() => { setMobServices(s => !s); setMobIndustries(false); }}
                 className="flex items-center justify-between w-full px-3 py-3.5 text-[15px] font-semibold text-[#0D0D1A]">
                 Services
                 <ChevronDown size={16} className={clsx("text-[#9CA3AF] transition-transform duration-200", mobServices && "rotate-180")}/>
@@ -277,7 +277,7 @@ export default function Navbar() {
 
               {/* Industries — collapsible */}
               <button
-                onClick={() => setMobIndustries(!mobIndustries)}
+                onClick={() => { setMobIndustries(i => !i); setMobServices(false); }}
                 className="flex items-center justify-between w-full px-3 py-3.5 text-[15px] font-semibold text-[#0D0D1A]">
                 Industries
                 <ChevronDown size={16} className={clsx("text-[#9CA3AF] transition-transform duration-200", mobIndustries && "rotate-180")}/>

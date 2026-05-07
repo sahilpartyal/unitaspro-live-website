@@ -21,7 +21,7 @@ export default function LeadPopup() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [captcha, setCaptcha] = useState({ a: 1, b: 1 });
+  const [captcha, setCaptcha] = useState({ a: 1, op: "×", b: 1 });
   const [captchaToken, setCaptchaToken] = useState("");
   const [captchaInput, setCaptchaInput] = useState("");
   const [selectedCountry, setSelectedCountry] = useState(COUNTRIES[0]);
@@ -34,7 +34,7 @@ export default function LeadPopup() {
     try {
       const res = await fetch("/api/captcha");
       const data = await res.json();
-      setCaptcha({ a: data.a, b: data.b });
+      setCaptcha({ a: data.a, op: data.op ?? "×", b: data.b });
       setCaptchaToken(data.token);
     } catch { /* keep previous challenge */ }
   }
@@ -51,14 +51,19 @@ export default function LeadPopup() {
     if (timerRef.current) clearTimeout(timerRef.current);
     setSent(false);
     setVisible(false);
-    // Don't show popup on contact page — user is already filling out a form
     if (pathname === "/contact") return;
-    timerRef.current = setTimeout(() => setVisible(true), 4500);
+    // Only show once per 7 days per visitor
+    try {
+      const lastSeen = localStorage.getItem("popup_seen");
+      if (lastSeen && Date.now() - parseInt(lastSeen) < 7 * 24 * 60 * 60 * 1000) return;
+    } catch { /* storage unavailable */ }
+    timerRef.current = setTimeout(() => setVisible(true), 8000);
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
   }, [pathname]);
 
   function dismiss() {
     setVisible(false);
+    try { localStorage.setItem("popup_seen", Date.now().toString()); } catch { /* storage unavailable */ }
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
@@ -91,6 +96,7 @@ export default function LeadPopup() {
           service: form.service,
           message: form.message || "—",
           captchaA: captcha.a,
+          captchaOp: captcha.op,
           captchaB: captcha.b,
           captchaToken,
           captchaAnswer: captchaInput,
@@ -307,7 +313,7 @@ export default function LeadPopup() {
                         <div className="flex items-center gap-3">
                           <div className="flex items-center px-4 rounded-xl bg-[#F7F8FC] border border-gray-200 shrink-0 h-[44px]">
                             <span className="font-bold text-[#0D0D1A] text-sm tabular-nums">
-                              {captcha.a} × {captcha.b} = ?
+                              {captcha.a} {captcha.op} {captcha.b} = ?
                             </span>
                           </div>
                           <input

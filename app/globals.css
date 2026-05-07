@@ -27,6 +27,18 @@
   ::selection {
     @apply bg-brand-100 text-brand-800;
   }
+
+  /* Replace browser's default blue :focus-visible ring with a neutral dark outline */
+  :focus-visible {
+    outline: 2px solid rgba(13, 13, 26, 0.4);
+    outline-offset: 3px;
+  }
+
+  /* Buttons and links use their own focus treatment via outline-none */
+  a:focus-visible,
+  button:focus-visible {
+    outline: none;
+  }
 }
 
 @layer components {
@@ -66,7 +78,7 @@
            rounded-full
            transition-all duration-200
            hover:bg-[#1e293b] hover:shadow-elevated hover:-translate-y-0.5
-           focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2
+           focus:outline-none focus-visible:outline-none
            active:translate-y-0 gap-4;
   }
   /* Circle arrow part — wrap arrow in <span class="btn-arrow"> */
@@ -81,7 +93,7 @@
     @apply inline-flex items-center gap-2 bg-white text-[#0F172A] font-semibold text-[15px] w-fit
            px-6 py-3.5 rounded-full border border-gray-200 transition-all duration-200
            hover:border-gray-400 hover:-translate-y-0.5
-           focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2
+           focus:outline-none focus-visible:outline-none
            active:translate-y-0;
   }
 
