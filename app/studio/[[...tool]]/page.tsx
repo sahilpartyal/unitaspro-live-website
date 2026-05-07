@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { NextStudio } from "next-sanity/studio";
+import nextDynamic from "next/dynamic";
 import config from "@/sanity.config";
 
-export const dynamic = "force-dynamic";
+const NextStudio = nextDynamic(
+  () => import("next-sanity/studio").then((m) => m.NextStudio),
+  { ssr: false, loading: () => null }
+);
 
 export const metadata: Metadata = {
   robots: { index: false, follow: false },
