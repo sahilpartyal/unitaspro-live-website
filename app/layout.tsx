@@ -5,6 +5,7 @@ import { organizationSchema, webSiteSchema } from "@/lib/metadata";
 export const metadata: Metadata = {
   title: {
     default: "Unitaspro — Custom Software & App Development",
+    template: "%s | Unitaspro",
   },
   description:
     "Unitaspro is a leading IT services company in Mohali, India. Web design, software development, mobile apps, and digital marketing for businesses worldwide.",
