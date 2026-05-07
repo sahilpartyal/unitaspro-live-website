@@ -582,7 +582,7 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
                       <CheckCircle2 size={14} className="text-[#0D0D1A]"/>
                     </div>
                     <p className="text-sm text-[#6B7180] leading-relaxed">
-                      {data.beforeAfter.with.points[i] ?? ""}
+                      {data.beforeAfter?.with.points[i] ?? ""}
                     </p>
                   </div>
                 </motion.div>
