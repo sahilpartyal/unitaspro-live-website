@@ -22,6 +22,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["https://unitaspro.com/og-image.png"],
   },
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  },
   robots: { index: true, follow: true },
 };
 
