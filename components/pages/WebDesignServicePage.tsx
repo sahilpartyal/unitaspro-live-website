@@ -626,7 +626,7 @@ export default function WebDesignServicePage() {
           <div className="mb-8">
             <span className="section-label mb-4 inline-flex">Industries We Serve</span>
             <h2 className="heading-xl font-bold text-[#0D0D1A] max-w-2xl">
-              Unitaspro builds websites for 8 industries worldwide.
+              Websites built for 8 industries.
             </h2>
             <p className="text-[#6B7180] text-base mt-3 max-w-xl leading-relaxed">
               Every industry has different conversion goals and compliance requirements. Explore how Unitaspro approaches web design in your sector.
@@ -665,7 +665,7 @@ export default function WebDesignServicePage() {
             <div className="lg:sticky lg:top-28">
               <span className="section-label mb-5 inline-flex">FAQ</span>
               <h2 className="heading-xl font-bold text-[#0D0D1A] mb-5 leading-tight">
-                Frequently asked<br />questions
+                Frequently asked questions
               </h2>
               <p className="text-[#6B7180] text-base leading-relaxed mb-8">
                 Can&apos;t find what you&apos;re looking for? We&apos;re always happy to help directly.

@@ -71,21 +71,27 @@ const industriesList = [
   { icon: Rocket,       label: "Startups & SaaS",          href: "/industries/startups",    desc: "MVPs to production-grade SaaS platforms with billing and multi-tenancy." },
 ];
 
+const companyLinks = [
+  { label: "About Us",  href: "/about",     desc: "Our story, values, and team" },
+  { label: "Blog",      href: "/blog",      desc: "Insights, guides, and updates" },
+];
+
 const navLinks = [
-  { label: "Services",   href: "/services",    hasMega: true,       hasIndustries: false },
-  { label: "Industries", href: "/industries",  hasMega: false,      hasIndustries: true  },
-  { label: "About",      href: "/about",       hasMega: false,      hasIndustries: false },
-  { label: "Blog",       href: "/blog",        hasMega: false,      hasIndustries: false },
-  { label: "Contact",    href: "/contact",     hasMega: false,      hasIndustries: false },
+  { label: "Services",   href: "/services",    hasMega: true,       hasIndustries: false, hasCompany: false },
+  { label: "Industries", href: "/industries",  hasMega: false,      hasIndustries: true,  hasCompany: false },
+  { label: "Company",    href: "#",            hasMega: false,      hasIndustries: false, hasCompany: true  },
+  { label: "Contact",    href: "/contact",     hasMega: false,      hasIndustries: false, hasCompany: false },
 ];
 
 export default function Navbar() {
   const [scrolled,        setScrolled]        = useState(false);
   const [megaOpen,        setMegaOpen]        = useState(false);
   const [industriesOpen,  setIndustriesOpen]  = useState(false);
+  const [companyOpen,     setCompanyOpen]     = useState(false);
   const [mobileOpen,      setMobileOpen]      = useState(false);
   const [mobServices,     setMobServices]     = useState(false);
   const [mobIndustries,   setMobIndustries]   = useState(false);
+  const [mobCompany,      setMobCompany]      = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -189,6 +195,36 @@ export default function Navbar() {
                               <span className="text-[13px] font-semibold text-[#374151] group-hover:text-[#0D0D1A] transition-colors">
                                 {ind.label}
                               </span>
+                              <span className="text-[#D1D5DB] group-hover:text-[#0D0D1A] transition-colors">›</span>
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : link.hasCompany ? (
+                  <div key={link.label} className="relative"
+                    onMouseEnter={() => setCompanyOpen(true)}
+                    onMouseLeave={() => setCompanyOpen(false)}>
+                    <button className={clsx(
+                      "flex items-center gap-1 px-4 py-2.5 min-h-[44px] rounded-lg text-base font-semibold transition-colors duration-150",
+                      companyOpen ? "text-[#0D0D1A]" : "text-[#374151] hover:text-[#0D0D1A]"
+                    )}>
+                      {link.label}
+                      <ChevronDown size={13} className={clsx("transition-transform duration-200", companyOpen && "rotate-180")}/>
+                    </button>
+                    <AnimatePresence>
+                      {companyOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 6 }}
+                          transition={{ duration: 0.15, ease: [0.22,1,0.36,1] }}
+                          className="absolute top-full -left-2 mt-2 bg-white rounded-xl border border-gray-200 shadow-[0_6px_20px_rgba(15,23,42,0.07)] overflow-hidden p-1.5"
+                          style={{ width: "200px" }}
+                        >
+                          {companyLinks.map((item) => (
+                            <Link key={item.href} href={item.href} onClick={() => setCompanyOpen(false)}
+                              className="group flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-[#F8F9FC] transition-colors">
+                              <span className="text-[13px] font-semibold text-[#374151] group-hover:text-[#0D0D1A] transition-colors">{item.label}</span>
                               <span className="text-[#D1D5DB] group-hover:text-[#0D0D1A] transition-colors">›</span>
                             </Link>
                           ))}
@@ -303,8 +339,36 @@ export default function Navbar() {
 
               <div className="border-t border-gray-100"/>
 
+              {/* Company — collapsible */}
+              <button
+                onClick={() => { setMobCompany(c => !c); setMobServices(false); setMobIndustries(false); }}
+                className="flex items-center justify-between w-full px-3 py-3.5 text-[15px] font-semibold text-[#0D0D1A]">
+                Company
+                <ChevronDown size={16} className={clsx("text-[#9CA3AF] transition-transform duration-200", mobCompany && "rotate-180")}/>
+              </button>
+              <AnimatePresence>
+                {mobCompany && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.2 }}
+                    className="overflow-hidden">
+                    <div className="pl-3 pb-2 flex flex-col gap-0.5">
+                      {companyLinks.map((item) => (
+                        <Link key={item.href} href={item.href}
+                          className="px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-sm text-[#374151] block"
+                          onClick={() => setMobileOpen(false)}>
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <div className="border-t border-gray-100"/>
+
               {/* Direct links */}
-              {navLinks.filter(l => !l.hasMega && !l.hasIndustries).map((link) => (
+              {navLinks.filter(l => !l.hasMega && !l.hasIndustries && !l.hasCompany).map((link) => (
                 <Link key={link.href} href={link.href}
                   className="px-3 py-3.5 text-[15px] font-semibold text-[#0D0D1A] hover:bg-gray-50 rounded-xl transition-colors"
                   onClick={() => setMobileOpen(false)}>

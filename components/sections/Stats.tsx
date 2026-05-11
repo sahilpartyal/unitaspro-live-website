@@ -6,7 +6,7 @@ const stats = [
   { value: "150+", label: "Projects Delivered",  sub: "Across diverse industries" },
   { value: "95+",  label: "Happy Clients",        sub: "Serving clients in 15+ countries" },
   { value: "97%",  label: "Client Satisfaction",  sub: "Based on long-term partnerships" },
-  { value: "8+",   label: "Years of Experience",  sub: "Growing steadily since 2018" },
+  { value: "8+",   label: "Years of Experience",  sub: "Growing steadily since 2019" },
 ];
 
 export default function Stats() {

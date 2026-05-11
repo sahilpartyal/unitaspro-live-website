@@ -35,7 +35,7 @@ const stats = [
   { value: "150+", label: "Projects Delivered", sub: "Across diverse industries" },
   { value: "95+", label: "Happy Clients", sub: "Serving clients in 15+ countries" },
   { value: "97%", label: "Client Satisfaction", sub: "Based on long-term partnerships" },
-  { value: "8+", label: "Years of Experience", sub: "Growing steadily since 2018" },
+  { value: "8+", label: "Years of Experience", sub: "Growing steadily since 2019" },
 ];
 
 const values = [
@@ -173,7 +173,7 @@ export default function AboutPageClient() {
             className="mb-5">
             <p className="text-sm text-[#6B7180] flex items-center gap-3">
               <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
-              Expert Design, Software Development, And Marketing Since 2018
+              Expert Design, Software Development, And Marketing Since 2019
             </p>
             <div className="mt-3 w-64 h-px border-t border-dashed border-gray-300"/>
           </motion.div>
@@ -295,7 +295,7 @@ export default function AboutPageClient() {
               {/* Mini stats */}
               <div className="flex items-center gap-6 pb-8 border-b border-gray-100">
                 {[
-                  { v: "2018", l: "Founded" },
+                  { v: "2019", l: "Founded" },
                   { v: "20+", l: "Team members" },
                   { v: "4", l: "Core services" },
                 ].map((s) => (

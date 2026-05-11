@@ -40,6 +40,7 @@ const config: Config = {
         sans: ["Inter", "system-ui", "sans-serif"],
       },
       fontSize: {
+        xs: ["0.875rem", { lineHeight: "1.25rem" }],
         "display-xl": ["clamp(2.5rem,5vw,4rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
         "display-lg": ["clamp(2rem,4vw,3rem)",   { lineHeight: "1.15", letterSpacing: "-0.02em" }],
         "display-md": ["clamp(1.5rem,3vw,2.25rem)", { lineHeight: "1.2", letterSpacing: "-0.01em" }],

@@ -548,7 +548,7 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
                 <span className="w-1.5 h-1.5 rounded-sm bg-[#0D0D1A] inline-block"/>
                 <p className="text-sm text-[#6B7180]">Why Custom?</p>
               </div>
-              <h2 className="heading-xl text-[#0D0D1A] max-w-xl">{data.beforeAfter.heading}</h2>
+              <h2 className="heading-xl text-[#0D0D1A] max-w-2xl">{data.beforeAfter.heading}</h2>
             </motion.div>
 
             {/* Column headers */}

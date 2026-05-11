@@ -28,7 +28,7 @@ export default function BlogPreview({ posts }: { posts: BlogPost[] }) {
       <div className="container-main">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
-          <div className="max-w-lg">
+          <div>
             <span className="section-label mb-4">From our blog</span>
             <h2 className="heading-xl text-text-primary">
               Latest articles & insights

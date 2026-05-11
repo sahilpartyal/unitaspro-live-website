@@ -83,10 +83,10 @@ export default function ServicesOverview() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, ease: EASE }}
-            className="lg:col-span-2 self-start lg:sticky lg:top-28"
+            className="lg:col-span-2 self-start"
           >
             <h2 className="heading-xl font-bold text-[#0D0D1A] mb-10 leading-tight">
-              High-End Tech and<br />Marketing, All in<br />One Place
+              Tech & Marketing Under One Roof
             </h2>
 
             {/* Nav list */}

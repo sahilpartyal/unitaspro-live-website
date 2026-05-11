@@ -42,12 +42,12 @@ export default function ProcessSteps() {
 
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
-          <div className="max-w-2xl">
+          <div>
             <span className="section-label mb-4">How It Works</span>
             <h2 className="heading-xl font-bold text-[#0D0D1A] mb-3 leading-tight">
-              Turning complex ideas into<br />working digital products
+              Turning ideas into digital products
             </h2>
-            <p className="text-[#6B7180] text-lg">
+            <p className="text-[#6B7180] text-lg max-w-2xl">
               Four clear steps — from first conversation to successful launch.
             </p>
           </div>

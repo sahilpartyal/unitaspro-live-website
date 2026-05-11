@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Unitaspro Website — Project Overview</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #F8F9FC;
+    color: #111827;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ── Layout ── */
+  .page { max-width: 1100px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  /* ── Header ── */
+  .header {
+    background: #0D0D1A;
+    color: white;
+    border-radius: 16px;
+    padding: 36px 40px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .header-left h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+  .header-left p { color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 4px; }
+  .header-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+  .badge {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+  .badge.green { background: rgba(16,185,129,0.15); color: #34d399; border-color: rgba(52,211,153,0.2); }
+
+  /* ── Section title ── */
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #9CA3AF;
+    margin-bottom: 12px;
+    margin-top: 36px;
+  }
+
+  /* ── Grid ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; }
+
+  /* ── Card ── */
+  .card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #E5E7EB;
+    padding: 20px;
+  }
+  .card-dark {
+    background: #0D0D1A;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 20px;
+    color: white;
+  }
+
+  /* ── Stats row ── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 0;
+  }
+  .stat-card {
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 18px 20px;
+    text-align: center;
+  }
+  .stat-card .num { font-size: 26px; font-weight: 800; color: #0D0D1A; letter-spacing: -0.03em; }
+  .stat-card .lbl { font-size: 12px; color: #6B7280; margin-top: 2px; }
+
+  /* ── Sitemap ── */
+  .sitemap { display: flex; flex-direction: column; gap: 8px; }
+  .route-group { }
+  .route-parent {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: #0D0D1A;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  .route-parent .path { font-family: monospace; font-size: 12px; color: rgba(255,255,255,0.5); margin-left: auto; }
+  .route-children { display: flex; flex-direction: column; gap: 4px; margin-left: 20px; margin-bottom: 6px; }
+  .route-child {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 7px;
+    font-size: 13px;
+    color: #374151;
+  }
+  .route-child .path { font-family: monospace; font-size: 11px; color: #9CA3AF; margin-left: auto; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ── Services ── */
+  .service-card {
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: #0D0D1A;
+    border-radius: 12px 12px 0 0;
+  }
+  .service-num { font-size: 11px; font-weight: 700; color: #9CA3AF; font-family: monospace; margin-bottom: 6px; }
+  .service-name { font-size: 15px; font-weight: 700; color: #0D0D1A; margin-bottom: 4px; letter-spacing: -0.01em; }
+  .service-tag { font-size: 12px; color: #6B7280; margin-bottom: 12px; }
+  .service-price { font-size: 20px; font-weight: 800; color: #0D0D1A; letter-spacing: -0.03em; }
+  .service-price-note { font-size: 11px; color: #9CA3AF; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
+  .tag {
+    font-size: 11px;
+    padding: 3px 8px;
+    background: #F1F3F8;
+    border: 1px solid #E5E7EB;
+    border-radius: 100px;
+    color: #374151;
+    font-weight: 500;
+  }
+
+  /* ── Industries ── */
+  .industry-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #374151;
+  }
+  .industry-pill .slug { font-family: monospace; font-size: 11px; color: #9CA3AF; margin-left: auto; }
+
+  /* ── Design tokens ── */
+  .color-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .color-chip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .color-swatch { width: 48px; height: 48px; border-radius: 10px; border: 1px solid rgba(0,0,0,0.08); }
+  .color-label { font-size: 10px; color: #6B7280; font-family: monospace; }
+
+  .font-demo { padding: 16px; background: white; border: 1px solid #E5E7EB; border-radius: 10px; }
+  .font-row { display: flex; align-items: baseline; gap: 12px; padding: 8px 0; border-bottom: 1px solid #F3F4F6; }
+  .font-row:last-child { border-bottom: none; }
+  .font-label { font-size: 11px; color: #9CA3AF; width: 80px; flex-shrink: 0; }
+  .font-example { flex: 1; }
+
+  /* ── Tech stack ── */
+  .tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+    margin: 4px;
+  }
+  .tech-badge .icon { width: 16px; height: 16px; border-radius: 3px; }
+
+  /* ── Rules ── */
+  .rule-card {
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .rule-num {
+    width: 22px; height: 22px; border-radius: 6px;
+    background: #0D0D1A; color: white;
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .rule-text { font-size: 13px; color: #374151; }
+  .rule-text strong { color: #0D0D1A; }
+  .banned { color: #EF4444; font-family: monospace; font-size: 11px; }
+
+  /* ── Z-index stack ── */
+  .zstack { display: flex; flex-direction: column; gap: 4px; }
+  .zlayer {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 14px; border-radius: 8px;
+    border: 1px solid #E5E7EB;
+    font-size: 13px;
+  }
+  .znum { font-family: monospace; font-weight: 700; font-size: 13px; min-width: 50px; }
+
+  /* ── TODOs ── */
+  .todo {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #374151;
+  }
+  .todo-dot { width: 8px; height: 8px; border-radius: 50%; background: #F59E0B; flex-shrink: 0; }
+  .todo-dot.done { background: #10B981; }
+  .todo-dot.pending { background: #F59E0B; }
+
+  hr { border: none; border-top: 1px solid #E5E7EB; margin: 28px 0; }
+
+  @media (max-width: 700px) {
+    .grid-2, .grid-3, .grid-4, .stats-row { grid-template-columns: 1fr 1fr; }
+    .header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Header ── -->
+  <div class="header">
+    <div class="header-left">
+      <h1>Unitaspro Website</h1>
+      <p>unitaspro.com · Mohali, India · info@unitaspro.com · +91 82649 54344</p>
+    </div>
+    <div class="header-badges">
+      <span class="badge green">● Live</span>
+      <span class="badge">Next.js 15</span>
+      <span class="badge">App Router</span>
+      <span class="badge">Sanity CMS</span>
+      <span class="badge">Vercel</span>
+    </div>
+  </div>
+
+  <!-- ── Stats ── -->
+  <div class="stats-row">
+    <div class="stat-card"><div class="num">150+</div><div class="lbl">Projects Delivered</div></div>
+    <div class="stat-card"><div class="num">95+</div><div class="lbl">Happy Clients</div></div>
+    <div class="stat-card"><div class="num">97%</div><div class="lbl">Client Satisfaction</div></div>
+    <div class="stat-card"><div class="num">8+</div><div class="lbl">Years of Experience</div></div>
+  </div>
+
+  <!-- ── Sitemap ── -->
+  <p class="section-title">Sitemap</p>
+  <div class="sitemap">
+
+    <div class="route-group">
+      <div class="route-parent">
+        <span class="dot" style="background:#fff"></span> Home
+        <span class="path">/</span>
+      </div>
+    </div>
+
+    <div class="route-group">
+      <div class="route-parent">
+        <span class="dot" style="background:#6366F1"></span> Services
+        <span class="path">/services</span>
+      </div>
+      <div class="route-children">
+        <div class="route-child"><span class="dot" style="background:#6366F1"></span> Web Design & Development <span class="path">/services/web-design</span></div>
+        <div class="route-child"><span class="dot" style="background:#6366F1"></span> Custom Software Development <span class="path">/services/software-development</span></div>
+        <div class="route-child"><span class="dot" style="background:#6366F1"></span> Mobile App Development <span class="path">/services/mobile-app</span></div>
+        <div class="route-child"><span class="dot" style="background:#6366F1"></span> Digital Marketing & SEO <span class="path">/services/digital-marketing</span></div>
+      </div>
+    </div>
+
+    <div class="route-group">
+      <div class="route-parent">
+        <span class="dot" style="background:#10B981"></span> Industries
+        <span class="path">/industries</span>
+      </div>
+      <div class="route-children">
+        <div class="route-child"><span class="dot" style="background:#10B981"></span> Transport & Mobility <span class="path">/industries/transport</span></div>
+        <div class="route-child"><span class="dot" style="background:#10B981"></span> Finance & Fintech <span class="path">/industries/finance</span></div>
+        <div class="route-child"><span class="dot" style="background:#10B981"></span> Real Estate & Property <span class="path">/industries/real-estate</span></div>
+        <div class="route-child"><span class="dot" style="background:#10B981"></span> E-Commerce & Retail <span class="path">/industries/ecommerce</span></div>
+        <div class="route-child"><span class="dot" style="background:#10B981"></span> Healthcare & Wellness <span class="path">/industries/healthcare</span></div>
+        <div class="route-child"><span class="dot" style="background:#10B981"></span> Hospitality & Travel <span class="path">/industries/hospitality</span></div>
+        <div class="route-child"><span class="dot" style="background:#10B981"></span> Logistics & Supply Chain <span class="path">/industries/logistics</span></div>
+        <div class="route-child"><span class="dot" style="background:#10B981"></span> Startups & SaaS <span class="path">/industries/startups</span></div>
+      </div>
+    </div>
+
+    <div class="route-group">
+      <div class="route-parent">
+        <span class="dot" style="background:#F59E0B"></span> Company
+        <span class="path">dropdown</span>
+      </div>
+      <div class="route-children">
+        <div class="route-child"><span class="dot" style="background:#F59E0B"></span> About Us <span class="path">/about</span></div>
+        <div class="route-child"><span class="dot" style="background:#F59E0B"></span> Blog (Sanity CMS) <span class="path">/blog · /blog/[slug]</span></div>
+      </div>
+    </div>
+
+    <div class="route-group">
+      <div class="route-parent">
+        <span class="dot" style="background:#9CA3AF"></span> Other Pages
+        <span class="path"></span>
+      </div>
+      <div class="route-children">
+        <div class="route-child"><span class="dot" style="background:#9CA3AF"></span> Contact <span class="path">/contact</span></div>
+        <div class="route-child"><span class="dot" style="background:#9CA3AF"></span> Pricing <span class="path">/pricing (unlisted — not in nav)</span></div>
+        <div class="route-child"><span class="dot" style="background:#9CA3AF"></span> Portfolio <span class="path">/portfolio</span></div>
+        <div class="route-child"><span class="dot" style="background:#9CA3AF"></span> Privacy Policy <span class="path">/privacy-policy</span></div>
+        <div class="route-child"><span class="dot" style="background:#9CA3AF"></span> Terms <span class="path">/terms</span></div>
+        <div class="route-child"><span class="dot" style="background:#EF4444"></span> Sanity Studio (admin) <span class="path">/studio</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Services & Pricing ── -->
+  <p class="section-title">Services & Pricing</p>
+  <div class="grid-4">
+
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-name">Web Design & Development</div>
+      <div class="service-tag">Performance-first platforms</div>
+      <div class="service-price">$1,000 <span class="service-price-note">starting from</span></div>
+      <div class="tag-list">
+        <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">WordPress</span><span class="tag">Webflow</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-name">Custom Software Dev</div>
+      <div class="service-tag">Secure, scalable systems</div>
+      <div class="service-price">$4,000 <span class="service-price-note">starting from</span></div>
+      <div class="tag-list">
+        <span class="tag">Node.js</span><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">AWS</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-name">Mobile App Development</div>
+      <div class="service-tag">iOS & Android</div>
+      <div class="service-price">$5,000 <span class="service-price-note">starting from</span></div>
+      <div class="tag-list">
+        <span class="tag">React Native</span><span class="tag">Flutter</span><span class="tag">iOS</span><span class="tag">Android</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-name">Digital Marketing & SEO</div>
+      <div class="service-tag">Measurable ROI</div>
+      <div class="service-price">$300 <span class="service-price-note">/ month</span></div>
+      <div class="tag-list">
+        <span class="tag">SEO</span><span class="tag">Google Ads</span><span class="tag">Meta Ads</span><span class="tag">Content</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Industries ── -->
+  <p class="section-title">Industries (8)</p>
+  <div class="grid-4">
+    <div class="industry-pill">🚚 Transport & Mobility <span class="slug">transport</span></div>
+    <div class="industry-pill">🏦 Finance & Fintech <span class="slug">finance</span></div>
+    <div class="industry-pill">🏠 Real Estate <span class="slug">real-estate</span></div>
+    <div class="industry-pill">🛍️ E-Commerce <span class="slug">ecommerce</span></div>
+    <div class="industry-pill">🏥 Healthcare <span class="slug">healthcare</span></div>
+    <div class="industry-pill">🏨 Hospitality <span class="slug">hospitality</span></div>
+    <div class="industry-pill">📦 Logistics <span class="slug">logistics</span></div>
+    <div class="industry-pill">🚀 Startups & SaaS <span class="slug">startups</span></div>
+  </div>
+
+  <!-- ── Design System ── -->
+  <p class="section-title">Design System</p>
+  <div class="grid-2">
+
+    <div class="card">
+      <p style="font-size:12px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;">Color Palette</p>
+      <p style="font-size:11px;color:#9CA3AF;margin-bottom:8px;">Primary</p>
+      <div class="color-row" style="margin-bottom:14px;">
+        <div class="color-chip"><div class="color-swatch" style="background:#0D0D1A;"></div><div class="color-label">#0D0D1A</div></div>
+        <div class="color-chip"><div class="color-swatch" style="background:#1F2937;"></div><div class="color-label">#1F2937</div></div>
+        <div class="color-chip"><div class="color-swatch" style="background:#374151;"></div><div class="color-label">#374151</div></div>
+        <div class="color-chip"><div class="color-swatch" style="background:#6B7280;"></div><div class="color-label">#6B7280</div></div>
+        <div class="color-chip"><div class="color-swatch" style="background:#9CA3AF;"></div><div class="color-label">#9CA3AF</div></div>
+      </div>
+      <p style="font-size:11px;color:#9CA3AF;margin-bottom:8px;">Surface</p>
+      <div class="color-row" style="margin-bottom:14px;">
+        <div class="color-chip"><div class="color-swatch" style="background:#F8F9FC;border:1px solid #E5E7EB;"></div><div class="color-label">#F8F9FC</div></div>
+        <div class="color-chip"><div class="color-swatch" style="background:#F1F3F8;border:1px solid #E5E7EB;"></div><div class="color-label">#F1F3F8</div></div>
+        <div class="color-chip"><div class="color-swatch" style="background:#E5E7EB;border:1px solid #D1D5DB;"></div><div class="color-label">#E5E7EB</div></div>
+        <div class="color-chip"><div class="color-swatch" style="background:#ffffff;border:1px solid #E5E7EB;"></div><div class="color-label">#FFFFFF</div></div>
+      </div>
+      <p style="font-size:11px;color:#EF4444;font-weight:600;margin-bottom:6px;">⛔ Banned Colors (never use)</p>
+      <div style="font-size:11px;color:#EF4444;font-family:monospace;line-height:1.8;">
+        #059669 · #D97706 · #7C3AED · #E11D48<br/>
+        #0891B2 · #EA580C · #4F46E5 · #DC2626
+      </div>
+    </div>
+
+    <div class="card">
+      <p style="font-size:12px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;">Typography</p>
+      <div class="font-demo">
+        <div class="font-row">
+          <div class="font-label">heading-display</div>
+          <div class="font-example" style="font-size:32px;font-weight:700;line-height:1.1;letter-spacing:-0.02em;color:#0D0D1A;">Heading</div>
+        </div>
+        <div class="font-row">
+          <div class="font-label">heading-xl</div>
+          <div class="font-example" style="font-size:24px;font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:#0D0D1A;">Section Heading</div>
+        </div>
+        <div class="font-row">
+          <div class="font-label">heading-lg</div>
+          <div class="font-example" style="font-size:20px;font-weight:700;line-height:1.2;letter-spacing:-0.01em;color:#0D0D1A;">Card Heading</div>
+        </div>
+        <div class="font-row">
+          <div class="font-label">body (base)</div>
+          <div class="font-example" style="font-size:16px;color:#374151;">Regular paragraph text</div>
+        </div>
+        <div class="font-row">
+          <div class="font-label">text-sm</div>
+          <div class="font-example" style="font-size:14px;color:#6B7280;">Secondary text, descriptions</div>
+        </div>
+        <div class="font-row">
+          <div class="font-label">text-xs (overridden)</div>
+          <div class="font-example" style="font-size:14px;color:#9CA3AF;">Labels, tags — 14px (was 12px)</div>
+        </div>
+      </div>
+      <p style="font-size:11px;color:#9CA3AF;margin-top:10px;">Font: <strong style="color:#374151;">Inter</strong> · Weights: 300, 400, 500, 600, 700, 800</p>
+    </div>
+
+  </div>
+
+  <!-- ── Z-index Stack ── -->
+  <p class="section-title">Z-Index Stack</p>
+  <div class="zstack">
+    <div class="zlayer" style="background:#0D0D1A;color:white;border-color:transparent;">
+      <span class="znum" style="color:#fff;">9999</span> Lead Popup (backdrop + modal)
+    </div>
+    <div class="zlayer" style="background:#1F2937;color:white;border-color:transparent;">
+      <span class="znum" style="color:#fff;">9990</span> WhatsApp Floating Button
+    </div>
+    <div class="zlayer" style="background:#374151;color:white;border-color:transparent;">
+      <span class="znum" style="color:#fff;">60</span> Mobile Menu
+    </div>
+    <div class="zlayer" style="background:#F1F3F8;">
+      <span class="znum">50</span> Navbar
+    </div>
+    <div class="zlayer">
+      <span class="znum">—</span> Page content
+    </div>
+  </div>
+
+  <!-- ── Navbar Structure ── -->
+  <p class="section-title">Navbar Structure</p>
+  <div class="card" style="padding:16px 20px;">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+      <div style="padding:6px 14px;background:#0D0D1A;color:white;border-radius:8px;font-size:13px;font-weight:600;">Logo</div>
+      <div style="padding:6px 14px;background:#F1F3F8;border:1px solid #E5E7EB;border-radius:8px;font-size:13px;color:#374151;">Services ▾ <span style="font-size:10px;color:#9CA3AF;">mega 1-col 320px</span></div>
+      <div style="padding:6px 14px;background:#F1F3F8;border:1px solid #E5E7EB;border-radius:8px;font-size:13px;color:#374151;">Industries ▾ <span style="font-size:10px;color:#9CA3AF;">mega 2-col 640px</span></div>
+      <div style="padding:6px 14px;background:#F1F3F8;border:1px solid #E5E7EB;border-radius:8px;font-size:13px;color:#374151;">Company ▾ <span style="font-size:10px;color:#9CA3AF;">About · Blog</span></div>
+      <div style="padding:6px 14px;background:#F1F3F8;border:1px solid #E5E7EB;border-radius:8px;font-size:13px;color:#374151;">Contact</div>
+      <div style="margin-left:auto;padding:6px 16px;background:#0D0D1A;color:white;border-radius:100px;font-size:13px;font-weight:600;">Get Free Quote →</div>
+    </div>
+    <p style="font-size:11px;color:#9CA3AF;margin-top:10px;">CTA is always "Get Free Quote" — never "Book a Call". Pricing page exists at /pricing but is not in the nav.</p>
+  </div>
+
+  <!-- ── Content Rules ── -->
+  <p class="section-title">Content Rules</p>
+  <div style="display:flex;flex-direction:column;gap:8px;">
+    <div class="rule-card">
+      <div class="rule-num">1</div>
+      <div class="rule-text"><strong>Scope discipline.</strong> If asked to change one thing, change only that. Do not touch layout, JSX, or unrelated code.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-num">2</div>
+      <div class="rule-text"><strong>Monochrome icons only.</strong> Icon color: <span style="font-family:monospace;font-size:12px;">#374151</span>, bg: <span style="font-family:monospace;font-size:12px;">#F1F3F8</span>. No cycling color system.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-num">3</div>
+      <div class="rule-text"><strong>Banned words:</strong> bespoke · world-class · turnkey · cutting-edge · synergy · disruptive · seamless · innovative · robust · comprehensive</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-num">4</div>
+      <div class="rule-text"><strong>Stats are locked:</strong> 150+ Projects · 95+ Clients · 97% Satisfaction · 8+ Years — never change these.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-num">5</div>
+      <div class="rule-text"><strong>Founded 2019.</strong> All founding year references use 2019, not 2018 or 2017.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-num">6</div>
+      <div class="rule-text"><strong>No CTABanner in pages.</strong> The (site) layout already renders it globally — pages must not add their own.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-num">7</div>
+      <div class="rule-text"><strong>Inner page hero pattern:</strong> bg <span style="font-family:monospace;font-size:12px;">#F8F9FC</span> · dot eyebrow (● label) · two-tone H1 (gray font-light + dark font-semibold) · diamond SVG right side.</div>
+    </div>
+  </div>
+
+  <!-- ── Tech Stack ── -->
+  <p class="section-title">Tech Stack</p>
+  <div class="card">
+    <div style="display:flex;flex-wrap:wrap;gap:4px;">
+      <span class="tech-badge" style="border-color:#000;">Next.js 15</span>
+      <span class="tech-badge">React 18</span>
+      <span class="tech-badge">TypeScript</span>
+      <span class="tech-badge" style="border-color:#38BDF8;color:#0369A1;">Tailwind CSS</span>
+      <span class="tech-badge">Framer Motion</span>
+      <span class="tech-badge" style="border-color:#F24E1E;color:#C2410C;">Sanity CMS</span>
+      <span class="tech-badge" style="border-color:#000;">Vercel</span>
+      <span class="tech-badge">Lucide Icons</span>
+      <span class="tech-badge">Inter (Google Fonts)</span>
+    </div>
+    <hr style="margin:14px 0;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12px;color:#6B7280;">
+      <div><strong style="color:#374151;">Route Groups:</strong> (site) for public · studio for Sanity admin</div>
+      <div><strong style="color:#374151;">CMS:</strong> Sanity for blog posts (title, body, slug, publishedAt)</div>
+      <div><strong style="color:#374151;">Animations:</strong> whileInView + AnimatePresence, once:true</div>
+      <div><strong style="color:#374151;">Icons:</strong> All text-xs elements = 14px (overridden in tailwind.config.ts)</div>
+    </div>
+  </div>
+
+  <!-- ── Key Files ── -->
+  <p class="section-title">Key Files</p>
+  <div class="grid-2">
+    <div style="display:flex;flex-direction:column;gap:6px;">
+      <div class="rule-card"><div style="font-family:monospace;font-size:12px;color:#6366F1;min-width:300px;">components/pages/IndustryPageTemplate.tsx</div><div style="font-size:12px;color:#9CA3AF;margin-left:auto;">Shared template for all 8 industry pages</div></div>
+      <div class="rule-card"><div style="font-family:monospace;font-size:12px;color:#6366F1;">lib/industries-data.ts</div><div style="font-size:12px;color:#9CA3AF;margin-left:auto;">Industry listing data</div></div>
+      <div class="rule-card"><div style="font-family:monospace;font-size:12px;color:#6366F1;">components/layout/Navbar.tsx</div><div style="font-size:12px;color:#9CA3AF;margin-left:auto;">Nav with dropdowns</div></div>
+      <div class="rule-card"><div style="font-family:monospace;font-size:12px;color:#6366F1;">components/sections/Stats.tsx</div><div style="font-size:12px;color:#9CA3AF;margin-left:auto;">Reusable stats bar (locked)</div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px;">
+      <div class="rule-card"><div style="font-family:monospace;font-size:12px;color:#10B981;">components/ui/LeadPopup.tsx</div><div style="font-size:12px;color:#9CA3AF;margin-left:auto;">Lead capture popup (z-9999)</div></div>
+      <div class="rule-card"><div style="font-family:monospace;font-size:12px;color:#10B981;">lib/metadata.ts</div><div style="font-size:12px;color:#9CA3AF;margin-left:auto;">buildMetadata() + siteConfig</div></div>
+      <div class="rule-card"><div style="font-family:monospace;font-size:12px;color:#10B981;">app/globals.css</div><div style="font-size:12px;color:#9CA3AF;margin-left:auto;">Global styles, heading classes</div></div>
+      <div class="rule-card"><div style="font-family:monospace;font-size:12px;color:#10B981;">tailwind.config.ts</div><div style="font-size:12px;color:#9CA3AF;margin-left:auto;">text-xs overridden to 14px</div></div>
+    </div>
+  </div>
+
+  <hr/>
+  <p style="text-align:center;font-size:12px;color:#9CA3AF;">Unitaspro · unitaspro.com · Generated 2026-05-11</p>
+
+</div>
+</body>
+</html>

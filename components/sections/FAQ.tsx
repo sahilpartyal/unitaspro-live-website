@@ -60,7 +60,7 @@ export default function FAQ() {
           <div className="lg:sticky lg:top-28">
             <span className="section-label mb-5 inline-flex">FAQ</span>
             <h2 className="heading-xl font-bold text-[#0D0D1A] mb-5 leading-tight">
-              Frequently asked<br />questions
+              Frequently asked questions
             </h2>
             <p className="text-[#6B7180] text-base leading-relaxed mb-8">
               Can&apos;t find what you&apos;re looking for? We&apos;re always happy to help directly.

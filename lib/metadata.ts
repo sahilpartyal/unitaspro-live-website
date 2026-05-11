@@ -12,9 +12,9 @@ export const siteConfig = {
   city: "Mohali",
   country: "India",
   social: {
-    linkedin: "https://linkedin.com/company/unitaspro",
-    instagram: "https://instagram.com/unitaspro",
-    twitter: "https://twitter.com/unitaspro",
+    linkedin: "#",
+    instagram: "#",
+    twitter: "#",
   },
 };
 
@@ -60,7 +60,7 @@ export const organizationSchema = {
   email: siteConfig.email,
   telephone: siteConfig.phone,
   description: siteConfig.description,
-  foundingDate: "2017",
+  foundingDate: "2019",
   logo: {
     "@type": "ImageObject",
     url: `${siteConfig.url}/unitaspro-logo.png`,

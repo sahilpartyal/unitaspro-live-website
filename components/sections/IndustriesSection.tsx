@@ -14,12 +14,12 @@ export default function IndustriesSection() {
 
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
-          <div className="max-w-xl">
+          <div>
             <span className="section-label mb-4">Industries</span>
             <h2 className="heading-xl text-[#0D0D1A] mb-3">
-              We know your industry&apos;s problems before you explain them.
+              We know your industry&apos;s problems.
             </h2>
-            <p className="text-[#6B7180] text-lg">
+            <p className="text-[#6B7180] text-lg max-w-2xl">
               Deep domain experience across 8 verticals — so every solution is built with real context, not just requirements.
             </p>
           </div>

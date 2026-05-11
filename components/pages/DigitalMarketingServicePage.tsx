@@ -651,7 +651,7 @@ export default function DigitalMarketingServicePage() {
           <div className="mb-8">
             <span className="section-label mb-4 inline-flex">Industries We Serve</span>
             <h2 className="heading-xl font-bold text-[#0D0D1A] max-w-2xl">
-              Unitaspro runs digital marketing for 8 industries worldwide.
+              Marketing built for 8 industries.
             </h2>
             <p className="text-[#6B7180] text-base mt-3 max-w-xl leading-relaxed">
               Each industry has different buyer intent, seasonality, and ad platform dynamics. Explore how Unitaspro approaches growth in your sector.
@@ -690,7 +690,7 @@ export default function DigitalMarketingServicePage() {
             <div className="lg:sticky lg:top-28">
               <span className="section-label mb-5 inline-flex">FAQs</span>
               <h2 className="heading-xl font-bold text-[#0D0D1A] mb-5 leading-tight">
-                Frequently asked<br />questions
+                Frequently asked questions
               </h2>
               <p className="text-[#6B7180] text-base leading-relaxed mb-8">
                 Can&apos;t find what you&apos;re looking for? We&apos;re always happy to help directly.

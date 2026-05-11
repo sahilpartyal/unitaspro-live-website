@@ -637,7 +637,7 @@ export default function SoftwareDevServicePage() {
           <div className="mb-8">
             <span className="section-label mb-4 inline-flex">Industries We Serve</span>
             <h2 className="heading-xl font-bold text-[#0D0D1A] max-w-2xl">
-              Unitaspro builds software for 8 industries worldwide.
+              Software built for 8 industries.
             </h2>
             <p className="text-[#6B7180] text-base mt-3 max-w-xl leading-relaxed">
               Every industry has different data models, compliance needs, and workflows. Explore how Unitaspro approaches software development in your sector.
@@ -676,7 +676,7 @@ export default function SoftwareDevServicePage() {
             <div className="lg:sticky lg:top-28">
               <span className="section-label mb-5 inline-flex">FAQ</span>
               <h2 className="heading-xl font-bold text-[#0D0D1A] mb-5 leading-tight">
-                Frequently asked<br />questions
+                Frequently asked questions
               </h2>
               <p className="text-[#6B7180] text-base leading-relaxed mb-8">
                 Can&apos;t find what you&apos;re looking for? We&apos;re always happy to help directly.
