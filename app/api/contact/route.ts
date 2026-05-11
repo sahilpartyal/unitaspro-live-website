@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { signChallenge, computeAnswer } from "@/lib/captcha";
+import { verifyChallenge, computeAnswer } from "@/lib/captcha";
 
 function escapeHtml(str: string): string {
   return str
@@ -27,11 +27,10 @@ export async function POST(req: NextRequest) {
   const b   = parseInt(String(captchaB ?? ""), 10);
   const op  = String(captchaOp ?? "×");
   const ans = parseInt(String(captchaAnswer ?? ""), 10);
-  const expectedToken = signChallenge(a, op, b);
-  const expectedAns   = computeAnswer(a, op, b);
+  const expectedAns = computeAnswer(a, op, b);
   if (
     !Number.isFinite(a) || !Number.isFinite(b) || !Number.isFinite(ans) ||
-    captchaToken !== expectedToken ||
+    !verifyChallenge(a, op, b, captchaToken) ||
     expectedAns !== ans
   ) {
     return NextResponse.json({ error: "Captcha verification failed." }, { status: 400 });
