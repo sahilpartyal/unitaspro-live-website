@@ -345,60 +345,6 @@ export default function BlogListingClient({
         </div>
       </section>
 
-      {/* ═══════════════════ NEWSLETTER CTA ═══════════════════ */}
-      <section
-        className="relative overflow-hidden"
-        style={{ background: "linear-gradient(160deg,#0F172A 0%,#1e2d5a 100%)" }}
-      >
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: "radial-gradient(circle,#ffffff 1px,transparent 1px)",
-            backgroundSize: "24px 24px",
-          }}
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-20 right-1/4 w-[400px] h-[300px] rounded-full opacity-[0.08]"
-          style={{ background: "radial-gradient(ellipse, #6366f1 0%, transparent 65%)" }}
-        />
-
-        <div className="container-main relative py-16 lg:py-20">
-          <div className="max-w-2xl mx-auto text-center">
-            <p className="text-white/40 text-xs uppercase tracking-[0.25em] font-semibold mb-4">
-              Subscribe to our newsletter
-            </p>
-            <h2
-              className="font-bold text-white mb-4"
-              style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", letterSpacing: "-0.02em" }}
-            >
-              Stay ahead with handpicked weekly reads
-            </h2>
-            <p className="text-white/50 text-sm mb-8 max-w-md mx-auto">
-              Get the latest insights on web development, software engineering, and digital growth delivered to your inbox.
-            </p>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="flex items-center gap-3 max-w-md mx-auto"
-            >
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="flex-1 px-5 py-3.5 rounded-xl bg-white/10 border border-white/10 text-white text-sm
-                  placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/20 transition-all"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3.5 rounded-xl bg-white text-[#0F172A] font-semibold text-sm
-                  hover:bg-[#F1F3F8] transition-colors shrink-0"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

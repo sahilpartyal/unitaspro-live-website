@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { useCountryFromIP } from "@/lib/useCountryFromIP";
 import Image from "next/image";
@@ -27,7 +27,6 @@ export default function LeadPopup() {
   const [selectedCountry, setSelectedCountry] = useState(COUNTRIES[0]);
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phone: "", service: "", message: "" });
   const pathname = usePathname();
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const detectedCountry = useCountryFromIP();
 
   async function fetchCaptcha() {
@@ -48,17 +47,43 @@ export default function LeadPopup() {
   }, [detectedCountry]);
 
   useEffect(() => {
-    if (timerRef.current) clearTimeout(timerRef.current);
     setSent(false);
     setVisible(false);
     if (pathname === "/contact") return;
-    // Only show once per 7 days per visitor
     try {
+      const submitted = localStorage.getItem("popup_submitted");
+      if (submitted && Date.now() - parseInt(submitted) < 365 * 24 * 60 * 60 * 1000) return;
       const lastSeen = localStorage.getItem("popup_seen");
-      if (lastSeen && Date.now() - parseInt(lastSeen) < 7 * 24 * 60 * 60 * 1000) return;
+      if (lastSeen && Date.now() - parseInt(lastSeen) < 24 * 60 * 60 * 1000) return;
     } catch { /* storage unavailable */ }
-    timerRef.current = setTimeout(() => setVisible(true), 8000);
-    return () => { if (timerRef.current) clearTimeout(timerRef.current); };
+
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+      let lastScrollY = window.scrollY;
+      let hasScrolledDown = false;
+      const onScroll = () => {
+        const currentY = window.scrollY;
+        const scrollPercent = currentY / (document.documentElement.scrollHeight - window.innerHeight);
+        if (scrollPercent > 0.3) hasScrolledDown = true;
+        if (hasScrolledDown && currentY < lastScrollY - 80) {
+          setVisible(true);
+          window.removeEventListener("scroll", onScroll);
+        }
+        lastScrollY = currentY;
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      return () => window.removeEventListener("scroll", onScroll);
+    } else {
+      const onMouseLeave = (e: MouseEvent) => {
+        if (e.clientY <= 0) {
+          setVisible(true);
+          document.removeEventListener("mouseleave", onMouseLeave);
+        }
+      };
+      document.addEventListener("mouseleave", onMouseLeave);
+      return () => document.removeEventListener("mouseleave", onMouseLeave);
+    }
   }, [pathname]);
 
   function dismiss() {
@@ -105,6 +130,7 @@ export default function LeadPopup() {
       const data = await res.json();
       if (data.success) {
         setSent(true);
+        try { localStorage.setItem("popup_submitted", Date.now().toString()); } catch { /* storage unavailable */ }
         setCaptchaInput("");
         void fetchCaptcha();
       } else if (data.error?.includes("Captcha")) {
@@ -220,9 +246,9 @@ export default function LeadPopup() {
                 {/* Close */}
                 <button
                   onClick={dismiss}
-                  className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                  className="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#0D0D1A] hover:bg-[#374151] flex items-center justify-center transition-colors"
                 >
-                  <X size={14} className="text-[#6B7180]"/>
+                  <X size={15} className="text-white"/>
                 </button>
 
                 {sent ? (

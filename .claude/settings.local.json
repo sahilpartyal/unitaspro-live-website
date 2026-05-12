@@ -149,7 +149,9 @@
       "Bash(sips -z 32 32 /tmp/icon-square.png --out /tmp/favicon-32.png)",
       "Bash(sips -z 16 16 /tmp/icon-square.png --out /tmp/favicon-16.png)",
       "Bash(sips -s format png -s formatOptions best /Users/sahilpartyal/Documents/Unitaspro/products/unitas-webiste-nextjs/app/icon.png --out /tmp/icon-rgb.png)",
-      "Bash(sips -g pixelWidth -g pixelHeight -g formatOptions /tmp/icon-rgb.png)"
+      "Bash(sips -g pixelWidth -g pixelHeight -g formatOptions /tmp/icon-rgb.png)",
+      "Skill(cso)",
+      "Bash(openssl rand *)"
     ]
   }
 }
