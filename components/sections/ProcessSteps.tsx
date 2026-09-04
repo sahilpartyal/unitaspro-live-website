@@ -88,7 +88,7 @@ export default function ProcessSteps() {
                   >
                     <step.Icon size={20} style={{ color: step.color }} />
                   </div>
-                  <span className="text-3xl font-bold tabular-nums text-gray-100 group-hover/step:text-gray-200 transition-colors select-none leading-none">
+                  <span className="text-index font-bold tabular-nums text-gray-100 group-hover/step:text-gray-200 transition-colors select-none leading-none">
                     {step.num}
                   </span>
                 </div>

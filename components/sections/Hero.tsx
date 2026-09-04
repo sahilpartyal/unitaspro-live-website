@@ -182,8 +182,7 @@ export default function Hero() {
             <div key={i} className="flex items-center gap-6">
               <div className="flex items-center gap-2">
                 <span
-                  className="font-bold text-white leading-none"
-                  style={{ fontSize: 22, letterSpacing: "-0.04em" }}
+                  className="font-bold text-white leading-none text-data"
                 >
                   {num}
                 </span>

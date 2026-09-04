@@ -432,7 +432,7 @@ export default function AboutPageClient() {
                     >
                       <v.icon size={20} style={{ color: v.accent }} />
                     </div>
-                    <span className="text-3xl font-bold tabular-nums text-gray-100 group-hover/step:text-gray-200 transition-colors select-none">
+                    <span className="text-index font-bold tabular-nums text-gray-100 group-hover/step:text-gray-200 transition-colors select-none">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>

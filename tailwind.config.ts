@@ -43,7 +43,32 @@ const config: Config = {
         sans: ["Inter", "system-ui", "sans-serif"],
       },
       fontSize: {
+        // NOTE: `xs` is still 0.875rem (14px), identical to Tailwind's `sm`.
+        // Left deliberately broken for now — ~127 call sites depend on it
+        // rendering 14px. It gets repointed to a true 12px only after those
+        // are migrated onto the semantic tokens below. Do not "fix" it early.
         xs: ["0.875rem", { lineHeight: "1.25rem" }],
+
+        // ── Semantic type roles ──────────────────────────────────────────
+        // Line-heights are unitless on purpose so they scale with the size.
+        // Additive: nothing below is in use yet, so adding them changes
+        // nothing on screen. Migrate call sites onto them incrementally.
+        micro:        ["0.75rem",   { lineHeight: "1.4",  letterSpacing: "0.10em" }],
+        meta:         ["0.8125rem", { lineHeight: "1.45" }],
+        "body-dense": ["0.875rem",  { lineHeight: "1.55" }],
+        "data-label": ["0.875rem",  { lineHeight: "1.4" }],
+        "ui-label":   ["0.9375rem", { lineHeight: "1.25", letterSpacing: "-0.01em" }],
+        "card-sm":    ["0.9375rem", { lineHeight: "1.3",  letterSpacing: "-0.01em" }],
+        body:         ["1rem",      { lineHeight: "1.65" }],
+        "body-legal": ["1rem",      { lineHeight: "1.8" }],
+        "nav-label":  ["1rem",      { lineHeight: "1.25", letterSpacing: "-0.01em" }],
+        "card-md":    ["1rem",      { lineHeight: "1.35", letterSpacing: "-0.015em" }],
+        lead:         ["clamp(1rem,1.4vw,1.125rem)",      { lineHeight: "1.7",  letterSpacing: "-0.01em" }],
+        index:        ["clamp(1.125rem,2vw,1.5rem)",      { lineHeight: "1",    letterSpacing: "-0.04em" }],
+        panel:        ["clamp(1.125rem,1.8vw,1.65rem)",   { lineHeight: "1.2",  letterSpacing: "-0.025em" }],
+        data:         ["clamp(1.5rem,2.5vw,2.25rem)",     { lineHeight: "1",    letterSpacing: "-0.04em" }],
+        section:      ["clamp(1.6rem,4vw,3rem)",          { lineHeight: "1.15", letterSpacing: "-0.02em" }],
+        display:      ["clamp(2.25rem,5.5vw,4.75rem)",    { lineHeight: "1.06", letterSpacing: "-0.04em" }],
         "display-xl": ["clamp(2.5rem,5vw,4rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
         "display-lg": ["clamp(2rem,4vw,3rem)",   { lineHeight: "1.15", letterSpacing: "-0.02em" }],
         "display-md": ["clamp(1.5rem,3vw,2.25rem)", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
