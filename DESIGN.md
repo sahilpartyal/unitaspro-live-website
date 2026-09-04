@@ -13,7 +13,7 @@
 - **Reference site:** maxeltracker.com (floating pill navbar, dropdown style, font sizing, spacing)
 
 ## Typography
-- **Font:** Plus Jakarta Sans (single font system, loaded via Google Fonts)
+- **Font:** Inter (single font system, loaded via `<link>` in `app/layout.tsx`)
 - **Headings:** weight 700 (bold), letter-spacing -0.02em to -0.04em, line-height 1.06 to 1.15
 - **Body:** weight 400, 16px base
 - **Hero heading style:** Two-tone — light gray (`font-light text-[#9CA3AF]`) + bold black (`font-bold text-[#0D0D1A]`) inline

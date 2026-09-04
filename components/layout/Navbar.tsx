@@ -2,73 +2,69 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, Phone, Globe, Code2, Smartphone, Megaphone, ArrowRight, Car, TrendingUp, Building2, ShoppingCart, Heart, Plane, Package, Rocket } from "lucide-react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { Menu, X, ChevronDown, Phone, Globe, Code2, Smartphone, Megaphone, ArrowRight, ArrowUpRight, Car, TrendingUp, Building2, ShoppingCart, Heart, Plane, Package, Rocket } from "lucide-react";
 import { clsx } from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
 
 const servicesMega = [
   {
     group: "Build",
+    href: "/services",
     items: [
-      {
-        icon: Globe,
-        label: "Web Design & Development",
-        desc: "Websites & web apps that convert",
-        href: "/services/web-design",
-        color: "text-[#374151]",
-        bg: "bg-[#F1F3F8]",
-        accent: "#0D0D1A",
-        accentBg: "#F1F3F8",
-      },
-      {
-        icon: Code2,
-        label: "Software Development",
-        desc: "SaaS, platforms & enterprise tools",
-        href: "/services/software-development",
-        color: "text-[#374151]",
-        bg: "bg-[#F1F3F8]",
-        accent: "#374151",
-        accentBg: "#F1F3F8",
-      },
-      {
-        icon: Smartphone,
-        label: "Mobile App Development",
-        desc: "iOS & Android apps users love",
-        href: "/services/mobile-app",
-        color: "text-emerald-600",
-        bg: "bg-emerald-50",
-        accent: "#059669",
-        accentBg: "#ECFDF5",
-      },
+      { icon: Globe,      label: "Web Design & Development", desc: "Websites & web apps that convert",   href: "/services/web-design" },
+      { icon: Code2,      label: "Software Development",     desc: "SaaS, platforms & enterprise tools", href: "/services/software-development" },
+      { icon: Smartphone, label: "Mobile App Development",   desc: "iOS & Android apps users love",      href: "/services/mobile-app" },
     ],
+    secondary: [],
   },
   {
     group: "Grow",
+    href: "/services",
     items: [
-      {
-        icon: Megaphone,
-        label: "Digital Marketing",
-        desc: "SEO, ads & content that converts",
-        href: "/services/digital-marketing",
-        color: "text-amber-600",
-        bg: "bg-amber-50",
-        accent: "#D97706",
-        accentBg: "#FFFBEB",
-      },
+      { icon: Megaphone,  label: "Digital Marketing",        desc: "SEO, ads & content that converts",   href: "/services/digital-marketing" },
+    ],
+    secondary: [
+      { label: "Pricing & packages", href: "/pricing" },
+      { label: "About the team",     href: "/about" },
     ],
   },
 ];
 
+// Promo rail content per menu. Stats are the locked site-wide figures.
+const megaPromo = {
+  services: {
+    kicker: "Most requested",
+    title:  "Web Design & Development",
+    body:   "Websites and web apps that convert — from first wireframe to launch.",
+    href:   "/services/web-design",
+    fine:   "8+ years · 150+ projects delivered",
+  },
+  industries: {
+    kicker: "Most built for",
+    title:  "Transport & Mobility",
+    body:   "Dispatch, booking and fleet tracking platforms for operators running real fleets.",
+    href:   "/industries/transport",
+    fine:   "8+ years · 95+ happy clients",
+  },
+} as const;
+
+// Panel footer links — every href is an existing route
+const megaFooter = [
+  { label: "All services", href: "/services" },
+  { label: "Case studies", href: "/portfolio" },
+  { label: "Blog",         href: "/blog" },
+];
+
 const industriesList = [
-  { icon: Car,          label: "Transport & Mobility",     href: "/industries/transport",   desc: "Custom dispatch, booking, and fleet tracking platforms for transport operators." },
-  { icon: TrendingUp,   label: "Finance & Fintech",        href: "/industries/finance",     desc: "Secure banking portals, lending platforms, and compliance-ready dashboards." },
-  { icon: Building2,    label: "Real Estate & Property",   href: "/industries/real-estate", desc: "Property portals, agent CRMs, and listing platforms that close deals faster." },
-  { icon: ShoppingCart, label: "E-Commerce & Retail",      href: "/industries/ecommerce",   desc: "Custom storefronts, inventory management, and checkout flows that convert." },
-  { icon: Heart,        label: "Healthcare & Wellness",    href: "/industries/healthcare",  desc: "Patient portals, telemedicine apps, and clinic management systems." },
-  { icon: Plane,        label: "Hospitality & Travel",     href: "/industries/hospitality", desc: "Direct booking engines, hotel dashboards, and guest loyalty platforms." },
-  { icon: Package,      label: "Logistics & Supply Chain", href: "/industries/logistics",   desc: "Real-time tracking, warehouse management, and last-mile delivery tools." },
-  { icon: Rocket,       label: "Startups & SaaS",          href: "/industries/startups",    desc: "MVPs to production-grade SaaS platforms with billing and multi-tenancy." },
+  { icon: Car,          label: "Transport & Mobility",     href: "/industries/transport", short: "Dispatch, booking, fleet tracking",   desc: "Custom dispatch, booking, and fleet tracking platforms for transport operators." },
+  { icon: TrendingUp,   label: "Finance & Fintech",        href: "/industries/finance", short: "Banking, lending, compliance",     desc: "Secure banking portals, lending platforms, and compliance-ready dashboards." },
+  { icon: Building2,    label: "Real Estate & Property",   href: "/industries/real-estate", short: "Portals, agent CRMs, listings", desc: "Property portals, agent CRMs, and listing platforms that close deals faster." },
+  { icon: ShoppingCart, label: "E-Commerce & Retail",      href: "/industries/ecommerce", short: "Storefronts and checkout flows",   desc: "Custom storefronts, inventory management, and checkout flows that convert." },
+  { icon: Heart,        label: "Healthcare & Wellness",    href: "/industries/healthcare", short: "Patient portals, telemedicine",  desc: "Patient portals, telemedicine apps, and clinic management systems." },
+  { icon: Plane,        label: "Hospitality & Travel",     href: "/industries/hospitality", short: "Booking engines and loyalty", desc: "Direct booking engines, hotel dashboards, and guest loyalty platforms." },
+  { icon: Package,      label: "Logistics & Supply Chain", href: "/industries/logistics", short: "Tracking and last-mile tools",   desc: "Real-time tracking, warehouse management, and last-mile delivery tools." },
+  { icon: Rocket,       label: "Startups & SaaS",          href: "/industries/startups", short: "MVPs to production SaaS",    desc: "MVPs to production-grade SaaS platforms with billing and multi-tenancy." },
 ];
 
 const companyLinks = [
@@ -84,14 +80,49 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  type MenuKey = "services" | "industries" | "company";
+
   const [scrolled,        setScrolled]        = useState(false);
-  const [megaOpen,        setMegaOpen]        = useState(false);
-  const [industriesOpen,  setIndustriesOpen]  = useState(false);
-  const [companyOpen,     setCompanyOpen]     = useState(false);
+  const [openMenu,        setOpenMenu]        = useState<MenuKey | null>(null);
   const [mobileOpen,      setMobileOpen]      = useState(false);
   const [mobServices,     setMobServices]     = useState(false);
   const [mobIndustries,   setMobIndustries]   = useState(false);
   const [mobCompany,      setMobCompany]      = useState(false);
+
+  // Hover intent: a short close delay lets the pointer travel the diagonal
+  // from the trigger to the panel without the menu collapsing underneath it.
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const triggerRefs = useRef<Partial<Record<MenuKey, HTMLButtonElement | null>>>({});
+
+  const cancelClose = useCallback(() => {
+    if (closeTimer.current) { clearTimeout(closeTimer.current); closeTimer.current = null; }
+  }, []);
+
+  const openNow = useCallback((key: MenuKey) => {
+    cancelClose();
+    setOpenMenu(key);
+  }, [cancelClose]);
+
+  const closeSoon = useCallback(() => {
+    cancelClose();
+    closeTimer.current = setTimeout(() => setOpenMenu(null), 160);
+  }, [cancelClose]);
+
+  useEffect(() => () => cancelClose(), [cancelClose]);
+
+  // Escape closes the open panel and returns focus to its trigger.
+  useEffect(() => {
+    if (!openMenu) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      const key = openMenu;
+      cancelClose();
+      setOpenMenu(null);
+      triggerRefs.current[key]?.focus();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [openMenu, cancelClose]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -119,7 +150,7 @@ export default function Navbar() {
       >
         <div
           className={clsx(
-            "mx-auto bg-white border transition-all duration-300",
+            "mx-auto bg-white border transition-all duration-300 relative",
             scrolled
               ? "max-w-7xl px-4 sm:px-6 lg:px-8 rounded-none border-transparent"
               : [
@@ -137,108 +168,65 @@ export default function Navbar() {
 
             {/* ── Desktop nav ── */}
             <nav className="hidden lg:flex items-center gap-1">
-              {navLinks.map((link) =>
-                link.hasMega ? (
-                  <div key={link.label} className="relative"
-                    onMouseEnter={() => setMegaOpen(true)}
-                    onMouseLeave={() => setMegaOpen(false)}>
-                    <button className={clsx(
-                      "flex items-center gap-1 px-4 py-2.5 min-h-[44px] rounded-lg text-base font-semibold transition-colors duration-150",
-                      megaOpen ? "text-[#0D0D1A]" : "text-[#374151] hover:text-[#0D0D1A]"
-                    )}>
+              {navLinks.map((link) => {
+                const key: MenuKey | null =
+                  link.hasMega ? "services" : link.hasIndustries ? "industries" : link.hasCompany ? "company" : null;
+
+                if (!key) {
+                  return (
+                    <Link key={link.href} href={link.href}
+                      className="px-4 py-2.5 min-h-[44px] inline-flex items-center rounded-lg text-base font-semibold text-[#374151] hover:text-[#0D0D1A] transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2">
                       {link.label}
-                      <ChevronDown size={13} className={clsx("transition-transform duration-200", megaOpen && "rotate-180")}/>
-                    </button>
-                    <AnimatePresence>
-                      {megaOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 6 }}
-                          transition={{ duration: 0.15, ease: [0.22,1,0.36,1] }}
-                          className="absolute top-full -left-2 mt-2 bg-white rounded-xl border border-gray-200 shadow-[0_6px_20px_rgba(15,23,42,0.07)] overflow-hidden p-1.5"
-                          style={{ width: "240px" }}
-                        >
-                          {servicesMega.flatMap(g => g.items).map((item) => (
-                            <Link key={item.href} href={item.href} onClick={() => setMegaOpen(false)}
-                              className="group flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-[#F8F9FC] transition-colors">
-                              <span className="text-[13px] font-semibold text-[#374151] group-hover:text-[#0D0D1A] transition-colors">
-                                {item.label}
-                              </span>
-                              <span className="text-[#D1D5DB] group-hover:text-[#0D0D1A] transition-colors">›</span>
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                ) : link.hasIndustries ? (
-                  <div key={link.label} className="relative"
-                    onMouseEnter={() => setIndustriesOpen(true)}
-                    onMouseLeave={() => setIndustriesOpen(false)}>
-                    <button className={clsx(
-                      "flex items-center gap-1 px-4 py-2.5 min-h-[44px] rounded-lg text-base font-semibold transition-colors duration-150",
-                      industriesOpen ? "text-[#0D0D1A]" : "text-[#374151] hover:text-[#0D0D1A]"
-                    )}>
+                    </Link>
+                  );
+                }
+
+                const isOpen = openMenu === key;
+                return (
+                  <div key={link.label} className={key === "company" ? "relative" : undefined}
+                    onMouseEnter={() => openNow(key)}
+                    onMouseLeave={closeSoon}>
+                    <button
+                      ref={(el) => { triggerRefs.current[key] = el; }}
+                      aria-expanded={isOpen}
+                      aria-controls={`nav-panel-${key}`}
+                      aria-haspopup="true"
+                      onClick={() => (isOpen ? setOpenMenu(null) : openNow(key))}
+                      className={clsx(
+                        "flex items-center gap-1 px-4 py-2.5 min-h-[44px] rounded-lg text-base font-semibold transition-colors duration-150",
+                        "focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2",
+                        isOpen ? "text-[#0D0D1A]" : "text-[#374151] hover:text-[#0D0D1A]"
+                      )}>
                       {link.label}
-                      <ChevronDown size={13} className={clsx("transition-transform duration-200", industriesOpen && "rotate-180")}/>
+                      <ChevronDown size={13} className={clsx("transition-transform duration-200", isOpen && "rotate-180")}/>
                     </button>
-                    <AnimatePresence>
-                      {industriesOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 6 }}
-                          transition={{ duration: 0.15, ease: [0.22,1,0.36,1] }}
-                          className="absolute top-full -left-2 mt-2 bg-white rounded-xl border border-gray-200 shadow-[0_6px_20px_rgba(15,23,42,0.07)] overflow-hidden p-1.5"
-                          style={{ width: "240px" }}
-                        >
-                          {industriesList.map((ind) => (
-                            <Link key={ind.href} href={ind.href} onClick={() => setIndustriesOpen(false)}
-                              className="group flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-[#F8F9FC] transition-colors">
-                              <span className="text-[13px] font-semibold text-[#374151] group-hover:text-[#0D0D1A] transition-colors">
-                                {ind.label}
-                              </span>
-                              <span className="text-[#D1D5DB] group-hover:text-[#0D0D1A] transition-colors">›</span>
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+
+                    {/* Company stays a compact dropdown — two links do not need a mega panel */}
+                    {key === "company" && (
+                      <AnimatePresence>
+                        {isOpen && (
+                          <motion.div
+                            id="nav-panel-company"
+                            initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 6 }}
+                            transition={{ duration: 0.15, ease: [0.22,1,0.36,1] }}
+                            className="absolute top-full -left-2 mt-2 w-[286px] bg-white rounded-2xl border border-gray-200 shadow-[0_18px_48px_rgba(15,23,42,0.12)] p-2">
+                            {companyLinks.map((item) => (
+                              <Link key={item.href} href={item.href} onClick={() => setOpenMenu(null)}
+                                className="group block p-3 rounded-xl hover:bg-[#F8F9FC] transition-colors focus-visible:ring-2 focus-visible:ring-[#2563EB]">
+                                <span className="flex items-center gap-1.5 text-base font-bold text-[#0D0D1A] tracking-[-0.02em] leading-snug">
+                                  {item.label}
+                                  <ArrowUpRight size={13} className="text-[#D1D5DB] group-hover:text-[#2563EB] transition-colors"/>
+                                </span>
+                                <span className="block text-sm text-[#6B7180] leading-snug">{item.desc}</span>
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    )}
                   </div>
-                ) : link.hasCompany ? (
-                  <div key={link.label} className="relative"
-                    onMouseEnter={() => setCompanyOpen(true)}
-                    onMouseLeave={() => setCompanyOpen(false)}>
-                    <button className={clsx(
-                      "flex items-center gap-1 px-4 py-2.5 min-h-[44px] rounded-lg text-base font-semibold transition-colors duration-150",
-                      companyOpen ? "text-[#0D0D1A]" : "text-[#374151] hover:text-[#0D0D1A]"
-                    )}>
-                      {link.label}
-                      <ChevronDown size={13} className={clsx("transition-transform duration-200", companyOpen && "rotate-180")}/>
-                    </button>
-                    <AnimatePresence>
-                      {companyOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 6 }}
-                          transition={{ duration: 0.15, ease: [0.22,1,0.36,1] }}
-                          className="absolute top-full -left-2 mt-2 bg-white rounded-xl border border-gray-200 shadow-[0_6px_20px_rgba(15,23,42,0.07)] overflow-hidden p-1.5"
-                          style={{ width: "200px" }}
-                        >
-                          {companyLinks.map((item) => (
-                            <Link key={item.href} href={item.href} onClick={() => setCompanyOpen(false)}
-                              className="group flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-[#F8F9FC] transition-colors">
-                              <span className="text-[13px] font-semibold text-[#374151] group-hover:text-[#0D0D1A] transition-colors">{item.label}</span>
-                              <span className="text-[#D1D5DB] group-hover:text-[#0D0D1A] transition-colors">›</span>
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                ) : (
-                  <Link key={link.href} href={link.href}
-                    className="px-4 py-2.5 min-h-[44px] inline-flex items-center rounded-lg text-base font-semibold text-[#374151] hover:text-[#0D0D1A] transition-colors duration-150">
-                    {link.label}
-                  </Link>
-                )
-              )}
+                );
+              })}
             </nav>
 
             {/* ── Desktop CTAs ── */}
@@ -258,6 +246,120 @@ export default function Navbar() {
               {mobileOpen ? <X size={20} className="text-[#0D0D1A]"/> : <Menu size={20} className="text-[#0D0D1A]"/>}
             </button>
           </div>
+
+          {/* ── Full-width mega panel (Services / Industries) ──
+              Anchored to the container, not the trigger, so it tracks the
+              pill as it goes max-w-6xl → max-w-7xl on scroll. */}
+          <AnimatePresence>
+            {(openMenu === "services" || openMenu === "industries") && (
+              <motion.div
+                id={`nav-panel-${openMenu}`}
+                role="group"
+                aria-label={openMenu === "services" ? "Services menu" : "Industries menu"}
+                onMouseEnter={() => openNow(openMenu)}
+                onMouseLeave={closeSoon}
+                initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 6 }}
+                transition={{ duration: 0.16, ease: [0.22,1,0.36,1] }}
+                className="hidden lg:grid absolute left-0 right-0 top-full mt-2 bg-white rounded-2xl border border-gray-200 shadow-[0_18px_48px_rgba(15,23,42,0.12)] overflow-hidden"
+                style={{ gridTemplateColumns: openMenu === "services" ? "1fr 1fr 350px" : "1fr 350px" }}
+              >
+                {openMenu === "services" ? (
+                  servicesMega.map((grp) => (
+                    <div key={grp.group} className="p-7 border-r border-gray-200">
+                      <Link href={grp.href} onClick={() => setOpenMenu(null)}
+                        className="group inline-flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-[0.12em] text-[#0D0D1A] focus-visible:ring-2 focus-visible:ring-[#2563EB]">
+                        {grp.group}
+                        <ArrowRight size={12} className="text-[#6B7180] group-hover:text-[#2563EB] transition-colors"/>
+                      </Link>
+                      {grp.items.map((item) => (
+                        <Link key={item.href} href={item.href} onClick={() => setOpenMenu(null)}
+                          className="group flex gap-3 p-3 -mx-3 rounded-xl hover:bg-[#F8F9FC] transition-colors focus-visible:ring-2 focus-visible:ring-[#2563EB]">
+                          <span className="w-9 h-9 rounded-[10px] bg-[#F1F3F8] grid place-items-center shrink-0 text-[#374151]">
+                            <item.icon size={17} strokeWidth={1.7}/>
+                          </span>
+                          <span>
+                            <span className="block text-base font-bold text-[#0D0D1A] tracking-[-0.02em] leading-snug">{item.label}</span>
+                            <span className="block text-sm text-[#6B7180] leading-snug">{item.desc}</span>
+                          </span>
+                        </Link>
+                      ))}
+                      {grp.secondary.length > 0 && (
+                        <div className="mt-3.5 pt-3 border-t border-gray-200">
+                          {grp.secondary.map((sec) => (
+                            <Link key={sec.href} href={sec.href} onClick={() => setOpenMenu(null)}
+                              className="block px-3 -mx-3 py-2 rounded-lg text-[15px] text-[#374151] hover:bg-[#F8F9FC] hover:text-[#2563EB] transition-colors focus-visible:ring-2 focus-visible:ring-[#2563EB]">
+                              {sec.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))
+                ) : (
+                  <div className="p-7 border-r border-gray-200">
+                    <Link href="/industries" onClick={() => setOpenMenu(null)}
+                      className="group inline-flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-[0.12em] text-[#0D0D1A] focus-visible:ring-2 focus-visible:ring-[#2563EB]">
+                      Industries
+                      <ArrowRight size={12} className="text-[#6B7180] group-hover:text-[#2563EB] transition-colors"/>
+                    </Link>
+                    <div className="grid grid-cols-2 gap-x-7">
+                      {industriesList.map((ind) => (
+                        <Link key={ind.href} href={ind.href} onClick={() => setOpenMenu(null)}
+                          className="group flex gap-3 p-3 -mx-3 rounded-xl hover:bg-[#F8F9FC] transition-colors focus-visible:ring-2 focus-visible:ring-[#2563EB]">
+                          <span className="w-9 h-9 rounded-[10px] bg-[#F1F3F8] grid place-items-center shrink-0 text-[#374151]">
+                            <ind.icon size={17} strokeWidth={1.7}/>
+                          </span>
+                          <span>
+                            <span className="block text-base font-bold text-[#0D0D1A] tracking-[-0.02em] leading-snug">{ind.label}</span>
+                            <span className="block text-sm text-[#6B7180] leading-snug">{ind.short}</span>
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Dark promo rail */}
+                <div className="p-[18px]">
+                  <div className="relative h-full rounded-xl bg-[#0A0F1E] p-6 flex flex-col justify-center overflow-hidden">
+                    <div className="absolute inset-0 opacity-100" style={{
+                      backgroundImage:
+                        "linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px)",
+                      backgroundSize: "48px 48px",
+                    }}/>
+                    <div className="relative">
+                      <p className="text-xs font-bold uppercase tracking-[0.11em] text-[#2563EB] mb-2.5">{megaPromo[openMenu].kicker}</p>
+                      <p className="text-[21px] font-bold text-white leading-[1.25] tracking-[-0.025em] mb-2">{megaPromo[openMenu].title}</p>
+                      <p className="text-sm text-[#9CA3AF] leading-relaxed mb-5">{megaPromo[openMenu].body}</p>
+                      <Link href="/contact" onClick={() => setOpenMenu(null)}
+                        className="inline-flex items-center gap-2.5 bg-[#2563EB] text-white text-sm font-semibold pl-5 pr-2.5 py-2.5 rounded-full hover:bg-[#1d4ed8] transition-colors focus-visible:ring-2 focus-visible:ring-white">
+                        Get Free Quote
+                        <span className="w-6 h-6 rounded-full bg-white/20 grid place-items-center"><ArrowRight size={13}/></span>
+                      </Link>
+                      <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#6B7180] mt-4">{megaPromo[openMenu].fine}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Footer utility bar */}
+                <div className="col-span-full border-t border-gray-200 px-7 py-3.5 flex items-center justify-between gap-4 flex-wrap">
+                  <div className="flex gap-6 flex-wrap">
+                    {megaFooter.map((f) => (
+                      <Link key={f.href} href={f.href} onClick={() => setOpenMenu(null)}
+                        className="text-xs font-bold uppercase tracking-[0.1em] text-[#374151] hover:text-[#0D0D1A] transition-colors focus-visible:ring-2 focus-visible:ring-[#2563EB]">
+                        {f.label}
+                      </Link>
+                    ))}
+                  </div>
+                  <Link href="/contact" onClick={() => setOpenMenu(null)}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.1em] text-[#2563EB] hover:text-[#1d4ed8] transition-colors focus-visible:ring-2 focus-visible:ring-[#2563EB]">
+                    Need help choosing? Talk to us
+                    <ArrowRight size={13}/>
+                  </Link>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </header>
 

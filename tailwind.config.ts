@@ -6,9 +6,12 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  // Only the blue accent is safelisted. violet/emerald/amber/rose/cyan were
+  // removed — those families are banned by CLAUDE.md and safelisting them meant
+  // they would compile and ship the moment anyone referenced them.
   safelist: [
-    { pattern: /^bg-(blue|violet|emerald|amber|rose|cyan)-(100|200)$/ },
-    { pattern: /^text-(blue|violet|emerald|amber|rose|cyan)-(600|700)$/ },
+    { pattern: /^bg-blue-(100|200)$/ },
+    { pattern: /^text-blue-(600|700)$/ },
   ],
   theme: {
     extend: {

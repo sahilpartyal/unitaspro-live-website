@@ -41,3 +41,6 @@ next-env.d.ts
 *.png
 *.jpg
 *.jpeg
+
+# Local tool state (codex session id)
+.context/
