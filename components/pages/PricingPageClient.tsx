@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { formatPrice, DEFAULT_LOCALE, type Locale } from "@/lib/pricing";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
@@ -191,7 +192,21 @@ function FAQ({ q, a }: { q: string; a: string }) {
   );
 }
 
-export default function PricingPageClient() {
+
+/**
+ * Re-render a USD price string in the visitor's currency.
+ * Data stays authored in USD; only the display changes. Anything that is not a
+ * plain dollar amount (the "Custom" tier) is returned untouched.
+ */
+function localizePrice(price: string, locale: Locale): string {
+  const match = /^\$([\d,]+)$/.exec(price.trim());
+  if (!match) return price;
+  const usd = Number(match[1].replace(/,/g, ""));
+  if (!Number.isFinite(usd)) return price;
+  return formatPrice(usd, locale);
+}
+
+export default function PricingPageClient({ locale = DEFAULT_LOCALE }: { locale?: Locale }) {
   const [activeService, setActiveService] = useState("web");
   const plans = SERVICE_PLANS[activeService];
   const tableRows = TABLE_ROWS[activeService];
@@ -358,7 +373,7 @@ export default function PricingPageClient() {
 
                     <div className="mb-1">
                       <span className={`text-4xl font-bold tracking-tight ${plan.featured ? "text-white" : "text-[#0D0D1A]"}`}>
-                        {plan.price}
+                        {localizePrice(plan.price, locale)}
                       </span>
                       <span className={`text-sm ml-2 ${plan.featured ? "text-white/50" : "text-[#9CA3AF]"}`}>
                         {plan.priceNote}
@@ -420,7 +435,7 @@ export default function PricingPageClient() {
                 {plans.map((p) => (
                   <div key={p.name} className={`p-5 text-center ${p.featured ? "bg-white/[0.06]" : ""}`}>
                     <div className="font-bold text-white text-sm">{p.name}</div>
-                    <div className="text-white/40 text-xs mt-0.5">{p.price}</div>
+                    <div className="text-white/40 text-xs mt-0.5">{localizePrice(p.price, locale)}</div>
                   </div>
                 ))}
               </div>

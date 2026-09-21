@@ -16,6 +16,32 @@ const GEO_LOCALES: Record<string, string> = {
 const SUPPORTED_LOCALES = Object.values(GEO_LOCALES);
 const LOCALE_COOKIE = "up_locale";
 
+/** Read the visitor's ISO country code from whichever header the host provides. */
+function detectCountry(request: NextRequest): string | null {
+  // Netlify: base64 JSON, e.g. { "country": { "code": "IN", "name": "India" } }
+  const nfGeo = request.headers.get("x-nf-geo");
+  if (nfGeo) {
+    try {
+      const decoded = JSON.parse(
+        typeof atob === "function"
+          ? atob(nfGeo)
+          : Buffer.from(nfGeo, "base64").toString("utf8")
+      );
+      const code = decoded?.country?.code;
+      if (typeof code === "string" && code.length === 2) return code;
+    } catch {
+      // Malformed header must never take the site down — fall through.
+    }
+  }
+
+  return (
+    request.headers.get("x-vercel-ip-country") ??   // Vercel
+    request.headers.get("cf-ipcountry") ??          // Cloudflare
+    request.headers.get("x-country") ??             // some proxies
+    null
+  );
+}
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -40,7 +66,13 @@ export function middleware(request: NextRequest) {
     const rewriteUrl = new URL(rewritePath, request.url);
     rewriteUrl.search = request.nextUrl.search;
 
-    const response = NextResponse.rewrite(rewriteUrl);
+    // Forward the locale so server components can price in the right currency.
+    // The rewrite hides the prefix from the app, so without this the page has
+    // no way to know which market it is rendering for.
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set("x-locale", pathLocale);
+
+    const response = NextResponse.rewrite(rewriteUrl, { request: { headers: requestHeaders } });
     // Remember this locale in a cookie
     response.cookies.set(LOCALE_COOKIE, pathLocale, {
       maxAge: 60 * 60 * 24 * 30, // 30 days
@@ -56,10 +88,12 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Detect country from Vercel geo headers (works on Vercel; undefined locally)
-  const country =
-    request.headers.get("x-vercel-ip-country") ??
-    request.headers.get("cf-ipcountry"); // Cloudflare fallback
+  // Detect country. This site is hosted on Netlify, which sets NEITHER of the
+  // Vercel/Cloudflare headers — it sends `x-nf-geo`, a base64-encoded JSON blob
+  // shaped { country: { code, name }, ... }. Reading only the Vercel header is
+  // why geo detection silently did nothing in production. Netlify is checked
+  // first; the others stay as fallbacks so this keeps working if the host changes.
+  const country = detectCountry(request);
 
   const detectedLocale = country ? GEO_LOCALES[country.toUpperCase()] : null;
 
