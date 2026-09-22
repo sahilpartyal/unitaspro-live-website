@@ -83,12 +83,30 @@ const MARKET_OVERRIDES: Partial<Record<Locale, Record<number, number>>> = {
   // ae: { ... },
 };
 
+/**
+ * Markets whose prices have been reviewed and signed off.
+ *
+ * A locale NOT listed here displays USD, even though its currency and FX rate
+ * are configured below. This is deliberate: fixed-rate conversion produces a
+ * plausible number, but a plausible number is not a price you chose, and this
+ * page is what a customer is quoted from. Add a locale here only once its real
+ * figures are in MARKET_OVERRIDES (or you have accepted the converted ones).
+ *
+ *   const LIVE_PRICING_MARKETS: Locale[] = ["in", "ae"];
+ */
+const LIVE_PRICING_MARKETS: Locale[] = [];
+
+/** The locale actually used for currency. Unreviewed markets fall back to USD. */
+function pricingLocale(locale: Locale): Locale {
+  return LIVE_PRICING_MARKETS.includes(locale) ? locale : DEFAULT_LOCALE;
+}
+
 export function isLocale(value: string | undefined | null): value is Locale {
   return !!value && (LOCALES as readonly string[]).includes(value);
 }
 
 export function currencyFor(locale: Locale): Currency {
-  return CURRENCIES[LOCALE_CURRENCY[locale]];
+  return CURRENCIES[LOCALE_CURRENCY[pricingLocale(locale)]];
 }
 
 /**
@@ -114,17 +132,18 @@ function roundUp(value: number, minStep: number): number {
 
 /** Resolve the numeric amount for a USD base price in one market. */
 export function amountFor(usd: number, locale: Locale): number {
-  const override = MARKET_OVERRIDES[locale]?.[usd];
+  const market = pricingLocale(locale);
+  const override = MARKET_OVERRIDES[market]?.[usd];
   if (typeof override === "number") return override;
 
-  const { rate, roundTo } = currencyFor(locale);
+  const { rate, roundTo } = currencyFor(market);
   if (rate === 1) return usd;
   return roundUp(usd * rate, roundTo);
 }
 
 /** True when this price came from a human decision rather than the FX fallback. */
 export function isOverride(usd: number, locale: Locale): boolean {
-  return typeof MARKET_OVERRIDES[locale]?.[usd] === "number";
+  return typeof MARKET_OVERRIDES[pricingLocale(locale)]?.[usd] === "number";
 }
 
 /**
