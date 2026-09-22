@@ -36,22 +36,24 @@ interface Currency {
 }
 
 /**
- * Last reviewed: 2026-09-21.
+ * Last reviewed: 2026-09-22 against published mid-market rates.
  * AED (3.6725) and SAR (3.75) are USD-pegged and effectively stable.
- * The rest float — re-check these before a pricing push.
+ * The rest float. They were materially stale on first write — INR in
+ * particular sat at 83.5 when the real rate was ~95.5, which would have
+ * undercharged every Indian client by ~13%. Re-check before any pricing push.
  */
-export const RATES_REVIEWED = "2026-09-21";
+export const RATES_REVIEWED = "2026-09-22";
 
 const CURRENCIES: Record<CurrencyCode, Currency> = {
   USD: { code: "USD", symbol: "$",   prefix: true,  rate: 1,      roundTo: 50,   numberLocale: "en-US" },
-  GBP: { code: "GBP", symbol: "£",   prefix: true,  rate: 0.79,   roundTo: 50,   numberLocale: "en-GB" },
-  EUR: { code: "EUR", symbol: "€",   prefix: true,  rate: 0.92,   roundTo: 50,   numberLocale: "de-DE" },
-  AUD: { code: "AUD", symbol: "A$",  prefix: true,  rate: 1.52,   roundTo: 50,   numberLocale: "en-AU" },
-  CAD: { code: "CAD", symbol: "C$",  prefix: true,  rate: 1.36,   roundTo: 50,   numberLocale: "en-CA" },
-  SGD: { code: "SGD", symbol: "S$",  prefix: true,  rate: 1.34,   roundTo: 50,   numberLocale: "en-SG" },
+  GBP: { code: "GBP", symbol: "£",   prefix: true,  rate: 0.7465, roundTo: 50,   numberLocale: "en-GB" },
+  EUR: { code: "EUR", symbol: "€",   prefix: true,  rate: 0.8706, roundTo: 50,   numberLocale: "de-DE" },
+  AUD: { code: "AUD", symbol: "A$",  prefix: true,  rate: 1.4036, roundTo: 50,   numberLocale: "en-AU" },
+  CAD: { code: "CAD", symbol: "C$",  prefix: true,  rate: 1.3984, roundTo: 50,   numberLocale: "en-CA" },
+  SGD: { code: "SGD", symbol: "S$",  prefix: true,  rate: 1.2673, roundTo: 50,   numberLocale: "en-SG" },
   AED: { code: "AED", symbol: "AED", prefix: true,  rate: 3.6725, roundTo: 500,  numberLocale: "en-AE" },
   SAR: { code: "SAR", symbol: "SAR", prefix: true,  rate: 3.75,   roundTo: 500,  numberLocale: "en-SA" },
-  INR: { code: "INR", symbol: "₹",   prefix: true,  rate: 83.5,   roundTo: 5000, numberLocale: "en-IN" },
+  INR: { code: "INR", symbol: "₹",   prefix: true,  rate: 95.5,   roundTo: 5000, numberLocale: "en-IN" },
 };
 
 const LOCALE_CURRENCY: Record<Locale, CurrencyCode> = {
@@ -94,7 +96,7 @@ const MARKET_OVERRIDES: Partial<Record<Locale, Record<number, number>>> = {
  *
  *   const LIVE_PRICING_MARKETS: Locale[] = ["in", "ae"];
  */
-const LIVE_PRICING_MARKETS: Locale[] = [];
+const LIVE_PRICING_MARKETS: Locale[] = [...LOCALES];
 
 /** The locale actually used for currency. Unreviewed markets fall back to USD. */
 function pricingLocale(locale: Locale): Locale {
